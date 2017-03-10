@@ -1,0 +1,13 @@
+language: scala
+
+scala:
+  - 2.12.1
+
+script:
+  - sbt clean coverage test coverageReport
+
+jdk:
+  - oraclejdk8
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -r $TRAVIS_REPO_SLUG
