@@ -1,2 +1,5 @@
 # tiki
-A library for functional graph algorithms
+
+## Summary
+
+A library for functional graph algorithms.
