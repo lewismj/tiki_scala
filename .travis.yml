@@ -4,7 +4,7 @@ scala:
   - 2.12.1
 
 script:
-  - sbt clean test tut coverageReport
+  - sbt clean compile test tut coverage coverageReport
 
 jdk:
   - oraclejdk8
