@@ -73,8 +73,8 @@ lazy val tests = project.in(file("tests"))
     testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oDF"),
     libraryDependencies ++= Seq(
       "org.typelevel" %% "cats-laws" % "0.9.0",
-      "org.scalatest"  %% "scalatest" % "3.0.0" % Test,
-      "org.scalacheck" %% "scalacheck" % "1.13.4" % Test
+      "org.scalatest"  %% "scalatest" % "3.0.0" % "test",
+      "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
     )
   )
 

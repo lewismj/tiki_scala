@@ -22,7 +22,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package tiki
 
 
-/** Edge from a node to a node. */
+/**
+  * Edge from one node to another.
+  *
+  * @param from the start node.
+  * @param to the end node.
+  * @tparam T the type of the node.
+  */
 case class Edge[T](from: T, to: T)
