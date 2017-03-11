@@ -24,7 +24,29 @@
  */
 package tiki
 
+import tiki.Predef._
 
-trait Graph {
+
+/**
+  * Edge from one vertex to another vertex. Uni-directional
+  * edges should be represented as two `Edge` objects.
+  *
+  * @param from the start node.
+  * @param to the end node.
+  * @tparam V the type of the vertex.
+  */
+case class Edge[V](from: V, to: V) {
+  def map[A](f: V => A): Edge[A] = Edge(f(from),f(to))
 }
 
+/**
+  * Labelled edge, usually L = Double, and used as a weight.
+  *
+  * @param edge   the underlying edge.
+  * @param label  the label (usually weight).
+  * @tparam V     the type of the vertex.
+  * @tparam L     the type of the label.
+  */
+case class LEdge[V,L](edge: Edge[V], label: L) {
+  def map[A](f: L => A): LEdge[V,A] = LEdge(edge,f(label))
+}
