@@ -22,23 +22,21 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tiki
+package tiki.tests.arbitrary
+
+import org.scalacheck.{Arbitrary, Gen}
+import tiki.Predef._
+
 
 /**
-  * Edge from one vertex to another vertex.
-  *
-  * @param from the start node.
-  * @param to the end node.
-  * @tparam V the type of the vertex.
+  * ArbitrarySet generator.
   */
-case class Edge[V](from: V, to: V) {
-  /**
-    * Maps the vertices of an edge from type V to B.
-    *
-    * @param f  function V => B
-    * @tparam B the type of `B`
-    * @return an `Edge[B]`
-    */
-  def map[B](f: V => B): Edge[B] = Edge(f(from),f(to))
+trait ArbitrarySet {
+
+  def setGen[A](implicit arbA: Arbitrary[A]): Gen[Set[A]] =
+    Gen.containerOf[Set, A](arbA.arbitrary)(implicitly, s => s)
+
+  implicit def setsArbitrary[A: Arbitrary]: Arbitrary[Set[A]] = Arbitrary(setGen)
 }
+
 

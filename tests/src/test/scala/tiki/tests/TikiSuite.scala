@@ -22,23 +22,19 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tiki
+package tiki.tests
+
+
+import org.scalatest.prop.GeneratorDrivenPropertyChecks
+import org.scalatest.{BeforeAndAfterAll, FunSuite, Matchers}
+import org.typelevel.discipline.scalatest.Discipline
 
 /**
-  * Edge from one vertex to another vertex.
-  *
-  * @param from the start node.
-  * @param to the end node.
-  * @tparam V the type of the vertex.
+  * Base definition for Tiki test suites.
   */
-case class Edge[V](from: V, to: V) {
-  /**
-    * Maps the vertices of an edge from type V to B.
-    *
-    * @param f  function V => B
-    * @tparam B the type of `B`
-    * @return an `Edge[B]`
-    */
-  def map[B](f: V => B): Edge[B] = Edge(f(from),f(to))
+trait TikiSuite extends FunSuite
+  with BeforeAndAfterAll
+  with Matchers
+  with GeneratorDrivenPropertyChecks
+  with Discipline {
 }
-
