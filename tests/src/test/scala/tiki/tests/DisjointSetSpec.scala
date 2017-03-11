@@ -42,5 +42,9 @@ class DisjointSetSpec extends TikiSuite with Checkers with Matchers with AllArbi
     DisjointSet(Set.empty[Int]).components should equal(0)
   }
 
+  test("number of components of an DisjointSet.empty is zero") {
+    DisjointSet.empty.components should equal(0)
+  }
+
 
 }
