@@ -20,9 +20,8 @@ First there is a directed edge from one vertex to another.
 ```scala 
 case class Edge[A](from: A, to: A)
 ```
-Then, there is a labelled edge from one vertex to another.
-The labelled edge is an edge with a label of some type. So,
-a simple weighted edge could be `LEdge[A,Double]`.
+The labelled edge is an edge with a label of some type.
+A simple weighted edge may be defined as `LEdge[A,Double]`.
 ```scala
 case class LEdge[A,B](edge: Edge[A], label: B) {
   def map[C](f: B => C): LEdge[A,C] = LEdge(edge,f(label))
@@ -30,25 +29,27 @@ case class LEdge[A,B](edge: Edge[A], label: B) {
 ```
 
 In the example below the edge is a particular type of relationship given
-by the class name `Counterparty` and the label is a pair of `DateTime`
+by the class name `CounterpartyEdge`. The label is a pair of `DateTime`
 that shows when that relationship existed.
 ```scala
 case class Business(name: String)
 case class Temporal(vt: DateTime, tt: DateTime)
 type CounterpartyEdge[Business,Temporal] = LEdge[Business,Temporal]
 ```
-Here, the type of Edge (relationship) is strongly typed, we would have a
-graph of businesses that represents when they were counterparties.
+Here, the type of Edge (relationship) is strongly typed i.e. `CounterparyEdge`.
+A graph with these edges would show when two businesses were counterparties.
 
 When representing graphs like this there are a couple of alternatives
 for modelling the relationships:
 
 1. Separate graphs for different relationships.
 
-2. Create a single multigraph (this will allow edges of different types).
+2. A single multigraph (this will allow edges of different types).
 
-3. Create a single `Label` type with a fixed set of attributes.
-
+3. A single `Label` type with a fixed set of attributes. Here the actual
+   relationships are no longer strongly typed, as our label is usually
+   a collection of properties.
+   
 Many of the graph algorithms are simple if all edges are of 
 the same type. `Multigraph` will use shapeless for its implementation.
 Typically, I use 1. or 2. when building graphs, the core algorithms,
