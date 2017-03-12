@@ -24,29 +24,15 @@
  */
 package tiki
 
-import tiki.Predef._
-
 
 /**
-  * Edge from one vertex to another vertex. Uni-directional
-  * edges should be represented as two `Edge` objects.
-  *
-  * @param from the start node.
-  * @param to the end node.
-  * @tparam V the type of the vertex.
+  * Notes, define just two edge types, `Edge` and `LEdge`.
+  * Weighted edges can be represented by having a label
+  * of some numeric type within it.
   */
-case class Edge[V](from: V, to: V) {
-  def map[A](f: V => A): Edge[A] = Edge(f(from),f(to))
-}
 
-/**
-  * Labelled edge, usually L = Double, and used as a weight.
-  *
-  * @param edge   the underlying edge.
-  * @param label  the label (usually weight).
-  * @tparam V     the type of the vertex.
-  * @tparam L     the type of the label.
-  */
-case class LEdge[V,L](edge: Edge[V], label: L) {
-  def map[A](f: L => A): LEdge[V,A] = LEdge(edge,f(label))
+case class Edge[A](from: A, to: A)
+
+case class LEdge[A,B](edge: Edge[A], label: B) {
+  def map[C](f: B => C): LEdge[A,C] = LEdge(edge,f(label))
 }

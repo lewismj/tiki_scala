@@ -17,6 +17,8 @@ object Predef {
   type Stream[A]  = scala.collection.immutable.Stream[A]
   type Iterable[A] = scala.collection.immutable.Iterable[A]
   type Traversable[A] = scala.collection.immutable.Traversable[A]
+  type List[A] = scala.collection.immutable.List[A]
+  type String = java.lang.String
 
   final val Traversable = scala.collection.immutable.Traversable
   final val Iterable = scala.collection.immutable.Iterable
@@ -25,6 +27,7 @@ object Predef {
   final val Set = scala.collection.immutable.Set
   final val Stream = scala.collection.immutable.Stream
   final val Map = scala.collection.immutable.Map
+  final val List = scala.collection.immutable.List
   final val BigInt = scala.BigInt
   final val BigDecimal = scala.BigDecimal
   final val Boolean = scala.Boolean
