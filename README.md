@@ -8,6 +8,7 @@
 ## Summary
 
 A library for functional graph algorithms (_soon_)
+Mainly for experimental use.
 
 Currently work in progress.
 
@@ -36,7 +37,7 @@ case class Business(name: String)
 case class Temporal(vt: DateTime, tt: DateTime)
 type CounterpartyEdge[Business,Temporal] = LEdge[Business,Temporal]
 ```
-Here, the type of Edge (relationship) is strongly typed i.e. `CounterparyEdge`.
+The type of Edge represents a strongly typed relationship (`CounterparyEdge`).
 A graph with these edges would show when two businesses were counterparties.
 
 When representing graphs like this there are a couple of alternatives

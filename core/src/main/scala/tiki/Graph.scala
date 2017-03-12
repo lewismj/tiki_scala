@@ -24,17 +24,13 @@
  */
 package tiki
 
+import Predef._
 
 /** WIP **/
-case class DirectedGraph[V,E(vertices: Set[E] = Set.empty[E]) {
+case class DirectedGraph[V,E](vertices: Set[E] = Set.empty[E]) {
   val disjointSet = DisjointSet(vertices)
-
 }
 
 
 object DirectedGraph {
-
-  def apply[V,E](vertices: Set[E] = Set.empty[E]): DirectedGraph[V,E] =
-    new DirectedGraph[V,E](vertices)
-
 }
