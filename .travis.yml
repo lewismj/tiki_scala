@@ -13,7 +13,7 @@ scala:
   - 2.12.1
 
 script:
-  - ./travis.sh 
+  - ./.travis.sh 
 
 jdk:
   - oraclejdk8
