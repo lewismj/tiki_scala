@@ -60,7 +60,6 @@ lazy val core = project.in(file("core"))
   .settings(moduleName := "tiki-core")
   .settings(tikiSettings:_*)
 
-
 lazy val docSettings = Seq(
   autoAPIMappings := true,
   micrositeName := "tiki",
