@@ -1,6 +1,7 @@
 import sbt._
 import Keys._
 import sbtassembly.AssemblyPlugin.autoImport._
+import com.typesafe.sbt.SbtGhPages.GhPagesKeys._
 
 
 lazy val commonScalacOptions = Seq(
@@ -59,8 +60,25 @@ lazy val core = project.in(file("core"))
   .settings(moduleName := "tiki-core")
   .settings(tikiSettings:_*)
 
+
+lazy val docSettings = Seq(
+  autoAPIMappings := true,
+  micrositeName := "tiki",
+  micrositeDescription := "Graph Algorithms",
+  micrositeBaseUrl :="/tiki/site",
+  micrositeDocumentationUrl := "/tiki/site/api",
+  micrositeGithubOwner := "lewismj",
+  micrositeGithubRepo := "tiki",
+  micrositeHighlightTheme := "monokai",
+  git.remoteRepo := "git@github.com:lewismj/tiki.git",
+  includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.yml" | "*.md"
+)
+
 lazy val docs = project
+    .enablePlugins(MicrositesPlugin)
+    .settings(moduleName := "tiki-docs")
     .dependsOn(core)
+    .settings(docSettings)
     .settings(tikiSettings:_*)
     .settings(noPublishSettings)
 
@@ -78,4 +96,3 @@ lazy val tests = project.in(file("tests"))
     )
   )
 
-enablePlugins(MicrositesPlugin)
