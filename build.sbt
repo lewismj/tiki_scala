@@ -78,3 +78,4 @@ lazy val tests = project.in(file("tests"))
     )
   )
 
+enablePlugins(MicrositesPlugin)
