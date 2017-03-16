@@ -12,4 +12,4 @@ A library for functional graph algorithms (_soon_)
 
 ### Documentation
 
-Tiki information and coumentation is available on the [website](https://lewismj.github.io/tiki/).
+Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/).
