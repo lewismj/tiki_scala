@@ -23,62 +23,40 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
+import Predef._
 
 
 /**
-  * Defines behaviour that edge types must support.
+  * Class represents a set of edges as an adjacency list.
   *
-  *
-  * @tparam A the type of the vertex.
+  * @param map
+  * @tparam A
   */
-trait EdgeLike[A] {
-  /**
-    * Returns one vertex in an edge.
-    *
-    * @return a vertex of type `A`.
-    */
-  def from: A
+final class AdjacencyList[+A] private (map: Map[A,Set[A]]) {
 
-  /**
-    * Returns the 'other' vertex in the edge.
-    *
-    * @return a vertex of type `A`.
-    */
-  def to: A
 }
 
-/**
-  * Represents an edge between two vertices.
-  *
-  * The edges in a graph tend to be either all directed
-  * or all undirected. i.e. A property of the graph not
-  * really a property of the edge.
-  *
-  * @param from   one vertex in an edge.
-  * @param to     the 'other' vertex in the edge.
-  * @tparam A     the type of the vertex.
-  */
-case class Edge[A](from: A, to: A) extends EdgeLike[A]
 
 /**
-  * A labelled edge between two vertices.
-  *
-  * @param edge   the edge between the two vertices.
-  * @param label  the label of the edge.
-  * @tparam A     the type of the edge vertex.
-  * @tparam B     the type of the label.
+  * Companion object for the `AdjacencyList` class.
   */
-case class LEdge[A,B](edge: Edge[A], label: B) extends EdgeLike[A] {
-
-  def from : A = edge.from
-  def to: A = edge.to
+object AdjacencyList {
+  /**
+    * Create the empty Adjacency list set for a given type.
+    *
+    * @tparam A the type of the elements.
+    * @return a `DisjointSet[T]`.
+    */
+  def empty[A] : AdjacencyList[A] = new AdjacencyList[A](Map.empty[A,Set[A]])
 
   /**
-    * Map the label from one type to another.
+    * Create an Adjacency list from a list of edges.
     *
-    * @param f    the label function, B => C
-    * @tparam C   the type of the new label.
-    * @return a new labelled edge.
+    * @param edges  the list of edges.
+    * @tparam A     the type of the vertex.
+    * @return       a new `AdjacencyList`
     */
-  def map[C](f: B => C) : LEdge[A,C] = LEdge(edge,f(label))
+  ///def apply[A](edges: Iterable[EdgeLike[A]]): AdjacencyList[A] = ???
+  //new AdjacencyList(edges.groupBy(_.from).mapValues(_.foldLeft(List.empty[A])((acc,v)=> v.to :: acc)))
+
 }

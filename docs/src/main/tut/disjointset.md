@@ -13,7 +13,7 @@ are used to determine if two elements belong to the same partition.
 - `union` join two partitions together via two elements.
 - `components` the number of partitions.
 
-## Using DisJointSet
+## Usage
 
 ### Constructing DisjointSet
 

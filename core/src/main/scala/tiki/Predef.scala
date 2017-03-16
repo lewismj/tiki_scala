@@ -1,6 +1,10 @@
 package tiki
 
-
+/**
+  * Predef is a set of type aliases for types which are commonly used in the library.
+  * Mainly designed to ensure that algorithms within the library don't accidentally use
+  * mutable collections or other parts of the `scala.Predef` that are not required.
+  */
 object Predef {
 
   def identity[A](a: A): A = a

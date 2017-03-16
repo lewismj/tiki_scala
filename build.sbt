@@ -57,6 +57,7 @@ lazy val tiki = project.in(file("."))
   .aggregate(core, docs, tests)
 
 lazy val core = project.in(file("core"))
+  .enablePlugins(ScalaUnidocPlugin)
   .settings(moduleName := "tiki-core")
   .settings(tikiSettings:_*)
 
