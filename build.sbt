@@ -72,7 +72,7 @@ lazy val docSettings = Seq(
   git.remoteRepo := "git@github.com:lewismj/tiki.git",
   includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.yml" | "*.md",
   ghpagesNoJekyll := false,
-  siteSubdirName in ScalaUnidoc := "tiki/api",
+  siteSubdirName in ScalaUnidoc := "api",
   addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), siteSubdirName in ScalaUnidoc)
 )
 
