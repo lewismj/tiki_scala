@@ -25,5 +25,5 @@ options:
     menu_type: algorithms
 
   - title: MiscellaneousFunctions
-    url: algoritms/miscellaneousfunctions.html
+    url: algorithms/miscellaneousfunctions.html
     menu_type: algorithms
