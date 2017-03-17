@@ -22,8 +22,9 @@ this.
 
 _Different operations are faster in different representations._ 
 
-Therefore the library aims to provide fundamental representations of graphs, rather than a fixed representation,
-building algorithms around the core data structures.
+The choice of representation can be based on factors such as the density (number of edges 
+in terms of number of vertices).
+
 
 ### Further Reading
 
