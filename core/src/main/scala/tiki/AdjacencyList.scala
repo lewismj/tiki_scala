@@ -29,7 +29,7 @@ import Predef._
 /**
   * Class represents a set of edges as an adjacency list.
   */
-final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) {
+final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends GraphRep[A] {
   /**
     * Given a vertex, find its children, i.e. the vertices it has edges to.
     * Returns an option.

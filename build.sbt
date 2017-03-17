@@ -71,7 +71,8 @@ lazy val docSettings = Seq(
   micrositeGithubRepo := "tiki",
   micrositeHighlightTheme := "monokai",
   git.remoteRepo := "git@github.com:lewismj/tiki.git",
-  includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.yml" | "*.md"
+  includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.yml" | "*.md",
+  siteSubdirName in ScalaUnidoc := "tiki/api"
 )
 
 lazy val docs = project
