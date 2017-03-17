@@ -8,14 +8,14 @@ scaladoc: "#tiki.AdjacencyList"
 # AdjacencyList
 
 `AdjacencyList` associates each vertex in the graph with the collection of its neighboring vertices.
-Internally this is represented as a map with key being the vertex and values being its neighbours.
-The reverse graph is also stored as map.
+Internally this is represented as a pair of maps (the graph and its reverse).
 
 The functions provided are:
 
 - `children(v)` returns the child vertices of the vertex _v_.
 - `parents(v)` returns the parent vertices of the vertex _v_.
-- both functions will return an Option, None will be returned if _v_ does not exist in the graph.
+
+Both functions will return an Option, None will be returned if _v_ does not exist in the graph.
  
 ## Usage
 
