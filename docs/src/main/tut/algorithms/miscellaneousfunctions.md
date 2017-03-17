@@ -1,7 +1,7 @@
 ---
 layout: docs 
 title:  "MiscellaneousFunctions"
-section: "datastructures"
+section: "algorithms"
 source: "core/src/main/scala/tiki/package.scala"
 scaladoc: "#tiki"
 ---
