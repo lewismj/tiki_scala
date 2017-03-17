@@ -19,11 +19,7 @@ Tiki information and documentation is available on the [website](https://lewismj
 
 ### Introduction
 
-A graph is simply the combination of:
-
-- Vertices (or nodes).
-- Edges connecting pairs of vertices.
-
+A graph is simply the combination of vertices (or nodes) and edges connecting pairs of vertices.
 To compute things about graphs, we need to represent them. There are different ways to do
 this. 
 
