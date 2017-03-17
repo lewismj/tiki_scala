@@ -2,6 +2,8 @@ import sbt._
 import Keys._
 import sbtassembly.AssemblyPlugin.autoImport._
 import com.typesafe.sbt.SbtGhPages.GhPagesKeys._
+import sbtunidoc.ScalaUnidocPlugin._
+import sbtunidoc.BaseUnidocPlugin._
 
 
 lazy val commonScalacOptions = Seq(
@@ -52,12 +54,12 @@ lazy val commonSettings = Seq(
 lazy val tikiSettings = buildSettings ++ commonSettings ++ scoverageSettings
 
 lazy val tiki = project.in(file("."))
+  .enablePlugins(ScalaUnidocPlugin)
   .settings(moduleName := "root")
   .settings(noPublishSettings)
   .aggregate(core, docs, tests)
 
 lazy val core = project.in(file("core"))
-  .enablePlugins(ScalaUnidocPlugin)
   .settings(moduleName := "tiki-core")
   .settings(tikiSettings:_*)
 
@@ -72,7 +74,10 @@ lazy val docSettings = Seq(
   micrositeHighlightTheme := "monokai",
   git.remoteRepo := "git@github.com:lewismj/tiki.git",
   includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.yml" | "*.md",
-  siteSubdirName in ScalaUnidoc := "tiki/api"
+  ghpagesNoJekyll := false,
+  siteSubdirName := "tiki/api"
+  //,
+  //addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), siteSubdirName)
 )
 
 lazy val docs = project
