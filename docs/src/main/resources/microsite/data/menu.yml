@@ -2,17 +2,12 @@ options:
 
   - title: Data Structures
     url: datastructures.html
-    menu_type: datastructures 
     menu_section: datastructures 
 
  nested_options:
      - title: AdjacencyList
        url: datastructures/adjacencylist.html
-       menu_section: datastructures
      - title: DisjointSet
        url: datastructures/disjointset.html
-       menu_section: datastructures
      - title: Edge
        url: datastructures/edge.html
-       menu_type: datastructures
-       menu_section: datastructures
