@@ -7,7 +7,7 @@ position: 1
 # Data Structures 
 
 {% for x in site.pages %}
-  {% if x.section == 'data' and x.title != page.title %}
+  {% if x.section == 'datastructures' and x.title != page.title %}
 - [{{x.title}}]({{site.baseurl}}{{x.url}})
   {% endif %}
 {% endfor %}

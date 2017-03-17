@@ -18,10 +18,6 @@ _Different operations are faster in different representations._
 The choice of representation can be based on factors such as the density (number of edges 
 in terms of number of vertices).
 
-### API
-
-
-
 
 ## Further Reading
 
