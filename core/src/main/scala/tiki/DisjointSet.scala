@@ -88,13 +88,12 @@ final class DisjointSet[A] private (parents: Map[A,A], ranks: Map[A,Long], nComp
     (xr, yr) <- ranks(x, y)
   } yield {
     if (x == y) this
-    else {
-      if (xr < yr) new DisjointSet[A](parents.updated(x, y), ranks, nComponents-1)
-      else if (xr > yr) new DisjointSet[A](parents.updated(y, x), ranks, nComponents-1)
-      else {
+    else (xr,yr) match {
+      case _ if xr < yr => new DisjointSet[A](parents.updated(x, y), ranks, nComponents-1)
+      case _ if xr > yr => new DisjointSet[A](parents.updated(y, x), ranks, nComponents-1)
+      case _ =>
         val newRank = xr + 1
         new DisjointSet[A](parents.updated(y, x), ranks.updated(x,newRank), nComponents-1)
-      }
     }
   }
 
