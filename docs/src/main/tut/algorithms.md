@@ -4,7 +4,7 @@ title:  "Algorithms"
 section: "algorithms"
 position: 2
 ---
-# Data Structures 
+# Algorithms 
 
 {% for x in site.pages %}
   {% if x.section == 'algorithms' and x.title != page.title %}
