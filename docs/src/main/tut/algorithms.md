@@ -2,7 +2,7 @@
 layout: docs
 title:  "Algorithms"
 section: "algorithms"
-position: 1
+position: 2
 ---
 # Data Structures 
 
