@@ -25,8 +25,8 @@ class DisjointSetSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
   test("union of all elements should yield a single component .2") {
     /* force path in union method. */
-    val disjointSet = List((1,2),(3,1)).foldLeft(DisjointSet(Set(1,2,3)))((acc,v)=> {
-      val union = acc.union(v._1, v._2)
+    val disjointSet = List(Edge(1,2),Edge(3,1)).foldLeft(DisjointSet(Set(1,2,3)))((acc,e)=> {
+      val union = acc.union(e.from, e.to)
       union.getOrElse(acc)
     })
     disjointSet.components should be (1)
