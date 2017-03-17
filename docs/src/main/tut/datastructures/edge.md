@@ -81,11 +81,3 @@ import tiki.Predef._
 val edge = Edge[Int](1,2)
 val weightedEdge = LEdge(edge,2.23)
 ```
-
-The package object defines two utility functions in cases where `Edge` represents a directed edge.
-
-```scala
-def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
-def reverseAll[A](edges: Iterable[EdgeLike[A]]) :Iterable[EdgeLike[A]]= edges.map(_.map(reverse))
-  ```
-  

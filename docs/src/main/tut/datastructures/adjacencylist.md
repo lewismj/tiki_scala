@@ -13,8 +13,8 @@ The reverse graph is also stored as map.
 
 The functions provided are:
 
-- 'children(_v_)' returns the child vertices of the vertex _v_.
-- 'parents(_v_)' returns the parent vertices of the vertex _v_.
+- `children(v)` returns the child vertices of the vertex _v_.
+- `parents(v)` returns the parent vertices of the vertex _v_.
 - both functions will return an Option, None will be returned if _v_ does not exist in the graph.
  
 ## Usage

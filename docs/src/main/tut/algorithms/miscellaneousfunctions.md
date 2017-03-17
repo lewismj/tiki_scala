@@ -9,7 +9,7 @@ scaladoc: "#tiki"
 
 The package object defines various utility functions.
 
-- reverseAll(_xs_) reverses an iterable collection of edges.
+- `reverseAll(xs)` reverses an iterable collection of edges.
 
 ## Usage
 

@@ -4,7 +4,11 @@ title: "Home"
 section: "home"
 ---
 
-### Introduction
+tiki is a library for functional graph algorithms. It is a new project, currently under development
+(currently pre-alpha).
+
+
+## Introduction
 
 A graph is simply the combination of vertices (or nodes) and edges connecting pairs of vertices.
 To compute things about graphs, we need to represent them. There are different ways to do
