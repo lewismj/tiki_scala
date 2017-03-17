@@ -13,7 +13,9 @@ A library for functional graph algorithms (_soon_)
 Graph algorithms work well on simple data structures such as `DisjointSet` and `AdjacencyList`. 
 The library aims to implement the core abstractions and algorithms in a simple, clear and functional way.
 
-Mainly used for ex
+### Documentation
+
+Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/).
 
 ### Introduction
 
@@ -29,10 +31,6 @@ _Different operations are faster in different representations._
 
 Therefore the library aims to provide fundamental representations of graphs, rather than a fixed representation,
 building algorithms around the core data structures.
-
-### Documentation
-
-Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/).
 
 ### Further Reading
 
