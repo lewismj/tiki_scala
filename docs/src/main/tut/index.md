@@ -5,7 +5,7 @@ section: "home"
 ---
 
 tiki is a library for functional graph algorithms. It is a new project, currently under development
-(currently pre-alpha).
+(pre-alpha).
 
 
 ## Introduction
