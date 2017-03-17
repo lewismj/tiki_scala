@@ -23,6 +23,14 @@ class DisjointSetSpec extends TikiSuite with Checkers with Matchers with AllArbi
     if (xs.nonEmpty) disjointSet.components should equal(1) else disjointSet.components should equal(0)
   }})
 
+  test("union of all elements should yield a single component .2") {
+    /* force path in union method. */
+    val disjointSet = List((1,2),(3,1)).foldLeft(DisjointSet(Set(1,2,3)))((acc,v)=> {
+      acc.union(v._1, v._2).getOrElse(acc)
+    })
+    disjointSet.components should be (1)
+  }
+
   test("find of an element not in the set should return None")(forAll { (xs: Set[Int], ys: Set[Int]) => {
     val d = xs.diff(ys)
     val disjointSet = DisjointSet(ys)
@@ -33,6 +41,11 @@ class DisjointSetSpec extends TikiSuite with Checkers with Matchers with AllArbi
     val disjointSet = DisjointSet(xs)
     xs.forall(disjointSet.find(_).isDefined) should be (true)
   }})
+
+  test("union of elements in the same partition should return the same disjoint set") {
+    val set = DisjointSet(Set(1,2)).union(1,2)
+    set should be (set.getOrElse(DisjointSet.empty[Int]).union(1,2))
+  }
 
   test("number of components of an empty set is zero") {
     DisjointSet(Set.empty[Int]).components should equal(0)
