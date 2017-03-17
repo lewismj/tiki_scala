@@ -27,3 +27,4 @@ package tiki.tests.arbitrary
 
 trait AllArbitrary
   extends ArbitrarySet
+  with ArbitraryEdgeList

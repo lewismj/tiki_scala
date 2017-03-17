@@ -15,7 +15,7 @@ are used to determine if two elements belong to the same partition.
 
 ## Usage
 
-### Constructing DisjointSet
+### Constructing a disjoint set
 
 A Disjoint-set can be created from a standard set:
 

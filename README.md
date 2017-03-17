@@ -13,6 +13,21 @@ A library for functional graph algorithms (_soon_)
 Graph algorithms work well on simple data structures such as `DisjointSet` and `AdjacencyList`. 
 The library aims to implement the core abstractions and algorithms in a simple, clear and functional way.
 
+### Representing Graphs
+
+A graph is very simply:
+
+- Vertices (or nodes).
+- Edges connecting pairs of vertices.
+
+To compute things about graphs, we need to represent them. There are different ways to do
+this. 
+
+_Different operations are faster in different representations._ 
+
+Therefore a graph can be _represented_ according to the operations to be performed on it.
+
 ### Documentation
 
 Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/).
+

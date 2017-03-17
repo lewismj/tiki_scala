@@ -28,12 +28,32 @@ import Predef._
 
 /**
   * Class represents a set of edges as an adjacency list.
-  *
-  * @param map
-  * @tparam A
   */
-final class AdjacencyList[+A] private (map: Map[A,Set[A]]) {
+final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) {
+  /**
+    * Given a vertex, find its children, i.e. the vertices it has edges to.
+    * Returns an option.
+    * Note:
+    *   A return of None implies that the vertex was not found.
+    *   Otherwise Some(set of edges) will be returned. The set may be empty.
+    *
+    * @param v the vertex.
+    * @return a set of vertices, or none if the vertex could not be found.
+    */
+  def children(v: A) : Option[Set[A]] = g.get(v)
 
+  /**
+    * Given a vertex, find its parents, i.e. the vertices that have
+    * edges to the vertex.
+    *
+    * Note:
+    *   A return of None implies that the vertex was not found.
+    *   Otherwise Some(set of edges) will be returned. The set may be empty.
+    *
+    * @param v the vertex.
+    * @return a set of vertices, or none if the vertex could not be found.
+    */
+  def parents(v: A)  : Option[Set[A]] = gr.get(v)
 }
 
 
@@ -41,22 +61,40 @@ final class AdjacencyList[+A] private (map: Map[A,Set[A]]) {
   * Companion object for the `AdjacencyList` class.
   */
 object AdjacencyList {
+
   /**
     * Create the empty Adjacency list set for a given type.
     *
     * @tparam A the type of the elements.
     * @return a `DisjointSet[T]`.
     */
-  def empty[A] : AdjacencyList[A] = new AdjacencyList[A](Map.empty[A,Set[A]])
+  def empty[A] : AdjacencyList[A] =
+    new AdjacencyList[A](Map.empty[A,Set[A]], Map.empty[A,Set[A]])
 
   /**
-    * Create an Adjacency list from a list of edges.
+    * Builds an adjacency list by folding over the list of edges once.
+    *
+    * @param edges  the list of edges.
+    * @tparam A     the vertex type.
+    * @return a mapping of vertex to child vertices.
+    */
+  private def edgesToMap[A](edges: Iterable[EdgeLike[A]]) =
+    edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
+        val curr = acc.getOrElse(v.from, Set.empty[A])
+        val xs = acc.updated(v.from, curr + v.to)
+        if (xs.contains(v.to)) xs else xs.updated(v.to, Set.empty[A])
+      })
+
+
+  /**
+    * Create an Adjacency list from a list of directed edges.
+    * Note, the reverse will be created.
     *
     * @param edges  the list of edges.
     * @tparam A     the type of the vertex.
     * @return       a new `AdjacencyList`
     */
-  ///def apply[A](edges: Iterable[EdgeLike[A]]): AdjacencyList[A] = ???
-  //new AdjacencyList(edges.groupBy(_.from).mapValues(_.foldLeft(List.empty[A])((acc,v)=> v.to :: acc)))
+    def apply[A](edges: Iterable[EdgeLike[A]]): AdjacencyList[A] =
+      new AdjacencyList[A](edgesToMap(edges),edgesToMap(reverseAll(edges)))
 
 }
