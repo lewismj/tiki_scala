@@ -46,11 +46,11 @@ Return the child vertices:
   
   Return the parent vertices:
   
-   ```tut
-   import tiki._
-   import tiki.Predef._
-   
-   val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
-   val xs = adjacencyList.parents(3)
-   ```
+```tut
+import tiki._
+import tiki.Predef._
+
+val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
+val xs = adjacencyList.parents(3)
+```
   
