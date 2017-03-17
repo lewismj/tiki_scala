@@ -30,7 +30,7 @@ import tiki.Predef._
 val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
 ```
  
-### Children
+### children
  
 Return the child vertices:
 
@@ -42,7 +42,7 @@ val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
 val xs = adjacencyList.children(1)
 ```
  
-### Parents
+### parents
   
 Return the parent vertices:
   

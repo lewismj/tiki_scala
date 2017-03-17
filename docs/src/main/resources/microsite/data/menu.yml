@@ -1,5 +1,7 @@
 options:
 
+  ## Data Structures
+
   - title: Data Structures
     url: datastructures.html
     menu_type: datastructures
@@ -14,4 +16,14 @@ options:
 
   - title: Edge
     url: datastructures/edge.html
+    menu_type: datastructures
+
+   ### Algorithms
+
+  - title: Algorithms
+    url: algorithms.html
+    menu_type: algorithms
+
+  - title: MiscellaneousFunctions
+    url: algoritms/miscellaneousfunctions.html
     menu_type: datastructures

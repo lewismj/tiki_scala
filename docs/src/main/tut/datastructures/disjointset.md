@@ -28,7 +28,7 @@ import tiki.Predef._
 val disjoint = DisjointSet(Set[Int](1,2))
 ```
 
-#### Find
+#### find
 
 Initially, each element will belong to its own partition:
 
@@ -40,7 +40,7 @@ val disjoint = DisjointSet(Set[Int](1,2))
 disjoint.find(1)
 ```
 
-### Union
+### union
 
 Union is used to merge elements of the set:
 
