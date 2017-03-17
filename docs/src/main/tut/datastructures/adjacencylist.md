@@ -17,34 +17,34 @@ The functions provided are:
 - 'parents(_v_)' returns the parent vertices of the vertex _v_.
 - both functions will return an Option, None will be returned if _v_ does not exist in the graph.
  
- ## Usage
+## Usage
+
+### Constructing an adjacency list
+
+An adjacency list can be constructed as follows:
+
+```tut
+import tiki._
+import tiki.Predef._
+
+val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
+```
  
- ### Constructing an adjacency list
- 
- An adjacency list can be constructed as follows:
- 
- ```tut
- import tiki._
- import tiki.Predef._
- 
- val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
- ```
- 
- ### Children
+### Children
  
 Return the child vertices:
 
- ```tut
- import tiki._
- import tiki.Predef._
+```tut
+import tiki._
+import tiki.Predef._
+
+val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
+val xs = adjacencyList.children(1)
+```
  
- val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
- val xs = adjacencyList.children(1)
- ```
- 
-  ### Parents
+### Parents
   
-  Return the parent vertices:
+Return the parent vertices:
   
 ```tut
 import tiki._
