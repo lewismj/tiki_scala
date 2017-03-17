@@ -85,14 +85,6 @@ an edge labelled with a <code class="highlighter-rouge">Double</code>.</p>
 <span class="n">weightedEdge</span><span class="k">:</span> <span class="kt">tiki.LEdge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span>,<span class="kt">Double</span><span class="o">]</span> <span class="k">=</span> <span class="nc">LEdge</span><span class="o">(</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">),</span><span class="mf">2.23</span><span class="o">)</span>
 </code></pre>
 </div>
-
-<p>The package object defines two utility functions in cases where <code class="highlighter-rouge">Edge</code> represents a directed edge.</p>
-
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="n">reverse</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">e</span><span class="k">:</span> <span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Edge</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">to</span><span class="o">,</span><span class="n">e</span><span class="o">.</span><span class="n">from</span><span class="o">)</span>
-<span class="k">def</span> <span class="n">reverseAll</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">edges</span><span class="k">:</span> <span class="kt">Iterable</span><span class="o">[</span><span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">]])</span> <span class="k">:</span><span class="kt">Iterable</span><span class="o">[</span><span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span><span class="k">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">reverse</span><span class="o">))</span>
-</code></pre>
-</div>
-
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({
 languages:['scala','java','bash']
 });
