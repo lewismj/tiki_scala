@@ -1,7 +1,9 @@
 ---
 layout: docs 
 title:  "Edge"
-source: "core/src/main/scala/Edge.scala"
+section: "datastructures"
+source: "core/src/main/scala/tiki/Edge.scala"
+scaladoc: "#tiki.Edge"
 ---
 # Edges
 

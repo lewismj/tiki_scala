@@ -1,7 +1,9 @@
 ---
 layout: docs 
 title:  "AdjacencyList"
-source: "core/src/main/scala/AdjacencyList.scala"
+secion: "datastructures"
+source: "core/src/main/scala/tiki/AdjacencyList.scala"
+scaladoc: "#tiki.AdjacencyList"
 ---
 # AdjacencyList
 

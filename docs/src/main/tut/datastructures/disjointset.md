@@ -1,7 +1,9 @@
 ---
 layout: docs 
 title:  "DisjointSet"
-source: "core/src/main/scala/DisjointSet.scala"
+section: "datastructures"
+source: "core/src/main/scala/tiki/DisjointSet.scala"
+scaladoc: "#tiki.DisjointSet"
 ---
 # DisjointSet
 
