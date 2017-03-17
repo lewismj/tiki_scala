@@ -4,10 +4,10 @@ options:
     url: datastructures.html
     menu_section: datastructures 
 
- nested_options:
-     - title: AdjacencyList
-       url: datastructures/adjacencylist.html
-     - title: DisjointSet
-       url: datastructures/disjointset.html
-     - title: Edge
-       url: datastructures/edge.html
+   nested_options:
+       - title: AdjacencyList
+         url: datastructures/adjacencylist.html
+       - title: DisjointSet
+         url: datastructures/disjointset.html
+       - title: Edge
+         url: datastructures/edge.html
