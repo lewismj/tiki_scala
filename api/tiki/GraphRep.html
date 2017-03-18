@@ -234,9 +234,9 @@ elements that are partitioned into a number of disjoint subsets.">
         <div class="values members">
               <h3>Abstract Value Members</h3>
               <ol><li name="tiki.GraphRep#adjacent" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="adjacent(v:A):tiki.Predef.Set[A]"></a><a id="adjacent(A):Set[A]"></a>
+      <a id="adjacent(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]"></a><a id="adjacent(A):Option[Set[A]]"></a>
       <span class="permalink">
-      <a href="../tiki/GraphRep.html#adjacent(v:A):tiki.Predef.Set[A]" title="Permalink">
+      <a href="../tiki/GraphRep.html#adjacent(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -245,11 +245,32 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">adjacent</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.GraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.GraphRep.A">A</span>]</span>
+        <span class="name">adjacent</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.GraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.GraphRep.A">A</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Return the vertices adjacent to the given vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Return the vertices adjacent to the given vertex.
+If no adjacent vertices return empty set.
+None will be returned if the vertex is not contained
+in the graph.
 </p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the adjacent vertices.</p></dd></dl></div>
+    </li><li name="tiki.GraphRep#contains" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="contains(v:A):tiki.Predef.Boolean"></a><a id="contains(A):Boolean"></a>
+      <span class="permalink">
+      <a href="../tiki/GraphRep.html#contains(v:A):tiki.Predef.Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contains</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.GraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Boolean=Boolean" class="extmbr" name="tiki.Predef.Boolean">Boolean</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns true if the vertex is contained in the graph.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if the vertex is contained in the graph.
+False otherwise.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>flag to indicate if vertex is in the graph.</p></dd></dl></div>
     </li></ol>
             </div>
 
