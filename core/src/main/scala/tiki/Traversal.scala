@@ -100,10 +100,10 @@ object Traversal {
     * @return         a traversal sequence.
     */
   def bfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A]
-    = traverse(g,start,stop)((r,n) =>  r match {
+    = traverse(g,start,stop)((r,n) =>
       /* Avoid visiting final node twice, where last remaining node could also be 'next' */
-      case _ if r.nonEmpty && n.nonEmpty => if (r.last == n.head) r ++ n.tail else r ++ n
-      case _ => r ++ n
-  })
+      if (r.nonEmpty && n.nonEmpty && r.last == n.head) r ++ n.tail
+      else r ++ n
+  )
 
 }
