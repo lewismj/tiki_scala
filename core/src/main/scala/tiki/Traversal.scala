@@ -54,7 +54,7 @@ object Traversal {
     * @return       a traversal sequence.
     */
   private def traverse[A](g: GraphRep[A], start: A, stop: Option[A])(f: S[A]): Seq[A] = {
-    /**
+    /*
       * Note: visited & acc contain same elements.
       *  acc is sued to preserve ordering, visited is used because
       *   (Set--Set) will be faster than (Set--Seq).
