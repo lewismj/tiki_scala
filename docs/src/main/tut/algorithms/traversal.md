@@ -53,6 +53,9 @@ val search = dfs(AdjacencyList(edges),"A")
 
 ### bfs
 ```tut
+import tiki._
+import tiki.Predef._
+
 val edges = Random.shuffle(List(Edge("A","B"),Edge("A","C"),Edge("B","D"),Edge("C","D")))
 val search = bfs(AdjacencyList(edges),"A")
 ```
