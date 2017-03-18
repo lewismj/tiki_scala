@@ -32,6 +32,16 @@ import Predef._
   * the undirected graph by two directed edges.
   */
 final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends DirectedGraphRep[A] {
+
+  /**
+    * Returns true if the vertex is contained in the graph.
+    * False otherwise.
+    *
+    * @param v  the vertex.
+    * @return flag to indicate if vertex is in the graph.
+    */
+  def contains(v: A): Boolean = g.keys.exists(_==v) || gr.keys.exists(_==v)
+
   /**
     * Given a vertex, find its children, i.e. the vertices it has edges to.
     * Returns an option.

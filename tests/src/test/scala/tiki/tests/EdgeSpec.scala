@@ -60,6 +60,12 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
     l1.label should be(1.0.toString)
   }
 
+  test("`map` correctly maps an edge.") {
+    val l0 = Edge[Int](1,2)
+    val l1 = l0.map[Int](e=>Edge(e.from+1,e.to+1))
+    l1 should be (Edge[Int](2,3))
+  }
+
   test("`map` correctly maps labelled edge.") {
     val l0 = LEdge[Int,Double](Edge(1,2),1.0)
     val l1 = l0.map[Int](e=>Edge(e.from+1,e.to+1)).asInstanceOf[LEdge[Int,Double]]

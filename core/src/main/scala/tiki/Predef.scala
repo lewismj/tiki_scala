@@ -9,6 +9,8 @@ object Predef {
 
   def implicitly[A](implicit a: A): A = a
 
+  type Boolean = scala.Boolean
+  type Char = scala.Char
   type Unit = scala.Unit
   type Double = scala.Double
   type Long = scala.Long
@@ -23,9 +25,16 @@ object Predef {
   type String = java.lang.String
   type tailrec = scala.annotation.tailrec
   type Set[A]     = scala.collection.immutable.Set[A]
+
   type Seq[A]     = scala.collection.immutable.Seq[A]
   /* `.toSeq` can return scala.collection.Seq, force to immutable. */
   implicit def seq[A](a: scala.collection.Seq[A]): Seq[A] = a.asInstanceOf[Seq[A]]
+
+  /* Pattern matching sequences.*/
+  object +: {
+    def unapply[A](s: Seq[A]): Option[(A,Seq[A])] = if (s.nonEmpty) Some((s.head,s.tail)) else None
+  }
+
   final val Traversable = scala.collection.immutable.Traversable
   final val Iterable = scala.collection.immutable.Iterable
   final val Some = scala.Some

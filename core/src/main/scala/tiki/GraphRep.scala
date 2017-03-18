@@ -35,12 +35,24 @@ import tiki.Predef._
 trait GraphRep[A] {
 
   /**
+    * Returns true if the vertex is contained in the graph.
+    * False otherwise.
+    *
+    * @param v  the vertex.
+    * @return flag to indicate if vertex is in the graph.
+    */
+  def contains(v: A): Boolean
+
+  /**
     * Return the vertices adjacent to the given vertex.
+    * If no adjacent vertices return empty set.
+    * None will be returned if the vertex is not contained
+    * in the graph.
     *
     * @param v  the vertex.
     * @return the adjacent vertices.
     */
-  def adjacent(v: A): Set[A]
+  def adjacent(v: A): Option[Set[A]]
 
 }
 
@@ -51,16 +63,22 @@ trait GraphRep[A] {
 trait DirectedGraphRep[A] extends GraphRep[A] {
 
   /**
+    * Returns true if the vertex is contained in the graph.
+    * False otherwise.
+    *
+    * @param v  the vertex.
+    * @return flag to indicate if vertex is in the graph.
+    */
+  def contains(v: A): Boolean
+
+  /**
     * Return the vertices adjacent to the given vertex.
     * For a directed graph, this is the children of the vertex.
     *
     * @param v  the vertex.
     * @return the adjacent vertices.
     */
-  def adjacent(v: A): Set[A] = children(v) match {
-    case Some(xs) => xs
-    case _ => Set.empty[A]
-  }
+  override def adjacent(v: A): Option[Set[A]] = children(v)
 
   /**
     * Given a vertex, find its children, i.e. the vertices it has edges to.
@@ -72,7 +90,7 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def children(v: A) : Option[Set[A]]
+  def children(v: A): Option[Set[A]]
 
   /**
     * Given a vertex, find its parents, i.e. the vertices that have
@@ -85,5 +103,5 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def parents(v: A)  : Option[Set[A]]
+  def parents(v: A): Option[Set[A]]
 }

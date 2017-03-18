@@ -16,28 +16,24 @@ The sequence of traversal is returned.
 - `bfs(g,start,stop)` as above, except a breadth first search will be done.
 
 The implementation is quite small (See ScalaDoc for comments):
+
+If _start_ is not contained in the graph, then the traversals will return an empty sequence.
+If _stop_ is not contained in the graph, a full traversal from _start_ will be returned.
 ```scala
- private def traverse[A](g: GraphRep[A], start: A, stop: Option[A])(f: S[A]): Seq[A] = {
-    @tailrec
-    def traverse0(remaining: Seq[A], visited: Set[A], acc: Seq[A]): Seq[A] = remaining match {
-      case xs if xs.isEmpty => acc
-      case _ if Some(remaining.head) == stop => acc :+ remaining.head
-      case _ =>
-        val xs = f(remaining.tail,(g.adjacent(remaining.head) -- visited).toSeq)
-        traverse0(xs, visited + remaining.head,acc :+ remaining.head)
-    }
-    traverse0(Seq(start),Set.empty,Seq.empty)
-  }
-
-  def dfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A]
-    = traverse(g,start,stop)((r,n) => n ++ r)
-
-  def bfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A]
-    = traverse(g,start,stop)((r,n) => r match {
-      /* Avoid visiting final node twice, where last remaining node could also be 'next' */
-      case _ if r.nonEmpty && r.last == n.head => r ++ n.tail
-      case _ => r ++ n
-    })
+private def traverse[A](g: GraphRep[A], start: A, stop: Option[A])(f: S[A]): Seq[A] = {
+@tailrec
+def traverse0(remaining: Seq[A], visited: Set[A], acc: Seq[A]): Seq[A] = remaining match {
+  case xs if xs.isEmpty => acc
+  case head +: _ if Some(head) == stop => acc :+ head
+  case head +:  tail  =>
+    val adjacent = g.adjacent(head) match { case Some(ys) => ys case _ => Set.empty[A]}
+    val xs = f(tail,(adjacent -- visited).toSeq)
+    traverse0(xs, visited + head,acc :+ head)
+}
+/* If stop is not contained in the graph, full dfs is performed. */
+if (g.contains(start)) traverse0(Seq(start),Set.empty,Seq.empty)
+else Seq.empty[A]
+}
 ```
 
 ## Usage
