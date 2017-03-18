@@ -15,7 +15,8 @@ scaladoc: "#tiki.GraphRep"
 
 ```scala
 trait GraphRep[A] {
-  def adjacent(v: A): Set[A]
+  def contains(v: A): Boolean
+  def adjacent(v: A): Option[Set[A]]
 }
 ```
 
@@ -25,13 +26,9 @@ the vertex.
 
 ```scala
 trait DirectedGraphRep[A] extends GraphRep[A] {
-
-  def adjacent(v: A): Set[A] = children(v) match {
-    case Some(xs) => xs
-    case _ => Set.empty[A]
-  }
-  
-  def children(v: A) : Option[Set[A]]
-  def parents(v: A)  : Option[Set[A]]
+  def adjacent(v: A): Set[A] = children(v)
+  def contains(v: A): Boolean
+  def children(v: A): Option[Set[A]]
+  def parents(v: A): Option[Set[A]]
 }
 ```
