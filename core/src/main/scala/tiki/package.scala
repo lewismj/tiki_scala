@@ -1,5 +1,3 @@
-import cats.{Functor, Monad, Monoid}
-
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -34,5 +32,4 @@ package object tiki {
     * @return     the reversed edge.
     */
   def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
-  
 }
