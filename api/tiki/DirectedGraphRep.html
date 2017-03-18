@@ -90,15 +90,15 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
-                        <a class="object" href="" title="Companion object for the AdjacencyList class."></a>
+                        <a class="object" href="AdjacencyList$.html" title="Companion object for the AdjacencyList class."></a>
                         <a class="class" href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list."></a>
                         <a href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list.">
                           AdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for graph representations."></a>
-                        <a href="DirectedGraphRep.html" title="Trait that defines interface for graph representations.">
+                        <a class="trait" href="" title="Trait that defines interface for graph representations."></a>
+                        <a href="" title="Trait that defines interface for graph representations.">
                           DirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
@@ -150,38 +150,41 @@ elements that are partitioned into a number of disjoint subsets.">
             </div>
           </div>
           <div id="content">
-            <body class="object value">
+            <body class="trait type">
       <div id="definition">
-        <a href="AdjacencyList.html" title="See companion class"><div class="big-circle object-companion-class">o</div></a>
+        <div class="big-circle trait">t</div>
         <p id="owner"><a href="index.html" class="extype" name="tiki">tiki</a></p>
-        <h1><a href="AdjacencyList.html" title="See companion class">AdjacencyList</a><span class="permalink">
-      <a href="../tiki/AdjacencyList$.html" title="Permalink">
+        <h1>DirectedGraphRep<span class="permalink">
+      <a href="../tiki/DirectedGraphRep.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
-        <h3><span class="morelinks"><div>
-            Companion <a href="AdjacencyList.html" title="See companion class">class AdjacencyList</a>
-          </div></span></h3>
+        <h3><span class="morelinks"></span></h3>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">object</span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">AdjacencyList</span>
+        <span class="name">DirectedGraphRep</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Companion object for the <code>AdjacencyList</code> class.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Trait that defines interface for graph representations.
 </p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
-        </div></div>
+          <div class="superTypes hiddenContent"><a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">
+              Known Subclasses
+            </span>
+            <div class="subClasses hiddenContent"><a href="AdjacencyList.html" class="extype" name="tiki.AdjacencyList">AdjacencyList</a></div>
+          </div></div>
         
 
       <div id="mbrsel">
@@ -206,7 +209,7 @@ elements that are partitioned into a number of disjoint subsets.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.AdjacencyList"><span>AdjacencyList</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.DirectedGraphRep"><span>DirectedGraphRep</span></li><li class="in" name="tiki.GraphRep"><span>GraphRep</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -228,15 +231,59 @@ elements that are partitioned into a number of disjoint subsets.">
 
         
 
-        
+        <div class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="tiki.DirectedGraphRep#children" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="children(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]"></a><a id="children(A):Option[Set[A]]"></a>
+      <span class="permalink">
+      <a href="../tiki/DirectedGraphRep.html#children(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">children</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Given a vertex, find its children, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Given a vertex, find its children, i.e. the vertices it has edges to.
+Returns an option.
+Note:
+  A return of None implies that the vertex was not found.
+  Otherwise Some(set of edges) will be returned. The set may be empty.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl></div>
+    </li><li name="tiki.DirectedGraphRep#parents" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="parents(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]"></a><a id="parents(A):Option[Set[A]]"></a>
+      <span class="permalink">
+      <a href="../tiki/DirectedGraphRep.html#parents(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parents</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Given a vertex, find its parents, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Given a vertex, find its parents, i.e. the vertices that have
+edges to the vertex.</p><p>Note:
+  A return of None implies that the vertex was not found.
+  Otherwise Some(set of edges) will be returned. The set may be empty.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl></div>
+    </li></ol>
+            </div>
 
         <div class="values members">
-              <h3>Value Members</h3>
+              <h3>Concrete Value Members</h3>
               <ol>
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -252,7 +299,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html###():Int" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -268,7 +315,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -281,10 +328,10 @@ elements that are partitioned into a number of disjoint subsets.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="tiki.AdjacencyList#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply[A](edges:tiki.Predef.Iterable[tiki.EdgeLike[A]]):tiki.AdjacencyList[A]"></a><a id="apply[A](Iterable[EdgeLike[A]]):AdjacencyList[A]"></a>
+    </li><li name="tiki.DirectedGraphRep#adjacent" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="adjacent(v:A):tiki.Predef.Set[A]"></a><a id="adjacent(A):Set[A]"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#apply[A](edges:tiki.Predef.Iterable[tiki.EdgeLike[A]]):tiki.AdjacencyList[A]" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#adjacent(v:A):tiki.Predef.Set[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -293,16 +340,16 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Iterable[A]=scala.collection.immutable.Iterable[A]" class="extmbr" name="tiki.Predef.Iterable">Iterable</a>[<a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.AdjacencyList.apply.A">A</span>]]</span>)</span><span class="result">: <a href="AdjacencyList.html" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>[<span class="extype" name="tiki.AdjacencyList.apply.A">A</span>]</span>
+        <span class="name">adjacent</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Create an Adjacency list from a list of directed edges.</p><div class="fullcomment"><div class="comment cmt"><p>Create an Adjacency list from a list of directed edges.
-Note, the reverse will be created.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">edges</dt><dd class="cmt"><p>the list of edges.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>AdjacencyList</code></p></dd></dl></div>
+      <p class="shortcomment cmt">Return the vertices adjacent to the given vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Return the vertices adjacent to the given vertex.
+For a directed graph, this is the children of the vertex.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the adjacent vertices.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -318,7 +365,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#clone():Object" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -337,27 +384,10 @@ Note, the reverse will be created.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.AdjacencyList#empty" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="empty[A]:tiki.AdjacencyList[A]"></a><a id="empty[A]:AdjacencyList[A]"></a>
-      <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#empty[A]:tiki.AdjacencyList[A]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">empty</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="AdjacencyList.html" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>[<span class="extype" name="tiki.AdjacencyList.empty.A">A</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Create the empty Adjacency list set for a given type.</p><div class="fullcomment"><div class="comment cmt"><p>Create the empty Adjacency list set for a given type.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the elements.</p></dd><dt>returns</dt><dd class="cmt"><p>a <code>DisjointSet[T]</code>.</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -373,7 +403,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -389,7 +419,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#finalize():Unit" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -411,7 +441,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#getClass():Class[_]" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -427,7 +457,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#hashCode():Int" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -443,7 +473,7 @@ Note, the reverse will be created.
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -459,7 +489,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -475,7 +505,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#notify():Unit" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -491,7 +521,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#notifyAll():Unit" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -507,7 +537,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -523,7 +553,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#toString():String" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -539,7 +569,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#wait():Unit" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -561,7 +591,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -583,7 +613,7 @@ Note, the reverse will be created.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -612,7 +642,9 @@ Note, the reverse will be created.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="tiki.GraphRep">
+              <h3>Inherited from <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]</h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></h3>

@@ -91,9 +91,15 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
                         <a class="object" href="AdjacencyList$.html" title="Companion object for the AdjacencyList class."></a>
-                        <a class="class" href="" title="Class represents a set of edges as an adjacency list."></a>
-                        <a href="" title="Class represents a set of edges as an adjacency list.">
+                        <a class="class" href="" title="Class represents a set of directed edges as an adjacency list."></a>
+                        <a href="" title="Class represents a set of directed edges as an adjacency list.">
                           AdjacencyList
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for graph representations."></a>
+                        <a href="DirectedGraphRep.html" title="Trait that defines interface for graph representations.">
+                          DirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
                         <a class="object" href="DisjointSet$.html" title="Companion object for case class, provides apply method."></a>
@@ -117,14 +123,8 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="Graph$.html" title=""></a>
-                        <a href="Graph$.html" title="">
-                          Graph
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="trait" href="GraphRep.html" title="Trait that defines interface for graph representations."></a>
-                        <a href="GraphRep.html" title="Trait that defines interface for graph representations.">
+                        <a class="trait" href="GraphRep.html" title="Base representation for a graph."></a>
+                        <a href="GraphRep.html" title="Base representation for a graph.">
                           GraphRep
                         </a>
                       </li><li class="current-entities indented1">
@@ -138,6 +138,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         <a class="object" href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library."></a>
                         <a href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library.">
                           Predef
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="Traversal$.html" title="Implementation of the basic traversal functions, i.e."></a>
+                        <a href="Traversal$.html" title="Implementation of the basic traversal functions, i.e.">
+                          Traversal
                         </a>
                       </li>
               </ul>
@@ -164,17 +170,19 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">AdjacencyList</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
+        <span class="name">AdjacencyList</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class represents a set of edges as an adjacency list.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class represents a set of directed edges as an adjacency list.
+As the need for undirected graphs is rare, usually represent
+the undirected graph by two directed edges.
 </p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>], <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -200,7 +208,7 @@ elements that are partitioned into a number of disjoint subsets.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.AdjacencyList"><span>AdjacencyList</span></li><li class="in" name="tiki.GraphRep"><span>GraphRep</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.AdjacencyList"><span>AdjacencyList</span></li><li class="in" name="tiki.DirectedGraphRep"><span>DirectedGraphRep</span></li><li class="in" name="tiki.GraphRep"><span>GraphRep</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -275,6 +283,24 @@ elements that are partitioned into a number of disjoint subsets.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="tiki.DirectedGraphRep#adjacent" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="adjacent(v:A):tiki.Predef.Set[A]"></a><a id="adjacent(A):Set[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList.html#adjacent(v:A):tiki.Predef.Set[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">adjacent</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.AdjacencyList.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Return the vertices adjacent to the given vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Return the vertices adjacent to the given vertex.
+For a directed graph, this is the children of the vertex.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the adjacent vertices.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
@@ -311,7 +337,7 @@ Returns an option.
 Note:
   A return of None implies that the vertex was not found.
   Otherwise Some(set of edges) will be returned. The set may be empty.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
@@ -503,7 +529,7 @@ Note:
 edges to the vertex.</p><p>Note:
   A return of None implies that the vertex was not found.
   Otherwise Some(set of edges) will be returned. The set may be empty.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -612,7 +638,9 @@ edges to the vertex.</p><p>Note:
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="tiki.GraphRep">
+        <div class="parent" name="tiki.DirectedGraphRep">
+              <h3>Inherited from <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</h3>
+            </div><div class="parent" name="tiki.GraphRep">
               <h3>Inherited from <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>

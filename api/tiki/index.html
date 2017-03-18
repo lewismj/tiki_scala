@@ -89,9 +89,15 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
                         <a class="object" href="AdjacencyList$.html" title="Companion object for the AdjacencyList class."></a>
-                        <a class="class" href="AdjacencyList.html" title="Class represents a set of edges as an adjacency list."></a>
-                        <a href="AdjacencyList.html" title="Class represents a set of edges as an adjacency list.">
+                        <a class="class" href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list."></a>
+                        <a href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list.">
                           AdjacencyList
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for graph representations."></a>
+                        <a href="DirectedGraphRep.html" title="Trait that defines interface for graph representations.">
+                          DirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
                         <a class="object" href="DisjointSet$.html" title="Companion object for case class, provides apply method."></a>
@@ -115,14 +121,8 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="Graph$.html" title=""></a>
-                        <a href="Graph$.html" title="">
-                          Graph
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="trait" href="GraphRep.html" title="Trait that defines interface for graph representations."></a>
-                        <a href="GraphRep.html" title="Trait that defines interface for graph representations.">
+                        <a class="trait" href="GraphRep.html" title="Base representation for a graph."></a>
+                        <a href="GraphRep.html" title="Base representation for a graph.">
                           GraphRep
                         </a>
                       </li><li class="current-entities indented1">
@@ -136,6 +136,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         <a class="object" href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library."></a>
                         <a href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library.">
                           Predef
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="Traversal$.html" title="Implementation of the basic traversal functions, i.e."></a>
+                        <a href="Traversal$.html" title="Implementation of the basic traversal functions, i.e.">
+                          Traversal
                         </a>
                       </li>
               </ul>
@@ -217,10 +223,10 @@ elements that are partitioned into a number of disjoint subsets.">
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="tiki.AdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AdjacencyList[A]extendsGraphRep[A]"></a><a id="AdjacencyList[A]:AdjacencyList[A]"></a>
+              <ol><li name="tiki.AdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="AdjacencyList[A]extendsDirectedGraphRep[A]"></a><a id="AdjacencyList[A]:AdjacencyList[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#AdjacencyList[A]extendsGraphRep[A]" title="Permalink">
+      <a href="../tiki/index.html#AdjacencyList[A]extendsDirectedGraphRep[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -229,12 +235,33 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="Class represents a set of edges as an adjacency list." href="AdjacencyList.html">
+        <a title="Class represents a set of directed edges as an adjacency list." href="AdjacencyList.html">
               <span class="name">AdjacencyList</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Class represents a set of edges as an adjacency list.</p>
+      <p class="shortcomment cmt">Class represents a set of directed edges as an adjacency list.</p><div class="fullcomment"><div class="comment cmt"><p>Class represents a set of directed edges as an adjacency list.
+As the need for undirected graphs is rare, usually represent
+the undirected graph by two directed edges.
+</p></div></div>
+    </li><li name="tiki.DirectedGraphRep" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DirectedGraphRep[A]extendsGraphRep[A]"></a><a id="DirectedGraphRep[A]:DirectedGraphRep[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#DirectedGraphRep[A]extendsGraphRep[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Trait that defines interface for graph representations." href="DirectedGraphRep.html">
+              <span class="name">DirectedGraphRep</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Trait that defines interface for graph representations.</p>
     </li><li name="tiki.DisjointSet" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DisjointSet[A]extendsAnyRef"></a><a id="DisjointSet[A]:DisjointSet[A]"></a>
       <span class="permalink">
@@ -297,7 +324,7 @@ really a property of the edge.
       </span>
       
       <p class="shortcomment cmt">Defines behaviour that edge types must support.</p><div class="fullcomment"><div class="comment cmt"><p>Defines behaviour that edge types must support.</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd></dl></div>
-    </li><li name="tiki.GraphRep" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.GraphRep" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="GraphRep[A]extendsAnyRef"></a><a id="GraphRep[A]:GraphRep[A]"></a>
       <span class="permalink">
       <a href="../tiki/index.html#GraphRep[A]extendsAnyRef" title="Permalink">
@@ -309,12 +336,13 @@ really a property of the edge.
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Trait that defines interface for graph representations." href="GraphRep.html">
+        <a title="Base representation for a graph." href="GraphRep.html">
               <span class="name">GraphRep</span>
             </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       
-      <p class="shortcomment cmt">Trait that defines interface for graph representations.</p>
+      <p class="shortcomment cmt">Base representation for a graph.</p><div class="fullcomment"><div class="comment cmt"><p>Base representation for a graph.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.LEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="LEdge[A,B]extendsEdgeLike[A]withProductwithSerializable"></a><a id="LEdge[A,B]:LEdge[A,B]"></a>
       <span class="permalink">
@@ -359,23 +387,6 @@ really a property of the edge.
       
       <p class="shortcomment cmt">Reverse the direction of an edge.</p><div class="fullcomment"><div class="comment cmt"><p>Reverse the direction of an edge.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">e</dt><dd class="cmt"><p>the incoming edge.</p></dd><dt>returns</dt><dd class="cmt"><p>the reversed edge.</p></dd></dl></div>
-    </li><li name="tiki#reverseAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reverseAll[A](edges:tiki.Predef.Iterable[tiki.EdgeLike[A]]):tiki.Predef.Iterable[tiki.EdgeLike[A]]"></a><a id="reverseAll[A](Iterable[EdgeLike[A]]):Iterable[EdgeLike[A]]"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#reverseAll[A](edges:tiki.Predef.Iterable[tiki.EdgeLike[A]]):tiki.Predef.Iterable[tiki.EdgeLike[A]]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reverseAll</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Iterable[A]=scala.collection.immutable.Iterable[A]" class="extmbr" name="tiki.Predef.Iterable">Iterable</a>[<a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.reverseAll.A">A</span>]]</span>)</span><span class="result">: <a href="Predef$.html#Iterable[A]=scala.collection.immutable.Iterable[A]" class="extmbr" name="tiki.Predef.Iterable">Iterable</a>[<a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.reverseAll.A">A</span>]]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Reverse a set of edges.</p><div class="fullcomment"><div class="comment cmt"><p>Reverse a set of edges.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">edges</dt><dd class="cmt"><p>the incoming set of edges.</p></dd><dt>returns</dt><dd class="cmt"><p>the reverse set of edges.</p></dd></dl></div>
     </li><li name="tiki.AdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="AdjacencyList"></a><a id="AdjacencyList:AdjacencyList"></a>
       <span class="permalink">
@@ -412,24 +423,6 @@ really a property of the edge.
       </span>
       
       <p class="shortcomment cmt">Companion object for case class, provides <code>apply</code> method.</p>
-    </li><li name="tiki.Graph" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Graph"></a><a id="Graph:Graph"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#Graph" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="Graph$.html">
-              <span class="name">Graph</span>
-            </a>
-      </span>
-      
-      
     </li><li name="tiki.Predef" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Predef"></a><a id="Predef:Predef"></a>
       <span class="permalink">
@@ -450,6 +443,25 @@ really a property of the edge.
       <p class="shortcomment cmt">Predef is a set of type aliases for types which are commonly used in the library.</p><div class="fullcomment"><div class="comment cmt"><p>Predef is a set of type aliases for types which are commonly used in the library.
 Mainly designed to ensure that algorithms within the library don't accidentally use
 mutable collections or other parts of the <code>scala.Predef</code> that are not required.
+</p></div></div>
+    </li><li name="tiki.Traversal" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Traversal"></a><a id="Traversal:Traversal"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#Traversal" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Implementation of the basic traversal functions, i.e." href="Traversal$.html">
+              <span class="name">Traversal</span>
+            </a>
+      </span>
+      
+      <p class="shortcomment cmt">Implementation of the basic traversal functions, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Implementation of the basic traversal functions, i.e. depth and breadth first searches.
 </p></div></div>
     </li>
               </ol>
