@@ -310,9 +310,9 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">bfs</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.Traversal.bfs.A">A</span>]</span>, <span name="start">start: <span class="extype" name="tiki.Traversal.bfs.A">A</span></span>, <span name="stop">stop: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<span class="extype" name="tiki.Traversal.bfs.A">A</span>] = <span class="symbol"><span class="name"><a href="index.html">None</a></span></span></span>)</span><span class="result">: <a href="Predef$.html#Seq[A]=scala.collection.immutable.Seq[A]" class="extmbr" name="tiki.Predef.Seq">Seq</a>[<span class="extype" name="tiki.Traversal.bfs.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Breadth first search, given (remainder,next) the order of traversal is remainder
-then next.</p><div class="fullcomment"><div class="comment cmt"><p>Breadth first search, given (remainder,next) the order of traversal is remainder
-then next.
+      <p class="shortcomment cmt">Breadth first search of the graph from a start vertex with an
+optional stop vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Breadth first search of the graph from a start vertex with an
+optional stop vertex.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>the graph representation.</p></dd><dt class="param">start</dt><dd class="cmt"><p>the start vertex.</p></dd><dt class="param">stop</dt><dd class="cmt"><p>vertex to stop traversal at (optional).</p></dd><dt>returns</dt><dd class="cmt"><p>a traversal sequence.</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
@@ -351,9 +351,9 @@ then next.
         <span class="name">dfs</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.Traversal.dfs.A">A</span>]</span>, <span name="start">start: <span class="extype" name="tiki.Traversal.dfs.A">A</span></span>, <span name="stop">stop: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<span class="extype" name="tiki.Traversal.dfs.A">A</span>] = <span class="symbol"><span class="name"><a href="index.html">None</a></span></span></span>)</span><span class="result">: <a href="Predef$.html#Seq[A]=scala.collection.immutable.Seq[A]" class="extmbr" name="tiki.Predef.Seq">Seq</a>[<span class="extype" name="tiki.Traversal.dfs.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Depth first search, given (remainder,next) the order of traversal is next
-then remainder.</p><div class="fullcomment"><div class="comment cmt"><p>Depth first search, given (remainder,next) the order of traversal is next
-then remainder.
+      <p class="shortcomment cmt">Depth first search of the graph from a start vertex with an
+optional stop vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Depth first search of the graph from a start vertex with an
+optional stop vertex.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>the graph representation.</p></dd><dt class="param">start</dt><dd class="cmt"><p>the start vertex.</p></dd><dt class="param">stop</dt><dd class="cmt"><p>vertex to stop traversal at (optional).</p></dd><dt>returns</dt><dd class="cmt"><p>a traversal sequence.</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
