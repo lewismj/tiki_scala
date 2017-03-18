@@ -7,7 +7,6 @@ package tiki
   */
 object Predef {
 
-  def identity[A](a: A): A = a
   def implicitly[A](implicit a: A): A = a
 
   type Unit = scala.Unit
@@ -16,19 +15,23 @@ object Predef {
   type Int = scala.Int
   type StringContext = scala.StringContext
   type Map[A,B] = scala.collection.immutable.Map[A,B]
-  type Set[A]     = scala.collection.immutable.Set[A]
   type Option[A]  = scala.Option[A]
   type Stream[A]  = scala.collection.immutable.Stream[A]
   type Iterable[A] = scala.collection.immutable.Iterable[A]
   type Traversable[A] = scala.collection.immutable.Traversable[A]
   type List[A] = scala.collection.immutable.List[A]
   type String = java.lang.String
-
+  type tailrec = scala.annotation.tailrec
+  type Set[A]     = scala.collection.immutable.Set[A]
+  type Seq[A]     = scala.collection.immutable.Seq[A]
+  /* `.toSeq` can return scala.collection.Seq, force to immutable. */
+  implicit def seq[A](a: scala.collection.Seq[A]): Seq[A] = a.asInstanceOf[Seq[A]]
   final val Traversable = scala.collection.immutable.Traversable
   final val Iterable = scala.collection.immutable.Iterable
   final val Some = scala.Some
   final val None = scala.None
   final val Set = scala.collection.immutable.Set
+  final val Seq = scala.collection.immutable.Seq
   final val Stream = scala.collection.immutable.Stream
   final val Map = scala.collection.immutable.Map
   final val List = scala.collection.immutable.List

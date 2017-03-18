@@ -18,12 +18,21 @@ options:
     url: datastructures/edge.html
     menu_type: datastructures
 
+  - title: GraphRep
+    url: datastructures/graphrep.html
+    menu_type: datastructures
+
+
    ### Algorithms ###
 
   - title: Algorithms
     url: algorithms.html
     menu_type: algorithms
 
-  - title: MiscellaneousFunctions
-    url: algorithms/miscellaneousfunctions.html
+  - title: Traversal
+    url: algorithms/traversal.html
+    menu_type: algorithms
+
+  - title: Utility
+    url: algorithms/utility.html
     menu_type: algorithms

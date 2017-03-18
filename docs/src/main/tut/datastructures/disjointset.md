@@ -15,7 +15,7 @@ are used to determine if two elements belong to the same partition.
 - `union` join two partitions together via two elements.
 - `components` the number of partitions.
 
-## Usage
+### Usage
 
 ### Constructing a disjoint set
 
@@ -28,7 +28,7 @@ import tiki.Predef._
 val disjoint = DisjointSet(Set[Int](1,2))
 ```
 
-#### find
+### find
 
 Initially, each element will belong to its own partition:
 

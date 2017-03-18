@@ -8,12 +8,14 @@ scaladoc: "#tiki.Edge"
 # Edges
 
 `Edge` is a case class that represents an edge between two vertices. The edges in
-a graph tend to be either all directed or undirected. Most data structures assume
+a graph tend to be either all directed or undirected. However, almost all practical
+use cases tend to be concerned with directed graphs, and usually directed
+acyclic graphs (DAG) that are connected, i.e. _Trees_. Most data structures assume
 the edge is directed 'from' a vertex 'to' another vertex, _unless explicitly stated_.
- 
 
-_Often vertex type may be a proxy for some underlying vertex type.
-Where instance of the type may be costly to hold within a graph._
+
+_Often vertex type of an Edge may be a proxy for some underlying vertex type.
+Where an instance of the underlying type may be costly to hold within a graph._
  
 Each edge type must support a simple map function.
 
@@ -54,13 +56,12 @@ case class Edge[A](from: A, to: A) extends EdgeLike[A] {
 import tiki._
 import tiki.Predef._
 
-// An edge between two vertices, 1 and 2.
 val edge = Edge[Int](1,2)
 ```
 
-#### LEdge
+### LEdge
 
-The _labelled_ edge case class, is defined as follows:
+The _labelled_ edge case class.
 
 ```scala
 case class LEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {

@@ -27,9 +27,11 @@ import Predef._
 
 
 /**
-  * Class represents a set of edges as an adjacency list.
+  * Class represents a set of directed edges as an adjacency list.
+  * As the need for undirected graphs is rare, usually represent
+  * the undirected graph by two directed edges.
   */
-final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends GraphRep[A] {
+final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends DirectedGraphRep[A] {
   /**
     * Given a vertex, find its children, i.e. the vertices it has edges to.
     * Returns an option.
@@ -95,6 +97,6 @@ object AdjacencyList {
     * @return       a new `AdjacencyList`
     */
     def apply[A](edges: Iterable[EdgeLike[A]]): AdjacencyList[A] =
-      new AdjacencyList[A](edgesToMap(edges),edgesToMap(reverseAll(edges)))
+      new AdjacencyList[A](edgesToMap(edges),edgesToMap(edges.map(reverse)))
 
 }

@@ -1,3 +1,5 @@
+import cats.{Functor, Monad, Monoid}
+
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -23,7 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
-  import Predef._
 
   /**
     * Reverse the direction of an edge.
@@ -33,14 +34,5 @@ package object tiki {
     * @return     the reversed edge.
     */
   def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
-
-  /**
-    * Reverse a set of edges.
-    *
-    * @param edges  the incoming set of edges.
-    * @tparam A     the type of the vertex.
-    * @return       the reverse set of edges.
-    */
-  def reverseAll[A](edges: Iterable[EdgeLike[A]]) :Iterable[EdgeLike[A]]= edges.map(_.map(reverse))
 
 }

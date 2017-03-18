@@ -13,3 +13,5 @@ A library for functional graph algorithms (_soon_)
 ### Documentation
 
 Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/).
+
+Scaladoc can be found [here](https://lewismj.github.io/tiki/api/tiki/index.html).

@@ -20,7 +20,7 @@ The choice of representation can be based on factors such as the density (number
 in terms of number of vertices).
 
 
-### Further Reading
+## Further Reading
 
 1. Koh Khee Meng et al., _Introduction to Graph Theory, H3 Mathematics_ (World Scientific, 2013)
 2. Harary, _A seminar on graph theory_ (Dover, 2015)
