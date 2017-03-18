@@ -46,6 +46,7 @@ The implementation is quite small (See ScalaDoc for comments):
 ```tut
 import tiki._
 import tiki.Predef._
+import scala.util.Random
 
 val edges = Random.shuffle(List(Edge("A","B"),Edge("A","C"),Edge("B","D"),Edge("C","D")))
 val search = dfs(AdjacencyList(edges),"A")
@@ -55,6 +56,7 @@ val search = dfs(AdjacencyList(edges),"A")
 ```tut
 import tiki._
 import tiki.Predef._
+import scala.util.Random
 
 val edges = Random.shuffle(List(Edge("A","B"),Edge("A","C"),Edge("B","D"),Edge("C","D")))
 val search = bfs(AdjacencyList(edges),"A")
