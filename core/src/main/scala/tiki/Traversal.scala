@@ -77,8 +77,8 @@ object Traversal {
   }
 
   /**
-    * Depth first search, given (remainder,next) the order of traversal is next
-    * then remainder.
+    * Depth first search of the graph from a start vertex with an
+    * optional stop vertex.
     *
     * @param g        the graph representation.
     * @param start    the start vertex.
@@ -90,8 +90,8 @@ object Traversal {
     = traverse(g,start,stop)((r,n) => n ++ r)
 
   /**
-    * Breadth first search, given (remainder,next) the order of traversal is remainder
-    * then next.
+    * Breadth first search of the graph from a start vertex with an
+    * optional stop vertex.
     *
     * @param g        the graph representation.
     * @param start    the start vertex.
