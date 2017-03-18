@@ -68,7 +68,7 @@ lazy val docSettings = Seq(
   micrositeDocumentationUrl := "/tiki/api",
   micrositeGithubOwner := "lewismj",
   micrositeGithubRepo := "tiki",
-  micrositeHighlightTheme := "monokai",
+  micrositeHighlightTheme := "atom-one-light",
   micrositePalette := Map(
     "brand-primary" -> "#5B5988",
     "brand-secondary" -> "#292E53",
