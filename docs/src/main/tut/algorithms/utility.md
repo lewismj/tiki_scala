@@ -16,8 +16,6 @@ The package object defines various utility functions.
 
 ### reverse
 
-Implemented using the `map` function on the edge.
-
 ```scala
 def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
 ```

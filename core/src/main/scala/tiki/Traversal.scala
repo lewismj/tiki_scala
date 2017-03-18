@@ -66,7 +66,7 @@ object Traversal {
     def traverse0(remaining: Seq[A], visited: Set[A], acc: Seq[A]): Seq[A] = remaining match {
       case xs if xs.isEmpty => acc
       case head +: _ if Some(head) == stop => acc :+ head
-      case head +:  tail  =>
+      case head +: tail  =>
         val adjacent = g.adjacent(head) match { case Some(ys) => ys case _ => Set.empty[A]}
         val xs = f(tail,(adjacent -- visited).toSeq)
         traverse0(xs, visited + head,acc :+ head)

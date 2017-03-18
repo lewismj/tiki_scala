@@ -26,7 +26,7 @@ the vertex.
 
 ```scala
 trait DirectedGraphRep[A] extends GraphRep[A] {
-  def adjacent(v: A): Set[A] = children(v)
+  def adjacent(v: A): Set[A] = successors(v)
   def contains(v: A): Boolean
   def children(v: A): Option[Set[A]]
   def parents(v: A): Option[Set[A]]

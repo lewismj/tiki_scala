@@ -78,10 +78,10 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     * @param v  the vertex.
     * @return the adjacent vertices.
     */
-  override def adjacent(v: A): Option[Set[A]] = children(v)
+  override def adjacent(v: A): Option[Set[A]] = successors(v)
 
   /**
-    * Given a vertex, find its children, i.e. the vertices it has edges to.
+    * Given a vertex, find its successors, i.e. the vertices it has edges to.
     * Returns an option.
     * Note:
     *   A return of None implies that the vertex was not found.
@@ -90,10 +90,10 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def children(v: A): Option[Set[A]]
+  def successors(v: A): Option[Set[A]]
 
   /**
-    * Given a vertex, find its parents, i.e. the vertices that have
+    * Given a vertex, find its predecessors, i.e. the vertices that have
     * edges to the vertex.
     *
     * Note:
@@ -103,5 +103,5 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def parents(v: A): Option[Set[A]]
+  def predecessors(v: A): Option[Set[A]]
 }

@@ -34,5 +34,5 @@ package object tiki {
     * @return     the reversed edge.
     */
   def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
-
+  
 }

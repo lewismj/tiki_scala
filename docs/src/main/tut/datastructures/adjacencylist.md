@@ -12,8 +12,8 @@ Internally this is represented as a pair of maps (the graph and its reverse).
 
 The functions provided are:
 
-- `children(v)` returns the child vertices of the vertex _v_.
-- `parents(v)` returns the parent vertices of the vertex _v_.
+- `successors(v)` returns the child vertices of the vertex _v_.
+- `predecessors(v)` returns the parent vertices of the vertex _v_.
 
 Both functions will return an Option, None will be returned if _v_ does not exist in the graph.
  
@@ -30,27 +30,23 @@ import tiki.Predef._
 val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
 ```
  
-### children
+### successors
  
-Return the child vertices:
-
 ```tut
 import tiki._
 import tiki.Predef._
 
 val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
-val xs = adjacencyList.children(1)
+val xs = adjacencyList.successors(1)
 ```
  
-### parents
-  
-Return the parent vertices:
+### predecessors
   
 ```tut
 import tiki._
 import tiki.Predef._
 
 val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
-val xs = adjacencyList.parents(3)
+val xs = adjacencyList.predecessors(3)
 ```
   
