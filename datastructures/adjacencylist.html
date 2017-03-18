@@ -6,8 +6,8 @@ Internally this is represented as a pair of maps (the graph and its reverse).</p
 <p>The functions provided are:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">children(v)</code> returns the child vertices of the vertex <em>v</em>.</li>
-  <li><code class="highlighter-rouge">parents(v)</code> returns the parent vertices of the vertex <em>v</em>.</li>
+  <li><code class="highlighter-rouge">successors(v)</code> returns the child vertices of the vertex <em>v</em>.</li>
+  <li><code class="highlighter-rouge">predecessors(v)</code> returns the parent vertices of the vertex <em>v</em>.</li>
 </ul>
 
 <p>Both functions will return an Option, None will be returned if <em>v</em> does not exist in the graph.</p>
@@ -25,13 +25,11 @@ Internally this is represented as a pair of maps (the graph and its reverse).</p
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">),</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">),</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)))</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">5947</span><span class="n">c9fd</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">2517769</span><span class="n">c</span>
 </code></pre>
 </div>
 
-<h3 id="children">children</h3>
-
-<p>Return the child vertices:</p>
+<h3 id="successors">successors</h3>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -40,16 +38,14 @@ Internally this is represented as a pair of maps (the graph and its reverse).</p
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">),</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">),</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)))</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">6f</span><span class="n">a3c2ef</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">3</span><span class="n">b43aa17</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">children</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">successors</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.Predef.Option</span><span class="o">[</span><span class="kt">tiki.Predef.Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="nc">Set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">))</span>
 </code></pre>
 </div>
 
-<h3 id="parents">parents</h3>
-
-<p>Return the parent vertices:</p>
+<h3 id="predecessors">predecessors</h3>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -58,9 +54,9 @@ Internally this is represented as a pair of maps (the graph and its reverse).</p
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">),</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">),</span><span class="nc">Edge</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)))</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">136</span><span class="n">b2b6e</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">3453</span><span class="n">bde6</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">parents</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">predecessors</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.Predef.Option</span><span class="o">[</span><span class="kt">tiki.Predef.Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="nc">Set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">))</span>
 </code></pre>
 </div>
