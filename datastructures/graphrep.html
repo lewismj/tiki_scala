@@ -9,7 +9,8 @@
 </ul>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">GraphRep</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">adjacent</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+  <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
+  <span class="k">def</span> <span class="n">adjacent</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
 <span class="o">}</span>
 </code></pre>
 </div>
@@ -19,14 +20,10 @@ should implement. The <code class="highlighter-rouge">adjacent</code> vertices a
 the vertex.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">DirectedGraphRep</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">GraphRep</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-
-  <span class="k">def</span> <span class="n">adjacent</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">children</span><span class="o">(</span><span class="n">v</span><span class="o">)</span> <span class="k">match</span> <span class="o">{</span>
-    <span class="k">case</span> <span class="nc">Some</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">xs</span>
-    <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="nc">Set</span><span class="o">.</span><span class="n">empty</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
-  <span class="o">}</span>
-  
-  <span class="k">def</span> <span class="n">children</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
-  <span class="k">def</span> <span class="n">parents</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span>  <span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
+  <span class="k">def</span> <span class="n">adjacent</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">children</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
+  <span class="k">def</span> <span class="n">children</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
+  <span class="k">def</span> <span class="n">parents</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
 <span class="o">}</span>
 </code></pre>
 </div>
