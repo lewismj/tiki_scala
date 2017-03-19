@@ -23,6 +23,7 @@ def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
 ```tut
 import tiki._
 import tiki.Predef._
+import tiki.implicits._
 
-List(Edge(1,2),Edge(1,4),Edge(2,4)).map(reverse)
+List(1 ~> 2, 1 ~> 4, 2 ~> 4).map(reverse)
 ```

@@ -43,10 +43,11 @@ else Seq.empty[A]
 import tiki._
 import tiki.Predef._
 import tiki.Traversal._
+import tiki.implicits._
 import scala.util.Random
 
-val edges = Random.shuffle(List(Edge("A","B"),Edge("A","C"),Edge("B","D"),Edge("C","D")))
-val search = dfs(AdjacencyList(edges),"A")
+val edges = Random.shuffle(List('A' ~> 'B', 'A' ~> 'C', 'B' ~> 'D', 'C' ~> 'D'))
+val search = dfs(AdjacencyList(edges),'A')
 ```
 
 ### bfs
@@ -54,8 +55,9 @@ val search = dfs(AdjacencyList(edges),"A")
 import tiki._
 import tiki.Predef._
 import tiki.Traversal._
+import tiki.implicits._
 import scala.util.Random
 
-val edges = Random.shuffle(List(Edge("A","B"),Edge("A","C"),Edge("B","D"),Edge("C","D")))
-val search = bfs(AdjacencyList(edges),"A")
+val edges = Random.shuffle(List('A' ~> 'B', 'A' ~> 'C', 'B' ~> 'D', 'C' ~> 'D'))
+val search = bfs(AdjacencyList(edges),'A')
 ```

@@ -24,6 +24,7 @@
  */
 package tiki
 
+import tiki.Predef._
 
 /**
   * Defines behaviour that edge types must support.
@@ -45,6 +46,14 @@ trait EdgeLike[A] {
     * @return a vertex of type `A`.
     */
   def to: A
+
+  /**
+    * Returns string representation of the edge.
+    *
+    * @return a string representation of the edge.
+    */
+  override def toString: String = s"$from ~> $to"
+
 }
 
 /**
@@ -90,4 +99,11 @@ case class LEdge[A,B](edge: EdgeLike[A], label: B) extends EdgeLike[A] {
     * @return a new labelled edge.
     */
   def lmap[C](f: B => C) : LEdge[A,C] = LEdge(edge,f(label))
+
+  /**
+    * Returns a string representation of the labelled edge.
+    *
+    * @return a string representation of the labelled edge.
+    */
+  override def toString: String = s"$from ~> $to :+ $label"
 }
