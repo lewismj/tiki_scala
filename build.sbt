@@ -70,10 +70,10 @@ lazy val docSettings = Seq(
   micrositeGithubRepo := "tiki",
   micrositeHighlightTheme := "atom-one-light",
   micrositePalette := Map(
-    "brand-primary" -> "#777777",
-    "brand-secondary" -> "#050505",
+    "brand-primary" -> "#eeeeee",
+    "brand-secondary" -> "#4c4d4c",
     "brand-tertiary" -> "#5d5e5d",
-    "gray-dark" -> "#5d5e5d",
+    "gray-dark" -> "#48494B",
     "gray" -> "#7D7E7D",
     "gray-light" -> "#E5E6E5",
     "gray-lighter" -> "#F4F3F4",
