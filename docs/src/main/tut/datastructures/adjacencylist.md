@@ -8,7 +8,9 @@ scaladoc: "#tiki.AdjacencyList"
 # AdjacencyList
 
 `AdjacencyList` associates each vertex in the graph with the collection of its neighboring vertices.
-Internally this is represented as a pair of maps (the graph and its reverse).
+Internally this is represented as a pair of maps (the graph and its reverse). As implied by
+the method names, structures using this for undirected graphs should construct the `AdjacencyList` with the reverse
+graph. _This may change in a later version_.
 
 The functions provided are:
 
