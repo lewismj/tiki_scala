@@ -45,6 +45,14 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
     (x --> y :+ w).lmap[String](_=>s) should have ('label (s), 'from (x), 'to (y))
   }}
 
+  test("`toString` of an edge is correct") { (x: Int, y: Int) => {
+    (x --> y).toString should be (s"$x --> $y")
+  }}
+
+  test("`toString` of a labelled edge is correct") { (x: Int, y: Int, z: Int) => {
+    (x --> y :+ z).toString should be (s"$x --> $y :+ $z")
+  }}
+
   /* Force path for scoverage/codecov. */
   test("can implicitly create an edge") {
     val e = 1 --> 2
