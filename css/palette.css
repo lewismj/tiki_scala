@@ -26,7 +26,7 @@
       color: #292E53; }
 
 pre {
-  background: rgba(244, 243, 244, 0.6); }
+  background: rgba(238, 238, 238, 0.6); }
   pre code {
     color: inherit;
     background-color: transparent; }
@@ -34,19 +34,19 @@ pre {
     background: none; }
 
 body.docs {
-  background: #F4F3F4; }
+  background: #eeeeee; }
 
 #content code {
-  color: #7B7B7E;
-  background-color: #F4F3F4; }
+  color: #777777;
+  background-color: #eeeeee; }
 
 #sidebar-wrapper {
   background: #292E53; }
 
 #page-content-wrapper .nav a {
-  color: #7B7B7E; }
+  color: #777777; }
   #page-content-wrapper .nav a:hover {
-    color: #49494B; }
+    color: #777777; }
   #page-content-wrapper .nav a i {
     font-size: 18px; }
 
