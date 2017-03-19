@@ -3,14 +3,22 @@
 <p>The package object defines various utility functions.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">reverse(xs)</code> reverses an edge.</li>
+  <li><code class="highlighter-rouge">reverse(xs)</code> reverses an edge (of any type).</li>
 </ul>
 
 <h2 id="usage">Usage</h2>
 
 <h3 id="reverse">reverse</h3>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="n">reverse</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">e</span><span class="k">:</span> <span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to</span> <span class="o">~&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">from</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Provides 'reverse' function for different 'Edge' case classes.
+ * `Edge` classes shouldn't form an inheritance hierarchy.
+ */</span>
+<span class="k">object</span> <span class="nc">reverse</span> <span class="k">extends</span> <span class="nc">Poly1</span> <span class="o">{</span>
+  <span class="k">implicit</span> <span class="k">def</span> <span class="n">edgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">:</span> <span class="kt">Case.Aux</span><span class="o">[</span><span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>,<span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span><span class="k">=</span> <span class="n">at</span><span class="o">({</span><span class="n">x</span><span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span> <span class="o">--&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">from</span><span class="o">})</span>
+  <span class="k">implicit</span> <span class="k">def</span> <span class="n">edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">:</span> <span class="kt">Case.Aux</span><span class="o">[</span><span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>,<span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span><span class="k">=</span> <span class="n">at</span><span class="o">({</span><span class="n">x</span><span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span> <span class="o">--&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">from</span><span class="o">})</span>
+  <span class="k">implicit</span> <span class="k">def</span> <span class="n">labelledEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]</span> <span class="k">:</span> <span class="kt">Case.Aux</span><span class="o">[</span><span class="kt">LEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]</span>,<span class="kt">LEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]]</span><span class="k">=</span> <span class="n">at</span><span class="o">({</span><span class="n">x</span><span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">edge</span><span class="o">.</span><span class="n">to</span> <span class="o">--&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">edge</span><span class="o">.</span><span class="n">from</span> <span class="o">:+</span> <span class="n">x</span><span class="o">.</span><span class="n">label</span><span class="o">})</span>
+<span class="o">}</span>
 </code></pre>
 </div>
 
@@ -23,8 +31,11 @@
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span> <span class="o">~&gt;</span> <span class="mi">4</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">reverse</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span> <span class="o">--&gt;</span> <span class="mi">4</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">reverse</span><span class="o">)</span>
 <span class="n">res0</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">2</span> <span class="o">~&gt;</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span> <span class="o">~&gt;</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span> <span class="o">~&gt;</span> <span class="mi">2</span><span class="o">)</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="nc">List</span><span class="o">(</span><span class="sc">'a'</span> <span class="o">--&gt;</span> <span class="sc">'b'</span> <span class="o">:+</span> <span class="mf">1.1</span><span class="o">,</span> <span class="sc">'b'</span> <span class="o">--&gt;</span> <span class="sc">'c'</span> <span class="o">:+</span> <span class="mf">2.2</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">reverse</span><span class="o">)</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">tiki.LEdge</span><span class="o">[</span><span class="kt">Char</span>,<span class="kt">Double</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="n">b</span> <span class="o">~&gt;</span> <span class="n">a</span> <span class="o">:+</span> <span class="mf">1.1</span><span class="o">,</span> <span class="n">c</span> <span class="o">~&gt;</span> <span class="n">b</span> <span class="o">:+</span> <span class="mf">2.2</span><span class="o">)</span>
 </code></pre>
 </div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({

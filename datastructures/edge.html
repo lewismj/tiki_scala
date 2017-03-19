@@ -27,7 +27,7 @@ Where an instance of the underlying type may be costly to hold within a graph.</
 <h3 id="constructing-edges">Constructing Edges</h3>
 
 <p>Edges can be constructed directly. However, importing <code class="highlighter-rouge">implicits</code> 
-will allow you to use the <code class="highlighter-rouge">~&gt;</code> and <code class="highlighter-rouge">~&gt; :+</code> operators.</p>
+will allow you to use the <code class="highlighter-rouge">--&gt;</code> and <code class="highlighter-rouge">--&gt; :+</code> operators.</p>
 
 <h4 id="edge">Edge</h4>
 
@@ -43,8 +43,8 @@ will allow you to use the <code class="highlighter-rouge">~&gt;</code> and <code
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">e0</span> <span class="k">=</span> <span class="nc">Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">)</span>
 <span class="n">e0</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="c1">// Use the edge ~&gt; operator
-</span>     <span class="o">|</span> <span class="k">val</span> <span class="n">e1</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="c1">// Use the edge --&gt; operator
+</span>     <span class="o">|</span> <span class="k">val</span> <span class="n">e1</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span>
 <span class="n">e1</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span>
 </code></pre>
 </div>
@@ -66,7 +66,7 @@ will allow you to use the <code class="highlighter-rouge">~&gt;</code> and <code
 <span class="n">we0</span><span class="k">:</span> <span class="kt">tiki.LEdge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span>,<span class="kt">Double</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="mf">2.23</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="c1">// User the :+ to apply a label to an edge.
-</span>     <span class="o">|</span> <span class="k">val</span> <span class="n">we1</span> <span class="k">=</span> <span class="o">(</span><span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="mf">2.23</span><span class="o">)</span>
+</span>     <span class="o">|</span> <span class="k">val</span> <span class="n">we1</span> <span class="k">=</span> <span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="mf">2.23</span><span class="o">)</span>
 <span class="n">we1</span><span class="k">:</span> <span class="kt">tiki.LEdge</span><span class="o">[</span><span class="kt">Int</span>,<span class="kt">Double</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="mf">2.23</span>
 </code></pre>
 </div>
