@@ -10,7 +10,7 @@
 
 <h3 id="reverse">reverse</h3>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="n">reverse</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">e</span><span class="k">:</span> <span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Edge</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">to</span><span class="o">,</span><span class="n">e</span><span class="o">.</span><span class="n">from</span><span class="o">)</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="n">reverse</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">e</span><span class="k">:</span> <span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to</span> <span class="o">~&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">from</span>
 </code></pre>
 </div>
 
