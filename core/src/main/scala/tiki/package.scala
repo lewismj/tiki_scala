@@ -1,3 +1,5 @@
+import shapeless.PolyDefns.Case
+
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -24,14 +26,18 @@
  */
 package object tiki {
   import tiki.implicits._
+  import shapeless.Poly1
 
   /**
-    * Reverse the direction of an edge.
-    *
-    * @param e    the incoming edge.
-    * @tparam A   the type of the vertex.
-    * @return     the reversed edge.
+    * Provides 'reverse' function for different 'Edge' case classes.
+    * `Edge` classes shouldn't form an inheritance hierarchy.
     */
-  def reverse[A](e: EdgeLike[A]): Edge[A] = e.to ~> e.from
+  object reverse extends Poly1 {
+    implicit def edgeLike[A] : Case.Aux[EdgeLike[A],Edge[A]]= at({x=> x.to --> x.from})
+    implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
+    implicit def labelledEdge[A,B] : Case.Aux[LEdge[A,B],LEdge[A,B]]= at({x=> x.edge.to --> x.edge.from :+ x.label})
+  }
+
+
 }
 

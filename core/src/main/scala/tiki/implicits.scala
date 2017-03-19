@@ -44,7 +44,7 @@ object implicits {
       * @param w  the 'to' vertex.
       * @return a new `Edge` object.
       */
-    def ~>(w: A): Edge[A] = new Edge[A](v,w)
+    def -->(w: A): Edge[A] = new Edge[A](v,w)
   }
 
   /**

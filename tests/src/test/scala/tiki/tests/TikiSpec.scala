@@ -34,11 +34,11 @@ import tiki.implicits._
 class TikiSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
   test("`reverse` of an edge should swap the two and from vertices") { (x:Int, y:Int) => {
-     reverse(x ~> y) should have ('from (y), 'to (x))
+     reverse(x --> y) should have ('from (y), 'to (x))
   }}
 
   test("`reverse` of a labelled edge should swap the vertices") { (x: Int, y: Int, z: Double) => {
-    reverse(x ~> y :+ z)  should have ('from (y), 'to (x), 'label (z))
+    reverse(x --> y :+ z)  should have ('from (y), 'to (x), 'label (z))
   }}
 
 }

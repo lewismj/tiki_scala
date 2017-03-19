@@ -107,6 +107,6 @@ object AdjacencyList {
     * @return       a new `AdjacencyList`
     */
     def apply[A](edges: Iterable[EdgeLike[A]]): AdjacencyList[A] =
-      new AdjacencyList[A](edgesToMap(edges),edgesToMap(edges.map(reverse)))
+      new AdjacencyList[A](edgesToMap(edges),edgesToMap(edges.map(reverse(_))))
 
 }

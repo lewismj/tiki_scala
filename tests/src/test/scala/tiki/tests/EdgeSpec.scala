@@ -34,20 +34,20 @@ import tiki.implicits._
 class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
   test("Edge creates correct to and from vertices") { (x: Int, y: Int) => {
-    (x ~> y) should have ('from (x), 'to (y))
+    (x --> y) should have ('from (x), 'to (y))
   }}
 
   test("LEdge creates correct to, from vertices and label") { (x: Int, y: Int, z: Double) => {
-    (x ~> y :+ z) should have ('from (x), 'to (y), 'label (z))
+    (x --> y :+ z) should have ('from (x), 'to (y), 'label (z))
   }}
 
   test("`lmap` correctly relabels a labelled edge") { (x: Int, y: Int, w: Double, s: String) => {
-    (x ~> y :+ w).lmap[String](_=>s) should have ('label (s), 'from (x), 'to (y))
+    (x --> y :+ w).lmap[String](_=>s) should have ('label (s), 'from (x), 'to (y))
   }}
 
   /* Force path for scoverage/codecov. */
   test("can implicitly create an edge") {
-    val e = 1 ~> 2
+    val e = 1 --> 2
     e should be (Edge[Int](1,2))
   }
 

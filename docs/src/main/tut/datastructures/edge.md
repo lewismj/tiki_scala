@@ -33,7 +33,7 @@ Where an instance of the underlying type may be costly to hold within a graph._
 ### Constructing Edges
 
 Edges can be constructed directly. However, importing `implicits` 
-will allow you to use the `~>` and `~> :+` operators.
+will allow you to use the `-->` and `--> :+` operators.
 
 
 #### Edge
@@ -45,8 +45,8 @@ import tiki.implicits._
 
 val e0 = Edge[Int](1,2)
 
-// Use the edge ~> operator
-val e1 = 1 ~> 2
+// Use the edge --> operator
+val e1 = 1 --> 2
 ```
 
 #### LEdge
@@ -61,5 +61,5 @@ val e0 = Edge[Int](1,2)
 val we0 = LEdge(e0,2.23)
 
 // User the :+ to apply a label to an edge.
-val we1 = (1 ~> 2 :+ 2.23)
+val we1 = (1 --> 2 :+ 2.23)
 ```

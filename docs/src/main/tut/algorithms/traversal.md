@@ -46,7 +46,7 @@ import tiki.Traversal._
 import tiki.implicits._
 import scala.util.Random
 
-val edges = Random.shuffle(List('A' ~> 'B', 'A' ~> 'C', 'B' ~> 'D', 'C' ~> 'D'))
+val edges = Random.shuffle(List('A' --> 'B', 'A' --> 'C', 'B' --> 'D', 'C' --> 'D'))
 val search = dfs(AdjacencyList(edges),'A')
 ```
 
@@ -58,6 +58,6 @@ import tiki.Traversal._
 import tiki.implicits._
 import scala.util.Random
 
-val edges = Random.shuffle(List('A' ~> 'B', 'A' ~> 'C', 'B' ~> 'D', 'C' ~> 'D'))
+val edges = Random.shuffle(List('A' --> 'B', 'A' --> 'C', 'B' --> 'D', 'C' --> 'D'))
 val search = bfs(AdjacencyList(edges),'A')
 ```

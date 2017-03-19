@@ -28,7 +28,7 @@ import tiki._
 import tiki.Predef._
 import tiki.implicits._
 
-val adjacencyList = AdjacencyList(List(1 ~> 2, 1 ~> 3, 2 ~> 3))
+val adjacencyList = AdjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
 ```
  
 ### successors
@@ -38,7 +38,7 @@ import tiki._
 import tiki.Predef._
 import tiki.implicits._
 
-val adjacencyList = AdjacencyList(List(1 ~> 2, 1 ~> 3, 2 ~> 3))
+val adjacencyList = AdjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
 val xs = adjacencyList.successors(1)
 ```
  
@@ -49,7 +49,7 @@ import tiki._
 import tiki.Predef._
 import tiki.implicits._
 
-val adjacencyList = AdjacencyList(List(1 ~> 2, 1 ~> 3, 2 ~> 3))
+val adjacencyList = AdjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
 val xs = adjacencyList.predecessors(3)
 ```
   
