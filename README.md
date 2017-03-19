@@ -10,6 +10,7 @@
 ## Summary
 
 A library for functional graph algorithms (_soon_)
+
 Waffle board [here](https://waffle.io/lewismj/tiki)
 
 ### Documentation
