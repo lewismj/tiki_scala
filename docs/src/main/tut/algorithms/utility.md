@@ -17,7 +17,7 @@ The package object defines various utility functions.
 ### reverse
 
 ```scala
-def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
+def reverse[A](e: EdgeLike[A]): Edge[A] = e.to ~> e.from
 ```
 
 ```tut
