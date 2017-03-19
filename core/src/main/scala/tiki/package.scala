@@ -23,7 +23,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
-  
   /**
     * Reverse the direction of an edge.
     *
@@ -33,3 +32,4 @@ package object tiki {
     */
   def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
 }
+

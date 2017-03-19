@@ -58,7 +58,7 @@ import tiki._
 import tiki.Predef._
 
 val e0 = Edge[Int](1,2)
-val we0 = LEdge(edge,2.23)
+val we0 = LEdge(e0,2.23)
 
 // User the :+ to apply a label to an edge.
 val we1 = (1 ~> 2 :+ 2.23)
