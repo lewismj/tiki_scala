@@ -41,11 +41,11 @@ will allow you to use the <code class="highlighter-rouge">--&gt;</code> and <cod
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">e0</span> <span class="k">=</span> <span class="nc">Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">)</span>
-<span class="n">e0</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span>
+<span class="n">e0</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="c1">// Use the edge --&gt; operator
 </span>     <span class="o">|</span> <span class="k">val</span> <span class="n">e1</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span>
-<span class="n">e1</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span>
+<span class="n">e1</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span>
 </code></pre>
 </div>
 
@@ -60,7 +60,7 @@ will allow you to use the <code class="highlighter-rouge">--&gt;</code> and <cod
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">e0</span> <span class="k">=</span> <span class="nc">Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">)</span>
-<span class="n">e0</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">~&gt;</span> <span class="mi">2</span>
+<span class="n">e0</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">we0</span> <span class="k">=</span> <span class="nc">LEdge</span><span class="o">(</span><span class="n">e0</span><span class="o">,</span><span class="mf">2.23</span><span class="o">)</span>
 <span class="n">we0</span><span class="k">:</span> <span class="kt">tiki.LEdge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span>,<span class="kt">Double</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="mf">2.23</span>
