@@ -24,6 +24,7 @@
  */
 package tiki.tests
 
+import tiki._
 import tiki.Predef._
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
@@ -70,5 +71,16 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
     val (from,to,label) = (l0.from,l0.to,l0.label)
     (from, to, label) should be ((1,2,1.0))
   }
+
+  test("can reverse a labelled edge.") {
+    val e = 1 --> 2 :+ 1.1
+    reverse(e) should be (2 --> 1 :+ 1.1)
+  }
+
+  test("can reverse an edge.") {
+    val e = 1 --> 2
+    reverse(e) should be (2 --> 1)
+  }
+
 
 }
