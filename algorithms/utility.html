@@ -10,18 +10,6 @@
 
 <h3 id="reverse">reverse</h3>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
- * Provides 'reverse' function for different 'Edge' case classes.
- * `Edge` classes shouldn't form an inheritance hierarchy.
- */</span>
-<span class="k">object</span> <span class="nc">reverse</span> <span class="k">extends</span> <span class="nc">Poly1</span> <span class="o">{</span>
-  <span class="k">implicit</span> <span class="k">def</span> <span class="n">edgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">:</span> <span class="kt">Case.Aux</span><span class="o">[</span><span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>,<span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span><span class="k">=</span> <span class="n">at</span><span class="o">({</span><span class="n">x</span><span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span> <span class="o">--&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">from</span><span class="o">})</span>
-  <span class="k">implicit</span> <span class="k">def</span> <span class="n">edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">:</span> <span class="kt">Case.Aux</span><span class="o">[</span><span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>,<span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span><span class="k">=</span> <span class="n">at</span><span class="o">({</span><span class="n">x</span><span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span> <span class="o">--&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">from</span><span class="o">})</span>
-  <span class="k">implicit</span> <span class="k">def</span> <span class="n">labelledEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]</span> <span class="k">:</span> <span class="kt">Case.Aux</span><span class="o">[</span><span class="kt">LEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]</span>,<span class="kt">LEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]]</span><span class="k">=</span> <span class="n">at</span><span class="o">({</span><span class="n">x</span><span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">edge</span><span class="o">.</span><span class="n">to</span> <span class="o">--&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">edge</span><span class="o">.</span><span class="n">from</span> <span class="o">:+</span> <span class="n">x</span><span class="o">.</span><span class="n">label</span><span class="o">})</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
 
