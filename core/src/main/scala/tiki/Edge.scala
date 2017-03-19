@@ -105,5 +105,5 @@ case class LEdge[A,B](edge: EdgeLike[A], label: B) extends EdgeLike[A] {
     *
     * @return a string representation of the labelled edge.
     */
-  override def toString: String = s"$from ~> $to :+ $label"
+  override def toString: String = s"$from --> $to :+ $label"
 }
