@@ -1,32 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 .technologies {
-  background: #292E53; }
+  background: #050505; }
 
 #site-header .navbar-wrapper a {
   color: #fff; }
 
 #site-footer {
-  background: #222749; }
+  background: #5d5e5d; }
 
 ::-moz-selection {
-  background: #5B5988;
+  background: #777777;
   color: #FFFFFF; }
 
 ::selection {
-  background: #5B5988;
+  background: #777777;
   color: #FFFFFF; }
 
 .jumbotron {
-  background-color: #292E53; }
+  background-color: #050505; }
   .jumbotron .btn-outline-inverse {
     border: 2px solid #FFFFFF;
     color: #FFFFFF; }
     .jumbotron .btn-outline-inverse:hover, .jumbotron .btn-outline-inverse:focus {
       background: #FFFFFF;
-      color: #292E53; }
+      color: #050505; }
 
 pre {
-  background: rgba(238, 238, 238, 0.6); }
+  background: rgba(244, 243, 244, 0.6); }
   pre code {
     color: inherit;
     background-color: transparent; }
@@ -34,28 +34,28 @@ pre {
     background: none; }
 
 body.docs {
-  background: #eeeeee; }
+  background: #F4F3F4; }
 
 #content code {
-  color: #777777;
-  background-color: #eeeeee; }
+  color: #7D7E7D;
+  background-color: #F4F3F4; }
 
 #sidebar-wrapper {
-  background: #292E53; }
+  background: #050505; }
 
 #page-content-wrapper .nav a {
-  color: #777777; }
+  color: #7D7E7D; }
   #page-content-wrapper .nav a:hover {
-    color: #777777; }
+    color: #5d5e5d; }
   #page-content-wrapper .nav a i {
     font-size: 18px; }
 
 .sidebar-nav > li a:hover {
-  background: #222749; }
+  background: #5d5e5d; }
 .sidebar-nav > li a.active {
-  border-left: 3px solid #5B5988;
+  border-left: 3px solid #777777;
   color: #fff; }
 .sidebar-nav > .sidebar-brand a {
-  background: #222749; }
+  background: #5d5e5d; }
   .sidebar-nav > .sidebar-brand a:hover {
-    background: #222749; }
+    background: #5d5e5d; }
