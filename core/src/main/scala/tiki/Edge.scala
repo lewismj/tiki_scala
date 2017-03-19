@@ -52,7 +52,7 @@ trait EdgeLike[A] {
     *
     * @return a string representation of the edge.
     */
-  override def toString: String = s"$from ~> $to"
+  override def toString: String = s"$from --> $to"
 
 }
 
