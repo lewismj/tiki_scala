@@ -26,8 +26,9 @@ An adjacency list can be constructed as follows:
 ```tut
 import tiki._
 import tiki.Predef._
+import tiki.implicits._
 
-val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
+val adjacencyList = AdjacencyList(List(1 ~> 2, 1 ~> 3, 2 ~> 3))
 ```
  
 ### successors
@@ -35,8 +36,9 @@ val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
 ```tut
 import tiki._
 import tiki.Predef._
+import tiki.implicits._
 
-val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
+val adjacencyList = AdjacencyList(List(1 ~> 2, 1 ~> 3, 2 ~> 3))
 val xs = adjacencyList.successors(1)
 ```
  
@@ -45,8 +47,9 @@ val xs = adjacencyList.successors(1)
 ```tut
 import tiki._
 import tiki.Predef._
+import tiki.implicits._
 
-val adjacencyList = AdjacencyList(List(Edge(1,2),Edge(1,3),Edge(2,3)))
+val adjacencyList = AdjacencyList(List(1 ~> 2, 1 ~> 3, 2 ~> 3))
 val xs = adjacencyList.predecessors(3)
 ```
   

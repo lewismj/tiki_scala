@@ -23,6 +23,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
+  import tiki.implicits._
+
   /**
     * Reverse the direction of an edge.
     *
@@ -30,6 +32,6 @@ package object tiki {
     * @tparam A   the type of the vertex.
     * @return     the reversed edge.
     */
-  def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
+  def reverse[A](e: EdgeLike[A]): Edge[A] = e.to ~> e.from
 }
 
