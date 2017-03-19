@@ -22,14 +22,65 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package object tiki {
-  
+package tiki
+
+
+/**
+  * Implicit definitions.
+  */
+object implicits {
+
+
   /**
-    * Reverse the direction of an edge.
+    * Defines implicit operators for constructing edges.
     *
-    * @param e    the incoming edge.
-    * @tparam A   the type of the vertex.
-    * @return     the reversed edge.
+    * @param v      the start vertex.
+    * @tparam A     the vertex type.
     */
-  def reverse[A](e: EdgeLike[A]): Edge[A] = Edge(e.to,e.from)
+  final class EdgeDef[A](v: A) {
+    /**
+      * Creates a new edge from 'v' to 'w'.
+      *
+      * @param w  the 'to' vertex.
+      * @return a new `Edge` object.
+      */
+    def ~>(w: A): Edge[A] = new Edge[A](v,w)
+  }
+
+  /**
+    * Defines implicit operators for contructing labelled edges.
+    *
+    * @param e    the edge.
+    * @tparam A   the type of the vertex.
+    * @tparam B   the type of the label.
+    */
+  final class LabelDef[A,B](e: Edge[A]) {
+    /**
+      * Apply a label to an edge to create a labelled edge.
+      *
+      * @param l  the label to apply to the edge.
+      * @return a new `LEdge` object.
+      */
+    def :+(l :B): LEdge[A,B] = new LEdge[A,B](e,l)
+  }
+
+  /**
+    * Implicitly create an `EdgeDef`.
+    *
+    * @param v    the start vertex.
+    * @tparam A   the type of the vertex.
+    * @return     a new `EdgeDef` object.
+    */
+  implicit def anyToEdge[A](v: A): EdgeDef[A] = new EdgeDef[A](v)
+
+  /**
+    * Implicitly create a `LabelDef`.
+    *
+    * @param e    the edge.
+    * @tparam A   the type of the vertex.
+    * @tparam B   the type of the label.
+    * @return     a new `LabelDef` object.
+    */
+  implicit def anyToLEdge[A,B](e: Edge[A]): LabelDef[A,B] = new LabelDef[A,B](e)
+
 }

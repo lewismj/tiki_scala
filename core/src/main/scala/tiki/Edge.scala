@@ -45,15 +45,6 @@ trait EdgeLike[A] {
     * @return a vertex of type `A`.
     */
   def to: A
-
-  /**
-    * Apply a function that takes an edge and returns a new edge.
-    *
-    * @param f    the function to apply to the edge.
-    * @tparam B   the type of the new vertex (can be same).
-    * @return     a new edge.
-    */
-  def map[B](f: EdgeLike[A] => EdgeLike[B]): EdgeLike[B]
 }
 
 /**
@@ -67,17 +58,7 @@ trait EdgeLike[A] {
   * @param to     the 'other' vertex in the edge.
   * @tparam A     the type of the vertex.
   */
-case class Edge[A](from: A, to: A) extends EdgeLike[A] {
-  /**
-    * Apply a function that takes an edge and returns a new edge.
-    *
-    * @param f    the function to apply to the edge.
-    * @tparam B   the type of the new vertex (can be same).
-    * @return     a new edge.
-    */
-  def map[B](f: EdgeLike[A] => EdgeLike[B]): EdgeLike[B] = f(this)
-}
-
+case class Edge[A](from: A, to: A) extends EdgeLike[A]
 /**
   * A labelled edge between two vertices.
   *
@@ -100,15 +81,6 @@ case class LEdge[A,B](edge: EdgeLike[A], label: B) extends EdgeLike[A] {
     * @return a vertex of type `A`.
     */
   def to: A = edge.to
-
-  /**
-    * Apply a function that takes an edge and returns a new edge.
-    *
-    * @param f    the function to apply to the edge.
-    * @tparam C  the type of the new vertex (can be same).
-    * @return     a new edge.
-    */
-  def map[C](f: EdgeLike[A] => EdgeLike[C]): EdgeLike[C] = LEdge(f(edge),label)
 
   /**
     * Map the label from one type to another.
