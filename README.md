@@ -13,11 +13,11 @@ A library for functional graph algorithms (_soon_)
 
 Waffle board [here](https://waffle.io/lewismj/tiki).
 
-Tiki depends on the [shapeless](https://github.com/milessabin/shapeless) library.
-
 ### Documentation
 
 Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/).
 
 Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
+
+Tiki depends on the [shapeless](https://github.com/milessabin/shapeless) library.
 
