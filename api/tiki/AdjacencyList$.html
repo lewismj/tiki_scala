@@ -117,12 +117,6 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="EdgeLike.html" title="Defines behaviour that edge types must support."></a>
-                        <a href="EdgeLike.html" title="Defines behaviour that edge types must support.">
-                          EdgeLike
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
                         <a class="trait" href="GraphRep.html" title="Base representation for a graph."></a>
                         <a href="GraphRep.html" title="Base representation for a graph.">
                           GraphRep
@@ -182,7 +176,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">AdjacencyList</span>
+        <span class="name">AdjacencyList</span><span class="result"> extends <span class="extype" name="shapeless.Poly1">Poly1</span></span>
       </span>
       </h4>
 
@@ -192,7 +186,7 @@ elements that are partitioned into a number of disjoint subsets.">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="shapeless.Poly1">Poly1</span>, <span class="extype" name="shapeless.Poly">Poly</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="shapeless.PolyApply">PolyApply</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -218,7 +212,7 @@ elements that are partitioned into a number of disjoint subsets.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.AdjacencyList"><span>AdjacencyList</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.AdjacencyList"><span>AdjacencyList</span></li><li class="in" name="shapeless.Poly1"><span>Poly1</span></li><li class="in" name="shapeless.Poly"><span>Poly</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="shapeless.PolyApply"><span>PolyApply</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -238,7 +232,74 @@ elements that are partitioned into a number of disjoint subsets.">
         <div id="allMembers">
         
 
-        
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="shapeless.Poly1.Case" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Case[A]=shapeless.poly.Case[Poly1.this.type,shapeless.::[A,shapeless.HNil]]"></a><a id="Case[A]:Case[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#Case[A]=shapeless.poly.Case[Poly1.this.type,shapeless.::[A,shapeless.HNil]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Case</span><span class="tparams">[<span name="A">A</span>]</span><span class="result alias"> = <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.Poly1.Case.A">A</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly1</dd></dl></div>
+    </li><li name="shapeless.Poly1.CaseBuilder" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CaseBuilder[A]extendsAnyRef"></a><a id="CaseBuilder[A]:CaseBuilder[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#CaseBuilder[A]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">CaseBuilder</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly1</dd></dl></div>
+    </li><li name="shapeless.Poly.LowPriorityCaseBuilder" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="LowPriorityCaseBuilderextendsAnyRef"></a><a id="LowPriorityCaseBuilder:LowPriorityCaseBuilder"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#LowPriorityCaseBuilderextendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">LowPriorityCaseBuilder</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
+    </li><li name="shapeless.Poly.ProductCase" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProductCase[L&lt;:shapeless.HList]=shapeless.poly.Case[Poly.this.type,L]"></a><a id="ProductCase[L&lt;:HList]:ProductCase[L]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#ProductCase[L&lt;:shapeless.HList]=shapeless.poly.Case[Poly.this.type,L]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ProductCase</span><span class="tparams">[<span name="L">L &lt;: <span class="extype" name="shapeless.HList">HList</span></span>]</span><span class="result alias"> = <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.Poly.ProductCase.L">L</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
+    </li></ol>
+            </div>
 
         
 
@@ -293,10 +354,10 @@ elements that are partitioned into a number of disjoint subsets.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="tiki.AdjacencyList#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply[A](edges:tiki.Predef.Iterable[tiki.EdgeLike[A]]):tiki.AdjacencyList[A]"></a><a id="apply[A](Iterable[EdgeLike[A]]):AdjacencyList[A]"></a>
+    </li><li name="shapeless.Poly#andThen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="andThen(f:shapeless.Poly):shapeless.poly.Compose[f.type,Poly.this.type]"></a><a id="andThen(Poly):Compose[f.type,AdjacencyList.this.type]"></a>
       <span class="permalink">
-      <a href="../tiki/AdjacencyList$.html#apply[A](edges:tiki.Predef.Iterable[tiki.EdgeLike[A]]):tiki.AdjacencyList[A]" title="Permalink">
+      <a href="../tiki/AdjacencyList$.html#andThen(f:shapeless.Poly):shapeless.poly.Compose[f.type,Poly.this.type]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -305,12 +366,397 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Iterable[A]=scala.collection.immutable.Iterable[A]" class="extmbr" name="tiki.Predef.Iterable">Iterable</a>[<a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.AdjacencyList.apply.A">A</span>]]</span>)</span><span class="result">: <a href="AdjacencyList.html" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>[<span class="extype" name="tiki.AdjacencyList.apply.A">A</span>]</span>
+        <span class="name">andThen</span><span class="params">(<span name="f">f: <span class="extype" name="shapeless.Poly">Poly</span></span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Compose">Compose</span>[<span class="extype" name="shapeless.Poly.andThen.f">f</span>.type, <a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type]</span>
       </span>
       
-      <p class="shortcomment cmt">Create an Adjacency list from a list of directed edges.</p><div class="fullcomment"><div class="comment cmt"><p>Create an Adjacency list from a list of directed edges.
-Note, the reverse will be created.
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
+    </li><li name="tiki.AdjacencyList#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A](edges:tiki.Predef.Iterable[tiki.Edge[A]]):tiki.AdjacencyList[A]"></a><a id="apply[A](Iterable[Edge[A]]):AdjacencyList[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A](edges:tiki.Predef.Iterable[tiki.Edge[A]]):tiki.AdjacencyList[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Iterable[A]=scala.collection.immutable.Iterable[A]" class="extmbr" name="tiki.Predef.Iterable">Iterable</a>[<a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.AdjacencyList.apply.A">A</span>]]</span>)</span><span class="result">: <a href="AdjacencyList.html" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>[<span class="extype" name="tiki.AdjacencyList.apply.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Create an adjacency list from a list of directed edges.</p><div class="fullcomment"><div class="comment cmt"><p>Create an adjacency list from a list of directed edges.</p><p>Note: At present we don't store the edge type information, this can
+be retained by the graph representation (i.e. we strip the edge to
+just the to/from vertices).
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">edges</dt><dd class="cmt"><p>the list of edges.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>AdjacencyList</code></p></dd></dl></div>
+    </li><li name="shapeless.Poly#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[R](implicitc:Poly.this.ProductCase.Aux[shapeless.HNil,R]):R"></a><a id="apply[R](Aux[HNil,R]):R"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[R](implicitc:Poly.this.ProductCase.Aux[shapeless.HNil,R]):R" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="c">c: <span class="extype" name="shapeless.Poly.ProductCase.Aux">Aux</span>[<span class="extype" name="shapeless.HNil">HNil</span>, <span class="extype" name="shapeless.Poly.apply.R">R</span>]</span>)</span><span class="result">: <span class="extype" name="shapeless.Poly.apply.R">R</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S,t:T,u:U,v:V)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.::[T,shapeless.::[U,shapeless.::[V,shapeless.HNil]]]]]]]]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,::[P,::[Q,::[R,::[S,::[T,::[U,::[V,HNil]]]]]]]]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S,t:T,u:U,v:V)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.::[T,shapeless.::[U,shapeless.::[V,shapeless.HNil]]]]]]]]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>, <span name="P">P</span>, <span name="Q">Q</span>, <span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>, <span name="p">p: <span class="extype" name="shapeless.PolyApply.apply.P">P</span></span>, <span name="q">q: <span class="extype" name="shapeless.PolyApply.apply.Q">Q</span></span>, <span name="r">r: <span class="extype" name="shapeless.PolyApply.apply.R">R</span></span>, <span name="s">s: <span class="extype" name="shapeless.PolyApply.apply.S">S</span></span>, <span name="t">t: <span class="extype" name="shapeless.PolyApply.apply.T">T</span></span>, <span name="u">u: <span class="extype" name="shapeless.PolyApply.apply.U">U</span></span>, <span name="v">v: <span class="extype" name="shapeless.PolyApply.apply.V">V</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.P">P</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.Q">Q</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.R">R</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.S">S</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.T">T</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.U">U</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.V">V</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S,t:T,u:U)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.::[T,shapeless.::[U,shapeless.HNil]]]]]]]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,::[P,::[Q,::[R,::[S,::[T,::[U,HNil]]]]]]]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S,t:T,u:U)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.::[T,shapeless.::[U,shapeless.HNil]]]]]]]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>, <span name="P">P</span>, <span name="Q">Q</span>, <span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>, <span name="p">p: <span class="extype" name="shapeless.PolyApply.apply.P">P</span></span>, <span name="q">q: <span class="extype" name="shapeless.PolyApply.apply.Q">Q</span></span>, <span name="r">r: <span class="extype" name="shapeless.PolyApply.apply.R">R</span></span>, <span name="s">s: <span class="extype" name="shapeless.PolyApply.apply.S">S</span></span>, <span name="t">t: <span class="extype" name="shapeless.PolyApply.apply.T">T</span></span>, <span name="u">u: <span class="extype" name="shapeless.PolyApply.apply.U">U</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.P">P</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.Q">Q</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.R">R</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.S">S</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.T">T</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.U">U</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S,t:T)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.::[T,shapeless.HNil]]]]]]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,::[P,::[Q,::[R,::[S,::[T,HNil]]]]]]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S,t:T)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.::[T,shapeless.HNil]]]]]]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>, <span name="P">P</span>, <span name="Q">Q</span>, <span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>, <span name="p">p: <span class="extype" name="shapeless.PolyApply.apply.P">P</span></span>, <span name="q">q: <span class="extype" name="shapeless.PolyApply.apply.Q">Q</span></span>, <span name="r">r: <span class="extype" name="shapeless.PolyApply.apply.R">R</span></span>, <span name="s">s: <span class="extype" name="shapeless.PolyApply.apply.S">S</span></span>, <span name="t">t: <span class="extype" name="shapeless.PolyApply.apply.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.P">P</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.Q">Q</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.R">R</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.S">S</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.T">T</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.HNil]]]]]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,::[P,::[Q,::[R,::[S,HNil]]]]]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R,s:S)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.::[S,shapeless.HNil]]]]]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>, <span name="P">P</span>, <span name="Q">Q</span>, <span name="R">R</span>, <span name="S">S</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>, <span name="p">p: <span class="extype" name="shapeless.PolyApply.apply.P">P</span></span>, <span name="q">q: <span class="extype" name="shapeless.PolyApply.apply.Q">Q</span></span>, <span name="r">r: <span class="extype" name="shapeless.PolyApply.apply.R">R</span></span>, <span name="s">s: <span class="extype" name="shapeless.PolyApply.apply.S">S</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.P">P</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.Q">Q</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.R">R</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.S">S</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.HNil]]]]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,::[P,::[Q,::[R,HNil]]]]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q,r:R)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.::[R,shapeless.HNil]]]]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>, <span name="P">P</span>, <span name="Q">Q</span>, <span name="R">R</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>, <span name="p">p: <span class="extype" name="shapeless.PolyApply.apply.P">P</span></span>, <span name="q">q: <span class="extype" name="shapeless.PolyApply.apply.Q">Q</span></span>, <span name="r">r: <span class="extype" name="shapeless.PolyApply.apply.R">R</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.P">P</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.Q">Q</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.R">R</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.HNil]]]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,::[P,::[Q,HNil]]]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P,q:Q)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.::[Q,shapeless.HNil]]]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>, <span name="P">P</span>, <span name="Q">Q</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>, <span name="p">p: <span class="extype" name="shapeless.PolyApply.apply.P">P</span></span>, <span name="q">q: <span class="extype" name="shapeless.PolyApply.apply.Q">Q</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.P">P</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.Q">Q</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.HNil]]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,::[P,HNil]]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O,p:P)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.::[P,shapeless.HNil]]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>, <span name="P">P</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>, <span name="p">p: <span class="extype" name="shapeless.PolyApply.apply.P">P</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.P">P</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.HNil]]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O](A,B,C,D,E,F,G,H,I,J,K,L,M,N,O)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,::[O,HNil]]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N,o:O)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.::[O,shapeless.HNil]]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>, <span name="O">O</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>, <span name="o">o: <span class="extype" name="shapeless.PolyApply.apply.O">O</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.O">O</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.HNil]]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N](A,B,C,D,E,F,G,H,I,J,K,L,M,N)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,::[N,HNil]]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M,N](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M,n:N)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.::[N,shapeless.HNil]]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>, <span name="N">N</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>, <span name="n">n: <span class="extype" name="shapeless.PolyApply.apply.N">N</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.N">N</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.HNil]]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L,M](A,B,C,D,E,F,G,H,I,J,K,L,M)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,::[M,HNil]]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L,M](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L,m:M)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.::[M,shapeless.HNil]]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="M">M</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>, <span name="m">m: <span class="extype" name="shapeless.PolyApply.apply.M">M</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.M">M</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K,L](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.HNil]]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K,L](A,B,C,D,E,F,G,H,I,J,K,L)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,::[L,HNil]]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K,L](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K,l:L)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.::[L,shapeless.HNil]]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>, <span name="l">l: <span class="extype" name="shapeless.PolyApply.apply.L">L</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.L">L</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J,K](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.HNil]]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J,K](A,B,C,D,E,F,G,H,I,J,K)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,::[K,HNil]]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J,K](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J,k:K)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.::[K,shapeless.HNil]]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>, <span name="k">k: <span class="extype" name="shapeless.PolyApply.apply.K">K</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.K">K</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I,J](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.HNil]]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I,J](A,B,C,D,E,F,G,H,I,J)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,::[J,HNil]]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I,J](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I,j:J)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.::[J,shapeless.HNil]]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>, <span name="j">j: <span class="extype" name="shapeless.PolyApply.apply.J">J</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.J">J</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H,I](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.HNil]]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H,I](A,B,C,D,E,F,G,H,I)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,::[I,HNil]]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H,I](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H,i:I)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.::[I,shapeless.HNil]]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>, <span name="i">i: <span class="extype" name="shapeless.PolyApply.apply.I">I</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.I">I</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G,H](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.HNil]]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G,H](A,B,C,D,E,F,G,H)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,::[H,HNil]]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G,H](a:A,b:B,c:C,d:D,e:E,f:F,g:G,h:H)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.::[H,shapeless.HNil]]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>, <span name="h">h: <span class="extype" name="shapeless.PolyApply.apply.H">H</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.H">H</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F,G](a:A,b:B,c:C,d:D,e:E,f:F,g:G)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.HNil]]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F,G](A,B,C,D,E,F,G)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,::[G,HNil]]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F,G](a:A,b:B,c:C,d:D,e:E,f:F,g:G)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.::[G,shapeless.HNil]]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>, <span name="g">g: <span class="extype" name="shapeless.PolyApply.apply.G">G</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.G">G</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E,F](a:A,b:B,c:C,d:D,e:E,f:F)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.HNil]]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E,F](A,B,C,D,E,F)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,::[F,HNil]]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E,F](a:A,b:B,c:C,d:D,e:E,f:F)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.::[F,shapeless.HNil]]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>, <span name="f">f: <span class="extype" name="shapeless.PolyApply.apply.F">F</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.F">F</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D,E](a:A,b:B,c:C,d:D,e:E)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.HNil]]]]]]):cse.Result"></a><a id="apply[A,B,C,D,E](A,B,C,D,E)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,::[E,HNil]]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D,E](a:A,b:B,c:C,d:D,e:E)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.::[E,shapeless.HNil]]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>, <span name="e">e: <span class="extype" name="shapeless.PolyApply.apply.E">E</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.E">E</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C,D](a:A,b:B,c:C,d:D)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.HNil]]]]]):cse.Result"></a><a id="apply[A,B,C,D](A,B,C,D)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,::[D,HNil]]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C,D](a:A,b:B,c:C,d:D)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.::[D,shapeless.HNil]]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>, <span name="d">d: <span class="extype" name="shapeless.PolyApply.apply.D">D</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.D">D</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B,C](a:A,b:B,c:C)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.HNil]]]]):cse.Result"></a><a id="apply[A,B,C](A,B,C)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,::[C,HNil]]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B,C](a:A,b:B,c:C)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.::[C,shapeless.HNil]]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>, <span name="c">c: <span class="extype" name="shapeless.PolyApply.apply.C">C</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.C">C</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A,B](a:A,b:B)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.HNil]]]):cse.Result"></a><a id="apply[A,B](A,B)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,::[B,HNil]]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A,B](a:A,b:B)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.::[B,shapeless.HNil]]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>, <span name="b">b: <span class="extype" name="shapeless.PolyApply.apply.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.B">B</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
+    </li><li name="shapeless.PolyApply#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply[A](a:A)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.HNil]]):cse.Result"></a><a id="apply[A](A)(shapeless.PolyDefns.Case[AdjacencyList.this.type,::[A,HNil]]):Result"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#apply[A](a:A)(implicitcse:shapeless.poly.Case[PolyApply.this.type,shapeless.::[A,shapeless.HNil]]):cse.Result" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="a">a: <span class="extype" name="shapeless.PolyApply.apply.A">A</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cse">cse: <span class="extype" name="shapeless.PolyDefns.Case">shapeless.PolyDefns.Case</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.::">::</span>[<span class="extype" name="shapeless.PolyApply.apply.A">A</span>, <span class="extype" name="shapeless.HNil">HNil</span>]]</span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Case.Result">Result</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PolyApply</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
@@ -327,6 +773,38 @@ Note, the reverse will be created.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="shapeless.Poly1#at" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="at[A]:Poly1.this.CaseBuilder[A]"></a><a id="at[A]:CaseBuilder[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#at[A]:Poly1.this.CaseBuilder[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">at</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="#CaseBuilder[A]extendsAnyRef" class="extmbr" name="tiki.AdjacencyList.CaseBuilder">CaseBuilder</a>[<span class="extype" name="shapeless.Poly1.at.A">A</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly1</dd></dl></div>
+    </li><li name="shapeless.Poly#caseAt" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="caseAt[L&lt;:shapeless.HList](implicitc:Poly.this.ProductCase[L]):Poly.this.ProductCase[L]"></a><a id="caseAt[L&lt;:HList](ProductCase[L]):ProductCase[L]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#caseAt[L&lt;:shapeless.HList](implicitc:Poly.this.ProductCase[L]):Poly.this.ProductCase[L]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">caseAt</span><span class="tparams">[<span name="L">L &lt;: <span class="extype" name="shapeless.HList">HList</span></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="c">c: <a href="#ProductCase[L&lt;:shapeless.HList]=shapeless.poly.Case[Poly.this.type,L]" class="extmbr" name="tiki.AdjacencyList.ProductCase">ProductCase</a>[<span class="extype" name="shapeless.Poly.caseAt.L">L</span>]</span>)</span><span class="result">: <a href="#ProductCase[L&lt;:shapeless.HList]=shapeless.poly.Case[Poly.this.type,L]" class="extmbr" name="tiki.AdjacencyList.ProductCase">ProductCase</a>[<span class="extype" name="shapeless.Poly.caseAt.L">L</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
@@ -349,6 +827,22 @@ Note, the reverse will be created.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="shapeless.Poly#compose" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compose(f:shapeless.Poly):shapeless.poly.Compose[Poly.this.type,f.type]"></a><a id="compose(Poly):Compose[AdjacencyList.this.type,f.type]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#compose(f:shapeless.Poly):shapeless.poly.Compose[Poly.this.type,f.type]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compose</span><span class="params">(<span name="f">f: <span class="extype" name="shapeless.Poly">Poly</span></span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Compose">Compose</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.Poly.compose.f">f</span>.type]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
     </li><li name="tiki.AdjacencyList#empty" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="empty[A]:tiki.AdjacencyList[A]"></a><a id="empty[A]:AdjacencyList[A]"></a>
       <span class="permalink">
@@ -516,6 +1010,38 @@ Note, the reverse will be created.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="shapeless.Poly#rotateLeft" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="rotateLeft[N&lt;:shapeless.Nat]:shapeless.poly.RotateLeft[Poly.this.type,N]"></a><a id="rotateLeft[N&lt;:Nat]:RotateLeft[AdjacencyList.this.type,N]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#rotateLeft[N&lt;:shapeless.Nat]:shapeless.poly.RotateLeft[Poly.this.type,N]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rotateLeft</span><span class="tparams">[<span name="N">N &lt;: <span class="extype" name="shapeless.Nat">Nat</span></span>]</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.RotateLeft">RotateLeft</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.Poly.rotateLeft.N">N</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
+    </li><li name="shapeless.Poly#rotateRight" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="rotateRight[N&lt;:shapeless.Nat]:shapeless.poly.RotateRight[Poly.this.type,N]"></a><a id="rotateRight[N&lt;:Nat]:RotateRight[AdjacencyList.this.type,N]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#rotateRight[N&lt;:shapeless.Nat]:shapeless.poly.RotateRight[Poly.this.type,N]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rotateRight</span><span class="tparams">[<span name="N">N &lt;: <span class="extype" name="shapeless.Nat">Nat</span></span>]</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.RotateRight">RotateRight</span>[<a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>.this.type, <span class="extype" name="shapeless.Poly.rotateRight.N">N</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -548,6 +1074,22 @@ Note, the reverse will be created.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="shapeless.Poly#use" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="use[T,L&lt;:shapeless.HList,R](t:T)(implicitcb:Poly.this.CaseBuilder[T,L,R]):Poly.this.ProductCase.Aux[L,R]"></a><a id="use[T,L&lt;:HList,R](T)(AdjacencyList.CaseBuilder[T,L,R]):Aux[L,R]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#use[T,L&lt;:shapeless.HList,R](t:T)(implicitcb:Poly.this.CaseBuilder[T,L,R]):Poly.this.ProductCase.Aux[L,R]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">use</span><span class="tparams">[<span name="T">T</span>, <span name="L">L &lt;: <span class="extype" name="shapeless.HList">HList</span></span>, <span name="R">R</span>]</span><span class="params">(<span name="t">t: <span class="extype" name="shapeless.Poly.use.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cb">cb: <span class="extype" name="shapeless.Poly.CaseBuilder">AdjacencyList.CaseBuilder</span>[<span class="extype" name="shapeless.Poly.use.T">T</span>, <span class="extype" name="shapeless.Poly.use.L">L</span>, <span class="extype" name="shapeless.Poly.use.R">R</span>]</span>)</span><span class="result">: <span class="extype" name="shapeless.Poly.ProductCase.Aux">Aux</span>[<span class="extype" name="shapeless.Poly.use.L">L</span>, <span class="extype" name="shapeless.Poly.use.R">R</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
@@ -614,6 +1156,38 @@ Note, the reverse will be created.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="shapeless.Poly1.Case" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Case"></a><a id="Case:Case"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#Case" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Case</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly1</dd></dl></div>
+    </li><li name="shapeless.Poly.ProductCase" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProductCase"></a><a id="ProductCase:ProductCase"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#ProductCase" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ProductCase</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
     </li>
               </ol>
             </div>
@@ -624,7 +1198,17 @@ Note, the reverse will be created.
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="shapeless.Poly1">
+              <h3>Inherited from <span class="extype" name="shapeless.Poly1">Poly1</span></h3>
+            </div><div class="parent" name="shapeless.Poly">
+              <h3>Inherited from <span class="extype" name="shapeless.Poly">Poly</span></h3>
+            </div><div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="shapeless.PolyApply">
+              <h3>Inherited from <span class="extype" name="shapeless.PolyApply">PolyApply</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></h3>
