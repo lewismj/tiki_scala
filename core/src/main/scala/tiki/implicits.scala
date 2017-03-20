@@ -24,6 +24,9 @@
  */
 package tiki
 
+import tiki.Predef._
+import shapeless.Poly1
+
 
 /**
   * Implicit definitions.
@@ -82,5 +85,29 @@ object implicits {
     * @return     a new `LabelDef` object.
     */
   implicit def anyToLEdge[A,B](e: Edge[A]): LabelDef[A,B] = new LabelDef[A,B](e)
+
+
+  /**
+    * Implicit conversation of edge lists to adjacency list.
+    */
+  implicit object adjacencyList extends Poly1 {
+
+    implicit def edge[A] : Case.Aux[Iterable[Edge[A]],AdjacencyList[A]]= at({x => AdjacencyList[A](x)})
+
+    implicit def labelledEdge[A,B] : Case.Aux[Iterable[LEdge[A,B]],AdjacencyList[A]]= at({
+      x => AdjacencyList[A](x.map(ledge => ledge.edge))
+    })
+
+    /*
+      Provide 'List' implementation as its the most common 'Iterable' used and will avoid
+      calling code having to add '.toIterable'.
+     */
+    implicit def edgeList[A] : Case.Aux[List[Edge[A]],AdjacencyList[A]]= at({x => AdjacencyList[A](x)})
+
+    implicit def labelledEdgeList[A,B] : Case.Aux[List[LEdge[A,B]],AdjacencyList[A]]= at({
+      x => AdjacencyList[A](x.map(ledge => ledge.edge))
+    })
+
+  }
 
 }

@@ -20,6 +20,30 @@ The implementation is quite small (See ScalaDoc for comments):
 If _start_ is not contained in the graph, then the traversals will return an empty sequence.
 If _stop_ is not contained in the graph, a full traversal from _start_ will be returned.
 
+
+Traversal defines a generic `traverse` function, `dfs` and `bfs` specify the ordering:
+```scala
+private def traverse[A](g: GraphRep[A], start: A, stop: Option[A])(f: S[A]): Seq[A] = {
+@tailrec
+def traverse0(remaining: Seq[A], visited: Set[A], acc: Seq[A]): Seq[A] = remaining match {
+  case xs if xs.isEmpty => acc
+  case head +: _ if Some(head) == stop => acc :+ head
+  case head +: tail  =>
+    val adjacent = g.adjacent(head) match { case Some(ys) => ys case _ => Set.empty[A]}
+    val xs = f(tail,(adjacent -- visited).toSeq)
+    traverse0(xs, visited + head,acc :+ head)
+}
+/* If stop is not contained in the graph, full dfs is performed. */
+if (g.contains(start)) traverse0(Seq(start),Set.empty,Seq.empty)
+else Seq.empty[A]
+}
+```
+
+```scala
+def dfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A]
+= traverse(g,start,stop)((r,n) => n ++ r) 
+```
+
 ## Usage
 
 ### dfs

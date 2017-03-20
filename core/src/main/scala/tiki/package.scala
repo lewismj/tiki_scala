@@ -1,4 +1,4 @@
-import shapeless.PolyDefns.Case
+import tiki.Predef._
 
 /*
  * Copyright (c) 2017
@@ -33,10 +33,10 @@ package object tiki {
     * `Edge` classes shouldn't form an inheritance hierarchy.
     */
   object reverse extends Poly1 {
-    implicit def edgeLike[A] : Case.Aux[EdgeLike[A],Edge[A]]= at({x=> x.to --> x.from})
     implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
     implicit def labelledEdge[A,B] : Case.Aux[LEdge[A,B],LEdge[A,B]]= at({x=> x.edge.to --> x.edge.from :+ x.label})
   }
+
 
 
 }

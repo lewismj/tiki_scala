@@ -26,35 +26,6 @@ package tiki
 
 import tiki.Predef._
 
-/**
-  * Defines behaviour that edge types must support.
-  *
-  *
-  * @tparam A the type of the vertex.
-  */
-trait EdgeLike[A] {
-  /**
-    * Returns one vertex in an edge.
-    *
-    * @return a vertex of type `A`.
-    */
-  def from: A
-
-  /**
-    * Returns the 'other' vertex in the edge.
-    *
-    * @return a vertex of type `A`.
-    */
-  def to: A
-
-  /**
-    * Returns string representation of the edge.
-    *
-    * @return a string representation of the edge.
-    */
-  override def toString: String = s"$from --> $to"
-
-}
 
 /**
   * Represents an edge between two vertices.
@@ -67,7 +38,15 @@ trait EdgeLike[A] {
   * @param to     the 'other' vertex in the edge.
   * @tparam A     the type of the vertex.
   */
-case class Edge[A](from: A, to: A) extends EdgeLike[A]
+case class Edge[A](from: A, to: A) {
+  /**
+    * Returns string representation of the edge.
+    *
+    * @return a string representation of the edge.
+    */
+  override def toString: String = s"$from --> $to"
+}
+
 /**
   * A labelled edge between two vertices.
   *
@@ -76,7 +55,7 @@ case class Edge[A](from: A, to: A) extends EdgeLike[A]
   * @tparam A     the type of the edge vertex.
   * @tparam B     the type of the label.
   */
-case class LEdge[A,B](edge: EdgeLike[A], label: B) extends EdgeLike[A] {
+case class LEdge[A,B](edge: Edge[A], label: B)  {
   /**
     * Returns one vertex in an edge.
     *

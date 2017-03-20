@@ -7,21 +7,19 @@ scaladoc: "#tiki.Edge"
 ---
 # Edges
 
-To represent edges we have a base trait `EdgeLike`, together with case classes `Edge`
-and `LEdge`. `EdgeLike` is a trait that defines two methods `to` and `from`. 
-This can be used to represent a directed edge. If dealing with undirected graph, we
-can either explicitly add a reversed edge.
- 
-Many practical use cases tend to be concerned with directed graphs, and usually directed
-acyclic graphs (DAG) that are connected, i.e. _Trees_. Most data structures assume
-the edge is directed 'from' a vertex 'to' another vertex, _unless explicitly stated_.
+There are currently two `Edge` types, `Edge` and `LEdge`. An `Edge` represents a
+directed edge between two vertices. A labelled edge `LEdge` represents an edge
+with a label.
 
-`Edge` is a case class that represents an edge between two vertices. 
+Undirected edges? _Unless explicitly stated_ most algorithms would assume an undirected
+ edge be represented by two directed edges. 
+ 
+Why? Many practical use cases tend to be concerned with directed graphs, and usually directed
+acyclic graphs (DAG) that are connected, i.e. _Trees_. 
 
 _Often vertex type of an Edge may be a proxy for some underlying vertex type.
 Where an instance of the underlying type may be costly to hold within a graph._
  
-`LEdge` is a case class that represents an edge with a label attached.
  
  The labelled edge`LEdge` supports a map function over the label.
  

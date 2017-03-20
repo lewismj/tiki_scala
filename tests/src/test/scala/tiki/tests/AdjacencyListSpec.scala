@@ -30,21 +30,21 @@ import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.Predef._
-
+import tiki.implicits._
 
 class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
-  test("`successors` of adjacency list should return correct vertices")(forAll { (xs: List[EdgeLike[Int]]) =>
+  test("`successors` of adjacency list should return correct vertices")(forAll { (xs: Iterable[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
-    val adjacencyList = AdjacencyList(xs)
+    val adjacency = adjacencyList(xs)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
-      adjacencyList.successors(vertex) == Some(children.toSet)
+      adjacency.successors(vertex) == Some(children.toSet)
     } should be (true)
   })
 
-  test("`successors` of leaf vertices should be the empty set.") { (xs: List[EdgeLike[Int]]) =>
-    val adjacencyList = AdjacencyList(xs)
-    xs.filter(x => ! xs.exists(_.from == x.to )).forall(e=>adjacencyList.successors(e.to) == Some(Set.empty[Int]))
+  test("`successors` of leaf vertices should be the empty set.") { (xs: Iterable[Edge[Int]]) =>
+    val adjacency = adjacencyList(xs)
+    xs.filter(x => ! xs.exists(_.from == x.to )).forall(e=>adjacency.successors(e.to) == Some(Set.empty[Int]))
   }
 
   test("`successors` of vertex not in graph should return none") {
@@ -55,17 +55,17 @@ class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllAr
     AdjacencyList.empty[Int].predecessors(1) should be (None)
   }
 
-  test("`predecessors` of adjacency list should return correct vertices")(forAll { (xs: List[EdgeLike[Int]]) =>
+  test("`predecessors` of adjacency list should return correct vertices")(forAll { (xs: Iterable[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
-    val adjacencyList = AdjacencyList(xs)
+    val adjacency = adjacencyList(xs)
     xs.groupBy(_.to).map { case (k,v) => (k, v.map(_.from))}.forall { case (vertex, parents) =>
-      adjacencyList.predecessors(vertex) == Some(parents.toSet)
+      adjacency.predecessors(vertex) == Some(parents.toSet)
     } should be (true)
   })
 
-  test("`predecessors` of root vertices should be the empty set.") { (xs: List[EdgeLike[Int]]) =>
-    val adjacencyList = AdjacencyList(xs)
-    xs.filter(x => ! xs.exists(_.to == x.from )).forall(e=>adjacencyList.successors(e.to) == Some(Set.empty[Int]))
+  test("`predecessors` of root vertices should be the empty set.") { (xs: Iterable[Edge[Int]]) =>
+    val adjacency = adjacencyList(xs)
+    xs.filter(x => ! xs.exists(_.to == x.from )).forall(e=>adjacency.successors(e.to) == Some(Set.empty[Int]))
   }
 
 }
