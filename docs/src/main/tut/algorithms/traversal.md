@@ -40,8 +40,7 @@ else Seq.empty[A]
 ```
 
 ```scala
-def dfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A]
-= traverse(g,start,stop)((r,n) => n ++ r) 
+def dfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A] = traverse(g,start,stop)((rest,next) => next ++ rest)
 ```
 
 ## Usage

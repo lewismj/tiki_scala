@@ -87,7 +87,7 @@ object Traversal {
     * @return         a traversal sequence.
     */
   def dfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A]
-    = traverse(g,start,stop)((r,n) => n ++ r)
+    = traverse(g,start,stop)((rest,next) => next ++ rest)
 
   /**
     * Breadth first search of the graph from a start vertex with an
@@ -100,10 +100,10 @@ object Traversal {
     * @return         a traversal sequence.
     */
   def bfs[A](g: GraphRep[A], start: A, stop: Option[A] = None): Seq[A]
-    = traverse(g,start,stop)((r,n) =>
+    = traverse(g,start,stop)((rest,next) =>
       /* Avoid visiting final node twice, where last remaining node could also be 'next' */
-      if (r.nonEmpty && n.nonEmpty && r.last == n.head) r ++ n.tail
-      else r ++ n
+      if (rest.nonEmpty && next.nonEmpty && rest.last == next.head) rest ++ next.tail
+      else rest ++ next
   )
 
 }
