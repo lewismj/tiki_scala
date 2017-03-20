@@ -55,12 +55,8 @@ object Traversal {
     */
   private def traverse[A](g: GraphRep[A], start: A, stop: Option[A])(f: S[A]): Seq[A] = {
     /*
-      * Note: visited & acc contain same elements.
-      *  acc is sued to preserve ordering, visited is used because
-      *   (Set--Set) will be faster than (Set--Seq).
-      *   With space trade-off.
+      * TODO: WIP replacing, needs fix for dfs and ( adjacent --visited) is ugly.
       *
-      *   Further investigation into different traversal functions required.
       */
     @tailrec
     def traverse0(remaining: Seq[A], visited: Set[A], acc: Seq[A]): Seq[A] = remaining match {
