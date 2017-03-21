@@ -135,6 +135,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="object" href="Traversal$.html" title="Simple stream based unfold traversal."></a>
+                        <a href="Traversal$.html" title="Simple stream based unfold traversal.">
+                          Traversal
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="object" href="implicits$.html" title="Implicit definitions."></a>
                         <a href="implicits$.html" title="Implicit definitions.">
                           implicits
@@ -252,9 +258,9 @@ elements that are partitioned into a number of disjoint subsets.">
 False otherwise.
 </p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>flag to indicate if vertex is in the graph.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
     </li><li name="tiki.DirectedGraphRep#predecessors" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="predecessors(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]"></a><a id="predecessors(A):Option[Set[A]]"></a>
+      <a id="predecessors(v:A):tiki.Predef.Set[A]"></a><a id="predecessors(A):Set[A]"></a>
       <span class="permalink">
-      <a href="../tiki/DirectedGraphRep.html#predecessors(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#predecessors(v:A):tiki.Predef.Set[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -263,7 +269,7 @@ False otherwise.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">predecessors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]]</span>
+        <span class="name">predecessors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Given a vertex, find its predecessors, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Given a vertex, find its predecessors, i.e. the vertices that have
@@ -272,9 +278,9 @@ edges to the vertex.</p><p>Note:
   Otherwise Some(set of edges) will be returned. The set may be empty.
 </p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl></div>
     </li><li name="tiki.DirectedGraphRep#successors" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="successors(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]"></a><a id="successors(A):Option[Set[A]]"></a>
+      <a id="successors(v:A):tiki.Predef.Set[A]"></a><a id="successors(A):Set[A]"></a>
       <span class="permalink">
-      <a href="../tiki/DirectedGraphRep.html#successors(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]" title="Permalink">
+      <a href="../tiki/DirectedGraphRep.html#successors(v:A):tiki.Predef.Set[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -283,7 +289,7 @@ edges to the vertex.</p><p>Note:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">successors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]]</span>
+        <span class="name">successors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Given a vertex, find its successors, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Given a vertex, find its successors, i.e. the vertices it has edges to.
@@ -346,24 +352,6 @@ Note:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="tiki.DirectedGraphRep#adjacent" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="adjacent(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]"></a><a id="adjacent(A):Option[Set[A]]"></a>
-      <span class="permalink">
-      <a href="../tiki/DirectedGraphRep.html#adjacent(v:A):tiki.Predef.Option[tiki.Predef.Set[A]]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">adjacent</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.DirectedGraphRep.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Return the vertices adjacent to the given vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Return the vertices adjacent to the given vertex.
-For a directed graph, this is the children of the vertex.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the adjacent vertices.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
