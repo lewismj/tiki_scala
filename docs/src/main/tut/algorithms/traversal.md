@@ -45,7 +45,7 @@ private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A] =
  Both are implemented in terms of the `unfold` and `traverse` functions:
  
  ```scala
-def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]
+private def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]
   = if (g.contains(start)) traverse(g, start, dfs) else Stream.empty
 
 def dfs[A](g: DirectedGraphRep[A], start: A): Stream[A]
