@@ -19,8 +19,8 @@ _Different operations are faster in different representations._
 The choice of representation can be based on factors such as the density (number of edges 
 in terms of number of vertices).
 
-The traversal is independent of the graph representation, for lots of applications we
-either don't require (or want) a multi-way tree data structure.
+The traversal (a generic `unfold`) is independent of the graph representation.
+For many applications we either don't require (or want) a multi-way tree data structure.
 
 ## Further Reading
 
