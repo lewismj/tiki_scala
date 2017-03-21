@@ -26,11 +26,6 @@ package tiki
 
 import tiki.Predef._
 
-trait EdgeLike[A] {
-  def from: A
-  def to: A
-}
-
 
 /**
   * Represents an edge between two vertices.
@@ -43,7 +38,7 @@ trait EdgeLike[A] {
   * @param to     the 'other' vertex in the edge.
   * @tparam A     the type of the vertex.
   */
-case class Edge[A](from: A, to: A) extends EdgeLike[A] {
+case class Edge[A](from: A, to: A)  {
   /**
     * Returns string representation of the edge.
     *
@@ -60,7 +55,7 @@ case class Edge[A](from: A, to: A) extends EdgeLike[A] {
   * @tparam A     the type of the edge vertex.
   * @tparam B     the type of the label.
   */
-case class LEdge[A,B](edge: Edge[A], label: B) extends EdgeLike[A]  {
+case class LEdge[A,B](edge: Edge[A], label: B)  {
   /**
     * Returns one vertex in an edge.
     *

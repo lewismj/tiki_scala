@@ -2,15 +2,6 @@ package tiki
 
 import tiki.Predef._
 
-/**
-  * Interface for weighted edges.
-  *
-  * @tparam A the vertex type.
-  */
-trait WEdgeLike[A] extends EdgeLike[A] {
-  /** The weight of the edge. */
-  def weight: Double
-}
 
 /**
   * A weighted edge between two vertices.
@@ -19,7 +10,7 @@ trait WEdgeLike[A] extends EdgeLike[A] {
   * @param weight the weight of the edge.
   * @tparam A     the type of the edge vertex.
   */
-case class WEdge[A](edge: Edge[A], weight: Double)  extends WEdgeLike[A] {
+case class WEdge[A](edge: Edge[A], weight: Double) {
   /**
     * Returns one vertex in an edge.
     *
@@ -39,5 +30,5 @@ case class WEdge[A](edge: Edge[A], weight: Double)  extends WEdgeLike[A] {
     *
     * @return a string representation of the weighted edge.
     */
-  override def toString: String = s"$from --> $to # $weight"
+  override def toString: String = s"$from --> $to :# $weight"
 }
