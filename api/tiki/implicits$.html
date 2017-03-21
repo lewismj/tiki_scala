@@ -117,6 +117,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="EdgeLike.html" title=""></a>
+                        <a href="EdgeLike.html" title="">
+                          EdgeLike
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="GraphRep.html" title="Base representation for a graph."></a>
                         <a href="GraphRep.html" title="Base representation for a graph.">
                           GraphRep
@@ -138,6 +144,18 @@ elements that are partitioned into a number of disjoint subsets.">
                         <a class="object" href="Traversal$.html" title="Simple stream based unfold traversal."></a>
                         <a href="Traversal$.html" title="Simple stream based unfold traversal.">
                           Traversal
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="class" href="WEdge.html" title="A weighted edge between two vertices."></a>
+                        <a href="WEdge.html" title="A weighted edge between two vertices.">
+                          WEdge
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="WEdgeLike.html" title="Interface for weighted edges."></a>
+                        <a href="WEdgeLike.html" title="Interface for weighted edges.">
+                          WEdgeLike
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -263,13 +281,32 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="Defines implicit operators for contructing labelled edges." href="implicits$$LabelDef.html">
+        <a title="Defines implicit operators for constructing labelled edges." href="implicits$$LabelDef.html">
               <span class="name">LabelDef</span>
             </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       
-      <p class="shortcomment cmt">Defines implicit operators for contructing labelled edges.</p><div class="fullcomment"><div class="comment cmt"><p>Defines implicit operators for contructing labelled edges.
+      <p class="shortcomment cmt">Defines implicit operators for constructing labelled edges.</p><div class="fullcomment"><div class="comment cmt"><p>Defines implicit operators for constructing labelled edges.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the type of the label.</p></dd></dl></div>
+    </li><li name="tiki.implicits.WeightDef" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="WeightDef[A]extendsAnyRef"></a><a id="WeightDef[A]:WeightDef[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/implicits$.html#WeightDef[A]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="Defines implicit operators for constructing weighted edges." href="implicits$$WeightDef.html">
+              <span class="name">WeightDef</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Defines implicit operators for constructing weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>Defines implicit operators for constructing weighted edges.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -360,6 +397,23 @@ elements that are partitioned into a number of disjoint subsets.">
       
       <p class="shortcomment cmt">Implicitly create a <code>LabelDef</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Implicitly create a <code>LabelDef</code>.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the type of the label.</p></dd><dt class="param">e</dt><dd class="cmt"><p>the edge.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>LabelDef</code> object.</p></dd></dl></div>
+    </li><li name="tiki.implicits#anyToWEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="anyToWEdge[A](e:tiki.Edge[A]):tiki.implicits.WeightDef[A]"></a><a id="anyToWEdge[A](Edge[A]):WeightDef[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/implicits$.html#anyToWEdge[A](e:tiki.Edge[A]):tiki.implicits.WeightDef[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">anyToWEdge</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="e">e: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.implicits.anyToWEdge.A">A</span>]</span>)</span><span class="result">: <a href="implicits$$WeightDef.html" class="extype" name="tiki.implicits.WeightDef">WeightDef</a>[<span class="extype" name="tiki.implicits.anyToWEdge.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Implicitly create a <code>WeightDef</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Implicitly create a <code>WeightDef</code>.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">e</dt><dd class="cmt"><p>the edge.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>WeightDef</code> object.</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
