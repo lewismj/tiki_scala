@@ -42,6 +42,10 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
     (x --> y :+ z) should have ('from (x), 'to (y), 'label (z))
   }}
 
+  test("WEge creates correct to, from vertices and weight") { (x: Int, y: Int, z: Double) => {
+    (x --> y :# z) should have ('from (x), 'to (y), 'weight (z))
+  }}
+
   test("`lmap` correctly relabels a labelled edge") { (x: Int, y: Int, w: Double, s: String) => {
     (x --> y :+ w).lmap[String](_=>s) should have ('label (s), 'from (x), 'to (y))
   }}
@@ -60,6 +64,11 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
   test("can implicitly create an edge") {
     val e = 1 --> 2
     e should be (Edge[Int](1,2))
+  }
+
+  test("can implicitly create a weighted edge") {
+    val e = 1 --> 2 :# 2.2
+    e should be (WEdge(Edge(1,2),2.2))
   }
 
   test("`lmap` correctly relabels.") {

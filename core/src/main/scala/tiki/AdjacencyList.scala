@@ -34,8 +34,6 @@ import shapeless.Poly1
   */
 final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends DirectedGraphRep[A] {
 
-
-
   /**
     * Returns true if the vertex is contained in the graph.
     * False otherwise.
@@ -75,7 +73,7 @@ final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) exten
 /**
   * Companion object for the `AdjacencyList` class.
   */
-object AdjacencyList extends Poly1 {
+object AdjacencyList {
 
   /**
     * Create the empty Adjacency list set for a given type.

@@ -33,7 +33,6 @@ import shapeless.Poly1
   */
 object implicits {
 
-
   /**
     * Defines implicit operators for constructing edges.
     *
@@ -51,7 +50,7 @@ object implicits {
   }
 
   /**
-    * Defines implicit operators for contructing labelled edges.
+    * Defines implicit operators for constructing labelled edges.
     *
     * @param e    the edge.
     * @tparam A   the type of the vertex.
@@ -65,6 +64,22 @@ object implicits {
       * @return a new `LEdge` object.
       */
     def :+(l :B): LEdge[A,B] = new LEdge[A,B](e,l)
+  }
+
+  /**
+    * Defines implicit operators for constructing weighted edges.
+    *
+    * @param e    the edge.
+    * @tparam A   the type of the vertex.
+    */
+  final class WeightDef[A](e: Edge[A]) {
+    /**
+      * Apply a weight to an edge to create a weighed edge.
+      *
+      * @param w  the weight to apply to the edge.
+      * @return a new `WEdge` object.
+      */
+    def :#(w: Double): WEdge[A] = new WEdge[A](e,w)
   }
 
   /**
@@ -86,17 +101,29 @@ object implicits {
     */
   implicit def anyToLEdge[A,B](e: Edge[A]): LabelDef[A,B] = new LabelDef[A,B](e)
 
+  /**
+    * Implicitly create a `WeightDef`.
+    *
+    * @param e    the edge.
+    * @tparam A   the type of the vertex.
+    * @return     a new `WeightDef` object.
+    */
+  implicit def anyToWEdge[A](e: Edge[A]): WeightDef[A] = new WeightDef[A](e)
+
 
   /**
     * Implicit conversation of edge lists to adjacency list.
     */
   implicit object buildAdjacencyList extends Poly1 {
 
-    implicit def edge[A] : Case.Aux[Iterable[Edge[A]],AdjacencyList[A]]
+    implicit def edge[A]: Case.Aux[Iterable[Edge[A]],AdjacencyList[A]]
       = at(x => AdjacencyList[A](x))
 
-    implicit def labelledEdge[A,B] : Case.Aux[Iterable[LEdge[A,B]],AdjacencyList[A]]
+    implicit def labelledEdge[A,B]: Case.Aux[Iterable[LEdge[A,B]],AdjacencyList[A]]
       = at(x => AdjacencyList[A](x.map(ledge => ledge.edge)))
+
+    implicit def weightedEdge[A]: Case.Aux[Iterable[WEdge[A]],AdjacencyList[A]]
+      = at(x => AdjacencyList[A](x.map(wedge => wedge.edge)))
 
     /*
       Provide 'List' implementation as its the most common 'Iterable' used and will avoid
@@ -107,6 +134,9 @@ object implicits {
 
     implicit def labelledEdgeList[A,B] : Case.Aux[List[LEdge[A,B]],AdjacencyList[A]]
       = at(x => AdjacencyList[A](x.map(ledge => ledge.edge)))
+
+    implicit def weightedEdgeList[A] : Case.Aux[List[WEdge[A]],AdjacencyList[A]]
+      = at(x => AdjacencyList[A](x.map(wedge => wedge.edge)))
 
   }
 

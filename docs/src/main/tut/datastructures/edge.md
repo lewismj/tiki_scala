@@ -7,9 +7,14 @@ scaladoc: "#tiki.Edge"
 ---
 # Edges
 
-There are currently two `Edge` types, `Edge` and `LEdge`. An `Edge` represents a
-directed edge between two vertices. A labelled edge `LEdge` represents an edge
-with a label.
+The following case classes may used to define edges:
+
+- `Edge` an unweighted edge from one vertex to another.
+- `LEdge` an unweighted, labelled edge from one vertex to another.
+- `WEdge` is a weighted edge.
+
+The case classes _do not_ form a hierarchy. The weighted edge case class is provided
+for use-cases where we require just a weighted edge and no labelling. 
 
 Undirected edges? _Unless explicitly stated_ most algorithms would assume an undirected
  edge be represented by two directed edges. 
@@ -21,10 +26,9 @@ _Often vertex type of an Edge may be a proxy for some underlying vertex type.
 Where an instance of the underlying type may be costly to hold within a graph._
  
  
- The labelled edge`LEdge` supports a map function over the label.
+Functions:
  
-- `lmap` apply the function `f` on the label and return a new labelled edge.
- 
+- `lmap(f)` apply the function `f` on the label and return a new labelled edge.
 
 ## Usage
 
@@ -49,15 +53,25 @@ val e1 = 1 --> 2
 
 #### LEdge
 
-The label can be any type, below a _weighted_ edge is represented as an edge labelled with a `Double`.
-
 ```tut
 import tiki._
 import tiki.Predef._
 
 val e0 = Edge[Int](1,2)
-val we0 = LEdge(e0,2.23)
+val le0 = LEdge(e0,"a label")
 
 // User the :+ to apply a label to an edge.
-val we1 = (1 --> 2 :+ 2.23)
+val le1 = 1 --> 2 :+ "a label"
+```
+
+#### WEdge
+
+The weighted edge is a case where we have only one label of type double. There is the `:#` operator
+to create these edges:
+
+```tut
+import tiki._
+import tiki.Predef._
+
+val we = 1 --> 2 :# 2.345
 ```
