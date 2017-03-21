@@ -8,7 +8,7 @@ scaladoc: "#tiki.Traversal"
 # Traversal functions
  
 Traversal is done by performing an `unfold` on the graph representation, the 
-traversal function will return a stream of vertices.
+ function will return a stream of vertices.
 
 ```scala
 private def unfold[T,R](z: T)(f: T => Option[(R,T)]): Stream[R] = f(z) match {
@@ -18,8 +18,7 @@ private def unfold[T,R](z: T)(f: T => Option[(R,T)]): Stream[R] = f(z) match {
 ```
 
 The traversal can be depth or breadth first (_note_ the `distinct` on the stream does preserve order,
-a vertex may be visited more than once in a traversal, most of the time we want the first time 
-only).
+a vertex may be visited more than once in a traversal, most of the time we want the first instance).
 
 ```scala
 private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A] = {
@@ -42,7 +41,7 @@ private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A] =
  - `dfs(g,start)` will perform a depth-first traversal of the graph _g_, starting at _start_ vertex.
  - `bfs(g,start)` as above, except a breadth first search will be done.
  
- Both are implemented in terms of the `unfold` and `traverse` functions:
+ Both are implemented in terms of the `visitOrder` function.
  
  ```scala
 private def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]

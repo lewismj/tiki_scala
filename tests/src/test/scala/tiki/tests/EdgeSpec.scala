@@ -47,7 +47,9 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
   }}
 
   test("`toString` of an edge is correct") { (x: Int, y: Int) => {
-    (x --> y).toString should be (s"$x --> $y")
+    val edge = Edge[Int](x,y)
+    val str = edge.toString
+    str should be (s"$x --> $y")
   }}
 
   test("`toString` of a labelled edge is correct") { (x: Int, y: Int, z: Int) => {
