@@ -1,11 +1,11 @@
 ---
- layout: docs 
- title:  "Traversal"
- section: "algorithms"
- source: "core/src/main/scala/tiki/Traversal.scala"
- scaladoc: "#tiki.Traversal"
- ---
- # Traversal functions
+layout: docs 
+title:  "Traversal"
+section: "algorithms"
+source: "core/src/main/scala/tiki/Traversal.scala"
+scaladoc: "#tiki.Traversal"
+---
+# Traversal functions
  
 Traversal is done by performing an `unfold` on the graph representation, the 
 traversal function will return a stream of vertices.
