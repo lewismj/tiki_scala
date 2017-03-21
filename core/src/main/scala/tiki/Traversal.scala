@@ -54,15 +54,8 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A] = {
-    if (g.contains(start)) {
-      traverse(g, start, dfs)
-    }
-    else {
-      Stream.empty
-    }
-  }
-
+  def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]
+    = if (g.contains(start)) traverse(g, start, dfs) else Stream.empty
 
   /**
     * Perform a depth first search on a directed graph.
