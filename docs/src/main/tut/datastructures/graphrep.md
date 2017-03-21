@@ -11,22 +11,22 @@ scaladoc: "#tiki.GraphRep"
 
 `GraphRep` defines a trait that different graph representations should adhere to.
 
-- `adjacent(v)` should return the set of adjacent edges.
+- `contains(v)` should return true if the vertex belongs in the graph.
 
 ```scala
 trait GraphRep[A] {
   def contains(v: A): Boolean
-  def adjacent(v: A): Option[Set[A]]
 }
 ```
 
 `DirectedGraphRep` extends the `GraphRep` and defined the functions that directed graphs
-should implement. The `adjacent` vertices are assumed to be the successors (or children) of
-the vertex.
+should implement.
+
+- `successors(v)` the vertices that have an incoming edge *from* _v_.
+- `predecessora(v)` the vertices that have an outgoing edge *to* _v_.
 
 ```scala
 trait DirectedGraphRep[A] extends GraphRep[A] {
-  def adjacent(v: A): Set[A] = successors(v)
   def contains(v: A): Boolean
   def successors(v: A): Option[Set[A]]
   def predecessors(v: A): Option[Set[A]]
