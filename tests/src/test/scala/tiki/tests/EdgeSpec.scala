@@ -42,7 +42,7 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
     (x --> y :+ z) should have ('from (x), 'to (y), 'label (z))
   }}
 
-  test("WEge creates correct to, from vertices and weight") { (x: Int, y: Int, z: Double) => {
+  test("WEdge creates correct to, from vertices and weight") { (x: Int, y: Int, z: Double) => {
     (x --> y :# z) should have ('from (x), 'to (y), 'weight (z))
   }}
 
@@ -69,6 +69,12 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
   test("can implicitly create a weighted edge") {
     val e = 1 --> 2 :# 2.2
     e should be (WEdge(Edge(1,2),2.2))
+  }
+
+  test("weighted edge has correct properties.") {
+    val w0 = WEdge(Edge(1,2),8.8)
+    val (from,to,weight) = (w0.from,w0.to,w0.weight)
+    (from, to, weight) should be ((1,2,8.8))
   }
 
   test("`lmap` correctly relabels.") {
