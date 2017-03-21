@@ -5,22 +5,24 @@
 <p><code class="highlighter-rouge">GraphRep</code> defines a trait that different graph representations should adhere to.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">adjacent(v)</code> should return the set of adjacent edges.</li>
+  <li><code class="highlighter-rouge">contains(v)</code> should return true if the vertex belongs in the graph.</li>
 </ul>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">GraphRep</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
-  <span class="k">def</span> <span class="n">adjacent</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
 <span class="o">}</span>
 </code></pre>
 </div>
 
 <p><code class="highlighter-rouge">DirectedGraphRep</code> extends the <code class="highlighter-rouge">GraphRep</code> and defined the functions that directed graphs
-should implement. The <code class="highlighter-rouge">adjacent</code> vertices are assumed to be the successors (or children) of
-the vertex.</p>
+should implement.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">successors(v)</code> the vertices that have an incoming edge <em>from</em> <em>v</em>.</li>
+  <li><code class="highlighter-rouge">predecessora(v)</code> the vertices that have an outgoing edge <em>to</em> <em>v</em>.</li>
+</ul>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">DirectedGraphRep</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">GraphRep</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">adjacent</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
   <span class="k">def</span> <span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
