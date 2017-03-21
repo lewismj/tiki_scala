@@ -42,18 +42,6 @@ trait GraphRep[A] {
     * @return flag to indicate if vertex is in the graph.
     */
   def contains(v: A): Boolean
-
-  /**
-    * Return the vertices adjacent to the given vertex.
-    * If no adjacent vertices return empty set.
-    * None will be returned if the vertex is not contained
-    * in the graph.
-    *
-    * @param v  the vertex.
-    * @return the adjacent vertices.
-    */
-  def adjacent(v: A): Option[Set[A]]
-
 }
 
 
@@ -72,15 +60,6 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
   def contains(v: A): Boolean
 
   /**
-    * Return the vertices adjacent to the given vertex.
-    * For a directed graph, this is the children of the vertex.
-    *
-    * @param v  the vertex.
-    * @return the adjacent vertices.
-    */
-  override def adjacent(v: A): Option[Set[A]] = successors(v)
-
-  /**
     * Given a vertex, find its successors, i.e. the vertices it has edges to.
     * Returns an option.
     * Note:
@@ -90,7 +69,7 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def successors(v: A): Option[Set[A]]
+  def successors(v: A): Set[A]
 
   /**
     * Given a vertex, find its predecessors, i.e. the vertices that have
@@ -103,5 +82,5 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def predecessors(v: A): Option[Set[A]]
+  def predecessors(v: A): Set[A]
 }

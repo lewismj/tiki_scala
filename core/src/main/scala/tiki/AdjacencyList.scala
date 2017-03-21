@@ -34,6 +34,8 @@ import shapeless.Poly1
   */
 final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends DirectedGraphRep[A] {
 
+
+
   /**
     * Returns true if the vertex is contained in the graph.
     * False otherwise.
@@ -53,7 +55,7 @@ final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) exten
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def successors(v: A) : Option[Set[A]] = g.get(v)
+  def successors(v: A) : Set[A] = g.getOrElse(v,Set.empty[A])
 
   /**
     * Given a vertex, find its predecessors, i.e. the vertices that have
@@ -66,7 +68,7 @@ final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) exten
     * @param v the vertex.
     * @return a set of vertices, or none if the vertex could not be found.
     */
-  def predecessors(v: A)  : Option[Set[A]] = gr.get(v)
+  def predecessors(v: A)  : Set[A] = gr.getOrElse(v,Set.empty[A])
 }
 
 

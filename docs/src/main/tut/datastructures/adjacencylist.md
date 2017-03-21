@@ -25,14 +25,6 @@ Both functions will return an Option, None will be returned if _v_ does not exis
 
 An adjacency should be constructed using the implicit object `adjacencyList` which
 will take an `Iterable` of any edge type and return an `AdjacencyList`.
-
-```tut
-import tiki._
-import tiki.Predef._
-import tiki.implicits._
-
-val xs = adjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
-```
  
 ### successors
  
@@ -41,7 +33,7 @@ import tiki._
 import tiki.Predef._
 import tiki.implicits._
 
-val xs = adjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
+val xs = buildAdjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
 val ys = xs.successors(1)
 ```
  
@@ -52,7 +44,7 @@ import tiki._
 import tiki.Predef._
 import tiki.implicits._
 
-val xs = adjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
+val xs = buildAdjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
 val ys = xs.predecessors(3)
 ```
   
