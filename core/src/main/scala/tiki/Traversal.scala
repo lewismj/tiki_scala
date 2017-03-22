@@ -10,7 +10,7 @@ object Traversal {
   /**
     * Unfold a collection into a stream.
     *
-    * @param z    the initial element (type T)of the stream.
+    * @param z    the initial element (type T) of the stream.
     * @param f    f: T => Option ( R, T ), R is the output type.
     * @tparam T   the type of the initial element, i.e. traversal start point.
     * @tparam R   the type of the emitted traversal.
@@ -32,18 +32,21 @@ object Traversal {
     * @return     the traversal stream.
     */
   private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A] = {
-    val traversal = unfold(List(v)) {
-      case w :: Nil =>
-        Some((w,g.successors(w).toList))
-      case w :: vs =>
-        val next = if (dfs) g.successors(w).toList ::: vs
-        else vs ::: g.successors(w).toList
-        Some((w,next))
-      case _ =>
-        None
+    val traversal = unfold( (List(v),Set.empty[A]) ) {
+      case (current,visited) => current match {
+        case w :: Nil =>
+          Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
+        case w :: vs =>
+          val next = if (dfs) g.successors(w).toList ::: vs
+          else vs ::: g.successors(w).toList
+          Some((w, (next.filterNot(visited.contains), visited + w)))
+        case _ =>
+          None
+      }
     }
     traversal.distinct
   }
+
 
   /**
     * Generates a visit order as a stream of vertices.
