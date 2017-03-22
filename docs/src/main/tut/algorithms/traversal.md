@@ -11,9 +11,11 @@ Traversal is done by performing an `unfold` on the graph representation, the
  function will return a stream of vertices.
 
 ```scala
-private def unfold[T,R](z: T)(f: T => Option[(R,T)]): Stream[R] = f(z) match {
-    case None => Stream.empty[R]
-    case Some((r,v)) => r #:: unfold(v)(f)
+private def unfold[T,R](z:T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
+    case None => Trampoline.done(Stream.empty[R])
+    case Some((r,v)) =>
+        Trampoline.suspend(unfold(v)(f)).flatMap(stream => Trampoline.done(r #:: stream))
+  }
 }
 ```
 
@@ -24,18 +26,18 @@ Currently, cycles are ignored.
 
 ```scala
 private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]
-    = unfold( (List(v),Set.empty[A]) ) {
-        case (current,visited) => current match {
-          case w :: Nil =>
-            Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
-          case w :: vs =>
-            val next = if (dfs) g.successors(w).toList ::: vs
-            else vs ::: g.successors(w).toList
-            Some((w, (next.filterNot(visited.contains), visited + w)))
-          case _ =>
-            None
-        }
-      }.distinct
+= unfold( (List(v),Set.empty[A]) ) {
+      case (current,visited) => current match {
+        case w :: Nil =>
+          Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
+        case w :: vs =>
+          val next = if (dfs) g.successors(w).toList ::: vs
+          else vs ::: g.successors(w).toList
+          Some((w, (next.filterNot(visited.contains), visited + w)))
+        case _ =>
+          None
+      }
+    }.run
 ```
 
  Two primary functions are available:
@@ -47,7 +49,7 @@ private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]
  
  ```scala
 private def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]
-  = if (g.contains(start)) traverse(g, start, dfs) else Stream.empty
+  = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty
 
 def dfs[A](g: DirectedGraphRep[A], start: A): Stream[A]
   = visitOrder(g,start,dfs=true)

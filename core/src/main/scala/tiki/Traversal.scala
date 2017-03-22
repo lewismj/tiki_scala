@@ -1,6 +1,9 @@
 package tiki
 
+
 import tiki.Predef._
+import cats.free._
+import cats.implicits._
 
 /**
   * Simple stream based unfold traversal.
@@ -16,36 +19,37 @@ object Traversal {
     * @tparam R   the type of the emitted traversal.
     * @return a stream of the traversal.
     */
-  private def unfold[T,R](z: T)(f: T => Option[(R,T)]): Stream[R] = f(z) match {
-    case None => Stream.empty[R]
-    case Some((r,v)) => r #:: unfold(v)(f)
+  private def unfold[T,R](z:T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
+    case None => Trampoline.done(Stream.empty[R])
+    case Some((r,v)) =>
+        Trampoline.suspend(unfold(v)(f)).flatMap(stream =>
+          Trampoline.done(r #:: stream))
   }
 
+
   /**
-    * Generates a graph traversal, as stream of vertices.
-    *
-    * @param g    the directed graph representation.
-    * @param v    the start vertex.
-    * @param dfs  flag to indicate if depth first search (true) or
-    *             breadth first search (false).
-    * @tparam A   the type of the vertex.
-    * @return     the traversal stream.
-    */
+   * Generates a graph traversal, as stream of vertices.
+   *
+   * @param g    the directed graph representation.
+   * @param v    the start vertex.
+   * @param dfs  flag to indicate if depth first search (true) or
+   *             breadth first search (false).
+   * @tparam A   the type of the vertex.
+   * @return     the traversal stream.
+   */
   private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]
-  = unfold( (List(v),Set.empty[A]) ) {
-        case (current,visited) => current match {
-          case w :: Nil =>
-            Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
-          case w :: vs =>
-            val next = if (dfs) g.successors(w).toList ::: vs
-            else vs ::: g.successors(w).toList
-            Some((w, (next.filterNot(visited.contains), visited + w)))
-          case _ =>
-            None
-        }
-      }.distinct
-
-
+    = unfold( (List(v),Set.empty[A]) ) {
+          case (current,visited) => current match {
+            case w :: Nil =>
+              Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
+            case w :: vs =>
+              val next = if (dfs) g.successors(w).toList ::: vs
+              else vs ::: g.successors(w).toList
+              Some((w, (next.filterNot(visited.contains), visited + w)))
+            case _ =>
+              None
+          }
+        }.run
 
   /**
     * Generates a visit order as a stream of vertices.
@@ -57,7 +61,7 @@ object Traversal {
     * @return         visit order stream.
     */
   private def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]
-    = if (g.contains(start)) traverse(g, start, dfs) else Stream.empty
+    = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty
 
   /**
     * Perform a depth first search on a directed graph.
