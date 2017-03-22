@@ -13,6 +13,20 @@ import scala.util.Random
 
 class TraversalSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
+  test("`dfs` single node with edge to self..") {
+    val edges = Random.shuffle(List('A' --> 'A'))
+    val adj = buildAdjacencyList(edges)
+    val search = dfs(adj, 'A')
+    search should be(Seq('A'))
+  }
+
+  test("`bfs` single node with edge to self..") {
+    val edges = Random.shuffle(List('A' --> 'A'))
+    val adj = buildAdjacencyList(edges)
+    val search = bfs(adj, 'A')
+    search should be(Seq('A'))
+  }
+
   test("`dfs` on cycle returns visited node once.") {
     val edges = Random.shuffle(List('A' --> 'B', 'B' --> 'C', 'C' --> 'A'))
     val adj = buildAdjacencyList(edges)
