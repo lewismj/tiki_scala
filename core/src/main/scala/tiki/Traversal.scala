@@ -31,21 +31,20 @@ object Traversal {
     * @tparam A   the type of the vertex.
     * @return     the traversal stream.
     */
-  private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A] = {
-    val traversal = unfold( (List(v),Set.empty[A]) ) {
-      case (current,visited) => current match {
-        case w :: Nil =>
-          Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
-        case w :: vs =>
-          val next = if (dfs) g.successors(w).toList ::: vs
-          else vs ::: g.successors(w).toList
-          Some((w, (next.filterNot(visited.contains), visited + w)))
-        case _ =>
-          None
-      }
-    }
-    traversal.distinct
-  }
+  private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]
+  = unfold( (List(v),Set.empty[A]) ) {
+        case (current,visited) => current match {
+          case w :: Nil =>
+            Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
+          case w :: vs =>
+            val next = if (dfs) g.successors(w).toList ::: vs
+            else vs ::: g.successors(w).toList
+            Some((w, (next.filterNot(visited.contains), visited + w)))
+          case _ =>
+            None
+        }
+      }.distinct
+
 
 
   /**
