@@ -26,6 +26,7 @@ In the following example, for a simple test, the `WeightedDigraph` was defined u
 an adjacency list and an edge list (containing weights). 
 
 ```tut
+import tiki._
 import tiki.Predef._
 import tiki.implicits._
 

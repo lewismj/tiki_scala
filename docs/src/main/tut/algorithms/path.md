@@ -36,6 +36,7 @@ def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A]
 ```
 
 ```tut
+import tiki._
 import tiki.Predef._
 import tiki.Path._
 import tiki.implicits._
