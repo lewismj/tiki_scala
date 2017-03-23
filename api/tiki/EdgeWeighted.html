@@ -97,9 +97,9 @@
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs."></a>
-                        <a href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs.">
-                          DirectedGraphRep
+                        <a class="trait" href="Digraph.html" title="Trait that defines interface for directed graphs."></a>
+                        <a href="Digraph.html" title="Trait that defines interface for directed graphs.">
+                          Digraph
                         </a>
                       </li><li class="current-entities indented1">
                         <a class="object" href="DisjointSet$.html" title=""></a>
@@ -117,15 +117,33 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="class" href="EdgeLabelled.html" title="A labelled edge between two vertices."></a>
+                        <a href="EdgeLabelled.html" title="A labelled edge between two vertices.">
+                          EdgeLabelled
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="class" href="" title="A weighted edge between two vertices."></a>
+                        <a href="" title="A weighted edge between two vertices.">
+                          EdgeWeighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="EdgeWeightedDigraph.html" title="Trait that defines interface for weighted directed graphs."></a>
+                        <a href="EdgeWeightedDigraph.html" title="Trait that defines interface for weighted directed graphs.">
+                          EdgeWeightedDigraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="GraphRep.html" title="Base representation for a graph."></a>
                         <a href="GraphRep.html" title="Base representation for a graph.">
                           GraphRep
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="LEdge.html" title="A labelled edge between two vertices."></a>
-                        <a href="LEdge.html" title="A labelled edge between two vertices.">
-                          LEdge
+                        <a class="object" href="Poly$.html" title=""></a>
+                        <a href="Poly$.html" title="">
+                          Poly
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -138,18 +156,6 @@ elements that are partitioned into a number of disjoint subsets.">
                         <a class="object" href="Traversal$.html" title="Simple stream based unfold traversal."></a>
                         <a href="Traversal$.html" title="Simple stream based unfold traversal.">
                           Traversal
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="class" href="" title="A weighted edge between two vertices."></a>
-                        <a href="" title="A weighted edge between two vertices.">
-                          WEdge
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="trait" href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs."></a>
-                        <a href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs.">
-                          WeightedDirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -172,8 +178,8 @@ elements that are partitioned into a number of disjoint subsets.">
       <div id="definition">
         <div class="big-circle class">c</div>
         <p id="owner"><a href="index.html" class="extype" name="tiki">tiki</a></p>
-        <h1>WEdge<span class="permalink">
-      <a href="../tiki/WEdge.html" title="Permalink">
+        <h1>EdgeWeighted<span class="permalink">
+      <a href="../tiki/EdgeWeighted.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -186,7 +192,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">WEdge</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">EdgeWeighted</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.EdgeWeighted.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
@@ -222,7 +228,7 @@ elements that are partitioned into a number of disjoint subsets.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.WEdge"><span>WEdge</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.EdgeWeighted"><span>EdgeWeighted</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -242,10 +248,10 @@ elements that are partitioned into a number of disjoint subsets.">
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="tiki.WEdge#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(edge:tiki.Edge[A],weight:tiki.Predef.Double):tiki.WEdge[A]"></a><a id="&lt;init&gt;:WEdge[A]"></a>
+              <ol><li name="tiki.EdgeWeighted#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(edge:tiki.Edge[A],weight:tiki.Predef.Double):tiki.EdgeWeighted[A]"></a><a id="&lt;init&gt;:EdgeWeighted[A]"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#&lt;init&gt;(edge:tiki.Edge[A],weight:tiki.Predef.Double):tiki.WEdge[A]" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#&lt;init&gt;(edge:tiki.Edge[A],weight:tiki.Predef.Double):tiki.EdgeWeighted[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -254,7 +260,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">WEdge</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span>
+        <span class="name">EdgeWeighted</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.EdgeWeighted.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span>
       </span>
       
       
@@ -271,7 +277,7 @@ elements that are partitioned into a number of disjoint subsets.">
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -287,7 +293,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html###():Int" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -303,7 +309,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -319,7 +325,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -335,7 +341,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#clone():Object" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -354,10 +360,10 @@ elements that are partitioned into a number of disjoint subsets.">
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.WEdge#edge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.EdgeWeighted#edge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="edge:tiki.Edge[A]"></a><a id="edge:Edge[A]"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#edge:tiki.Edge[A]" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#edge:tiki.Edge[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -366,14 +372,14 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">edge</span><span class="result">: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WEdge.A">A</span>]</span>
+        <span class="name">edge</span><span class="result">: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.EdgeWeighted.A">A</span>]</span>
       </span>
       
       
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -389,7 +395,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#finalize():Unit" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -408,10 +414,10 @@ elements that are partitioned into a number of disjoint subsets.">
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.WEdge#from" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.EdgeWeighted#from" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="from:A"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#from:A" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#from:A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -420,14 +426,14 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">from</span><span class="result">: <span class="extype" name="tiki.WEdge.A">A</span></span>
+        <span class="name">from</span><span class="result">: <span class="extype" name="tiki.EdgeWeighted.A">A</span></span>
       </span>
       
       
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#getClass():Class[_]" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -443,7 +449,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -459,7 +465,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -475,7 +481,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#notify():Unit" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -491,7 +497,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#notifyAll():Unit" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -507,7 +513,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -520,10 +526,10 @@ elements that are partitioned into a number of disjoint subsets.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="tiki.WEdge#to" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.EdgeWeighted#to" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="to:A"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#to:A" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#to:A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -532,14 +538,14 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">to</span><span class="result">: <span class="extype" name="tiki.WEdge.A">A</span></span>
+        <span class="name">to</span><span class="result">: <span class="extype" name="tiki.EdgeWeighted.A">A</span></span>
       </span>
       
       
-    </li><li name="tiki.WEdge#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="tiki.EdgeWeighted#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():tiki.Predef.String"></a><a id="toString():String"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#toString():tiki.Predef.String" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#toString():tiki.Predef.String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -551,11 +557,11 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <a href="Predef$.html#String=String" class="extmbr" name="tiki.Predef.String">String</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WEdge">WEdge</a> → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.EdgeWeighted">EdgeWeighted</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#wait():Unit" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -577,7 +583,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -599,7 +605,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -618,10 +624,10 @@ elements that are partitioned into a number of disjoint subsets.">
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.WEdge#weight" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.EdgeWeighted#weight" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="weight:tiki.Predef.Double"></a><a id="weight:Double"></a>
       <span class="permalink">
-      <a href="../tiki/WEdge.html#weight:tiki.Predef.Double" title="Permalink">
+      <a href="../tiki/EdgeWeighted.html#weight:tiki.Predef.Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>

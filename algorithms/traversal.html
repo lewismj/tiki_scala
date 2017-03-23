@@ -53,11 +53,14 @@ a vertex may be visited more than once in a traversal, most of the time we want 
 </code></pre>
 </div>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
-<span class="k">import</span> <span class="nn">tiki._</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Poly._</span>
+<span class="k">import</span> <span class="nn">tiki.Poly._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Traversal._</span>
+<span class="k">import</span> <span class="nn">tiki.Traversal._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
@@ -65,20 +68,17 @@ a vertex may be visited more than once in a traversal, most of the time we want 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">scala.util.Random</span>
 <span class="k">import</span> <span class="nn">scala.util.Random</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Traversal._</span>
-<span class="k">import</span> <span class="nn">tiki.Traversal._</span>
-
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">edges</span> <span class="k">=</span> <span class="nc">Random</span><span class="o">.</span><span class="n">shuffle</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="sc">'A'</span> <span class="o">--&gt;</span> <span class="sc">'B'</span><span class="o">,</span> <span class="sc">'A'</span> <span class="o">--&gt;</span> <span class="sc">'C'</span><span class="o">,</span> <span class="sc">'B'</span> <span class="o">--&gt;</span> <span class="sc">'D'</span><span class="o">,</span> <span class="sc">'C'</span> <span class="o">--&gt;</span> <span class="sc">'D'</span><span class="o">))</span>
-<span class="n">edges</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="n">B</span> <span class="o">--&gt;</span> <span class="n">D</span><span class="o">,</span> <span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span><span class="o">,</span> <span class="n">A</span> <span class="o">--&gt;</span> <span class="n">C</span><span class="o">,</span> <span class="n">C</span> <span class="o">--&gt;</span> <span class="n">D</span><span class="o">)</span>
+<span class="n">edges</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">C</span><span class="o">,</span> <span class="n">B</span> <span class="o">--&gt;</span> <span class="n">D</span><span class="o">,</span> <span class="n">C</span> <span class="o">--&gt;</span> <span class="n">D</span><span class="o">,</span> <span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adj</span> <span class="k">=</span> <span class="n">buildAdjacencyList</span><span class="o">(</span><span class="n">edges</span><span class="o">)</span>
-<span class="n">adj</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">29724080</span>
+<span class="n">adj</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">7d</span><span class="n">ce4c35</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">search</span> <span class="k">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">adj</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">)</span>
 <span class="n">search</span><span class="k">:</span> <span class="kt">tiki.Predef.Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">search</span><span class="o">.</span><span class="n">mkString</span>
-<span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">ABDC</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">ACDB</span>
 </code></pre>
 </div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({

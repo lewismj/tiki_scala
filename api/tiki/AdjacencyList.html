@@ -97,9 +97,9 @@
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs."></a>
-                        <a href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs.">
-                          DirectedGraphRep
+                        <a class="trait" href="Digraph.html" title="Trait that defines interface for directed graphs."></a>
+                        <a href="Digraph.html" title="Trait that defines interface for directed graphs.">
+                          Digraph
                         </a>
                       </li><li class="current-entities indented1">
                         <a class="object" href="DisjointSet$.html" title=""></a>
@@ -117,15 +117,33 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="class" href="EdgeLabelled.html" title="A labelled edge between two vertices."></a>
+                        <a href="EdgeLabelled.html" title="A labelled edge between two vertices.">
+                          EdgeLabelled
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="class" href="EdgeWeighted.html" title="A weighted edge between two vertices."></a>
+                        <a href="EdgeWeighted.html" title="A weighted edge between two vertices.">
+                          EdgeWeighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="EdgeWeightedDigraph.html" title="Trait that defines interface for weighted directed graphs."></a>
+                        <a href="EdgeWeightedDigraph.html" title="Trait that defines interface for weighted directed graphs.">
+                          EdgeWeightedDigraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="GraphRep.html" title="Base representation for a graph."></a>
                         <a href="GraphRep.html" title="Base representation for a graph.">
                           GraphRep
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="LEdge.html" title="A labelled edge between two vertices."></a>
-                        <a href="LEdge.html" title="A labelled edge between two vertices.">
-                          LEdge
+                        <a class="object" href="Poly$.html" title=""></a>
+                        <a href="Poly$.html" title="">
+                          Poly
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -138,18 +156,6 @@ elements that are partitioned into a number of disjoint subsets.">
                         <a class="object" href="Traversal$.html" title="Simple stream based unfold traversal."></a>
                         <a href="Traversal$.html" title="Simple stream based unfold traversal.">
                           Traversal
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="class" href="WEdge.html" title="A weighted edge between two vertices."></a>
-                        <a href="WEdge.html" title="A weighted edge between two vertices.">
-                          WEdge
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="trait" href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs."></a>
-                        <a href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs.">
-                          WeightedDirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -188,7 +194,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">AdjacencyList</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
+        <span class="name">AdjacencyList</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
       </span>
       </h4>
 
@@ -200,7 +206,7 @@ the undirected graph by two directed edges.
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>], <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>], <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -226,7 +232,7 @@ the undirected graph by two directed edges.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.AdjacencyList"><span>AdjacencyList</span></li><li class="in" name="tiki.DirectedGraphRep"><span>DirectedGraphRep</span></li><li class="in" name="tiki.GraphRep"><span>GraphRep</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.AdjacencyList"><span>AdjacencyList</span></li><li class="in" name="tiki.Digraph"><span>Digraph</span></li><li class="in" name="tiki.GraphRep"><span>GraphRep</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -375,7 +381,7 @@ the undirected graph by two directed edges.
       
       <p class="shortcomment cmt">Returns true if the vertex is contained in the graph.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if the vertex is contained in the graph.
 False otherwise.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>flag to indicate if vertex is in the graph.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>flag to indicate if vertex is in the graph.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -545,7 +551,7 @@ False otherwise.
 edges to the vertex.</p><p>Note:
   A return of None implies that the vertex was not found.
   Otherwise Some(set of edges) will be returned. The set may be empty.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a></dd></dl></div>
     </li><li name="tiki.AdjacencyList#successors" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="successors(v:A):tiki.Predef.Set[A]"></a><a id="successors(A):Set[A]"></a>
       <span class="permalink">
@@ -566,7 +572,7 @@ Returns an option.
 Note:
   A return of None implies that the vertex was not found.
   Otherwise Some(set of edges) will be returned. The set may be empty.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.AdjacencyList">AdjacencyList</a> → <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -675,8 +681,8 @@ Note:
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="tiki.DirectedGraphRep">
-              <h3>Inherited from <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</h3>
+        <div class="parent" name="tiki.Digraph">
+              <h3>Inherited from <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</h3>
             </div><div class="parent" name="tiki.GraphRep">
               <h3>Inherited from <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">

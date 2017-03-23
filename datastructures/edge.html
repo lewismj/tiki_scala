@@ -4,8 +4,8 @@
 
 <ul>
   <li><code class="highlighter-rouge">Edge</code> an unweighted edge from one vertex to another.</li>
-  <li><code class="highlighter-rouge">LEdge</code> an unweighted, labelled edge from one vertex to another.</li>
-  <li><code class="highlighter-rouge">WEdge</code> is a weighted edge.</li>
+  <li><code class="highlighter-rouge">EdgeLabelled</code> an unweighted, labelled edge from one vertex to another.</li>
+  <li><code class="highlighter-rouge">EdgeWeighted</code> is a weighted edge.</li>
 </ul>
 
 <p>The case classes <em>do not</em> form a hierarchy. The weighted edge case class is provided
@@ -53,7 +53,7 @@ will allow you to use the <code class="highlighter-rouge">--&gt;</code> and <cod
 </code></pre>
 </div>
 
-<h4 id="ledge">LEdge</h4>
+<h4 id="edgelabelled">EdgeLabelled</h4>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -64,16 +64,16 @@ will allow you to use the <code class="highlighter-rouge">--&gt;</code> and <cod
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">e0</span> <span class="k">=</span> <span class="nc">Edge</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">)</span>
 <span class="n">e0</span><span class="k">:</span> <span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">le0</span> <span class="k">=</span> <span class="nc">LEdge</span><span class="o">(</span><span class="n">e0</span><span class="o">,</span><span class="s">"a label"</span><span class="o">)</span>
-<span class="n">le0</span><span class="k">:</span> <span class="kt">tiki.LEdge</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span>,<span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="n">a</span> <span class="n">label</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">le0</span> <span class="k">=</span> <span class="nc">EdgeLabelled</span><span class="o">(</span><span class="n">e0</span><span class="o">,</span><span class="s">"a label"</span><span class="o">)</span>
+<span class="n">le0</span><span class="k">:</span> <span class="kt">tiki.EdgeLabelled</span><span class="o">[</span><span class="kt">tiki.Predef.Int</span>,<span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="n">a</span> <span class="n">label</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="c1">// User the :+ to apply a label to an edge.
 </span>     <span class="o">|</span> <span class="k">val</span> <span class="n">le1</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="s">"a label"</span>
-<span class="n">le1</span><span class="k">:</span> <span class="kt">tiki.LEdge</span><span class="o">[</span><span class="kt">Int</span>,<span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="n">a</span> <span class="n">label</span>
+<span class="n">le1</span><span class="k">:</span> <span class="kt">tiki.EdgeLabelled</span><span class="o">[</span><span class="kt">Int</span>,<span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:+</span> <span class="n">a</span> <span class="n">label</span>
 </code></pre>
 </div>
 
-<h4 id="wedge">WEdge</h4>
+<h4 id="edgeweighted">EdgeWeighted</h4>
 
 <p>The weighted edge is a case where we have only one label of type double. There is the <code class="highlighter-rouge">:#</code> operator
 to create these edges:</p>
@@ -85,7 +85,7 @@ to create these edges:</p>
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">we</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:#</span> <span class="mf">2.345</span>
-<span class="n">we</span><span class="k">:</span> <span class="kt">tiki.WEdge</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:#</span> <span class="mf">2.345</span>
+<span class="n">we</span><span class="k">:</span> <span class="kt">tiki.EdgeWeighted</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span> <span class="o">:#</span> <span class="mf">2.345</span>
 </code></pre>
 </div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({

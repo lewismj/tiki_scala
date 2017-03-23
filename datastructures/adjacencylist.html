@@ -23,17 +23,17 @@ will take an <code class="highlighter-rouge">Iterable</code> of any edge type an
 
 <h3 id="successors">successors</h3>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
-<span class="k">import</span> <span class="nn">tiki._</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Poly._</span>
+<span class="k">import</span> <span class="nn">tiki.Poly._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">buildAdjacencyList</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">))</span>
-<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="nd">@f931965</span>
+<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">56d</span><span class="n">c604c</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">ys</span> <span class="k">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">successors</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
 <span class="n">ys</span><span class="k">:</span> <span class="kt">tiki.Predef.Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
@@ -42,17 +42,17 @@ will take an <code class="highlighter-rouge">Iterable</code> of any edge type an
 
 <h3 id="predecessors">predecessors</h3>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
-<span class="k">import</span> <span class="nn">tiki._</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
 <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Poly._</span>
+<span class="k">import</span> <span class="nn">tiki.Poly._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">buildAdjacencyList</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">))</span>
-<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">351</span><span class="n">c0a8d</span>
+<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">6154f</span><span class="mi">7</span><span class="n">ef</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">ys</span> <span class="k">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">predecessors</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
 <span class="n">ys</span><span class="k">:</span> <span class="kt">tiki.Predef.Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
