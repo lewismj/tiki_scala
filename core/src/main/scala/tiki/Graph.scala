@@ -33,13 +33,6 @@ import tiki.Predef._
   */
 trait Directed[A] {
   /**
-    * Returns the stream of vertices.
-    *
-    * @return the stream of vertices.
-    */
-  def vertices: Stream[A]
-
-  /**
     * Returns true if the vertex is contained in the graph.
     *
     * @param v  the vertex.

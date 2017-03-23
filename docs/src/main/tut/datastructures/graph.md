@@ -20,7 +20,6 @@ Algorithms such as `dfs` will require something that supports the `Directed` int
 
 ```scala
 trait Directed[A] {
-  def vertices: Set[A]
   def contains(v: A): Boolean
   def successors(v: A): Set[A]
   def predecessors(v: A): Set[A]
@@ -38,10 +37,11 @@ The weighted interface specifies that there must be a _weight_ between two verti
 
 ```scala
 trait Weighted[A] {
-  def weight(v: A, b: A): Double
+  def weight(v: A, w: A): Option[Double]
 }
 ```
 
+- `weighted(v,w)` the weight of the edge between the nodes _v_ and _w_ (if the edge exists).
 
 ## Graph Interface
 

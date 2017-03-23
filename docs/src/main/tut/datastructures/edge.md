@@ -68,6 +68,7 @@ to create these edges:
 ```tut
 import tiki._
 import tiki.Predef._
+import tiki.implicits._
 
 val we = 1 --> 2 :# 2.345
 ```

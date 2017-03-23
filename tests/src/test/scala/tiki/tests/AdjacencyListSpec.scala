@@ -28,10 +28,9 @@ package tests
 
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
-import tiki.AdjacencyList
 import tiki.tests.arbitrary.AllArbitrary
+import tiki._
 import tiki.Predef._
-import tiki.Poly._
 
 
 class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {

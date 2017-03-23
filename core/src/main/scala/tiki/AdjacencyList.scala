@@ -50,4 +50,33 @@ object AdjacencyList {
   def empty[A] : AdjacencyList[A] =
     new AdjacencyList[A](Map.empty[A,Set[A]], Map.empty[A,Set[A]])
 
+  /**
+    * Builds an adjacency list by folding over the list of edges once.
+    *
+    * @param edges the list of edges.
+    * @tparam A the vertex type.
+    * @return a mapping of vertex to child vertices.
+    */
+  private def edgesToMap[A](edges: Iterable[Edge[A]]) =
+  edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
+    val curr = acc.getOrElse(v.from, Set.empty[A])
+    val xs = acc.updated(v.from, curr + v.to)
+    /* make sure leaf vertices are in the edge map.*/
+    if (xs.contains(v.to)) xs else xs.updated(v.to, Set.empty[A])
+  })
+
+  /**
+    * Create an adjacency list from a list of directed edges.
+    *
+    * Note: At present we don't store the edge type information, this can
+    * be retained by the graph representation (i.e. we strip the edge to
+    * just the to/from vertices).
+    *
+    * @param edges the list of edges.
+    * @tparam A the type of the vertex.
+    * @return a new `AdjacencyList`
+    */
+  def makeAdjacencyList[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
+    new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(reverse(_))))
+
 }

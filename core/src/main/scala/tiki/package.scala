@@ -1,6 +1,3 @@
-import shapeless.{:+:, CNil}
-import tiki.Predef._
-
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -26,23 +23,38 @@ import tiki.Predef._
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
+  import shapeless.{:+:, CNil}
+  import tiki.AdjacencyList._
+  import tiki.Predef._
   import tiki.implicits._
   import shapeless.Poly1
 
-  type EdgeLike[A,B]= Edge[A] :+: WeightedEdge[A] :+: LabelledEdge[A,B] :+: CNil
+  /** Edge union */
+  type EdgeLike[A,B] = Edge[A] :+: WeightedEdge[A] :+: LabelledEdge[A,B] :+: CNil
 
 
   /**
     * Provides 'reverse' function for different 'Edge' case classes.
-    * `Edge` classes shouldn't form an inheritance hierarchy.
     */
   object reverse extends Poly1 {
     implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]= at({ x=> x.edge.to --> x.edge.from :+ x.label})
-    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]= at({ x=> x.edge.to --> x.edge.from :# x.weight})
+    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]
+      = at({ x=> x.edge.to --> x.edge.from :+ x.label})
+    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]
+      = at({ x=> x.edge.to --> x.edge.from :# x.weight})
   }
 
-
+  /**
+    * Builds an adjacency list, given any type of edge.
+    */
+  implicit object buildAdjacencyList extends Poly1 {
+    implicit def caseEdge[A]: Case.Aux[List[Edge[A]], AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x))
+    implicit def caseLEdge[A, B]: Case.Aux[List[LabelledEdge[A, B]], AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x.map(ledge => ledge.edge)))
+    implicit def caseWEdge[A]: Case.Aux[List[WeightedEdge[A]], AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
+  }
 
 }
 

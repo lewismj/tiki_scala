@@ -29,8 +29,8 @@ will take an `Iterable` of any edge type and return an `AdjacencyList`.
 ### successors
  
 ```tut
+import tiki._
 import tiki.Predef._
-import tiki.Poly._
 import tiki.implicits._
 
 val xs = buildAdjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))
@@ -40,8 +40,8 @@ val ys = xs.successors(1)
 ### predecessors
   
 ```tut
+import tiki._
 import tiki.Predef._
-import tiki.Poly._
 import tiki.implicits._
 
 val xs = buildAdjacencyList(List(1 --> 2, 1 --> 3, 2 --> 3))

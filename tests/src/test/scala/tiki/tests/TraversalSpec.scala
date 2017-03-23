@@ -2,11 +2,11 @@ package tiki.tests
 
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
-
 import tiki.tests.arbitrary.AllArbitrary
+
+import tiki._
 import tiki.Predef._
 import tiki.Traversal._
-import tiki.Poly._
 import tiki.implicits._
 
 import scala.util.Random

@@ -59,8 +59,8 @@ def bfs[A](g: DirectedGraphRep[A], start: A): Stream[A]
 ```
 
 ```tut
+import tiki._
 import tiki.Predef._
-import tiki.Poly._
 import tiki.Traversal._
 import tiki.implicits._
 import scala.util.Random
