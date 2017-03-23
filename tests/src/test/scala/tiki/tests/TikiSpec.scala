@@ -24,12 +24,12 @@
  */
 package tiki.tests
 
-import tiki.Predef._
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
+import tiki.Predef._
 import tiki._
-import tiki.tests.arbitrary.AllArbitrary
 import tiki.implicits._
+import tiki.tests.arbitrary.AllArbitrary
 
 class TikiSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 

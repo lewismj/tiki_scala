@@ -29,6 +29,7 @@ import org.scalacheck.Arbitrary.arbitrary
 import org.scalacheck.{Arbitrary, Gen}
 import tiki.Edge
 import tiki.Predef._
+import tiki.implicits._
 
 trait ArbitraryEdgeList extends ArbitrarySet {
 
@@ -36,9 +37,8 @@ trait ArbitraryEdgeList extends ArbitrarySet {
     xs <- arbitrary[Set[A]]
     if xs.nonEmpty
   } yield {
-    xs.iterator.sliding(2).foldLeft(List.empty[Edge[A]])((acc, v) => {
-      Edge(v.head, v.last) :: acc
-    })
+    xs.iterator.sliding(2).foldLeft(List.empty[Edge[A]])(
+      (acc, v) => v.head --> v.last :: acc)
   }
 
   implicit def arbitraryEdgeList[A:Arbitrary]: Arbitrary[List[Edge[A]]] = Arbitrary(edgeList)

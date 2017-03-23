@@ -22,51 +22,26 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tiki
+package tiki.tests.arbitrary
 
+import org.scalacheck.Arbitrary._
+import org.scalacheck.{Arbitrary, Gen}
 import tiki.Predef._
+import tiki.WeightedEdge
+import tiki.implicits._
 
 
-/**
-  * Implicit definitions, e.g. allow use of '-->' operator to represent a
-  * directed edge.
-  */
-object implicits {
+trait ArbitraryWeightedEdgeList extends ArbitrarySet {
 
-  /**
-    * Defines implicit operators for constructing edges.
-    *
-    * @param v      the start vertex.
-    * @tparam A     the vertex type.
-    */
-  final class EdgeDef[A](v: A) {
-    def -->(w: A): Edge[A] = new Edge[A](v,w)
+  def weightedEdgeList[A: Arbitrary] : Gen[List[WeightedEdge[A]]] = for {
+    xs <- arbitrary[Set[A]]
+    ys <- arbitrary[Double]
+    if xs.nonEmpty
+  } yield {
+    xs.iterator.sliding(2).foldLeft(List.empty[WeightedEdge[A]])(
+      (acc, v) => (v.head --> v.last :# ys) :: acc)
   }
 
-  /**
-    * Defines implicit operators for constructing labelled edges.
-    *
-    * @param e    the edge.
-    * @tparam A   the type of the vertex.
-    * @tparam B   the type of the label.
-    */
-  final class LabelDef[A,B](e: Edge[A]) {
-    def :+(l :B): LabelledEdge[A,B] = new LabelledEdge[A,B](e,l)
-  }
-
-  /**
-    * Defines implicit operators for constructing weighted edges.
-    *
-    * @param e    the edge.
-    * @tparam A   the type of the vertex.
-    */
-  final class WeightDef[A](e: Edge[A]) {
-    def :#(w: Double): WeightedEdge[A] = new WeightedEdge[A](e,w)
-  }
-
-  implicit def anyToEdge[A](v: A): EdgeDef[A] = new EdgeDef[A](v)
-  implicit def anyToLEdge[A,B](e: Edge[A]): LabelDef[A,B] = new LabelDef[A,B](e)
-  implicit def anyToWEdge[A](e: Edge[A]): WeightDef[A] = new WeightDef[A](e)
-
-
+  implicit def arbitraryWeightedEdgeList[A:Arbitrary]: Arbitrary[List[WeightedEdge[A]]]
+    = Arbitrary(weightedEdgeList)
 }

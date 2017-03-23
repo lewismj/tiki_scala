@@ -24,13 +24,12 @@
  */
 package tiki.tests
 
-import tiki._
-import tiki.Predef._
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
-import tiki.{Edge, LabelledEdge}
-import tiki.tests.arbitrary.AllArbitrary
+import tiki.Predef._
 import tiki.implicits._
+import tiki.tests.arbitrary.AllArbitrary
+import tiki.{Edge, LabelledEdge, _}
 
 class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary {
 

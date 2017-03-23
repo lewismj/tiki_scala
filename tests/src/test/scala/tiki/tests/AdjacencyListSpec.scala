@@ -28,9 +28,8 @@ package tests
 
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
-import tiki.tests.arbitrary.AllArbitrary
-import tiki._
 import tiki.Predef._
+import tiki.tests.arbitrary.AllArbitrary
 
 
 class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
@@ -39,6 +38,14 @@ class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllAr
     /* doesn't test leaf vertices. */
     val adjacency = buildAdjacencyList(xs)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
+      adjacency.successors(vertex) == children.toSet
+    } should be (true)
+  })
+
+  test("`successors` of adjacency ... correct vertices (weighted nodes") (forAll { (xs: List[WeightedEdge[Int]]) =>
+    /* doesn't test leaf vertices. */
+    val adjacency = buildAdjacencyList(xs)
+    xs.groupBy(_.edge.from).map { case (k,v) => (k, v.map(_.edge.to))}.forall { case (vertex, children) =>
       adjacency.successors(vertex) == children.toSet
     } should be (true)
   })

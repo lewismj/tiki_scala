@@ -23,11 +23,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
-  import shapeless.{:+:, CNil}
-  import tiki.AdjacencyList._
+  import shapeless.{:+:, CNil, Poly1}
   import tiki.Predef._
   import tiki.implicits._
-  import shapeless.Poly1
 
   /** Edge union */
   type EdgeLike[A,B] = Edge[A] :+: WeightedEdge[A] :+: LabelledEdge[A,B] :+: CNil

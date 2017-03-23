@@ -26,11 +26,10 @@ package tiki
 package tests
 
 
+import org.scalatest.Matchers
+import org.scalatest.prop.Checkers
 import tiki.Predef._
 import tiki.implicits._
-import org.scalatest.prop.Checkers
-import org.scalatest.Matchers
-import tiki.DisjointSet
 import tiki.tests.arbitrary.AllArbitrary
 
 
