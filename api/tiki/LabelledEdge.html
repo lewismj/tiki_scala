@@ -127,7 +127,7 @@ elements that are partitioned into a number of disjoint subsets.">
                         <span class="separator"></span>
                         <a class="class" href="" title="A labelled edge between two vertices."></a>
                         <a href="" title="A labelled edge between two vertices.">
-                          LEdge
+                          LabelledEdge
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -148,24 +148,24 @@ elements that are partitioned into a number of disjoint subsets.">
                           Traversal
                         </a>
                       </li><li class="current-entities indented1">
-                        <a class="object" href="WDigraph$.html" title=""></a>
-                        <a class="class" href="WDigraph.html" title="A weighted digraph."></a>
-                        <a href="WDigraph.html" title="A weighted digraph.">
-                          WDigraph
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="class" href="WEdge.html" title="A weighted edge between two vertices."></a>
-                        <a href="WEdge.html" title="A weighted edge between two vertices.">
-                          WEdge
-                        </a>
-                      </li><li class="current-entities indented1">
                         <span class="separator"></span>
                         <a class="trait" href="Weighted.html" title="Defines a 'weighted' property that some graph
 representations may support."></a>
                         <a href="Weighted.html" title="Defines a 'weighted' property that some graph
 representations may support.">
                           Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="WeightedDigraph.html" title="Weighted digraph."></a>
+                        <a href="WeightedDigraph.html" title="Weighted digraph.">
+                          WeightedDigraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
+                        <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
+                          WeightedEdge
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -188,8 +188,8 @@ representations may support.">
       <div id="definition">
         <div class="big-circle class">c</div>
         <p id="owner"><a href="index.html" class="extype" name="tiki">tiki</a></p>
-        <h1>LEdge<span class="permalink">
-      <a href="../tiki/LEdge.html" title="Permalink">
+        <h1>LabelledEdge<span class="permalink">
+      <a href="../tiki/LabelledEdge.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -202,7 +202,7 @@ representations may support.">
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">LEdge</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">LabelledEdge</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
@@ -238,7 +238,7 @@ representations may support.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.LEdge"><span>LEdge</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.LabelledEdge"><span>LabelledEdge</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -258,10 +258,10 @@ representations may support.">
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="tiki.LEdge#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(edge:tiki.Edge[A],label:B):tiki.LEdge[A,B]"></a><a id="&lt;init&gt;:LEdge[A,B]"></a>
+              <ol><li name="tiki.LabelledEdge#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(edge:tiki.Edge[A],label:B):tiki.LabelledEdge[A,B]"></a><a id="&lt;init&gt;:LabelledEdge[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#&lt;init&gt;(edge:tiki.Edge[A],label:B):tiki.LEdge[A,B]" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#&lt;init&gt;(edge:tiki.Edge[A],label:B):tiki.LabelledEdge[A,B]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -270,7 +270,7 @@ representations may support.">
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">LEdge</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LEdge.B">B</span></span>)</span>
+        <span class="name">LabelledEdge</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span>
       </span>
       
       
@@ -287,7 +287,7 @@ representations may support.">
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -303,7 +303,7 @@ representations may support.">
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html###():Int" title="Permalink">
+      <a href="../tiki/LabelledEdge.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -319,7 +319,7 @@ representations may support.">
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -335,7 +335,7 @@ representations may support.">
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -351,7 +351,7 @@ representations may support.">
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#clone():Object" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -370,10 +370,10 @@ representations may support.">
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.LEdge#edge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.LabelledEdge#edge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="edge:tiki.Edge[A]"></a><a id="edge:Edge[A]"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#edge:tiki.Edge[A]" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#edge:tiki.Edge[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -382,14 +382,14 @@ representations may support.">
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">edge</span><span class="result">: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LEdge.A">A</span>]</span>
+        <span class="name">edge</span><span class="result">: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>
       </span>
       
       
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -405,7 +405,7 @@ representations may support.">
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#finalize():Unit" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -424,10 +424,10 @@ representations may support.">
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.LEdge#from" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.LabelledEdge#from" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="from:A"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#from:A" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#from:A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -436,14 +436,14 @@ representations may support.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">from</span><span class="result">: <span class="extype" name="tiki.LEdge.A">A</span></span>
+        <span class="name">from</span><span class="result">: <span class="extype" name="tiki.LabelledEdge.A">A</span></span>
       </span>
       
       
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#getClass():Class[_]" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -459,7 +459,7 @@ representations may support.">
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -472,10 +472,10 @@ representations may support.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="tiki.LEdge#label" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.LabelledEdge#label" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="label:B"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#label:B" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#label:B" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -484,14 +484,14 @@ representations may support.">
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">label</span><span class="result">: <span class="extype" name="tiki.LEdge.B">B</span></span>
+        <span class="name">label</span><span class="result">: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>
       </span>
       
       
-    </li><li name="tiki.LEdge#map" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="map[C](f:B=&gt;C):tiki.LEdge[A,C]"></a><a id="map[C]((B)⇒C):LEdge[A,C]"></a>
+    </li><li name="tiki.LabelledEdge#map" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="map[C](f:B=&gt;C):tiki.LabelledEdge[A,C]"></a><a id="map[C]((B)⇒C):LabelledEdge[A,C]"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#map[C](f:B=&gt;C):tiki.LEdge[A,C]" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#map[C](f:B=&gt;C):tiki.LabelledEdge[A,C]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -500,14 +500,14 @@ representations may support.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">map</span><span class="tparams">[<span name="C">C</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="tiki.LEdge.B">B</span>) ⇒ <span class="extype" name="tiki.LEdge.map.C">C</span></span>)</span><span class="result">: <a href="" class="extype" name="tiki.LEdge">LEdge</a>[<span class="extype" name="tiki.LEdge.A">A</span>, <span class="extype" name="tiki.LEdge.map.C">C</span>]</span>
+        <span class="name">map</span><span class="tparams">[<span name="C">C</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="tiki.LabelledEdge.B">B</span>) ⇒ <span class="extype" name="tiki.LabelledEdge.map.C">C</span></span>)</span><span class="result">: <a href="" class="extype" name="tiki.LabelledEdge">LabelledEdge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>, <span class="extype" name="tiki.LabelledEdge.map.C">C</span>]</span>
       </span>
       
       
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -523,7 +523,7 @@ representations may support.">
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#notify():Unit" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -539,7 +539,7 @@ representations may support.">
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#notifyAll():Unit" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -555,7 +555,7 @@ representations may support.">
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -568,10 +568,10 @@ representations may support.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="tiki.LEdge#to" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.LabelledEdge#to" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="to:A"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#to:A" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#to:A" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -580,14 +580,14 @@ representations may support.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">to</span><span class="result">: <span class="extype" name="tiki.LEdge.A">A</span></span>
+        <span class="name">to</span><span class="result">: <span class="extype" name="tiki.LabelledEdge.A">A</span></span>
       </span>
       
       
-    </li><li name="tiki.LEdge#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="tiki.LabelledEdge#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():tiki.Predef.String"></a><a id="toString():String"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#toString():tiki.Predef.String" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#toString():tiki.Predef.String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -599,11 +599,11 @@ representations may support.">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <a href="Predef$.html#String=String" class="extmbr" name="tiki.Predef.String">String</a></span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.LEdge">LEdge</a> → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.LabelledEdge">LabelledEdge</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#wait():Unit" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -625,7 +625,7 @@ representations may support.">
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -647,7 +647,7 @@ representations may support.">
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/LEdge.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../tiki/LabelledEdge.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>

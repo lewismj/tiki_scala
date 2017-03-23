@@ -123,9 +123,9 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="LEdge.html" title="A labelled edge between two vertices."></a>
-                        <a href="LEdge.html" title="A labelled edge between two vertices.">
-                          LEdge
+                        <a class="class" href="LabelledEdge.html" title="A labelled edge between two vertices."></a>
+                        <a href="LabelledEdge.html" title="A labelled edge between two vertices.">
+                          LabelledEdge
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -146,24 +146,24 @@ elements that are partitioned into a number of disjoint subsets.">
                           Traversal
                         </a>
                       </li><li class="current-entities indented1">
-                        <a class="object" href="WDigraph$.html" title=""></a>
-                        <a class="class" href="WDigraph.html" title="A weighted digraph."></a>
-                        <a href="WDigraph.html" title="A weighted digraph.">
-                          WDigraph
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="class" href="WEdge.html" title="A weighted edge between two vertices."></a>
-                        <a href="WEdge.html" title="A weighted edge between two vertices.">
-                          WEdge
-                        </a>
-                      </li><li class="current-entities indented1">
                         <span class="separator"></span>
                         <a class="trait" href="Weighted.html" title="Defines a 'weighted' property that some graph
 representations may support."></a>
                         <a href="Weighted.html" title="Defines a 'weighted' property that some graph
 representations may support.">
                           Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="WeightedDigraph.html" title="Weighted digraph."></a>
+                        <a href="WeightedDigraph.html" title="Weighted digraph.">
+                          WeightedDigraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
+                        <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
+                          WeightedEdge
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -343,6 +343,22 @@ i.e. A property that holds across the graph. An undirected graph can
 be represented by a pair of directed edges. Generally, the library is
 concerned with directed graphs.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">from</dt><dd class="cmt"><p>one vertex in an edge.</p></dd><dt class="param">to</dt><dd class="cmt"><p>the 'other' vertex in the edge.</p></dd></dl></div>
+    </li><li name="tiki.EdgeLike" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EdgeLike[A,B]=shapeless.:+:[tiki.Edge[A],shapeless.:+:[tiki.WeightedEdge[A],shapeless.:+:[tiki.LabelledEdge[A,B],shapeless.CNil]]]"></a><a id="EdgeLike[A,B]:EdgeLike[A,B]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#EdgeLike[A,B]=shapeless.:+:[tiki.Edge[A],shapeless.:+:[tiki.WeightedEdge[A],shapeless.:+:[tiki.LabelledEdge[A,B],shapeless.CNil]]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">EdgeLike</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result alias"> = <span class="extype" name="shapeless.:+:">:+:</span>[<a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>], <span class="extype" name="shapeless.:+:">:+:</span>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>], <span class="extype" name="shapeless.:+:">:+:</span>[<a href="LabelledEdge.html" class="extype" name="tiki.LabelledEdge">LabelledEdge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>, <span class="extype" name="tiki.EdgeLike.B">B</span>], <span class="extype" name="shapeless.CNil">CNil</span>]]]</span>
+      </span>
+      
+      
     </li><li name="tiki.Graph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="Graph[A,B]extendsAnyRef"></a><a id="Graph[A,B]:Graph[A,B]"></a>
       <span class="permalink">
@@ -362,10 +378,10 @@ concerned with directed graphs.
       
       <p class="shortcomment cmt">Base representation for a graph.</p><div class="fullcomment"><div class="comment cmt"><p>Base representation for a graph.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the edge type.</p></dd></dl></div>
-    </li><li name="tiki.LEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LEdge[A,B]extendsProductwithSerializable"></a><a id="LEdge[A,B]:LEdge[A,B]"></a>
+    </li><li name="tiki.LabelledEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LabelledEdge[A,B]extendsProductwithSerializable"></a><a id="LabelledEdge[A,B]:LabelledEdge[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#LEdge[A,B]extendsProductwithSerializable" title="Permalink">
+      <a href="../tiki/index.html#LabelledEdge[A,B]extendsProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -374,50 +390,12 @@ concerned with directed graphs.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A labelled edge between two vertices." href="LEdge.html">
-              <span class="name">LEdge</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a title="A labelled edge between two vertices." href="LabelledEdge.html">
+              <span class="name">LabelledEdge</span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A labelled edge between two vertices.</p>
-    </li><li name="tiki.WDigraph" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="WDigraph[A]extendsGraph[A,tiki.WEdge[A]]withDirected[A]withWeighted[A]withProductwithSerializable"></a><a id="WDigraph[A]:WDigraph[A]"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#WDigraph[A]extendsGraph[A,tiki.WEdge[A]]withDirected[A]withWeighted[A]withProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="A weighted digraph." href="WDigraph.html">
-              <span class="name">WDigraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]</span>, <span name="f">f: (<a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]) ⇒ <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>)</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WDigraph.A">A</span>, <a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WDigraph.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">A weighted digraph.</p><div class="fullcomment"><div class="comment cmt"><p>A weighted digraph. This class uses an underlying representation to provide
-the <code>Directed</code> interface.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">edges</dt><dd class="cmt"><p>the stream of weighted edges.</p></dd><dt class="param">f</dt><dd class="cmt"><p>a function that takes a stream of weighted edges and returns <code>Directed[A]</code></p></dd></dl></div>
-    </li><li name="tiki.WEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WEdge[A]extendsProductwithSerializable"></a><a id="WEdge[A]:WEdge[A]"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#WEdge[A]extendsProductwithSerializable" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a title="A weighted edge between two vertices." href="WEdge.html">
-              <span class="name">WEdge</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">A weighted edge between two vertices.</p>
     </li><li name="tiki.Weighted" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="Weighted[A]extendsAnyRef"></a><a id="Weighted[A]:Weighted[A]"></a>
       <span class="permalink">
@@ -440,6 +418,43 @@ representations may support." href="Weighted.html">
 representations may support.</p><div class="fullcomment"><div class="comment cmt"><p>Defines a 'weighted' property that some graph
 representations may support.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
+    </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WeightedDigraph[A]extendsGraph[A,tiki.WeightedEdge[A]]withWeighted[A]withDirected[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedDigraph[A]extendsGraph[A,tiki.WeightedEdge[A]]withWeighted[A]withDirected[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Weighted digraph." href="WeightedDigraph.html">
+              <span class="name">WeightedDigraph</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>, <a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Weighted digraph.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
+    </li><li name="tiki.WeightedEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WeightedEdge[A]extendsProductwithSerializable"></a><a id="WeightedEdge[A]:WeightedEdge[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedEdge[A]extendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="A weighted edge between two vertices." href="WeightedEdge.html">
+              <span class="name">WeightedEdge</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WeightedEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">A weighted edge between two vertices.</p>
     </li></ol>
             </div>
 
@@ -541,24 +556,6 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
       </span>
       
       <p class="shortcomment cmt">Simple stream based unfold traversal.</p>
-    </li><li name="tiki.WDigraph" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WDigraph"></a><a id="WDigraph:WDigraph"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#WDigraph" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="WDigraph$.html">
-              <span class="name">WDigraph</span>
-            </a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      
-      
     </li><li name="tiki.implicits" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="implicits"></a><a id="implicits:implicits"></a>
       <span class="permalink">
