@@ -137,6 +137,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="object" href="" title="Path algorithms."></a>
+                        <a href="" title="Path algorithms.">
+                          Path
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="object" href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library."></a>
                         <a href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library.">
                           Predef
@@ -146,14 +152,6 @@ elements that are partitioned into a number of disjoint subsets.">
                         <a class="object" href="Traversal$.html" title="Simple stream based unfold traversal."></a>
                         <a href="Traversal$.html" title="Simple stream based unfold traversal.">
                           Traversal
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="trait" href="" title="Defines a 'weighted' property that some graph
-representations may support."></a>
-                        <a href="" title="Defines a 'weighted' property that some graph
-representations may support.">
-                          Weighted
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -190,12 +188,12 @@ representations may support.">
             </div>
           </div>
           <div id="content">
-            <body class="trait type">
+            <body class="object value">
       <div id="definition">
-        <div class="big-circle trait">t</div>
+        <div class="big-circle object">o</div>
         <p id="owner"><a href="index.html" class="extype" name="tiki">tiki</a></p>
-        <h1>Weighted<span class="permalink">
-      <a href="../tiki/Weighted.html" title="Permalink">
+        <h1>Path<span class="permalink">
+      <a href="../tiki/Path$.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -205,17 +203,16 @@ representations may support.">
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">Weighted</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+        <span class="name">Path</span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Defines a 'weighted' property that some graph
-representations may support.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Path algorithms.
+</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -245,7 +242,7 @@ representations may support.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.Weighted"><span>Weighted</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.Path"><span>Path</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -265,38 +262,42 @@ representations may support.
         <div id="allMembers">
         
 
-        
-
-        <div class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="tiki.Weighted#weight" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="weight(v:A,w:A):tiki.Predef.Option[tiki.Predef.Double]"></a><a id="weight(A,A):Option[Double]"></a>
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="tiki.Path.PathState" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PathState[A]extendsProductwithSerializable"></a><a id="PathState[A]:PathState[A]"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#weight(v:A,w:A):tiki.Predef.Option[tiki.Predef.Double]" title="Permalink">
+      <a href="../tiki/Path$.html#PathState[A]extendsProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">weight</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.Weighted.A">A</span></span>, <span name="w">w: <span class="extype" name="tiki.Weighted.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>
+        <a title="Case class that represents the running state of the Bellman-Ford
+algorithm." href="Path$$PathState.html">
+              <span class="name">PathState</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="distances">distances: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>, <span name="predecessors">predecessors: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">Return some weight value for the edge from vertex v to vertex w.</p><div class="fullcomment"><div class="comment cmt"><p>Return some weight value for the edge from vertex v to vertex w.
-Or 'None' if the edge can not be found.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the source vertex.</p></dd><dt class="param">w</dt><dd class="cmt"><p>the sink vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>some weight value or None.</p></dd></dl></div>
+      <p class="shortcomment cmt">Case class that represents the running state of the Bellman-Ford
+algorithm.</p><div class="fullcomment"><div class="comment cmt"><p>Case class that represents the running state of the Bellman-Ford
+algorithm.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">distances</dt><dd class="cmt"><p>current distances.</p></dd><dt class="param">predecessors</dt><dd class="cmt"><p>current predecessors.</p></dd></dl></div>
     </li></ol>
             </div>
 
+        
+
         <div class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol>
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/Path$.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -312,7 +313,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html###():Int" title="Permalink">
+      <a href="../tiki/Path$.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -328,7 +329,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/Path$.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -344,7 +345,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../tiki/Path$.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -357,10 +358,27 @@ Or 'None' if the edge can not be found.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="tiki.Path#bellmanFord" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bellmanFord[A](g:tiki.WeightedDigraph[A],source:A):tiki.Path.PathState[A]"></a><a id="bellmanFord[A](WeightedDigraph[A],A):PathState[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/Path$.html#bellmanFord[A](g:tiki.WeightedDigraph[A],source:A):tiki.Path.PathState[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bellmanFord</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.bellmanFord.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.bellmanFord.A">A</span></span>)</span><span class="result">: <a href="Path$$PathState.html" class="extype" name="tiki.Path.PathState">PathState</a>[<span class="extype" name="tiki.Path.bellmanFord.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Bellman-Ford algorithm.</p><div class="fullcomment"><div class="comment cmt"><p>Bellman-Ford algorithm.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>a weighted digraph.</p></dd><dt class="param">source</dt><dd class="cmt"><p>the source vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the path state.</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#clone():Object" title="Permalink">
+      <a href="../tiki/Path$.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -382,7 +400,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/Path$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -398,7 +416,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/Path$.html#equals(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -414,7 +432,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#finalize():Unit" title="Permalink">
+      <a href="../tiki/Path$.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -436,7 +454,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#getClass():Class[_]" title="Permalink">
+      <a href="../tiki/Path$.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -452,7 +470,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#hashCode():Int" title="Permalink">
+      <a href="../tiki/Path$.html#hashCode():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -468,7 +486,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../tiki/Path$.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -484,7 +502,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/Path$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -500,7 +518,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#notify():Unit" title="Permalink">
+      <a href="../tiki/Path$.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -516,7 +534,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#notifyAll():Unit" title="Permalink">
+      <a href="../tiki/Path$.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -532,7 +550,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../tiki/Path$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -548,7 +566,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#toString():String" title="Permalink">
+      <a href="../tiki/Path$.html#toString():String" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -564,7 +582,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#wait():Unit" title="Permalink">
+      <a href="../tiki/Path$.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -586,7 +604,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../tiki/Path$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -608,7 +626,7 @@ Or 'None' if the edge can not be found.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/Weighted.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../tiki/Path$.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -627,6 +645,24 @@ Or 'None' if the edge can not be found.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="tiki.Path.PathState" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PathState"></a><a id="PathState:PathState"></a>
+      <span class="permalink">
+      <a href="../tiki/Path$.html#PathState" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Companion object, provides initial empty state." href="Path$$PathState$.html">
+              <span class="name">PathState</span>
+            </a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Companion object, provides initial empty state.</p>
     </li>
               </ol>
             </div>
