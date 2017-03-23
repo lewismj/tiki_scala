@@ -46,7 +46,9 @@ trait GraphRep[A] {
 
 
 /**
-  * Trait that defines interface for graph representations.
+  * Trait that defines interface for directed graphs.
+  *
+  * @tparam A the vertex type.
   */
 trait DirectedGraphRep[A] extends GraphRep[A] {
 
@@ -84,3 +86,21 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
     */
   def predecessors(v: A): Set[A]
 }
+
+/**
+  * Trait that defines interface for weighted directed graphs.
+  *
+  * @tparam A the vertex type.
+  */
+trait WeightedDirectedGraphRep[A] extends DirectedGraphRep[A] {
+
+  /**
+    * Return the weight of the edge from v to w.
+    *
+    * @param v  the source vertex.
+    * @param w  the sink vertex.
+    * @return   the weight of the edge.
+    */
+  def weight(v: A, w:A): Double
+}
+

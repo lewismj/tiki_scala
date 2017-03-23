@@ -24,7 +24,6 @@
  */
 package tiki
 import Predef._
-import shapeless.Poly1
 
 
 /**
@@ -32,47 +31,16 @@ import shapeless.Poly1
   * As the need for undirected graphs is rare, usually represent
   * the undirected graph by two directed edges.
   */
-final class AdjacencyList[A] private (g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends DirectedGraphRep[A] {
+final class AdjacencyList[A](g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends DirectedGraphRep[A] {
 
-  /**
-    * Returns true if the vertex is contained in the graph.
-    * False otherwise.
-    *
-    * @param v  the vertex.
-    * @return flag to indicate if vertex is in the graph.
-    */
   def contains(v: A): Boolean = g.keys.exists(_==v) || gr.keys.exists(_==v)
 
-  /**
-    * Given a vertex, find its successors, i.e. the vertices it has edges to.
-    * Returns an option.
-    * Note:
-    *   A return of None implies that the vertex was not found.
-    *   Otherwise Some(set of edges) will be returned. The set may be empty.
-    *
-    * @param v the vertex.
-    * @return a set of vertices, or none if the vertex could not be found.
-    */
   def successors(v: A) : Set[A] = g.getOrElse(v,Set.empty[A])
 
-  /**
-    * Given a vertex, find its predecessors, i.e. the vertices that have
-    * edges to the vertex.
-    *
-    * Note:
-    *   A return of None implies that the vertex was not found.
-    *   Otherwise Some(set of edges) will be returned. The set may be empty.
-    *
-    * @param v the vertex.
-    * @return a set of vertices, or none if the vertex could not be found.
-    */
   def predecessors(v: A)  : Set[A] = gr.getOrElse(v,Set.empty[A])
+
 }
 
-
-/**
-  * Companion object for the `AdjacencyList` class.
-  */
 object AdjacencyList {
 
   /**
@@ -83,33 +51,5 @@ object AdjacencyList {
     */
   def empty[A] : AdjacencyList[A] =
     new AdjacencyList[A](Map.empty[A,Set[A]], Map.empty[A,Set[A]])
-
-  /**
-    * Builds an adjacency list by folding over the list of edges once.
-    *
-    * @param edges  the list of edges.
-    * @tparam A     the vertex type.
-    * @return a mapping of vertex to child vertices.
-    */
-  private def edgesToMap[A](edges: Iterable[Edge[A]]) =
-    edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
-        val curr = acc.getOrElse(v.from, Set.empty[A])
-        val xs = acc.updated(v.from, curr + v.to)
-        if (xs.contains(v.to)) xs else xs.updated(v.to, Set.empty[A])
-      })
-
-  /**
-    * Create an adjacency list from a list of directed edges.
-    *
-    * Note: At present we don't store the edge type information, this can
-    * be retained by the graph representation (i.e. we strip the edge to
-    * just the to/from vertices).
-    *
-    * @param edges  the list of edges.
-    * @tparam A     the type of the vertex.
-    * @return       a new `AdjacencyList`
-    */
-    def apply[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
-      new AdjacencyList[A](edgesToMap(edges),edgesToMap(edges.map(reverse(_))))
 
 }

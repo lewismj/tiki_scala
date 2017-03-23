@@ -7,6 +7,8 @@ scaladoc: "#tiki.GraphRep"
 ---
 # GraphRep
 
+An 'internal' trait used to define behaviours expected of different representations.
+
 ## Traits
 
 `GraphRep` defines a trait that different graph representations should adhere to.
@@ -28,7 +30,17 @@ should implement.
 ```scala
 trait DirectedGraphRep[A] extends GraphRep[A] {
   def contains(v: A): Boolean
-  def successors(v: A): Option[Set[A]]
-  def predecessors(v: A): Option[Set[A]]
+  def successors(v: A): Set[A]
+  def predecessors(v: A): Set[A]
+}
+```
+
+`WeightedDirectedGraphRep` extends the `DirectedGraphRep` to add in the weight function.
+
+- `weight(v,w)` the weight of the edge from source vertex _v_ to sink vertex _w_. None if no edge exists.
+
+```scala
+trait WeightedDirectedGraphRep[A] extends DirectedGraphRep[A] {
+  def weight(v: A, w: A): Double
 }
 ```

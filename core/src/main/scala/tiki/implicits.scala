@@ -29,7 +29,8 @@ import shapeless.Poly1
 
 
 /**
-  * Implicit definitions.
+  * Implicit definitions, e.g. allow use of '-->' operator to represent a
+  * directed edge.
   */
 object implicits {
 
@@ -40,12 +41,6 @@ object implicits {
     * @tparam A     the vertex type.
     */
   final class EdgeDef[A](v: A) {
-    /**
-      * Creates a new edge from 'v' to 'w'.
-      *
-      * @param w  the 'to' vertex.
-      * @return a new `Edge` object.
-      */
     def -->(w: A): Edge[A] = new Edge[A](v,w)
   }
 
@@ -57,12 +52,6 @@ object implicits {
     * @tparam B   the type of the label.
     */
   final class LabelDef[A,B](e: Edge[A]) {
-    /**
-      * Apply a label to an edge to create a labelled edge.
-      *
-      * @param l  the label to apply to the edge.
-      * @return a new `LEdge` object.
-      */
     def :+(l :B): LEdge[A,B] = new LEdge[A,B](e,l)
   }
 
@@ -73,41 +62,11 @@ object implicits {
     * @tparam A   the type of the vertex.
     */
   final class WeightDef[A](e: Edge[A]) {
-    /**
-      * Apply a weight to an edge to create a weighed edge.
-      *
-      * @param w  the weight to apply to the edge.
-      * @return a new `WEdge` object.
-      */
     def :#(w: Double): WEdge[A] = new WEdge[A](e,w)
   }
 
-  /**
-    * Implicitly create an `EdgeDef`.
-    *
-    * @param v    the start vertex.
-    * @tparam A   the type of the vertex.
-    * @return     a new `EdgeDef` object.
-    */
   implicit def anyToEdge[A](v: A): EdgeDef[A] = new EdgeDef[A](v)
-
-  /**
-    * Implicitly create a `LabelDef`.
-    *
-    * @param e    the edge.
-    * @tparam A   the type of the vertex.
-    * @tparam B   the type of the label.
-    * @return     a new `LabelDef` object.
-    */
   implicit def anyToLEdge[A,B](e: Edge[A]): LabelDef[A,B] = new LabelDef[A,B](e)
-
-  /**
-    * Implicitly create a `WeightDef`.
-    *
-    * @param e    the edge.
-    * @tparam A   the type of the vertex.
-    * @return     a new `WeightDef` object.
-    */
   implicit def anyToWEdge[A](e: Edge[A]): WeightDef[A] = new WeightDef[A](e)
 
 
@@ -116,27 +75,43 @@ object implicits {
     */
   implicit object buildAdjacencyList extends Poly1 {
 
-    implicit def edge[A]: Case.Aux[Iterable[Edge[A]],AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x))
+    /**
+      * Builds an adjacency list by folding over the list of edges once.
+      *
+      * @param edges  the list of edges.
+      * @tparam A     the vertex type.
+      * @return a mapping of vertex to child vertices.
+      */
+    private def edgesToMap[A](edges: Iterable[Edge[A]]) =
+    edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
+      val curr = acc.getOrElse(v.from, Set.empty[A])
+      val xs = acc.updated(v.from, curr + v.to)
+      if (xs.contains(v.to)) xs else xs.updated(v.to, Set.empty[A])
+    })
 
-    implicit def labelledEdge[A,B]: Case.Aux[Iterable[LEdge[A,B]],AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x.map(ledge => ledge.edge)))
+    /**
+      * Create an adjacency list from a list of directed edges.
+      *
+      * Note: At present we don't store the edge type information, this can
+      * be retained by the graph representation (i.e. we strip the edge to
+      * just the to/from vertices).
+      *
+      * @param edges  the list of edges.
+      * @tparam A     the type of the vertex.
+      * @return       a new `AdjacencyList`
+      */
+    def makeAdjacencyList[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
+      new AdjacencyList[A](edgesToMap(edges),edgesToMap(edges.map(reverse(_))))
 
-    implicit def weightedEdge[A]: Case.Aux[Iterable[WEdge[A]],AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x.map(wedge => wedge.edge)))
 
-    /*
-      Provide 'List' implementation as its the most common 'Iterable' used and will avoid
-      calling code having to add '.toIterable'.
-     */
-    implicit def edgeList[A] : Case.Aux[List[Edge[A]],AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x))
+    implicit def edge[A]: Case.Aux[List[Edge[A]],AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x))
 
-    implicit def labelledEdgeList[A,B] : Case.Aux[List[LEdge[A,B]],AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x.map(ledge => ledge.edge)))
+    implicit def labelledEdge[A,B]: Case.Aux[List[LEdge[A,B]],AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x.map(ledge => ledge.edge)))
 
-    implicit def weightedEdgeList[A] : Case.Aux[List[WEdge[A]],AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x.map(wedge => wedge.edge)))
+    implicit def weightedEdge[A]: Case.Aux[List[WEdge[A]],AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
 
   }
 

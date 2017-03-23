@@ -39,50 +39,24 @@ import tiki.Predef._
   * @tparam A     the type of the vertex.
   */
 case class Edge[A](from: A, to: A)  {
-  /**
-    * Returns string representation of the edge.
-    *
-    * @return a string representation of the edge.
-    */
   override def toString: String = s"$from --> $to"
 }
 
 /**
   * A labelled edge between two vertices.
-  *
-  * @param edge   the edge between the two vertices.
-  * @param label  the label of the edge.
-  * @tparam A     the type of the edge vertex.
-  * @tparam B     the type of the label.
   */
 case class LEdge[A,B](edge: Edge[A], label: B)  {
-  /**
-    * Returns one vertex in an edge.
-    *
-    * @return a vertex of type `A`.
-    */
   def from : A = edge.from
-
-  /**
-    * Returns the 'other' vertex in the edge.
-    *
-    * @return a vertex of type `A`.
-    */
   def to: A = edge.to
-
-  /**
-    * Map the label from one type to another.
-    *
-    * @param f    the label function, B => C
-    * @tparam C   the type of the new label.
-    * @return a new labelled edge.
-    */
   def lmap[C](f: B => C) : LEdge[A,C] = LEdge(edge,f(label))
-
-  /**
-    * Returns a string representation of the labelled edge.
-    *
-    * @return a string representation of the labelled edge.
-    */
   override def toString: String = s"$from --> $to :+ $label"
+}
+
+/**
+  * A weighted edge between two vertices.
+  */
+case class WEdge[A](edge: Edge[A], weight: Double) {
+  def from : A = edge.from
+  def to: A = edge.to
+  override def toString: String = s"$from --> $to :# $weight"
 }

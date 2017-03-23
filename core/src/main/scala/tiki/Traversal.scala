@@ -21,9 +21,7 @@ object Traversal {
     */
   private def unfold[T,R](z:T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
     case None => Trampoline.done(Stream.empty[R])
-    case Some((r,v)) =>
-        Trampoline.suspend(unfold(v)(f)).flatMap(stream =>
-          Trampoline.done(r #:: stream))
+    case Some((r,v)) => Trampoline.suspend(unfold(v)(f)).flatMap(s => Trampoline.done(r #:: s))
   }
 
 

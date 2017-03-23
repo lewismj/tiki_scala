@@ -41,5 +41,5 @@ trait ArbitraryEdgeList extends ArbitrarySet {
     })
   }
 
-  implicit def arbitraryEdgeList[A:Arbitrary]: Arbitrary[Iterable[Edge[A]]] = Arbitrary(edgeList)
+  implicit def arbitraryEdgeList[A:Arbitrary]: Arbitrary[List[Edge[A]]] = Arbitrary(edgeList)
 }

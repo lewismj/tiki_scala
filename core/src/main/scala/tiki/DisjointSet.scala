@@ -99,9 +99,6 @@ final class DisjointSet[A] private (parents: Map[A,A], ranks: Map[A,Long], nComp
 
 }
 
-/**
-  * Companion object for case class, provides `apply` method.
-  */
 object DisjointSet  {
 
   /**
