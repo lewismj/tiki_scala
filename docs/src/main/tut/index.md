@@ -20,7 +20,9 @@ The choice of representation can be based on factors such as the density (number
 in terms of number of vertices).
 
 The traversal (a generic `unfold`) is independent of the graph representation.
-For many applications we either don't require (or want) a multi-way tree data structure.
+
+It may be useful to have a generic `Graph` object that holds a Rose-tree, but it can be useful
+to have other implementations and swap out the underlying data structure.
 
 ## Further Reading
 

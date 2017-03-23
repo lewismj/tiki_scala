@@ -39,19 +39,14 @@ object Poly {
     def makeAdjacencyList[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
       new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(reverse(_))))
 
-    implicit def edge[A]: Case.Aux[List[Edge[A]], AdjacencyList[A]]
+    implicit def caseEdge[A]: Case.Aux[List[Edge[A]], AdjacencyList[A]]
       = at(x => makeAdjacencyList[A](x))
 
-    implicit def labelledEdge[A, B]: Case.Aux[List[LEdge[A, B]], AdjacencyList[A]]
+    implicit def caseLEdge[A, B]: Case.Aux[List[LabelledEdge[A, B]], AdjacencyList[A]]
       = at(x => makeAdjacencyList[A](x.map(ledge => ledge.edge)))
 
-    implicit def weightedEdge[A]: Case.Aux[List[WEdge[A]], AdjacencyList[A]]
+    implicit def caseWEdge[A]: Case.Aux[List[WeightedEdge[A]], AdjacencyList[A]]
       = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
-
-    implicit def weightedEdgeStream[A]: Case.Aux[Stream[WEdge[A]], AdjacencyList[A]]
-      = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
-
-
   }
 
 

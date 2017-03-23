@@ -56,12 +56,10 @@ trait Graph[A,B] {
 - `edges` a stream of edges.
 - `vertices` a stream of vertices
 
-### Example 
+## Weighted Digraph
 
-The `WeightedDigraph` is defined as a `Graph` with vertices of type `A` and edges of type `WEdge[A]`. 
-That supports the `Directed` and `Weighted` interfaces. 
-
+The weighted digraph interface can be defined as the trait:
 
 ```scala
-case class WeightedDigraph[A](...) extends Graph[A,WEdge[A]]  with Directed[A] with Weighted[A] { ... }
+trait WeightedDigraph[A] extends Graph[A,WEdge[A]] with Weighted[A] with Directed[A] 
 ```

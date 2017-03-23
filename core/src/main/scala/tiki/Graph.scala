@@ -104,3 +104,10 @@ trait Graph[A,B] {
     */
   def edges: Stream[B]
 }
+
+/**
+  * Weighted digraph.
+  *
+  * @tparam A the vertex type.
+  */
+trait WeightedDigraph[A] extends Graph[A,WeightedEdge[A]] with Weighted[A] with Directed[A] {}

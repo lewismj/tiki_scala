@@ -22,5 +22,5 @@ import tiki.Predef._
 import tiki.implicits._
 
 List(1 --> 2, 1 --> 4, 2 --> 4).map(reverse)
-List('a' --> 'b' :+ 1.1, 'b' --> 'c' :+ 2.2).map(reverse)
+List('a' --> 'b' :+ "label.1", 'b' --> 'c' :+ "label.2").map(reverse)
 ```

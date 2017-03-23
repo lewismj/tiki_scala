@@ -13,8 +13,11 @@ The following case classes may used to define edges:
 - `EdgeLabelled` an unweighted, labelled edge from one vertex to another.
 - `EdgeWeighted` is a weighted edge.
 
-The case classes _do not_ form a hierarchy. The weighted edge case class is provided
-for use-cases where we require just a weighted edge and no labelling. 
+These are defined by the union:
+
+```scala
+type EdgeLike[A,B]= Edge[A] :+: WeightedEdge[A] :+: LabelledEdge[A,B] :+: CNil
+```
 
 Undirected edges? _Unless explicitly stated_ most algorithms would assume an undirected
  edge be represented by two directed edges. 
@@ -45,26 +48,19 @@ import tiki._
 import tiki.Predef._
 import tiki.implicits._
 
-val e0 = Edge[Int](1,2)
-
-// Use the edge --> operator
-val e1 = 1 --> 2
+val e = 1 --> 2
 ```
 
-#### LEdge
+#### LabelledEdge
 
 ```tut
 import tiki._
 import tiki.Predef._
 
-val e0 = Edge[Int](1,2)
-val le0 = LEdge(e0,"a label")
-
-// User the :+ to apply a label to an edge.
-val le1 = 1 --> 2 :+ "a label"
+val le = 1 --> 2 :+ "a label"
 ```
 
-#### WEdge
+#### WeightedEdge
 
 The weighted edge is a case where we have only one label of type double. There is the `:#` operator
 to create these edges:

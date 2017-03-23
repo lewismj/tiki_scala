@@ -46,7 +46,7 @@ class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllAr
 
   test("`successors` of adjacency ... correct vertices (labelled nodes") (forAll { (xs: List[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
-    val ys = xs.map(LEdge(_,"label"))
+    val ys = xs.map(LabelledEdge(_,"label"))
     val adjacency = buildAdjacencyList(ys)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
       adjacency.successors(vertex) == children.toSet

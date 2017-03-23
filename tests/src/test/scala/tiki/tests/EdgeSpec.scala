@@ -28,7 +28,7 @@ import tiki._
 import tiki.Predef._
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
-import tiki.{Edge, LEdge}
+import tiki.{Edge, LabelledEdge}
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.implicits._
 
@@ -68,23 +68,23 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
 
   test("can implicitly create a weighted edge") {
     val e = 1 --> 2 :# 2.2
-    e should be (WEdge(Edge(1,2),2.2))
+    e should be (WeightedEdge(Edge(1,2),2.2))
   }
 
   test("weighted edge has correct properties.") {
-    val w0 = WEdge(Edge(1,2),8.8)
+    val w0 = WeightedEdge(Edge(1,2),8.8)
     val (from,to,weight) = (w0.from,w0.to,w0.weight)
     (from, to, weight) should be ((1,2,8.8))
   }
 
   test("`lmap` correctly relabels.") {
-    val l0 = LEdge[Int,Double](Edge(1,2),1.0)
+    val l0 = LabelledEdge[Int,Double](Edge(1,2),1.0)
     val l1 = l0.map[String](_.toString)
     l1.label should be(1.0.toString)
   }
 
   test("Labelled edge properties are correct.") {
-    val l0 = LEdge[Int,Double](Edge(1,2),1.0)
+    val l0 = LabelledEdge[Int,Double](Edge(1,2),1.0)
     val (from,to,label) = (l0.from,l0.to,l0.label)
     (from, to, label) should be ((1,2,1.0))
   }

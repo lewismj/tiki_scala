@@ -1,3 +1,4 @@
+import shapeless.{:+:, CNil}
 import tiki.Predef._
 
 /*
@@ -28,13 +29,17 @@ package object tiki {
   import tiki.implicits._
   import shapeless.Poly1
 
+  type EdgeLike[A,B]= Edge[A] :+: WeightedEdge[A] :+: LabelledEdge[A,B] :+: CNil
+
+
   /**
     * Provides 'reverse' function for different 'Edge' case classes.
     * `Edge` classes shouldn't form an inheritance hierarchy.
     */
   object reverse extends Poly1 {
     implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[LEdge[A,B],LEdge[A,B]]= at({ x=> x.edge.to --> x.edge.from :+ x.label})
+    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]= at({ x=> x.edge.to --> x.edge.from :+ x.label})
+    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]= at({ x=> x.edge.to --> x.edge.from :# x.weight})
   }
 
 
