@@ -76,10 +76,16 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
     (from, to, weight) should be ((1,2,8.8))
   }
 
-  test("`lmap` correctly relabels.") {
+  test("`map` correctly relabels.") {
     val l0 = LabelledEdge[Int,Double](Edge(1,2),1.0)
     val l1 = l0.map[String](_.toString)
     l1.label should be(1.0.toString)
+  }
+
+  test("`map` applies function to weighed edge") {
+    val w0 = 1 --> 2 :# 2.2
+    val w1 = w0.map(_ * 2.0)
+    w1.weight should be (4.4)
   }
 
   test("Labelled edge properties are correct.") {
@@ -98,5 +104,9 @@ class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary 
     reverse(e) should be (2 --> 1)
   }
 
+  test("can reverse a weighted edge.") {
+    val e = 1 --> 2 :# 2.2
+    reverse(e) should be(2 --> 1 :# 2.2)
+  }
 
 }

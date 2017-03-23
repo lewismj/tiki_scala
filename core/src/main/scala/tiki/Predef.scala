@@ -86,7 +86,6 @@ object Predef {
 
   final class ArrowAssoc[A](val x: A) {
     def -> [B](y: B): (A, B) = (x, y)
-    def →[B](y: B): (A, B) = ->(y)
   }
   implicit def any2ArrowAssoc[A](x: A): ArrowAssoc[A] = new ArrowAssoc(x)
 
