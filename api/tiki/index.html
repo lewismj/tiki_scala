@@ -95,6 +95,12 @@
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="Digraph.html" title="A directed graph (a graph that supports the Directed interface."></a>
+                        <a href="Digraph.html" title="A directed graph (a graph that supports the Directed interface.">
+                          Digraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="Directed.html" title="Defines a 'directed' interface that some graph
 representations may support."></a>
                         <a href="Directed.html" title="Defines a 'directed' interface that some graph
@@ -278,6 +284,25 @@ representations may support.">
 As the need for undirected graphs is rare, usually represent
 the undirected graph by two directed edges.
 </p></div></div>
+    </li><li name="tiki.Digraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Digraph[A,B]extendsGraph[A,B]withDirected[A]"></a><a id="Digraph[A,B]:Digraph[A,B]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#Digraph[A,B]extendsGraph[A,B]withDirected[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="A directed graph (a graph that supports the Directed interface." href="Digraph.html">
+              <span class="name">Digraph</span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.Digraph.A">A</span>, <span class="extype" name="tiki.Digraph.B">B</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">A directed graph (a graph that supports the <code>Directed</code> interface.</p><div class="fullcomment"><div class="comment cmt"><p>A directed graph (a graph that supports the <code>Directed</code> interface.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the edge type.</p></dd></dl></div>
     </li><li name="tiki.Directed" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="Directed[A]extendsAnyRef"></a><a id="Directed[A]:Directed[A]"></a>
       <span class="permalink">
@@ -419,9 +444,9 @@ representations may support.</p><div class="fullcomment"><div class="comment cmt
 representations may support.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="WeightedDigraph[A]extendsGraph[A,tiki.WeightedEdge[A]]withWeighted[A]withDirected[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+      <a id="WeightedDigraph[A]extendsDigraph[A,tiki.WeightedEdge[A]]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedDigraph[A]extendsGraph[A,tiki.WeightedEdge[A]]withWeighted[A]withDirected[A]" title="Permalink">
+      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A,tiki.WeightedEdge[A]]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -432,7 +457,7 @@ representations may support.
       <span class="symbol">
         <a title="Weighted digraph." href="WeightedDigraph.html">
               <span class="name">WeightedDigraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>, <a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>, <a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Weighted digraph.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph.
