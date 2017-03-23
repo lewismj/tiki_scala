@@ -35,7 +35,7 @@ object Traversal {
    * @tparam A   the type of the vertex.
    * @return     the traversal stream.
    */
-  private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]
+  private def traverse[A](g: Digraph[A], v: A, dfs: Boolean): Stream[A]
     = unfold( (List(v),Set.empty[A]) ) {
           case (current,visited) => current match {
             case w :: Nil =>
@@ -58,7 +58,7 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  private def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]
+  private def visitOrder[A](g: Digraph[A], start: A, dfs: Boolean): Stream[A]
     = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty
 
   /**
@@ -69,7 +69,7 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def dfs[A](g: DirectedGraphRep[A], start: A): Stream[A]
+  def dfs[A](g: Digraph[A], start: A): Stream[A]
     = visitOrder(g,start,dfs=true)
 
   /**
@@ -80,7 +80,7 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def bfs[A](g: DirectedGraphRep[A], start: A): Stream[A]
+  def bfs[A](g: Digraph[A], start: A): Stream[A]
     = visitOrder(g,start,dfs=false)
 
 }

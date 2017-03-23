@@ -31,7 +31,7 @@ import Predef._
   * As the need for undirected graphs is rare, usually represent
   * the undirected graph by two directed edges.
   */
-final class AdjacencyList[A](g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends DirectedGraphRep[A] {
+final class AdjacencyList[A](g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends Digraph[A] {
 
   def contains(v: A): Boolean = g.keys.exists(_==v) || gr.keys.exists(_==v)
 

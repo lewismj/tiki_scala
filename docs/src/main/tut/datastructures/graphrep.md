@@ -28,7 +28,7 @@ should implement.
 - `predecessora(v)` the vertices that have an outgoing edge *to* _v_.
 
 ```scala
-trait DirectedGraphRep[A] extends GraphRep[A] {
+trait Digraph[A] extends GraphRep[A] {
   def contains(v: A): Boolean
   def successors(v: A): Set[A]
   def predecessors(v: A): Set[A]
@@ -40,7 +40,7 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
 - `weight(v,w)` the weight of the edge from source vertex _v_ to sink vertex _w_. None if no edge exists.
 
 ```scala
-trait WeightedDirectedGraphRep[A] extends DirectedGraphRep[A] {
+trait EdgeWeightedDigraph[A] extends Digraph[A] {
   def weight(v: A, w: A): Double
 }
 ```

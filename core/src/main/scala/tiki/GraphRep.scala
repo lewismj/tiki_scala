@@ -50,7 +50,7 @@ trait GraphRep[A] {
   *
   * @tparam A the vertex type.
   */
-trait DirectedGraphRep[A] extends GraphRep[A] {
+trait Digraph[A] extends GraphRep[A] {
 
   /**
     * Returns true if the vertex is contained in the graph.
@@ -92,7 +92,7 @@ trait DirectedGraphRep[A] extends GraphRep[A] {
   *
   * @tparam A the vertex type.
   */
-trait WeightedDirectedGraphRep[A] extends DirectedGraphRep[A] {
+trait EdgeWeightedDigraph[A] extends Digraph[A] {
 
   /**
     * Return the weight of the edge from v to w.

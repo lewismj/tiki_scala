@@ -30,9 +30,10 @@ import tiki.Predef._
 /**
   * Represents an edge between two vertices.
   *
-  * The edges in a graph tend to be either all directed
-  * or all undirected. i.e. A property of the graph not
-  * really a property of the edge.
+  * The edges in a graph tend to be either all directed or all undirected.
+  * i.e. A property that holds across the graph. An undirected graph can
+  * be represented by a pair of directed edges. Generally, the library is
+  * concerned with directed graphs.
   *
   * @param from   one vertex in an edge.
   * @param to     the 'other' vertex in the edge.
@@ -45,17 +46,17 @@ case class Edge[A](from: A, to: A)  {
 /**
   * A labelled edge between two vertices.
   */
-case class LEdge[A,B](edge: Edge[A], label: B)  {
+case class EdgeLabelled[A,B](edge: Edge[A], label: B)  {
   def from : A = edge.from
   def to: A = edge.to
-  def lmap[C](f: B => C) : LEdge[A,C] = LEdge(edge,f(label))
+  def lmap[C](f: B => C) : EdgeLabelled[A,C] = EdgeLabelled(edge,f(label))
   override def toString: String = s"$from --> $to :+ $label"
 }
 
 /**
   * A weighted edge between two vertices.
   */
-case class WEdge[A](edge: Edge[A], weight: Double) {
+case class EdgeWeighted[A](edge: Edge[A], weight: Double) {
   def from : A = edge.from
   def to: A = edge.to
   override def toString: String = s"$from --> $to :# $weight"
