@@ -129,12 +129,6 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="Poly$.html" title=""></a>
-                        <a href="Poly$.html" title="">
-                          Poly
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
                         <a class="object" href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library."></a>
                         <a href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library.">
                           Predef
@@ -164,6 +158,12 @@ representations may support.">
                         <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
                         <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
                           WeightedEdge
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge."></a>
+                        <a href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge.">
+                          buildAdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -358,7 +358,7 @@ concerned with directed graphs.
         <span class="name">EdgeLike</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result alias"> = <span class="extype" name="shapeless.:+:">:+:</span>[<a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>], <span class="extype" name="shapeless.:+:">:+:</span>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>], <span class="extype" name="shapeless.:+:">:+:</span>[<a href="LabelledEdge.html" class="extype" name="tiki.LabelledEdge">LabelledEdge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>, <span class="extype" name="tiki.EdgeLike.B">B</span>], <span class="extype" name="shapeless.CNil">CNil</span>]]]</span>
       </span>
       
-      
+      <p class="shortcomment cmt">Edge union</p>
     </li><li name="tiki.Graph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="Graph[A,B]extendsAnyRef"></a><a id="Graph[A,B]:Graph[A,B]"></a>
       <span class="permalink">
@@ -499,24 +499,6 @@ representations may support.
       </span>
       
       
-    </li><li name="tiki.Poly" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Poly"></a><a id="Poly:Poly"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#Poly" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="Poly$.html">
-              <span class="name">Poly</span>
-            </a>
-      </span>
-      
-      
     </li><li name="tiki.Predef" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Predef"></a><a id="Predef:Predef"></a>
       <span class="permalink">
@@ -556,6 +538,24 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
       </span>
       
       <p class="shortcomment cmt">Simple stream based unfold traversal.</p>
+    </li><li name="tiki.buildAdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="buildAdjacencyList"></a><a id="buildAdjacencyList:buildAdjacencyList"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#buildAdjacencyList" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Builds an adjacency list, given any type of edge." href="package$$buildAdjacencyList$.html">
+              <span class="name">buildAdjacencyList</span>
+            </a><span class="result"> extends <span class="extype" name="shapeless.Poly1">Poly1</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Builds an adjacency list, given any type of edge.</p>
     </li><li name="tiki.implicits" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="implicits"></a><a id="implicits:implicits"></a>
       <span class="permalink">
@@ -576,7 +576,7 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
       <p class="shortcomment cmt">Implicit definitions, e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Implicit definitions, e.g. allow use of '--&gt;' operator to represent a
 directed edge.
 </p></div></div>
-    </li><li name="tiki.reverse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="tiki.reverse" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="reverse"></a><a id="reverse:reverse"></a>
       <span class="permalink">
       <a href="../tiki/index.html#reverse" title="Permalink">
@@ -593,9 +593,7 @@ directed edge.
             </a><span class="result"> extends <span class="extype" name="shapeless.Poly1">Poly1</span></span>
       </span>
       
-      <p class="shortcomment cmt">Provides 'reverse' function for different 'Edge' case classes.</p><div class="fullcomment"><div class="comment cmt"><p>Provides 'reverse' function for different 'Edge' case classes.
-<code>Edge</code> classes shouldn't form an inheritance hierarchy.
-</p></div></div>
+      <p class="shortcomment cmt">Provides 'reverse' function for different 'Edge' case classes.</p>
     </li>
               </ol>
             </div>

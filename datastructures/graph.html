@@ -12,7 +12,6 @@ as <code class="highlighter-rouge">AdjacencyList</code> may support.</p>
 <h2 id="directed-interface">Directed Interface</h2>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Directed</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
   <span class="k">def</span> <span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
   <span class="k">def</span> <span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
@@ -32,10 +31,14 @@ as <code class="highlighter-rouge">AdjacencyList</code> may support.</p>
 <p>The weighted interface specifies that there must be a <em>weight</em> between two vertices.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">weight</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span>
+  <span class="k">def</span> <span class="n">weight</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">w</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Double</span><span class="o">]</span>
 <span class="o">}</span>
 </code></pre>
 </div>
+
+<ul>
+  <li><code class="highlighter-rouge">weighted(v,w)</code> the weight of the edge between the nodes <em>v</em> and <em>w</em> (if the edge exists).</li>
+</ul>
 
 <h2 id="graph-interface">Graph Interface</h2>
 

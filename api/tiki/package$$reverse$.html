@@ -131,12 +131,6 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="Poly$.html" title=""></a>
-                        <a href="Poly$.html" title="">
-                          Poly
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
                         <a class="object" href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library."></a>
                         <a href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library.">
                           Predef
@@ -166,6 +160,12 @@ representations may support.">
                         <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
                         <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
                           WeightedEdge
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge."></a>
+                        <a href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge.">
+                          buildAdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -208,12 +208,11 @@ representations may support.">
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Provides 'reverse' function for different 'Edge' case classes.
-<code>Edge</code> classes shouldn't form an inheritance hierarchy.
 </p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><span class="extype" name="shapeless.Poly1">Poly1</span>, <span class="extype" name="shapeless.Poly">shapeless.Poly</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="shapeless.PolyApply">PolyApply</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="shapeless.Poly1">Poly1</span>, <span class="extype" name="shapeless.Poly">Poly</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="shapeless.PolyApply">PolyApply</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -382,7 +381,7 @@ representations may support.">
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="shapeless.Poly#andThen" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="andThen(f:shapeless.Poly):shapeless.poly.Compose[f.type,Poly.this.type]"></a><a id="andThen(shapeless.Poly):Compose[f.type,reverse.this.type]"></a>
+      <a id="andThen(f:shapeless.Poly):shapeless.poly.Compose[f.type,Poly.this.type]"></a><a id="andThen(Poly):Compose[f.type,reverse.this.type]"></a>
       <span class="permalink">
       <a href="../tiki/package$$reverse$.html#andThen(f:shapeless.Poly):shapeless.poly.Compose[f.type,Poly.this.type]" title="Permalink">
         <i class="material-icons"></i>
@@ -393,7 +392,7 @@ representations may support.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">andThen</span><span class="params">(<span name="f">f: <span class="extype" name="shapeless.Poly">shapeless.Poly</span></span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Compose">Compose</span>[<span class="extype" name="shapeless.Poly.andThen.f">f</span>.type, <a href="" class="extype" name="tiki.reverse">reverse</a>.this.type]</span>
+        <span class="name">andThen</span><span class="params">(<span name="f">f: <span class="extype" name="shapeless.Poly">Poly</span></span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Compose">Compose</span>[<span class="extype" name="shapeless.Poly.andThen.f">f</span>.type, <a href="" class="extype" name="tiki.reverse">reverse</a>.this.type]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
@@ -836,7 +835,7 @@ representations may support.">
               
         </dd></dl></div>
     </li><li name="shapeless.Poly#compose" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="compose(f:shapeless.Poly):shapeless.poly.Compose[Poly.this.type,f.type]"></a><a id="compose(shapeless.Poly):Compose[reverse.this.type,f.type]"></a>
+      <a id="compose(f:shapeless.Poly):shapeless.poly.Compose[Poly.this.type,f.type]"></a><a id="compose(Poly):Compose[reverse.this.type,f.type]"></a>
       <span class="permalink">
       <a href="../tiki/package$$reverse$.html#compose(f:shapeless.Poly):shapeless.poly.Compose[Poly.this.type,f.type]" title="Permalink">
         <i class="material-icons"></i>
@@ -847,7 +846,7 @@ representations may support.">
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">compose</span><span class="params">(<span name="f">f: <span class="extype" name="shapeless.Poly">shapeless.Poly</span></span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Compose">Compose</span>[<a href="" class="extype" name="tiki.reverse">reverse</a>.this.type, <span class="extype" name="shapeless.Poly.compose.f">f</span>.type]</span>
+        <span class="name">compose</span><span class="params">(<span name="f">f: <span class="extype" name="shapeless.Poly">Poly</span></span>)</span><span class="result">: <span class="extype" name="shapeless.PolyDefns.Compose">Compose</span>[<a href="" class="extype" name="tiki.reverse">reverse</a>.this.type, <span class="extype" name="shapeless.Poly.compose.f">f</span>.type]</span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Poly</dd></dl></div>
@@ -1240,7 +1239,7 @@ representations may support.">
         <div class="parent" name="shapeless.Poly1">
               <h3>Inherited from <span class="extype" name="shapeless.Poly1">Poly1</span></h3>
             </div><div class="parent" name="shapeless.Poly">
-              <h3>Inherited from <span class="extype" name="shapeless.Poly">shapeless.Poly</span></h3>
+              <h3>Inherited from <span class="extype" name="shapeless.Poly">Poly</span></h3>
             </div><div class="parent" name="scala.Serializable">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
             </div><div class="parent" name="java.io.Serializable">

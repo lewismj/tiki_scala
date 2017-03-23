@@ -131,12 +131,6 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="Poly$.html" title=""></a>
-                        <a href="Poly$.html" title="">
-                          Poly
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
                         <a class="object" href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library."></a>
                         <a href="Predef$.html" title="Predef is a set of type aliases for types which are commonly used in the library.">
                           Predef
@@ -166,6 +160,12 @@ representations may support.">
                         <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
                         <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
                           WeightedEdge
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge."></a>
+                        <a href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge.">
+                          buildAdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -471,6 +471,25 @@ representations may support.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="tiki.AdjacencyList#makeAdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="makeAdjacencyList[A](edges:tiki.Predef.Iterable[tiki.Edge[A]]):tiki.AdjacencyList[A]"></a><a id="makeAdjacencyList[A](Iterable[Edge[A]]):AdjacencyList[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/AdjacencyList$.html#makeAdjacencyList[A](edges:tiki.Predef.Iterable[tiki.Edge[A]]):tiki.AdjacencyList[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">makeAdjacencyList</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Iterable[A]=scala.collection.immutable.Iterable[A]" class="extmbr" name="tiki.Predef.Iterable">Iterable</a>[<a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.AdjacencyList.makeAdjacencyList.A">A</span>]]</span>)</span><span class="result">: <a href="AdjacencyList.html" class="extype" name="tiki.AdjacencyList">AdjacencyList</a>[<span class="extype" name="tiki.AdjacencyList.makeAdjacencyList.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Create an adjacency list from a list of directed edges.</p><div class="fullcomment"><div class="comment cmt"><p>Create an adjacency list from a list of directed edges.</p><p>Note: At present we don't store the edge type information, this can
+be retained by the graph representation (i.e. we strip the edge to
+just the to/from vertices).
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">edges</dt><dd class="cmt"><p>the list of edges.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>AdjacencyList</code></p></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
