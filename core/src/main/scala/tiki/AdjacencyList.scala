@@ -76,7 +76,7 @@ object AdjacencyList {
     * @tparam A the type of the vertex.
     * @return a new `AdjacencyList`
     */
-  def makeAdjacencyList[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
+  def apply[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
     new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(reverse(_))))
 
 }

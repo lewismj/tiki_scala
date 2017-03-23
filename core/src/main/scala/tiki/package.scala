@@ -49,11 +49,11 @@ package object tiki {
     */
   implicit object buildAdjacencyList extends Poly1 {
     implicit def caseEdge[A]: Case.Aux[List[Edge[A]], AdjacencyList[A]]
-      = at(x => makeAdjacencyList[A](x))
+      = at(x => AdjacencyList[A](x))
     implicit def caseLEdge[A, B]: Case.Aux[List[LabelledEdge[A, B]], AdjacencyList[A]]
-      = at(x => makeAdjacencyList[A](x.map(ledge => ledge.edge)))
+      = at(x => AdjacencyList[A](x.map(ledge => ledge.edge)))
     implicit def caseWEdge[A]: Case.Aux[List[WeightedEdge[A]], AdjacencyList[A]]
-      = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
+      = at(x => AdjacencyList[A](x.map(wedge => wedge.edge)))
   }
 
 }
