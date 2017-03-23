@@ -28,14 +28,14 @@ object Traversal {
   /**
    * Generates a graph traversal, as stream of vertices.
    *
-   * @param g    the directed graph representation.
+   * @param g    underlying data structure that supports `Directed`.
    * @param v    the start vertex.
    * @param dfs  flag to indicate if depth first search (true) or
    *             breadth first search (false).
    * @tparam A   the type of the vertex.
    * @return     the traversal stream.
    */
-  private def traverse[A](g: Digraph[A], v: A, dfs: Boolean): Stream[A]
+  private def traverse[A](g: Directed[A], v: A, dfs: Boolean): Stream[A]
     = unfold( (List(v),Set.empty[A]) ) {
           case (current,visited) => current match {
             case w :: Nil =>
@@ -52,35 +52,35 @@ object Traversal {
   /**
     * Generates a visit order as a stream of vertices.
     *
-    * @param g        the directed graph representation.
+    * @param g        underlying data structure that supports `Directed`.
     * @param start    the start vertex.
     * @param dfs      true if depth-first search, false for breadth-first search.
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  private def visitOrder[A](g: Digraph[A], start: A, dfs: Boolean): Stream[A]
+  private def visitOrder[A](g: Directed[A], start: A, dfs: Boolean): Stream[A]
     = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty
 
   /**
     * Perform a depth first search on a directed graph.
     *
-    * @param g        the directed graph representation.
+    * @param g    underlying data structure that supports `Directed`.
     * @param start    the start vertex.
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def dfs[A](g: Digraph[A], start: A): Stream[A]
+  def dfs[A](g: Directed[A], start: A): Stream[A]
     = visitOrder(g,start,dfs=true)
 
   /**
     * Perform a breadth first search on a directed graph.
     *
-    * @param g        the directed graph representation.
+    * @param g        underlying data structure that supports `Directed`.
     * @param start    the start vertex.
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def bfs[A](g: Digraph[A], start: A): Stream[A]
+  def bfs[A](g: Directed[A], start: A): Stream[A]
     = visitOrder(g,start,dfs=false)
 
 }

@@ -18,11 +18,12 @@ object Poly {
       * @return a mapping of vertex to child vertices.
       */
     private def edgesToMap[A](edges: Iterable[Edge[A]]) =
-    edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
-      val curr = acc.getOrElse(v.from, Set.empty[A])
-      val xs = acc.updated(v.from, curr + v.to)
-      if (xs.contains(v.to)) xs else xs.updated(v.to, Set.empty[A])
-    })
+      edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
+        val curr = acc.getOrElse(v.from, Set.empty[A])
+        val xs = acc.updated(v.from, curr + v.to)
+        /* make sure leaf vertices are in the edge map.*/
+        if (xs.contains(v.to)) xs else xs.updated(v.to, Set.empty[A])
+      })
 
     /**
       * Create an adjacency list from a list of directed edges.
@@ -36,17 +37,20 @@ object Poly {
       * @return a new `AdjacencyList`
       */
     def makeAdjacencyList[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
-    new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(reverse(_))))
-
+      new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(reverse(_))))
 
     implicit def edge[A]: Case.Aux[List[Edge[A]], AdjacencyList[A]]
-    = at(x => makeAdjacencyList[A](x))
+      = at(x => makeAdjacencyList[A](x))
 
-    implicit def labelledEdge[A, B]: Case.Aux[List[EdgeLabelled[A, B]], AdjacencyList[A]]
-    = at(x => makeAdjacencyList[A](x.map(ledge => ledge.edge)))
+    implicit def labelledEdge[A, B]: Case.Aux[List[LEdge[A, B]], AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x.map(ledge => ledge.edge)))
 
-    implicit def weightedEdge[A]: Case.Aux[List[EdgeWeighted[A]], AdjacencyList[A]]
-    = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
+    implicit def weightedEdge[A]: Case.Aux[List[WEdge[A]], AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
+
+    implicit def weightedEdgeStream[A]: Case.Aux[Stream[WEdge[A]], AdjacencyList[A]]
+      = at(x => makeAdjacencyList[A](x.map(wedge => wedge.edge)))
+
 
   }
 

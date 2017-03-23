@@ -52,7 +52,7 @@ object implicits {
     * @tparam B   the type of the label.
     */
   final class LabelDef[A,B](e: Edge[A]) {
-    def :+(l :B): EdgeLabelled[A,B] = new EdgeLabelled[A,B](e,l)
+    def :+(l :B): LEdge[A,B] = new LEdge[A,B](e,l)
   }
 
   /**
@@ -62,7 +62,7 @@ object implicits {
     * @tparam A   the type of the vertex.
     */
   final class WeightDef[A](e: Edge[A]) {
-    def :#(w: Double): EdgeWeighted[A] = new EdgeWeighted[A](e,w)
+    def :#(w: Double): WEdge[A] = new WEdge[A](e,w)
   }
 
   implicit def anyToEdge[A](v: A): EdgeDef[A] = new EdgeDef[A](v)

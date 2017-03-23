@@ -28,6 +28,7 @@ package tests
 
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
+import tiki.AdjacencyList
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.Predef._
 import tiki.Poly._
@@ -45,7 +46,7 @@ class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllAr
 
   test("`successors` of adjacency ... correct vertices (labelled nodes") (forAll { (xs: List[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
-    val ys = xs.map(EdgeLabelled(_,"label"))
+    val ys = xs.map(LEdge(_,"label"))
     val adjacency = buildAdjacencyList(ys)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
       adjacency.successors(vertex) == children.toSet

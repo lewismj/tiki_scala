@@ -18,8 +18,8 @@ options:
     url: datastructures/edge.html
     menu_type: datastructures
 
-  - title: GraphRep
-    url: datastructures/graphrep.html
+  - title: Graph
+    url: datastructures/graph.html
     menu_type: datastructures
 
 

@@ -46,18 +46,23 @@ case class Edge[A](from: A, to: A)  {
 /**
   * A labelled edge between two vertices.
   */
-case class EdgeLabelled[A,B](edge: Edge[A], label: B)  {
+case class LEdge[A,B](edge: Edge[A], label: B)  {
+
   def from : A = edge.from
   def to: A = edge.to
-  def lmap[C](f: B => C) : EdgeLabelled[A,C] = EdgeLabelled(edge,f(label))
+  def map[C](f: B => C): LEdge[A,C] = LEdge(edge,f(label))
+
   override def toString: String = s"$from --> $to :+ $label"
 }
 
 /**
   * A weighted edge between two vertices.
   */
-case class EdgeWeighted[A](edge: Edge[A], weight: Double) {
+case class WEdge[A](edge: Edge[A], weight: Double) {
+
   def from : A = edge.from
   def to: A = edge.to
+  def map(f: Double => Double): WEdge[A] = WEdge(edge,f(weight))
+
   override def toString: String = s"$from --> $to :# $weight"
 }

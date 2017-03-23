@@ -28,79 +28,79 @@ import tiki.Predef._
 
 
 /**
-  * Base representation for a graph.
-  *
-  * @tparam A the vertex type.
+  * Defines a 'directed' interface that some graph
+  * representations may support.
   */
-trait GraphRep[A] {
-
+trait Directed[A] {
   /**
-    * Returns true if the vertex is contained in the graph.
-    * False otherwise.
+    * Returns the stream of vertices.
     *
-    * @param v  the vertex.
-    * @return flag to indicate if vertex is in the graph.
+    * @return the stream of vertices.
     */
-  def contains(v: A): Boolean
-}
-
-
-/**
-  * Trait that defines interface for directed graphs.
-  *
-  * @tparam A the vertex type.
-  */
-trait Digraph[A] extends GraphRep[A] {
+  def vertices: Stream[A]
 
   /**
     * Returns true if the vertex is contained in the graph.
-    * False otherwise.
     *
     * @param v  the vertex.
-    * @return flag to indicate if vertex is in the graph.
+    * @return true, if the vertex is in the graph, false otherwise.
     */
   def contains(v: A): Boolean
 
   /**
-    * Given a vertex, find its successors, i.e. the vertices it has edges to.
-    * Returns an option.
-    * Note:
-    *   A return of None implies that the vertex was not found.
-    *   Otherwise Some(set of edges) will be returned. The set may be empty.
+    * Returns all vertices that the given vertex has an out-edge to.
     *
-    * @param v the vertex.
-    * @return a set of vertices, or none if the vertex could not be found.
+    * @param v  the vertex.
+    * @return the set of vertices that the given vertex has an out-edge to.
     */
   def successors(v: A): Set[A]
 
   /**
-    * Given a vertex, find its predecessors, i.e. the vertices that have
-    * edges to the vertex.
-    *
-    * Note:
-    *   A return of None implies that the vertex was not found.
-    *   Otherwise Some(set of edges) will be returned. The set may be empty.
+    * Returns all vertices that have an out-edge to the given vertex.
     *
     * @param v the vertex.
-    * @return a set of vertices, or none if the vertex could not be found.
+    * @return the set of vertices that have an out-edge to the given vertex.
     */
   def predecessors(v: A): Set[A]
 }
 
 /**
-  * Trait that defines interface for weighted directed graphs.
+  * Defines a 'weighted' property that some graph
+  * representations may support.
   *
   * @tparam A the vertex type.
   */
-trait EdgeWeightedDigraph[A] extends Digraph[A] {
+trait Weighted[A] {
 
   /**
-    * Return the weight of the edge from v to w.
+    * Return some weight value for the edge from vertex v to vertex w.
+    * Or 'None' if the edge can not be found.
     *
     * @param v  the source vertex.
     * @param w  the sink vertex.
-    * @return   the weight of the edge.
+    * @return   some weight value or None.
     */
-  def weight(v: A, w:A): Double
+  def weight(v: A, w: A): Option[Double]
 }
 
+/**
+  * Base representation for a graph.
+  *
+  * @tparam A the vertex type.
+  * @tparam B the edge type.
+  */
+trait Graph[A,B] {
+  /**
+    * Return a stream of vertices.
+    *
+    * @return the stream of vertices.
+    */
+  def vertices: Stream[A]
+
+  /**
+    * Returns a stream of edges.
+    *
+    * @return the stream of edges.
+    */
+  def edges: Stream[B]
+}

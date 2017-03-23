@@ -23,7 +23,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-import Predef._
+
+import tiki.Predef._
 
 
 /**
@@ -31,14 +32,11 @@ import Predef._
   * As the need for undirected graphs is rare, usually represent
   * the undirected graph by two directed edges.
   */
-final class AdjacencyList[A](g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends Digraph[A] {
-
-  def contains(v: A): Boolean = g.keys.exists(_==v) || gr.keys.exists(_==v)
-
-  def successors(v: A) : Set[A] = g.getOrElse(v,Set.empty[A])
-
-  def predecessors(v: A)  : Set[A] = gr.getOrElse(v,Set.empty[A])
-
+final class AdjacencyList[A](g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends Directed[A] {
+  lazy val vertices: Stream[A] = g.keys.toSet.union(gr.keys.toSet).toStream
+  def contains(v: A): Boolean = vertices.contains(v)
+  def successors(v: A): Set[A] = g.getOrElse(v,Set.empty[A])
+  def predecessors(v: A): Set[A] = gr.getOrElse(v,Set.empty[A])
 }
 
 object AdjacencyList {

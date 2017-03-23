@@ -51,20 +51,20 @@ val e0 = Edge[Int](1,2)
 val e1 = 1 --> 2
 ```
 
-#### EdgeLabelled
+#### LEdge
 
 ```tut
 import tiki._
 import tiki.Predef._
 
 val e0 = Edge[Int](1,2)
-val le0 = EdgeLabelled(e0,"a label")
+val le0 = LEdge(e0,"a label")
 
 // User the :+ to apply a label to an edge.
 val le1 = 1 --> 2 :+ "a label"
 ```
 
-#### EdgeWeighted
+#### WEdge
 
 The weighted edge is a case where we have only one label of type double. There is the `:#` operator
 to create these edges:

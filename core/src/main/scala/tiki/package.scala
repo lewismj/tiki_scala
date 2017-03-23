@@ -34,7 +34,7 @@ package object tiki {
     */
   object reverse extends Poly1 {
     implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[EdgeLabelled[A,B],EdgeLabelled[A,B]]= at({ x=> x.edge.to --> x.edge.from :+ x.label})
+    implicit def labelledEdge[A,B] : Case.Aux[LEdge[A,B],LEdge[A,B]]= at({ x=> x.edge.to --> x.edge.from :+ x.label})
   }
 
 
