@@ -97,9 +97,11 @@
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="Digraph.html" title="Trait that defines interface for directed graphs."></a>
-                        <a href="Digraph.html" title="Trait that defines interface for directed graphs.">
-                          Digraph
+                        <a class="trait" href="Directed.html" title="Defines a 'directed' interface that some graph
+representations may support."></a>
+                        <a href="Directed.html" title="Defines a 'directed' interface that some graph
+representations may support.">
+                          Directed
                         </a>
                       </li><li class="current-entities indented1">
                         <a class="object" href="DisjointSet$.html" title=""></a>
@@ -117,27 +119,15 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="EdgeLabelled.html" title="A labelled edge between two vertices."></a>
-                        <a href="EdgeLabelled.html" title="A labelled edge between two vertices.">
-                          EdgeLabelled
+                        <a class="trait" href="Graph.html" title="Base representation for a graph."></a>
+                        <a href="Graph.html" title="Base representation for a graph.">
+                          Graph
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="EdgeWeighted.html" title="A weighted edge between two vertices."></a>
-                        <a href="EdgeWeighted.html" title="A weighted edge between two vertices.">
-                          EdgeWeighted
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="trait" href="" title="Trait that defines interface for weighted directed graphs."></a>
-                        <a href="" title="Trait that defines interface for weighted directed graphs.">
-                          EdgeWeightedDigraph
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="trait" href="GraphRep.html" title="Base representation for a graph."></a>
-                        <a href="GraphRep.html" title="Base representation for a graph.">
-                          GraphRep
+                        <a class="class" href="LEdge.html" title="A labelled edge between two vertices."></a>
+                        <a href="LEdge.html" title="A labelled edge between two vertices.">
+                          LEdge
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -158,6 +148,26 @@ elements that are partitioned into a number of disjoint subsets.">
                           Traversal
                         </a>
                       </li><li class="current-entities indented1">
+                        <a class="object" href="WDigraph$.html" title=""></a>
+                        <a class="class" href="" title="A weighted digraph."></a>
+                        <a href="" title="A weighted digraph.">
+                          WDigraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="class" href="WEdge.html" title="A weighted edge between two vertices."></a>
+                        <a href="WEdge.html" title="A weighted edge between two vertices.">
+                          WEdge
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="Weighted.html" title="Defines a 'weighted' property that some graph
+representations may support."></a>
+                        <a href="Weighted.html" title="Defines a 'weighted' property that some graph
+representations may support.">
+                          Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
                         <span class="separator"></span>
                         <a class="object" href="implicits$.html" title="Implicit definitions, e.g."></a>
                         <a href="implicits$.html" title="Implicit definitions, e.g.">
@@ -174,35 +184,38 @@ elements that are partitioned into a number of disjoint subsets.">
             </div>
           </div>
           <div id="content">
-            <body class="trait type">
+            <body class="class type">
       <div id="definition">
-        <div class="big-circle trait">t</div>
+        <a href="WDigraph$.html" title="See companion object"><div class="big-circle class-companion-object">c</div></a>
         <p id="owner"><a href="index.html" class="extype" name="tiki">tiki</a></p>
-        <h1>EdgeWeightedDigraph<span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html" title="Permalink">
+        <h1><a href="WDigraph$.html" title="See companion object">WDigraph</a><span class="permalink">
+      <a href="../tiki/WDigraph.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
-        <h3><span class="morelinks"></span></h3>
+        <h3><span class="morelinks"><div>
+            Companion <a href="WDigraph$.html" title="See companion object">object WDigraph</a>
+          </div></span></h3>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">EdgeWeightedDigraph</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span>]</span>
+        <span class="name">WDigraph</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]</span>, <span name="f">f: (<a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]) ⇒ <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>)</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WDigraph.A">A</span>, <a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WDigraph.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Trait that defines interface for weighted directed graphs.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A weighted digraph. This class uses an underlying representation to provide
+the <code>Directed</code> interface.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">edges</dt><dd class="cmt"><p>the stream of weighted edges.</p></dd><dt class="param">f</dt><dd class="cmt"><p>a function that takes a stream of weighted edges and returns <code>Directed[A]</code></p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span>], <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WDigraph.A">A</span>], <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>], <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WDigraph.A">A</span>, <a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -228,7 +241,7 @@ elements that are partitioned into a number of disjoint subsets.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.EdgeWeightedDigraph"><span>EdgeWeightedDigraph</span></li><li class="in" name="tiki.Digraph"><span>Digraph</span></li><li class="in" name="tiki.GraphRep"><span>GraphRep</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.WDigraph"><span>WDigraph</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="tiki.Weighted"><span>Weighted</span></li><li class="in" name="tiki.Directed"><span>Directed</span></li><li class="in" name="tiki.Graph"><span>Graph</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -246,98 +259,38 @@ elements that are partitioned into a number of disjoint subsets.">
 
       <div id="template">
         <div id="allMembers">
-        
-
-        
-
-        <div class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="tiki.Digraph#contains" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="contains(v:A):tiki.Predef.Boolean"></a><a id="contains(A):Boolean"></a>
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="tiki.WDigraph#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(edges:tiki.Predef.Stream[tiki.WEdge[A]],f:tiki.Predef.Stream[tiki.WEdge[A]]=&gt;tiki.Directed[A]):tiki.WDigraph[A]"></a><a id="&lt;init&gt;:WDigraph[A]"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#contains(v:A):tiki.Predef.Boolean" title="Permalink">
+      <a href="../tiki/WDigraph.html#&lt;init&gt;(edges:tiki.Predef.Stream[tiki.WEdge[A]],f:tiki.Predef.Stream[tiki.WEdge[A]]=&gt;tiki.Directed[A]):tiki.WDigraph[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
+        <span class="modifier"></span>
+        <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">contains</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Boolean=Boolean" class="extmbr" name="tiki.Predef.Boolean">Boolean</a></span>
+        <span class="name">WDigraph</span><span class="params">(<span name="edges">edges: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]</span>, <span name="f">f: (<a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]) ⇒ <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>)</span>
       </span>
       
-      <p class="shortcomment cmt">Returns true if the vertex is contained in the graph.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if the vertex is contained in the graph.
-False otherwise.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>flag to indicate if vertex is in the graph.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a> → <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a></dd></dl></div>
-    </li><li name="tiki.Digraph#predecessors" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="predecessors(v:A):tiki.Predef.Set[A]"></a><a id="predecessors(A):Set[A]"></a>
-      <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#predecessors(v:A):tiki.Predef.Set[A]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">predecessors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Given a vertex, find its predecessors, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Given a vertex, find its predecessors, i.e. the vertices that have
-edges to the vertex.</p><p>Note:
-  A return of None implies that the vertex was not found.
-  Otherwise Some(set of edges) will be returned. The set may be empty.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a></dd></dl></div>
-    </li><li name="tiki.Digraph#successors" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="successors(v:A):tiki.Predef.Set[A]"></a><a id="successors(A):Set[A]"></a>
-      <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#successors(v:A):tiki.Predef.Set[A]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">successors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span>]</span>
-      </span>
-      
-      <p class="shortcomment cmt">Given a vertex, find its successors, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Given a vertex, find its successors, i.e. the vertices it has edges to.
-Returns an option.
-Note:
-  A return of None implies that the vertex was not found.
-  Otherwise Some(set of edges) will be returned. The set may be empty.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a set of vertices, or none if the vertex could not be found.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a></dd></dl></div>
-    </li><li name="tiki.EdgeWeightedDigraph#weight" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="weight(v:A,w:A):tiki.Predef.Double"></a><a id="weight(A,A):Double"></a>
-      <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#weight(v:A,w:A):tiki.Predef.Double" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">weight</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span></span>, <span name="w">w: <span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Return the weight of the edge from v to w.</p><div class="fullcomment"><div class="comment cmt"><p>Return the weight of the edge from v to w.
-</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the source vertex.</p></dd><dt class="param">w</dt><dd class="cmt"><p>the sink vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the weight of the edge.</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">edges</dt><dd class="cmt"><p>the stream of weighted edges.</p></dd><dt class="param">f</dt><dd class="cmt"><p>a function that takes a stream of weighted edges and returns <code>Directed[A]</code></p></dd></dl></div>
     </li></ol>
             </div>
 
+        
+
+        
+
         <div class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol>
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/WDigraph.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -353,7 +306,7 @@ Note:
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html###():Int" title="Permalink">
+      <a href="../tiki/WDigraph.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -369,7 +322,7 @@ Note:
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/WDigraph.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -385,7 +338,7 @@ Note:
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../tiki/WDigraph.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -401,7 +354,7 @@ Note:
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#clone():Object" title="Permalink">
+      <a href="../tiki/WDigraph.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -420,10 +373,43 @@ Note:
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="tiki.WDigraph#contains" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="contains(v:A):tiki.Predef.Boolean"></a><a id="contains(A):Boolean"></a>
+      <span class="permalink">
+      <a href="../tiki/WDigraph.html#contains(v:A):tiki.Predef.Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contains</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.WDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Boolean=Boolean" class="extmbr" name="tiki.Predef.Boolean">Boolean</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns true if the vertex is contained in the graph.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if the vertex is contained in the graph.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>true, if the vertex is in the graph, false otherwise.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WDigraph">WDigraph</a> → <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a></dd></dl></div>
+    </li><li name="tiki.WDigraph#edges" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="edges:tiki.Predef.Stream[tiki.WEdge[A]]"></a><a id="edges:Stream[WEdge[A]]"></a>
+      <span class="permalink">
+      <a href="../tiki/WDigraph.html#edges:tiki.Predef.Stream[tiki.WEdge[A]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">edges</span><span class="result">: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WDigraph">WDigraph</a> → <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/WDigraph.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -436,26 +422,26 @@ Note:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+    </li><li name="tiki.WDigraph#f" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="f:tiki.Predef.Stream[tiki.WEdge[A]]=&gt;tiki.Directed[A]"></a><a id="f:(Stream[WEdge[A]])⇒Directed[A]"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#equals(x$1:Any):Boolean" title="Permalink">
+      <a href="../tiki/WDigraph.html#f:tiki.Predef.Stream[tiki.WEdge[A]]=&gt;tiki.Directed[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">f</span><span class="result">: (<a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]) ⇒ <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#finalize():Unit" title="Permalink">
+      <a href="../tiki/WDigraph.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -477,7 +463,7 @@ Note:
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#getClass():Class[_]" title="Permalink">
+      <a href="../tiki/WDigraph.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -490,26 +476,10 @@ Note:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#hashCode():Int" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../tiki/WDigraph.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -525,7 +495,7 @@ Note:
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../tiki/WDigraph.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -541,7 +511,7 @@ Note:
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#notify():Unit" title="Permalink">
+      <a href="../tiki/WDigraph.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -557,7 +527,7 @@ Note:
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#notifyAll():Unit" title="Permalink">
+      <a href="../tiki/WDigraph.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -570,10 +540,60 @@ Note:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="tiki.WDigraph#predecessors" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predecessors(v:A):tiki.Predef.Set[A]"></a><a id="predecessors(A):Set[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/WDigraph.html#predecessors(v:A):tiki.Predef.Set[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">predecessors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.WDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns all vertices that have an out-edge to the given vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Returns all vertices that have an out-edge to the given vertex.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the set of vertices that have an out-edge to the given vertex.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WDigraph">WDigraph</a> → <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a></dd></dl></div>
+    </li><li name="tiki.WDigraph#rep" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="rep:tiki.Directed[A]"></a><a id="rep:Directed[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/WDigraph.html#rep:tiki.Directed[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rep</span><span class="result">: <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>
+      </span>
+      
+      
+    </li><li name="tiki.WDigraph#successors" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="successors(v:A):tiki.Predef.Set[A]"></a><a id="successors(A):Set[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/WDigraph.html#successors(v:A):tiki.Predef.Set[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">successors</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.WDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Set[A]=scala.collection.immutable.Set[A]" class="extmbr" name="tiki.Predef.Set">Set</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns all vertices that the given vertex has an out-edge to.</p><div class="fullcomment"><div class="comment cmt"><p>Returns all vertices that the given vertex has an out-edge to.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the set of vertices that the given vertex has an out-edge to.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WDigraph">WDigraph</a> → <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../tiki/WDigraph.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -586,10 +606,10 @@ Note:
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
+    </li><li name="tiki.WDigraph#vertices" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="vertices:tiki.Predef.Stream[A]"></a><a id="vertices:Stream[A]"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#toString():String" title="Permalink">
+      <a href="../tiki/WDigraph.html#vertices:tiki.Predef.Stream[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -598,14 +618,15 @@ Note:
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">vertices</span><span class="result">: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      <p class="shortcomment cmt">Returns the stream of vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the stream of vertices.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the stream of vertices.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WDigraph">WDigraph</a> → <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a> → <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#wait():Unit" title="Permalink">
+      <a href="../tiki/WDigraph.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -627,7 +648,7 @@ Note:
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../tiki/WDigraph.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -649,7 +670,7 @@ Note:
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../tiki/EdgeWeightedDigraph.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../tiki/WDigraph.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -668,6 +689,40 @@ Note:
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="tiki.WDigraph#weight" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="weight(v:A,w:A):tiki.Predef.Option[tiki.Predef.Double]"></a><a id="weight(A,A):Option[Double]"></a>
+      <span class="permalink">
+      <a href="../tiki/WDigraph.html#weight(v:A,w:A):tiki.Predef.Option[tiki.Predef.Double]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">weight</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.WDigraph.A">A</span></span>, <span name="w">w: <span class="extype" name="tiki.WDigraph.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Return some weight value for the edge from vertex v to vertex w.</p><div class="fullcomment"><div class="comment cmt"><p>Return some weight value for the edge from vertex v to vertex w.
+Or 'None' if the edge can not be found.
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the source vertex.</p></dd><dt class="param">w</dt><dd class="cmt"><p>the sink vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>some weight value or None.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WDigraph">WDigraph</a> → <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a></dd></dl></div>
+    </li><li name="tiki.WDigraph#weights" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="weights:scala.collection.immutable.Map[(A,A),tiki.Predef.Double]"></a><a id="weights:Map[(A,A),Double]"></a>
+      <span class="permalink">
+      <a href="../tiki/WDigraph.html#weights:scala.collection.immutable.Map[(A,A),tiki.Predef.Double]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">weights</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[(<span class="extype" name="tiki.WDigraph.A">A</span>, <span class="extype" name="tiki.WDigraph.A">A</span>), <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>
+      </span>
+      
+      
     </li>
               </ol>
             </div>
@@ -678,10 +733,20 @@ Note:
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="tiki.Digraph">
-              <h3>Inherited from <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span>]</h3>
-            </div><div class="parent" name="tiki.GraphRep">
-              <h3>Inherited from <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.EdgeWeightedDigraph.A">A</span>]</h3>
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
+            </div><div class="parent" name="tiki.Weighted">
+              <h3>Inherited from <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</h3>
+            </div><div class="parent" name="tiki.Directed">
+              <h3>Inherited from <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]</h3>
+            </div><div class="parent" name="tiki.Graph">
+              <h3>Inherited from <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WDigraph.A">A</span>, <a href="WEdge.html" class="extype" name="tiki.WEdge">WEdge</a>[<span class="extype" name="tiki.WDigraph.A">A</span>]]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
