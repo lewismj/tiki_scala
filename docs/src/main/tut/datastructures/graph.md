@@ -16,7 +16,7 @@ as `AdjacencyList` may support.
 
 Algorithms such as `dfs` will require something that supports the `Directed` interface only.
 
-## Directed Interface
+## Directed
 
 ```scala
 trait Directed[A] {
@@ -43,7 +43,7 @@ trait Weighted[A] {
 
 - `weighted(v,w)` the weight of the edge between the nodes _v_ and _w_ (if the edge exists).
 
-## Graph Interface
+## Graph
 
 The core _graph_ trait simply defines a graph as either a stream of _vertices_ and _edges_.
 
@@ -56,10 +56,18 @@ trait Graph[A,B] {
 - `edges` a stream of edges.
 - `vertices` a stream of vertices
 
-## Weighted Digraph
+## Digraph
+
+A _digraph_ is a graph that supports the `Directed` interface.
+
+```scala
+trait Digraph[A,B] extends Graph[A,B] with Directed[A] {}
+```
+
+## WeightedDigraph
 
 The weighted digraph interface can be defined as the trait:
 
 ```scala
-trait WeightedDigraph[A] extends Graph[A,WEdge[A]] with Weighted[A] with Directed[A] 
+trait WeightedDigraph[A] extends Digraph[A,WeightedEdge[A]] {}
 ```

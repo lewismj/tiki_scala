@@ -99,8 +99,16 @@ trait Graph[A,B] {
 }
 
 /**
+  * A directed graph (a graph that supports the `Directed` interface.
+  *
+  * @tparam A the vertex type.
+  * @tparam B the edge type.
+  */
+trait Digraph[A,B] extends Graph[A,B] with Directed[A] {}
+
+/**
   * Weighted digraph.
   *
   * @tparam A the vertex type.
   */
-trait WeightedDigraph[A] extends Graph[A,WeightedEdge[A]] with Weighted[A] with Directed[A] {}
+trait WeightedDigraph[A] extends Digraph[A,WeightedEdge[A]] { }
