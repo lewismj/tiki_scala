@@ -90,19 +90,19 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
-                        <a class="object" href="AdjacencyList$.html" title="Companion object for the AdjacencyList class."></a>
+                        <a class="object" href="AdjacencyList$.html" title=""></a>
                         <a class="class" href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list."></a>
                         <a href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list.">
                           AdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for graph representations."></a>
-                        <a href="DirectedGraphRep.html" title="Trait that defines interface for graph representations.">
+                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs."></a>
+                        <a href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs.">
                           DirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
-                        <a class="object" href="DisjointSet$.html" title="Companion object for case class, provides apply method."></a>
+                        <a class="object" href="DisjointSet$.html" title=""></a>
                         <a class="class" href="DisjointSet.html" title="A disjoint set is a data structure that keeps track of a set of
 elements that are partitioned into a number of disjoint subsets."></a>
                         <a href="DisjointSet.html" title="A disjoint set is a data structure that keeps track of a set of
@@ -147,8 +147,14 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="implicits$.html" title="Implicit definitions."></a>
-                        <a href="implicits$.html" title="Implicit definitions.">
+                        <a class="trait" href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs."></a>
+                        <a href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs.">
+                          WeightedDirectedGraphRep
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="implicits$.html" title="Implicit definitions, e.g."></a>
+                        <a href="implicits$.html" title="Implicit definitions, e.g.">
                           implicits
                         </a>
                       </li><li class="current-entities indented1">
@@ -186,7 +192,7 @@ elements that are partitioned into a number of disjoint subsets.">
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A weighted edge between two vertices.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the edge vertex.</p></dd><dt class="param">edge</dt><dd class="cmt"><p>the edge between the two vertices.</p></dd><dt class="param">weight</dt><dd class="cmt"><p>the weight of the edge.</p></dd></dl><div class="toggleContainer block">
+</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -236,7 +242,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="tiki.WEdge#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+              <ol><li name="tiki.WEdge#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&lt;init&gt;(edge:tiki.Edge[A],weight:tiki.Predef.Double):tiki.WEdge[A]"></a><a id="&lt;init&gt;:WEdge[A]"></a>
       <span class="permalink">
       <a href="../tiki/WEdge.html#&lt;init&gt;(edge:tiki.Edge[A],weight:tiki.Predef.Double):tiki.WEdge[A]" title="Permalink">
@@ -251,7 +257,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">WEdge</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span>
       </span>
       
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">edge</dt><dd class="cmt"><p>the edge between the two vertices.</p></dd><dt class="param">weight</dt><dd class="cmt"><p>the weight of the edge.</p></dd></dl></div>
+      
     </li></ol>
             </div>
 
@@ -402,7 +408,7 @@ elements that are partitioned into a number of disjoint subsets.">
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.WEdge#from" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="tiki.WEdge#from" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="from:A"></a>
       <span class="permalink">
       <a href="../tiki/WEdge.html#from:A" title="Permalink">
@@ -417,8 +423,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">from</span><span class="result">: <span class="extype" name="tiki.WEdge.A">A</span></span>
       </span>
       
-      <p class="shortcomment cmt">Returns one vertex in an edge.</p><div class="fullcomment"><div class="comment cmt"><p>Returns one vertex in an edge.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a vertex of type <code>A</code>.</p></dd></dl></div>
+      
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
@@ -515,7 +520,7 @@ elements that are partitioned into a number of disjoint subsets.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="tiki.WEdge#to" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="tiki.WEdge#to" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="to:A"></a>
       <span class="permalink">
       <a href="../tiki/WEdge.html#to:A" title="Permalink">
@@ -530,8 +535,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">to</span><span class="result">: <span class="extype" name="tiki.WEdge.A">A</span></span>
       </span>
       
-      <p class="shortcomment cmt">Returns the 'other' vertex in the edge.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the 'other' vertex in the edge.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a vertex of type <code>A</code>.</p></dd></dl></div>
+      
     </li><li name="tiki.WEdge#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():tiki.Predef.String"></a><a id="toString():String"></a>
       <span class="permalink">
@@ -547,8 +551,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <a href="Predef$.html#String=String" class="extmbr" name="tiki.Predef.String">String</a></span>
       </span>
       
-      <p class="shortcomment cmt">Returns a string representation of the weighted edge.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the weighted edge.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the weighted edge.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WEdge">WEdge</a> → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WEdge">WEdge</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">

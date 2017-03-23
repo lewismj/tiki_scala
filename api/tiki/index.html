@@ -88,19 +88,19 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
-                        <a class="object" href="AdjacencyList$.html" title="Companion object for the AdjacencyList class."></a>
+                        <a class="object" href="AdjacencyList$.html" title=""></a>
                         <a class="class" href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list."></a>
                         <a href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list.">
                           AdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for graph representations."></a>
-                        <a href="DirectedGraphRep.html" title="Trait that defines interface for graph representations.">
+                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs."></a>
+                        <a href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs.">
                           DirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
-                        <a class="object" href="DisjointSet$.html" title="Companion object for case class, provides apply method."></a>
+                        <a class="object" href="DisjointSet$.html" title=""></a>
                         <a class="class" href="DisjointSet.html" title="A disjoint set is a data structure that keeps track of a set of
 elements that are partitioned into a number of disjoint subsets."></a>
                         <a href="DisjointSet.html" title="A disjoint set is a data structure that keeps track of a set of
@@ -145,8 +145,14 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="implicits$.html" title="Implicit definitions."></a>
-                        <a href="implicits$.html" title="Implicit definitions.">
+                        <a class="trait" href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs."></a>
+                        <a href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs.">
+                          WeightedDirectedGraphRep
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="implicits$.html" title="Implicit definitions, e.g."></a>
+                        <a href="implicits$.html" title="Implicit definitions, e.g.">
                           implicits
                         </a>
                       </li><li class="current-entities indented1">
@@ -256,7 +262,7 @@ elements that are partitioned into a number of disjoint subsets.">
 As the need for undirected graphs is rare, usually represent
 the undirected graph by two directed edges.
 </p></div></div>
-    </li><li name="tiki.DirectedGraphRep" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.DirectedGraphRep" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="DirectedGraphRep[A]extendsGraphRep[A]"></a><a id="DirectedGraphRep[A]:DirectedGraphRep[A]"></a>
       <span class="permalink">
       <a href="../tiki/index.html#DirectedGraphRep[A]extendsGraphRep[A]" title="Permalink">
@@ -268,12 +274,13 @@ the undirected graph by two directed edges.
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a title="Trait that defines interface for graph representations." href="DirectedGraphRep.html">
+        <a title="Trait that defines interface for directed graphs." href="DirectedGraphRep.html">
               <span class="name">DirectedGraphRep</span>
             </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="GraphRep.html" class="extype" name="tiki.GraphRep">GraphRep</a>[<span class="extype" name="tiki.DirectedGraphRep.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Trait that defines interface for graph representations.</p>
+      <p class="shortcomment cmt">Trait that defines interface for directed graphs.</p><div class="fullcomment"><div class="comment cmt"><p>Trait that defines interface for directed graphs.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.DisjointSet" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DisjointSet[A]extendsAnyRef"></a><a id="DisjointSet[A]:DisjointSet[A]"></a>
       <span class="permalink">
@@ -337,7 +344,7 @@ really a property of the edge.
       
       <p class="shortcomment cmt">Base representation for a graph.</p><div class="fullcomment"><div class="comment cmt"><p>Base representation for a graph.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
-    </li><li name="tiki.LEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="tiki.LEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="LEdge[A,B]extendsProductwithSerializable"></a><a id="LEdge[A,B]:LEdge[A,B]"></a>
       <span class="permalink">
       <a href="../tiki/index.html#LEdge[A,B]extendsProductwithSerializable" title="Permalink">
@@ -354,9 +361,8 @@ really a property of the edge.
             </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">A labelled edge between two vertices.</p><div class="fullcomment"><div class="comment cmt"><p>A labelled edge between two vertices.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the edge vertex.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the type of the label.</p></dd><dt class="param">edge</dt><dd class="cmt"><p>the edge between the two vertices.</p></dd><dt class="param">label</dt><dd class="cmt"><p>the label of the edge.</p></dd></dl></div>
-    </li><li name="tiki.WEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <p class="shortcomment cmt">A labelled edge between two vertices.</p>
+    </li><li name="tiki.WEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="WEdge[A]extendsProductwithSerializable"></a><a id="WEdge[A]:WEdge[A]"></a>
       <span class="permalink">
       <a href="../tiki/index.html#WEdge[A]extendsProductwithSerializable" title="Permalink">
@@ -373,8 +379,26 @@ really a property of the edge.
             </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">A weighted edge between two vertices.</p><div class="fullcomment"><div class="comment cmt"><p>A weighted edge between two vertices.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the edge vertex.</p></dd><dt class="param">edge</dt><dd class="cmt"><p>the edge between the two vertices.</p></dd><dt class="param">weight</dt><dd class="cmt"><p>the weight of the edge.</p></dd></dl></div>
+      <p class="shortcomment cmt">A weighted edge between two vertices.</p>
+    </li><li name="tiki.WeightedDirectedGraphRep" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WeightedDirectedGraphRep[A]extendsDirectedGraphRep[A]"></a><a id="WeightedDirectedGraphRep[A]:WeightedDirectedGraphRep[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedDirectedGraphRep[A]extendsDirectedGraphRep[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Trait that defines interface for weighted directed graphs." href="WeightedDirectedGraphRep.html">
+              <span class="name">WeightedDirectedGraphRep</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="DirectedGraphRep.html" class="extype" name="tiki.DirectedGraphRep">DirectedGraphRep</a>[<span class="extype" name="tiki.WeightedDirectedGraphRep.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Trait that defines interface for weighted directed graphs.</p><div class="fullcomment"><div class="comment cmt"><p>Trait that defines interface for weighted directed graphs.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -395,12 +419,12 @@ really a property of the edge.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Companion object for the AdjacencyList class." href="AdjacencyList$.html">
+        <a title="" href="AdjacencyList$.html">
               <span class="name">AdjacencyList</span>
             </a>
       </span>
       
-      <p class="shortcomment cmt">Companion object for the <code>AdjacencyList</code> class.</p>
+      
     </li><li name="tiki.DisjointSet" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DisjointSet"></a><a id="DisjointSet:DisjointSet"></a>
       <span class="permalink">
@@ -413,12 +437,12 @@ really a property of the edge.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Companion object for case class, provides apply method." href="DisjointSet$.html">
+        <a title="" href="DisjointSet$.html">
               <span class="name">DisjointSet</span>
             </a>
       </span>
       
-      <p class="shortcomment cmt">Companion object for case class, provides <code>apply</code> method.</p>
+      
     </li><li name="tiki.Predef" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Predef"></a><a id="Predef:Predef"></a>
       <span class="permalink">
@@ -458,7 +482,7 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
       </span>
       
       <p class="shortcomment cmt">Simple stream based unfold traversal.</p>
-    </li><li name="tiki.implicits" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.implicits" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="implicits"></a><a id="implicits:implicits"></a>
       <span class="permalink">
       <a href="../tiki/index.html#implicits" title="Permalink">
@@ -470,12 +494,14 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a title="Implicit definitions." href="implicits$.html">
+        <a title="Implicit definitions, e.g." href="implicits$.html">
               <span class="name">implicits</span>
             </a>
       </span>
       
-      <p class="shortcomment cmt">Implicit definitions.</p>
+      <p class="shortcomment cmt">Implicit definitions, e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Implicit definitions, e.g. allow use of '--&gt;' operator to represent a
+directed edge.
+</p></div></div>
     </li><li name="tiki.reverse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="reverse"></a><a id="reverse:reverse"></a>
       <span class="permalink">

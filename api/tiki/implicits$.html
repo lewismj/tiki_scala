@@ -90,19 +90,19 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
-                        <a class="object" href="AdjacencyList$.html" title="Companion object for the AdjacencyList class."></a>
+                        <a class="object" href="AdjacencyList$.html" title=""></a>
                         <a class="class" href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list."></a>
                         <a href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list.">
                           AdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for graph representations."></a>
-                        <a href="DirectedGraphRep.html" title="Trait that defines interface for graph representations.">
+                        <a class="trait" href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs."></a>
+                        <a href="DirectedGraphRep.html" title="Trait that defines interface for directed graphs.">
                           DirectedGraphRep
                         </a>
                       </li><li class="current-entities indented1">
-                        <a class="object" href="DisjointSet$.html" title="Companion object for case class, provides apply method."></a>
+                        <a class="object" href="DisjointSet$.html" title=""></a>
                         <a class="class" href="DisjointSet.html" title="A disjoint set is a data structure that keeps track of a set of
 elements that are partitioned into a number of disjoint subsets."></a>
                         <a href="DisjointSet.html" title="A disjoint set is a data structure that keeps track of a set of
@@ -147,8 +147,14 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="" title="Implicit definitions."></a>
-                        <a href="" title="Implicit definitions.">
+                        <a class="trait" href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs."></a>
+                        <a href="WeightedDirectedGraphRep.html" title="Trait that defines interface for weighted directed graphs.">
+                          WeightedDirectedGraphRep
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="object" href="" title="Implicit definitions, e.g."></a>
+                        <a href="" title="Implicit definitions, e.g.">
                           implicits
                         </a>
                       </li><li class="current-entities indented1">
@@ -185,7 +191,8 @@ elements that are partitioned into a number of disjoint subsets.">
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implicit definitions.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implicit definitions, e.g. allow use of '--&gt;' operator to represent a
+directed edge.
 </p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
@@ -351,7 +358,7 @@ elements that are partitioned into a number of disjoint subsets.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="tiki.implicits#anyToEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="tiki.implicits#anyToEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="anyToEdge[A](v:A):tiki.implicits.EdgeDef[A]"></a><a id="anyToEdge[A](A):EdgeDef[A]"></a>
       <span class="permalink">
       <a href="../tiki/implicits$.html#anyToEdge[A](v:A):tiki.implicits.EdgeDef[A]" title="Permalink">
@@ -366,9 +373,8 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">anyToEdge</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="v">v: <span class="extype" name="tiki.implicits.anyToEdge.A">A</span></span>)</span><span class="result">: <a href="implicits$$EdgeDef.html" class="extype" name="tiki.implicits.EdgeDef">EdgeDef</a>[<span class="extype" name="tiki.implicits.anyToEdge.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Implicitly create an <code>EdgeDef</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Implicitly create an <code>EdgeDef</code>.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">v</dt><dd class="cmt"><p>the start vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>EdgeDef</code> object.</p></dd></dl></div>
-    </li><li name="tiki.implicits#anyToLEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      
+    </li><li name="tiki.implicits#anyToLEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="anyToLEdge[A,B](e:tiki.Edge[A]):tiki.implicits.LabelDef[A,B]"></a><a id="anyToLEdge[A,B](Edge[A]):LabelDef[A,B]"></a>
       <span class="permalink">
       <a href="../tiki/implicits$.html#anyToLEdge[A,B](e:tiki.Edge[A]):tiki.implicits.LabelDef[A,B]" title="Permalink">
@@ -383,9 +389,8 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">anyToLEdge</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="e">e: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.implicits.anyToLEdge.A">A</span>]</span>)</span><span class="result">: <a href="implicits$$LabelDef.html" class="extype" name="tiki.implicits.LabelDef">LabelDef</a>[<span class="extype" name="tiki.implicits.anyToLEdge.A">A</span>, <span class="extype" name="tiki.implicits.anyToLEdge.B">B</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Implicitly create a <code>LabelDef</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Implicitly create a <code>LabelDef</code>.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the type of the label.</p></dd><dt class="param">e</dt><dd class="cmt"><p>the edge.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>LabelDef</code> object.</p></dd></dl></div>
-    </li><li name="tiki.implicits#anyToWEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      
+    </li><li name="tiki.implicits#anyToWEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="anyToWEdge[A](e:tiki.Edge[A]):tiki.implicits.WeightDef[A]"></a><a id="anyToWEdge[A](Edge[A]):WeightDef[A]"></a>
       <span class="permalink">
       <a href="../tiki/implicits$.html#anyToWEdge[A](e:tiki.Edge[A]):tiki.implicits.WeightDef[A]" title="Permalink">
@@ -400,8 +405,7 @@ elements that are partitioned into a number of disjoint subsets.">
         <span class="name">anyToWEdge</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="e">e: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.implicits.anyToWEdge.A">A</span>]</span>)</span><span class="result">: <a href="implicits$$WeightDef.html" class="extype" name="tiki.implicits.WeightDef">WeightDef</a>[<span class="extype" name="tiki.implicits.anyToWEdge.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Implicitly create a <code>WeightDef</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Implicitly create a <code>WeightDef</code>.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">e</dt><dd class="cmt"><p>the edge.</p></dd><dt>returns</dt><dd class="cmt"><p>a new <code>WeightDef</code> object.</p></dd></dl></div>
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
