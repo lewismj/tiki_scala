@@ -33,6 +33,10 @@ options:
     url: algorithms/traversal.html
     menu_type: algorithms
 
+  - title: Path
+    url: algorithms/path.html
+    menu_type: algorithms
+
   - title: Utility
     url: algorithms/utility.html
     menu_type: algorithms

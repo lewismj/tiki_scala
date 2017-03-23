@@ -58,25 +58,6 @@ trait Directed[A] {
 }
 
 /**
-  * Defines a 'weighted' property that some graph
-  * representations may support.
-  *
-  * @tparam A the vertex type.
-  */
-trait Weighted[A] {
-
-  /**
-    * Return some weight value for the edge from vertex v to vertex w.
-    * Or 'None' if the edge can not be found.
-    *
-    * @param v  the source vertex.
-    * @param w  the sink vertex.
-    * @return   some weight value or None.
-    */
-  def weight(v: A, w: A): Option[Double]
-}
-
-/**
   * Base representation for a graph.
   *
   * @tparam A the vertex type.

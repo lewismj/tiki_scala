@@ -21,8 +21,9 @@ in terms of number of vertices).
 
 The traversal (a generic `unfold`) is independent of the graph representation.
 
-It may be useful to have a generic `Graph` object that holds a Rose-tree, but it can be useful
-to have other implementations and swap out the underlying data structure.
+A set of traits that define `Graph` behaviours are defined. Most of the algorithms should
+accept one of the traits as an argument. 
+
 
 ## Further Reading
 

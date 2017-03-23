@@ -5,7 +5,7 @@ section: "algorithms"
 source: "core/src/main/scala/tiki/Traversal.scala"
 scaladoc: "#tiki.Traversal"
 ---
-# Traversal functions
+# Traversal Functions
  
 Traversal is done by performing an `unfold` on the graph representation, the 
  function will return a stream of vertices.
@@ -19,10 +19,11 @@ private def unfold[T,R](z:T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z
 }
 ```
 
-The traversal can be depth or breadth first (_note_ the `distinct` on the stream does preserve order,
-a vertex may be visited more than once in a traversal, most of the time we want the first instance).
+The traversal can be depth or breadth first. _Note_ the `distinct` on the stream (_visitOrder_ function) 
+does preserve order. 
+A vertex may be visited more than once in a traversal, most of the time we want the first instance.
 
-Currently, cycles are ignored.
+Currently, cycles are ignored (i.e. the stream _won't_ loop infinitely.)
 
 ```scala
 private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]

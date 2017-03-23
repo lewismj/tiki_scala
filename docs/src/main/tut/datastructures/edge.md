@@ -28,10 +28,8 @@ acyclic graphs (DAG) that are connected, i.e. _Trees_.
 _Often vertex type of an Edge may be a proxy for some underlying vertex type.
 Where an instance of the underlying type may be costly to hold within a graph._
  
- 
-Functions:
- 
-- `lmap(f)` apply the function `f` on the label and return a new labelled edge.
+Alternative as functions are first class obejcts in Scala, we can build a '_calculation_'
+ graph by defining vertices as a function type.
 
 ## Usage
 

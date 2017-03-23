@@ -31,7 +31,8 @@ package tiki
   */
 object Predef {
 
-  def implicitly[A](implicit a: A): A = a
+  def identity[A](x: A): A = x
+  def implicitly[T](implicit e: T) = e
 
   type Boolean = scala.Boolean
   type Char = scala.Char
@@ -59,7 +60,6 @@ object Predef {
     def unapply[A](s: Seq[A]): Option[(A,Seq[A])] = if (s.nonEmpty) Some((s.head,s.tail)) else None
   }
 
-
   final val :: = scala.collection.immutable.::
   final val Nil = scala.collection.immutable.Nil
   final val Traversable = scala.collection.immutable.Traversable
@@ -83,5 +83,11 @@ object Predef {
   final val Short = scala.Short
   final val Unit = scala.Unit
   final val StringContext = scala.StringContext
+
+  final class ArrowAssoc[A](val x: A) {
+    def -> [B](y: B): (A, B) = (x, y)
+    def →[B](y: B): (A, B) = ->(y)
+  }
+  implicit def any2ArrowAssoc[A](x: A): ArrowAssoc[A] = new ArrowAssoc(x)
 
 }

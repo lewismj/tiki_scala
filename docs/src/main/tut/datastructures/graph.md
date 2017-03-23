@@ -7,16 +7,52 @@ scaladoc: "#tiki.GraphRep"
 ---
 # Graph
 
-Representing a graph as an adjacency list or rose-tree may not always be desirable.
-Also, it is sometimes useful to split the algorithms on the graph from the underlying
-representation. e.g. _Traversal_.
+Representing a graph as a specific data structure, such as an adjacency list or rose-tree may 
+not always be desirable.
+It is useful to split the algorithms on the graph from the underlying
+representation.
 
-There are two core traits, `Directed` which is an interface that some structures such
-as `AdjacencyList` may support. 
+There are two core traits, that define the graph behaviours.
 
 Algorithms such as `dfs` will require something that supports the `Directed` interface only.
 
-## Directed
+Note:
+- In the future, may add a `Weighted` trait to allow weighted graphs with labelled edges.
+
+
+## Usage
+
+In the following example, for a simple test, the `WeightedDigraph` was defined using
+an adjacency list and an edge list (containing weights). 
+
+```tut
+import tiki.Predef._
+import tiki.implicits._
+
+
+val xs = List(
+  'A' --> 'B' :# -1.0,
+  'A' --> 'C' :# 4.0,
+  'B' --> 'C' :# 3.0,
+  'B' --> 'D' :# 2.0,
+  'D' --> 'B' :# 1.0,
+  'B' --> 'E' :# 2.0,
+  'E' --> 'D' :# -3.0
+)
+val adjacencyList = buildAdjacencyList(xs)
+
+val digraph = new WeightedDigraph[Char] {
+  def contains(v: Char) = adjacencyList.contains(v)
+  def vertices: Stream[Char] = adjacencyList.vertices
+  def successors(v: Char) = adjacencyList.successors(v)
+  def predecessors(v: Char) = adjacencyList.predecessors(v)
+
+  def edges: Stream[WeightedEdge[Char]] = xs.toStream
+}
+    
+```
+
+### Directed
 
 ```scala
 trait Directed[A] {
@@ -31,19 +67,7 @@ With:
 - `successors(v)` the vertices that have an incoming edge *from* _v_.
 - `predecessora(v)` the vertices that have an outgoing edge *to* _v_.
 
-## Weighted
-
-The weighted interface specifies that there must be a _weight_ between two vertices.
-
-```scala
-trait Weighted[A] {
-  def weight(v: A, w: A): Option[Double]
-}
-```
-
-- `weighted(v,w)` the weight of the edge between the nodes _v_ and _w_ (if the edge exists).
-
-## Graph
+### Graph
 
 The core _graph_ trait simply defines a graph as either a stream of _vertices_ and _edges_.
 
@@ -56,7 +80,7 @@ trait Graph[A,B] {
 - `edges` a stream of edges.
 - `vertices` a stream of vertices
 
-## Digraph
+### Digraph
 
 A _digraph_ is a graph that supports the `Directed` interface.
 
@@ -64,9 +88,10 @@ A _digraph_ is a graph that supports the `Directed` interface.
 trait Digraph[A,B] extends Graph[A,B] with Directed[A] {}
 ```
 
-## WeightedDigraph
+### WeightedDigraph
 
-The weighted digraph interface can be defined as the trait:
+The weighted digraph interface can be defined as `Digraph` with weighted edges.
+
 
 ```scala
 trait WeightedDigraph[A] extends Digraph[A,WeightedEdge[A]] {}
