@@ -26,7 +26,7 @@ A vertex may be visited more than once in a traversal, most of the time we want 
 Currently, cycles are ignored (i.e. the stream _won't_ loop infinitely.)
 
 ```scala
-private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]
+private def traverse[A](g: Digraph[A], v: A, dfs: Boolean): Stream[A]
 = unfold( (List(v),Set.empty[A]) ) {
       case (current,visited) => current match {
         case w :: Nil =>
@@ -49,13 +49,13 @@ private def traverse[A](g: DirectedGraphRep[A], v: A, dfs: Boolean): Stream[A]
  Both are implemented in terms of the `visitOrder` function.
  
  ```scala
-private def visitOrder[A](g: DirectedGraphRep[A], start: A, dfs: Boolean): Stream[A]
+private def visitOrder[A](g: Digraph[A], start: A, dfs: Boolean): Stream[A]
   = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty
 
-def dfs[A](g: DirectedGraphRep[A], start: A): Stream[A]
+def dfs[A](g: Digraph[A], start: A): Stream[A]
   = visitOrder(g,start,dfs=true)
 
-def bfs[A](g: DirectedGraphRep[A], start: A): Stream[A]
+def bfs[A](g: Digraph[A], start: A): Stream[A]
   = visitOrder(g,start,dfs=false)
 ```
 
