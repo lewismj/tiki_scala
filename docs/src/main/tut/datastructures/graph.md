@@ -9,21 +9,20 @@ scaladoc: "#tiki.GraphRep"
 
 Representing a graph as a specific data structure, such as an adjacency list or rose-tree may 
 not always be desirable.
-It is useful to split the algorithms on the graph from the underlying
-representation.
 
-There are two core traits, that define the graph behaviours.
+It is useful to split the algorithms on the graph from the underlying representation.
 
-Algorithms such as `dfs` will require something that supports the `Directed` interface only.
+A number of core traits define the graph behaviours.
 
-Note:
-- In the future, may add a `Weighted` trait to allow weighted graphs with labelled edges.
+Algorithms (generally) should require the _minimal_ interface as function arguments.
 
 
 ## Usage
 
 In the following example, for a simple test, the `WeightedDigraph` was defined using
-an adjacency list and an edge list (containing weights). 
+an adjacency list and an edge list (containing weights). This may be sub-optimal for
+many situations, but it illustrates how we can build up the graph using any underlying
+representation.
 
 ```tut
 import tiki._
@@ -93,6 +92,7 @@ trait Digraph[A,B] extends Graph[A,B] with Directed[A] {}
 
 The weighted digraph interface can be defined as `Digraph` with weighted edges.
 
+Note, we could _in the future_ introduce a `Weighted` trait to allow weighted labelled graphs etc.
 
 ```scala
 trait WeightedDigraph[A] extends Digraph[A,WeightedEdge[A]] {}
