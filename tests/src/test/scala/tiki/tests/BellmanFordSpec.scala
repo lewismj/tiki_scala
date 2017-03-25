@@ -67,4 +67,31 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
     state.distances should be(expected)
   }
 
+
+  test("Negative cycle correctly identified") {
+
+    val xs = List(
+      0 --> 1 :# 5.0,
+      0 --> 2 :# 4.0,
+      1 --> 3 :# 3.0,
+      2 --> 1 :# -6.0,
+      3 --> 2 :# 2.0
+    )
+    val adjacencyList = buildAdjacencyList(xs)
+
+    val digraph = new WeightedDigraph[Int] {
+      /* Use adjacency list for basic digraph implementation. */
+      def contains(v: Int) = adjacencyList.contains(v)
+      def vertices: Stream[Int] = adjacencyList.vertices
+      def successors(v: Int) = adjacencyList.successors(v)
+      def predecessors(v: Int) = adjacencyList.predecessors(v)
+      /* adjacency doesn't store edges. */
+      def edges: Stream[WeightedEdge[Int]] = xs.toStream
+    }
+
+    val (_, nCycle) = negativeCycle(digraph,0)
+
+    nCycle should be (true)
+  }
+
 }

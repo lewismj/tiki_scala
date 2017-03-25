@@ -31,6 +31,9 @@ import tiki.Predef._
   */
 object Path {
 
+  /* Define +ve,-ve infinity. */
+  val ∞ = Double.PositiveInfinity
+  val ⧞ = Double.NegativeInfinity
 
   /**
     * Case class that represents the running state of the Bellman-Ford
@@ -62,17 +65,45 @@ object Path {
     * @tparam A       the vertex type.
     * @return         the path state.
     */
-  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A]
-    = g.vertices.foldLeft(PathState.empty[A].update(source,0))((xs, x) => {
-        g.edges.foldLeft(xs)((ys, y) => {
-          val (u,v,w) = (y.from,y.to,y.weight)
-          val du = ys.distances.getOrElse(u,Double.PositiveInfinity)
-          val dv = ys.distances.getOrElse(v,Double.PositiveInfinity)
-          (du,dv,w) match {
-            case _ if du + w < dv => ys.update(v,du+w,u)
-            case _ => ys
-          }
-        })
+  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
+      Range(1,g.vertices.size).foldLeft(PathState.empty[A].update(source, 0))((xs, x) => {
+      g.edges.foldLeft(xs)((ys, y) => {
+        val (u, v, w) = (y.from, y.to, y.weight)
+        val du = ys.distances.getOrElse(u, ∞)
+        val dv = ys.distances.getOrElse(v, ∞)
+        (du, dv, w) match {
+          case _ if du + w < dv => ys.update(v, du + w, u)
+          case _ => ys
+        }
       })
+    })
+  }
+
+
+  /**
+    * Check to see if a negative cycle exists within a digraph.
+    *
+    * @param g        the digraph.
+    * @param source   the source vertex.
+    * @tparam A       the vertex type.
+    * @return         a tuple containing the path state and flag
+    *                 to indicate if a negative cycle exists.
+    */
+  def negativeCycle[A](g: WeightedDigraph[A], source: A): (PathState[A],Boolean) = {
+    val state = bellmanFord(g,source)
+    val negativeCycle = g.edges.exists(e=> {
+      val (u,v,w) = (e.from,e.to,e.weight)
+      if (state.distances.getOrElse(u,∞) + w <
+          state.distances.getOrElse(v,⧞)) {
+        true
+      }
+      else {
+        false
+      }
+    })
+    (state,negativeCycle)
+  }
+
+
 
 }

@@ -30,9 +30,11 @@ package tiki
   * mutable collections or other parts of the `scala.Predef` that are not required.
   */
 object Predef {
+  import scala.annotation.{implicitNotFound}
+  import scala.{deprecated, inline}
 
-  def identity[A](x: A): A = x
-  def implicitly[T](implicit e: T) = e
+  @inline def identity[A](a: A): A = a
+  def implicitly[A](implicit a: A): A = a
 
   type Boolean = scala.Boolean
   type Char = scala.Char
@@ -40,6 +42,7 @@ object Predef {
   type Double = scala.Double
   type Long = scala.Long
   type Int = scala.Int
+  type RichInt = scala.runtime.RichInt
   type StringContext = scala.StringContext
   type Map[A,B] = scala.collection.immutable.Map[A,B]
   type Option[A]  = scala.Option[A]
@@ -50,6 +53,7 @@ object Predef {
   type String = java.lang.String
   type tailrec = scala.annotation.tailrec
   type Set[A]     = scala.collection.immutable.Set[A]
+  type Range  = scala.collection.immutable.Range
 
   type Seq[A]     = scala.collection.immutable.Seq[A]
   /* `.toSeq` can return scala.collection.Seq, force to immutable. */
@@ -83,6 +87,7 @@ object Predef {
   final val Short = scala.Short
   final val Unit = scala.Unit
   final val StringContext = scala.StringContext
+  final val Range = scala.collection.immutable.Range
 
   final class ArrowAssoc[A](val x: A) {
     def -> [B](y: B): (A, B) = (x, y)

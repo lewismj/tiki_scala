@@ -21,18 +21,19 @@ case class PathState[A](distances: Map[A,Double], predecessors: Map[A,A])
 
 The algorithm is simple to implement, as follows:
 ```scala
-def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A]
-= g.vertices.foldLeft(PathState.empty[A].update(source,0))((xs, x) => {
-    g.edges.foldLeft(xs)((ys, y) => {
-      val (u,v,w) = (y.from,y.to,y.weight)
-      val du = ys.distances.getOrElse(u,Double.PositiveInfinity)
-      val dv = ys.distances.getOrElse(v,Double.PositiveInfinity)
-      (du,dv,w) match {
-        case _ if du + w < dv => ys.update(v,du+w,u)
-        case _ => ys
-      }
-    })
+def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
+  Range(1,g.vertices.size).foldLeft(PathState.empty[A].update(source, 0))((xs, x) => {
+  g.edges.foldLeft(xs)((ys, y) => {
+    val (u, v, w) = (y.from, y.to, y.weight)
+    val du = ys.distances.getOrElse(u, ∞)
+    val dv = ys.distances.getOrElse(v, ∞)
+    (du, dv, w) match {
+      case _ if du + w < dv => ys.update(v, du + w, u)
+      case _ => ys
+    }
   })
+})
+}
 ```
 
 ```tut
