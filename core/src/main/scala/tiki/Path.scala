@@ -86,22 +86,33 @@ object Path {
     * @param g        the digraph.
     * @param source   the source vertex.
     * @tparam A       the vertex type.
-    * @return         a tuple containing the path state and flag
-    *                 to indicate if a negative cycle exists.
+    * @return         a negative cycle, if one exists otherwise None.
     */
-  def negativeCycle[A](g: WeightedDigraph[A], source: A): (PathState[A],Boolean) = {
+  def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[Seq[A]] = {
     val state = bellmanFord(g,source)
-    val negativeCycle = g.edges.exists(e=> {
+
+    val maybeCycle = g.edges.flatMap(e=> {
       val (u,v,w) = (e.from,e.to,e.weight)
-      if (state.distances.getOrElse(u,∞) + w <
-          state.distances.getOrElse(v,⧞)) {
-        true
+      if (state.distances.getOrElse(u,∞) + w < state.distances.getOrElse(v,⧞)) {
+        Some(v)
       }
       else {
-        false
+        None
       }
     })
-    (state,negativeCycle)
+
+    maybeCycle.headOption.flatMap(v => {
+      @tailrec
+      def loop(v: A, cycle: Seq[A]) : Seq[A] = {
+        val p = state.predecessors.getOrElse(v,v)
+        if (cycle.contains(p)) cycle
+        else {
+          loop(p, cycle :+ p)
+        }
+      }
+      Some(loop(v,Seq(v)))
+    })
+
   }
 
 

@@ -37,6 +37,9 @@ import tiki.Path._
 
 class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
+
+
+
   test("Bellman-Ford simple graph test .1") {
 
     val xs = List(
@@ -68,7 +71,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
   }
 
 
-  test("Negative cycle correctly identified") {
+  test("Negative cycle found") {
 
     val xs = List(
       0 --> 1 :# 5.0,
@@ -89,9 +92,27 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
       def edges: Stream[WeightedEdge[Int]] = xs.toStream
     }
 
-    val (_, nCycle) = negativeCycle(digraph,0)
-
-    nCycle should be (true)
+    val nCycles = negativeCycle(digraph,0)
+    nCycles.size should be (1)
   }
+
+
+  test("simple graph should have no negative cycles") {
+    val xs = List ('a' --> 'b' :# 5.0, 'b' --> 'c' :# 10.0, 'c' --> 'a' :# -5.0)
+    val adjacencyList = buildAdjacencyList(xs)
+    val digraph = new WeightedDigraph[Char] {
+      /* Use adjacency list for basic digraph implementation. */
+      def contains(v: Char) = adjacencyList.contains(v)
+      def vertices: Stream[Char] = adjacencyList.vertices
+      def successors(v: Char) = adjacencyList.successors(v)
+      def predecessors(v: Char) = adjacencyList.predecessors(v)
+      /* adjacency doesn't store edges. */
+      def edges: Stream[WeightedEdge[Char]] = xs.toStream
+    }
+
+    val nCycles = negativeCycle(digraph,'a')
+    nCycles.isEmpty should be (true)
+  }
+
 
 }
