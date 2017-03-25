@@ -516,9 +516,9 @@ algorithm.
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="tiki.Path#negativeCycle" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):(tiki.Path.PathState[A],tiki.Predef.Boolean)"></a><a id="negativeCycle[A](WeightedDigraph[A],A):(PathState[A],Boolean)"></a>
+      <a id="negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.Option[tiki.Predef.Seq[A]]"></a><a id="negativeCycle[A](WeightedDigraph[A],A):Option[Seq[A]]"></a>
       <span class="permalink">
-      <a href="../tiki/Path$.html#negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):(tiki.Path.PathState[A],tiki.Predef.Boolean)" title="Permalink">
+      <a href="../tiki/Path$.html#negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.Option[tiki.Predef.Seq[A]]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -527,12 +527,11 @@ algorithm.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">negativeCycle</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.negativeCycle.A">A</span></span>)</span><span class="result">: (<a href="Path$$PathState.html" class="extype" name="tiki.Path.PathState">PathState</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>], <a href="Predef$.html#Boolean=Boolean" class="extmbr" name="tiki.Predef.Boolean">Boolean</a>)</span>
+        <span class="name">negativeCycle</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.negativeCycle.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Seq[A]=scala.collection.immutable.Seq[A]" class="extmbr" name="tiki.Predef.Seq">Seq</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Check to see if a negative cycle exists within a digraph.</p><div class="fullcomment"><div class="comment cmt"><p>Check to see if a negative cycle exists within a digraph.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>the digraph.</p></dd><dt class="param">source</dt><dd class="cmt"><p>the source vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a tuple containing the path state and flag
-                to indicate if a negative cycle exists.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>the digraph.</p></dd><dt class="param">source</dt><dd class="cmt"><p>the source vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a negative cycle, if one exists otherwise None.</p></dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
