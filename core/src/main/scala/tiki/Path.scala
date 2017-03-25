@@ -101,6 +101,7 @@ object Path {
       }
     })
 
+    /* Return a negative cycle, if one exists. */
     maybeCycle.headOption.flatMap(v => {
       @tailrec
       def loop(v: A, cycle: Seq[A]) : Seq[A] = {

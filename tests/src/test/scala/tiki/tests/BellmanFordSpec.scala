@@ -37,9 +37,7 @@ import tiki.Path._
 
 class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
-
-
-
+  
   test("Bellman-Ford simple graph test .1") {
 
     val xs = List(
