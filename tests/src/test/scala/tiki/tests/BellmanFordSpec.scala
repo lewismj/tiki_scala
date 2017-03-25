@@ -25,6 +25,7 @@
 package tiki
 package tests
 
+
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
 import tiki.tests.arbitrary.AllArbitrary
@@ -32,12 +33,13 @@ import tiki.tests.arbitrary.AllArbitrary
 import tiki.Predef._
 import tiki.implicits._
 import tiki.Path._
+import scala.math._
 
 /** WIP - need ScalaCheck test cases. */
 
 class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
-  
+
   test("Bellman-Ford simple graph test .1") {
 
     val xs = List(
@@ -112,5 +114,46 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
     nCycles.isEmpty should be (true)
   }
 
+
+  test("simple arbitrage detection") {
+
+    val xs = List ( "USD" --> "EUR" :# -log(0.741),
+                    "USD" --> "GBP" :# -log(0.657),
+                    "USD" --> "CHF" :# -log(1.061),
+                    "USD" --> "CAD" :# -log(1.005),
+                    "EUR" --> "USD" :# -log(1.349),
+                    "EUR" --> "GBP" :# -log(0.888),
+                    "EUR" --> "CHF" :# -log(1.433),
+                    "EUR" --> "CAD" :# -log(1.366),
+                    "GBP" --> "USD" :# -log(1.521),
+                    "GBP" --> "EUR" :# -log(1.126),
+                    "GBP" --> "CHF" :# -log(1.614),
+                    "GBP" --> "CAD" :# -log(1.538),
+                    "CHF" --> "USD" :# -log(0.942),
+                    "CHF" --> "EUR" :# -log(0.698),
+                    "CHF" --> "GBP" :# -log(0.619),
+                    "CHF" --> "CAD" :# -log(0.953),
+                    "CAD" --> "USD" :# -log(0.955),
+                    "CAD" --> "EUR" :# -log(0.732),
+                    "CAD" --> "GBP" :# -log(0.650),
+                    "CAD" --> "CHF" :# -log(1.049)
+    )
+    val adjacencyList = buildAdjacencyList(xs)
+
+    val digraph = new WeightedDigraph[String] {
+      /* Use adjacency list for basic digraph implementation. */
+      def contains(v: String) = adjacencyList.contains(v)
+      def vertices: Stream[String] = adjacencyList.vertices
+      def successors(v: String) = adjacencyList.successors(v)
+      def predecessors(v: String) = adjacencyList.predecessors(v)
+      /* adjacency doesn't store edges. */
+      def edges: Stream[WeightedEdge[String]] = xs.toStream
+    }
+
+    // To test for arbitrage opportunities, you would map
+    // over every currency looking for negative cycle.
+    val nCycles = negativeCycle(digraph,"USD")
+    nCycles.isDefined should be (true)
+  }
 
 }

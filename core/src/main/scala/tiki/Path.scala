@@ -93,12 +93,8 @@ object Path {
 
     val maybeCycle = g.edges.flatMap(e=> {
       val (u,v,w) = (e.from,e.to,e.weight)
-      if (state.distances.getOrElse(u,∞) + w < state.distances.getOrElse(v,⧞)) {
-        Some(v)
-      }
-      else {
-        None
-      }
+      if (state.distances.getOrElse(u,∞) + w < state.distances.getOrElse(v,⧞)) Some(v)
+      else None
     })
 
     /* Return a negative cycle, if one exists. */
@@ -113,7 +109,6 @@ object Path {
       }
       Some(loop(v,Seq(v)))
     })
-
   }
 
 
