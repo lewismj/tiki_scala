@@ -30,6 +30,8 @@ import tiki.Predef._
 import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.{Edge, LabelledEdge, _}
+import scala.math._
+
 
 class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary {
 

@@ -119,30 +119,29 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
   test("simple arbitrage detection") {
 
     val xs = List (
-                    "USD" --> "EUR" :# log(0.741),
-                    "USD" --> "GBP" :# log(0.657),
-                    "USD" --> "CHF" :# log(1.061),
-                    "USD" --> "CAD" :# log(1.005),
-                    "EUR" --> "USD" :# log(1.349),
-                    "EUR" --> "GBP" :# log(0.888),
-                    "EUR" --> "CHF" :# log(1.433),
-                    "EUR" --> "CAD" :# log(1.366),
-                    "GBP" --> "USD" :# log(1.521),
-                    "GBP" --> "EUR" :# log(1.126),
-                    "GBP" --> "CHF" :# log(1.614),
-                    "GBP" --> "CAD" :# log(1.538),
-                    "CHF" --> "USD" :# log(0.942),
-                    "CHF" --> "EUR" :# log(0.698),
-                    "CHF" --> "GBP" :# log(0.619),
-                    "CHF" --> "CAD" :# log(0.953),
-                    "CAD" --> "USD" :# log(0.955),
-                    "CAD" --> "EUR" :# log(0.732),
-                    "CAD" --> "GBP" :# log(0.650),
-                    "CAD" --> "CHF" :# log(1.049)
+                    "USD" --> "EUR" :# -log(1/0.741),
+                    "USD" --> "GBP" :# -log(1/0.657),
+                    "USD" --> "CHF" :# -log(1/1.061),
+                    "USD" --> "CAD" :# -log(1/1.005),
+                    "EUR" --> "USD" :# -log(1/1.349),
+                    "EUR" --> "GBP" :# -log(1/0.888),
+                    "EUR" --> "CHF" :# -log(1/1.433),
+                    "EUR" --> "CAD" :# -log(1/1.366),
+                    "GBP" --> "USD" :# -log(1/1.521),
+                    "GBP" --> "EUR" :# -log(1/1.126),
+                    "GBP" --> "CHF" :# -log(1/1.614),
+                    "GBP" --> "CAD" :# -log(1/1.538),
+                    "CHF" --> "USD" :# -log(1/0.942),
+                    "CHF" --> "EUR" :# -log(1/0.698),
+                    "CHF" --> "GBP" :# -log(1/0.619),
+                    "CHF" --> "CAD" :# -log(1/0.953),
+                    "CAD" --> "USD" :# -log(1/0.955),
+                    "CAD" --> "EUR" :# -log(1/0.732),
+                    "CAD" --> "GBP" :# -log(1/0.650),
+                    "CAD" --> "CHF" :# -log(1/1.049)
     )
 
-    val ys = xs.map(e=>WeightedEdge(e.edge,-e.weight))
-    val adjacencyList = buildAdjacencyList(ys)
+    val adjacencyList = buildAdjacencyList(xs)
 
     val digraph = new WeightedDigraph[String] {
       /* Use adjacency list for basic digraph implementation. */
@@ -156,10 +155,9 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
     // To test for arbitrage opportunities, you would map
     // over every currency looking for negative cycle.
-    negativeCycle(digraph,"USD").get should contain
-      atMostOneOf ( Seq("USD","EUR","CAD"),
-                    Seq("EUR","CAD","USD"),
-                    Seq("CAD","EUR","USD"))
+    val cycle = negativeCycle(digraph,"USD").get
+
+    cycle.sorted should be (Seq("CAD","EUR","USD"))
   }
 
 }
