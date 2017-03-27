@@ -117,37 +117,30 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
   test("simple arbitrage detection") {
 
     val xs = List(
-
-      "GBP" --> "CHF" :# -1.0 * log(1.614),
-      "GBP" --> "CAD" :# -1.0 * log(1.538),
-
-      "CHF" --> "USD" :# -1.0 * log(0.942),
-      "CHF" --> "EUR" :# -1.0 * log(0.698),
-
-      "CHF" --> "GBP" :# -1.0 * log(0.619),
-      "CHF" --> "CAD" :# -1.0 * log(0.953),
-
-      "GBP" --> "USD" :# -1.0 * log(1.521),
-      "GBP" --> "EUR" :# -1.0 * log(1.126),
-
-      "CAD" --> "GBP" :# -1.0 * log(0.650),
-      "CAD" --> "CHF" :# -1.0 * log(1.049),
-
-      "CAD" --> "USD" :# -1.0 * log(0.995),
-      "CAD" --> "EUR" :# -1.0 * log(0.732),
-
-
-
-
-      "USD" --> "EUR" :# -1.0 * log(0.741),
-      "USD" --> "GBP" :# -1.0 * log(0.657),
-      "USD" --> "CHF" :# -1.0 * log(1.061),
-      "USD" --> "CAD" :# -1.0 * log(1.005),
-      "EUR" --> "USD" :# -1.0 * log(1.349),
-
-      "EUR" --> "GBP" :# -1.0 * log(0.888),
-      "EUR" --> "CHF" :# -1.0 * log(1.433),
-      "EUR" --> "CAD" :# -1.0 * log(1.366)
+      "USD" --> "CAD" :# -log(1.005),
+      "EUR" --> "USD" :# -log(1.349),
+      "EUR" --> "GBP" :# -log(0.888),
+      "EUR" --> "CHF" :# -log(1.433),
+      "GBP" --> "CHF" :# -log(1.614),
+      "GBP" --> "CAD" :# -log(1.538),
+      "CHF" --> "USD" :# -log(0.942),
+      "CHF" --> "EUR" :# -log(0.698),
+      "GBP" --> "EUR" :# -log(1.126),
+      "CAD" --> "GBP" :# -log(0.650),
+      "CAD" --> "CHF" :# -log(1.049),
+      "CAD" --> "USD" :# -log(0.995),
+      "GBP" --> "CAD" :# -log(1.538),
+      "CHF" --> "USD" :# -log(0.942),
+      "CHF" --> "EUR" :# -log(0.698),
+      "CHF" --> "GBP" :# -log(0.619),
+      "CAD" --> "EUR" :# -log(0.732),
+      "USD" --> "EUR" :# -log(0.741),
+      "USD" --> "GBP" :# -log(0.657),
+      "CHF" --> "GBP" :# -log(0.619),
+      "CHF" --> "CAD" :# -log(0.953),
+      "GBP" --> "USD" :# -log(1.521),
+      "USD" --> "CHF" :# -log(1.061),
+      "EUR" --> "CAD" :# -log(1.366)
     )
 
     val adjacencyList = buildAdjacencyList(xs)
