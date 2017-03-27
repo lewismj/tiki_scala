@@ -112,7 +112,7 @@ object Path {
         case head #::tail =>
           if (tail.contains(source)) predecessorList(s,source)
           else predecessorList(s,head)
-        case Stream() => List.empty[A]
+        case _ => List.empty[A]
     }
   }
 
