@@ -25,6 +25,7 @@
 package tiki
 
 import tiki.Predef._
+import scala.math._
 
 /**
   * Path algorithms.
@@ -32,6 +33,7 @@ import tiki.Predef._
 object Path {
 
   val ∞ = Double.PositiveInfinity
+  val ⧞ = Double.NegativeInfinity
 
   /**
     * Case class that represents the running state of the Bellman-Ford
@@ -57,17 +59,18 @@ object Path {
     * @return         the path state.
     */
   def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
-    /* Naive implementation (no early exit). */
-    def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] = {
-      val du = state.distances.getOrElse(e.from, ∞)
-      val dv = state.distances.getOrElse(e.to, ∞)
-
-      if (du + e.weight  < dv ) {
-        val d = state.distances.updated(e.to,du + e.weight)
-        val p = state.predecessors.updated(e.to,e.from)
-        PathState(d,p)
-      } else state
-    }
+    def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] =
+      state.distances.getOrElse(e.from, ∞) match {
+        case du if du < ∞ =>
+          val dv = state.distances.getOrElse(e.to, ∞)
+          if (du + e.weight < dv) {
+            val w0 = max(⧞,du + e.weight)
+            val d = state.distances.updated(e.to,w0)
+            val p = state.predecessors.updated(e.to, e.from)
+            PathState(d, p)
+          } else state
+        case _ => state
+      }
 
     g.vertices.indices.foldLeft(PathState(source))(
       (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
@@ -106,8 +109,8 @@ object Path {
       else None
     )
     match {
-        case head #:: tail => predecessorList(s,head)
-        case _ => List.empty[A]
+        case Stream() => List.empty[A]
+        case _ => predecessorList(s,source)
     }
   }
 
