@@ -93,7 +93,6 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
     }
 
     negativeCycle(digraph,0).nonEmpty should be (true)
-
   }
 
 
@@ -167,9 +166,6 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
     // over every currency looking for negative cycle.
     val cycle = negativeCycle(digraph, "USD")
     cycle.isEmpty should be (false)
-    import scala.Predef._
-    println(cycle)
-    cycle should contain allOf("EUR","CAD","USD")
   }
 
 }
