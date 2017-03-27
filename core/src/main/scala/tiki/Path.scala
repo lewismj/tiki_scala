@@ -31,7 +31,7 @@ import tiki.Predef._
   */
 object Path {
 
-  val ∞ = Double.MaxValue
+  val ∞ = Double.PositiveInfinity
 
   /**
     * Case class that represents the running state of the Bellman-Ford
@@ -83,7 +83,7 @@ object Path {
     * @return         a negative cycle, if one exists otherwise None.
     */
   def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[Seq[A]] = {
-    /**
+    /*
       * WIP!! This will need to be changed !!, we can relax another iteration
       * etc.
       */
