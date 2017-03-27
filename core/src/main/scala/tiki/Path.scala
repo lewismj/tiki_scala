@@ -63,7 +63,7 @@ object Path {
   }
 
   /**
-    * Bellman-Ford algorithm.
+    * Bellman-Ford algorithm (performs 'N' iterations).
     *
     * @param g        a weighted digraph.
     * @param source   the source vertex.
@@ -82,32 +82,25 @@ object Path {
     * @tparam A       the vertex type.
     * @return         a negative cycle, if one exists otherwise None.
     */
-  def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[Seq[A]] = {
-    /*
-      * WIP!! This will need to be changed !!, we can relax another iteration
-      * etc.
-      */
+  def negativeCycle[A](g: WeightedDigraph[A], source: A): List[A] = {
+    /* WIP!! tidy up required.*/
+    val s = bellmanFord(g,source)
 
-    val state = bellmanFord(g,source)
+    val maybeCycle = g.edges.flatMap(e=>
+      if (s.distances(e.from) + e.weight < s.distances(e.to)) Some(e.to)  else None)
 
-    val maybeCycle = g.edges.flatMap(e=> {
-      val (u,v,w) = (e.from,e.to,e.weight)
-      if (state.distances(u) + w < state.distances(v)) Some(v)
-      else None
-    })
+    @tailrec
+    def loop(v: A, cycle: List[A]) : List[A] = {
+      val p = s.predecessors(v)
+      if (cycle.contains(p)) cycle
+      else loop(p, p :: cycle)
+    }
 
-    /* Return a negative cycle, if one exists. */
-    maybeCycle.headOption.flatMap(v => {
-      @tailrec
-      def loop(v: A, cycle: Seq[A]) : Seq[A] = {
-        val p = state.predecessors(v)
-        if (cycle.contains(p)) cycle
-        else {
-          loop(p, cycle :+ p)
-        }
-      }
-      Some(loop(v,Seq(v)))
-    })
+    maybeCycle match {
+      case Stream() => Nil
+      case h +: _ => loop(h,List(h))
+    }
+
   }
 
 }

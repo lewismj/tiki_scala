@@ -34,7 +34,6 @@ import tiki.implicits._
 import tiki.Path._
 
 import scala.math._
-import scala.util.Random
 
 /** WIP - need ScalaCheck test cases. */
 
@@ -119,27 +118,27 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
   test("simple arbitrage detection") {
 
-    val xs = List (
-      "CAD" --> "USD" :#  -1.0 * log(0.995),
-      "CAD" --> "EUR" :#  -1.0 * log(0.732),
-      "CAD" --> "GBP" :#  -1.0 * log(0.650),
-      "CAD" --> "CHF" :#  -1.0 * log(1.049),
-      "GBP" --> "USD" :#  -1.0 * log(1.521),
-      "GBP" --> "EUR" :#  -1.0 * log(1.126),
-      "GBP" --> "CHF" :#  -1.0 * log(1.614),
-      "GBP" --> "CAD" :#  -1.0 * log(1.538),
-      "USD" --> "EUR" :#  -1.0 * log(0.741),
-      "USD" --> "GBP" :#  -1.0 * log(0.657),
-      "USD" --> "CHF" :#  -1.0 * log(1.061),
-      "USD" --> "CAD" :#  -1.0 * log(1.005),
-      "CHF" --> "USD" :#  -1.0 * log(0.942),
-      "CHF" --> "EUR" :#  -1.0 * log(0.698),
-      "CHF" --> "GBP" :#  -1.0 * log(0.619),
-      "CHF" --> "CAD" :#  -1.0 * log(0.953),
-      "EUR" --> "USD" :#  -1.0 * log(1.349),
-      "EUR" --> "GBP" :#  -1.0 * log(0.888),
-      "EUR" --> "CHF" :#  -1.0 * log(1.433),
-      "EUR" --> "CAD" :#  -1.0 * log(1.366)
+    val xs = List(
+      "CAD" --> "USD" :# -1.0 * log(0.995),
+      "CAD" --> "EUR" :# -1.0 * log(0.732),
+      "CAD" --> "GBP" :# -1.0 * log(0.650),
+      "CAD" --> "CHF" :# -1.0 * log(1.049),
+      "GBP" --> "USD" :# -1.0 * log(1.521),
+      "GBP" --> "EUR" :# -1.0 * log(1.126),
+      "GBP" --> "CHF" :# -1.0 * log(1.614),
+      "GBP" --> "CAD" :# -1.0 * log(1.538),
+      "USD" --> "EUR" :# -1.0 * log(0.741),
+      "USD" --> "GBP" :# -1.0 * log(0.657),
+      "USD" --> "CHF" :# -1.0 * log(1.061),
+      "USD" --> "CAD" :# -1.0 * log(1.005),
+      "CHF" --> "USD" :# -1.0 * log(0.942),
+      "CHF" --> "EUR" :# -1.0 * log(0.698),
+      "CHF" --> "GBP" :# -1.0 * log(0.619),
+      "CHF" --> "CAD" :# -1.0 * log(0.953),
+      "EUR" --> "USD" :# -1.0 * log(1.349),
+      "EUR" --> "GBP" :# -1.0 * log(0.888),
+      "EUR" --> "CHF" :# -1.0 * log(1.433),
+      "EUR" --> "CAD" :# -1.0 * log(1.366)
     )
 
     val adjacencyList = buildAdjacencyList(xs)
@@ -147,16 +146,29 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
     val digraph = new WeightedDigraph[String] {
       /* Use adjacency list for basic digraph implementation. */
       def contains(v: String) = adjacencyList.contains(v)
+
       def vertices: Stream[String] = adjacencyList.vertices
+
       def successors(v: String) = adjacencyList.successors(v)
+
       def predecessors(v: String) = adjacencyList.predecessors(v)
+
       /* adjacency doesn't store edges. */
       def edges: Stream[WeightedEdge[String]] = xs.toStream
     }
 
     // To test for arbitrage opportunities, you would map
     // over every currency looking for negative cycle.
-    negativeCycle(digraph,"USD").isEmpty should be (false)
+    val cycle = negativeCycle(digraph, "USD")
+    cycle.isEmpty should be (false)
+
+   import scala.Predef._
+    println(cycle)
+   // val trades = ("USD" :: cycle).iterator.sliding(2).toList
+   // println(trades)
+
+
+
   }
 
 }
