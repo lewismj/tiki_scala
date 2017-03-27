@@ -24,10 +24,27 @@ object PathState {
 }
 ```
 
-The algorithm is simple to implement, as follows (with _N_ iterations):
+The algorithm is implemented (with _N_ iterations). _note_ I think almost all 
+use cases would allow us to stop once
+
 ```scala
-def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] =
-  g.vertices.indices.foldLeft(PathState(source))((xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
+    /* Naive implementation, we can can detect a cycle and stop early. */
+    def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] = {
+      val du = state.distances.getOrElse(e.from, ∞)
+      val dv = state.distances.getOrElse(e.to, ∞)
+
+      if (du + e.weight  < dv ) {
+        val d = state.distances.updated(e.to,du + e.weight)
+        import scala.Predef._
+        val p = state.predecessors.updated(e.to,e.from)
+        PathState(d,p)
+      } else state
+    }
+
+    g.vertices.indices.foldLeft(PathState(source))(
+      (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+  }
 ```
 
 

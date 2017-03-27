@@ -43,23 +43,9 @@ object Path {
     */
   case class PathState[A](distances: Map[A,Double], predecessors: Map[A,A])
 
-
   object PathState {
     def apply[A](source: A): PathState[A] =
       PathState(Map.empty[A,Double].updated(source,0.0),Map.empty[A,A])
-  }
-
-
-  private def relaxEdge[A](state: PathState[A], e: WeightedEdge[A]): PathState[A] = {
-    val du = state.distances.getOrElse(e.from, ∞)
-    val dv = state.distances.getOrElse(e.to, ∞)
-
-    if (du + e.weight  < dv ) {
-      val distances = state.distances.updated(e.to,du + e.weight)
-      val predecessors = state.predecessors.updated(e.to,e.from)
-      PathState(distances,predecessors)
-    } else state
-
   }
 
   /**
@@ -70,9 +56,40 @@ object Path {
     * @tparam A       the vertex type.
     * @return         the path state.
     */
-  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] =
-    g.vertices.indices.foldLeft(PathState(source))((xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
+    /* Naive implementation (no early exit). */
+    def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] = {
+      val du = state.distances.getOrElse(e.from, ∞)
+      val dv = state.distances.getOrElse(e.to, ∞)
 
+      if (du + e.weight  < dv ) {
+        val d = state.distances.updated(e.to,du + e.weight)
+        val p = state.predecessors.updated(e.to,e.from)
+        PathState(d,p)
+      } else state
+    }
+
+    g.vertices.indices.foldLeft(PathState(source))(
+      (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+  }
+
+  /**
+    * Build up list of vertices by looping through the predecessors of a
+    * path state.
+    *
+    * @param s    the path state.
+    * @param a    the start point.
+    * @tparam A   the vertex type.
+    * @return the list of predecessors.
+    */
+  def predecessorList[A](s: PathState[A], a: A): List[A] = {
+    @tailrec
+    def loop(v: A, cycle: List[A]): List[A] = {
+      val p = s.predecessors.getOrElse(v,v)
+      if (cycle.contains(p)) cycle else loop(p, p :: cycle)
+    }
+    loop(a,List(a))
+  }
 
   /**
     * Check to see if a negative cycle exists within a digraph.
@@ -83,24 +100,15 @@ object Path {
     * @return         a negative cycle, if one exists otherwise None.
     */
   def negativeCycle[A](g: WeightedDigraph[A], source: A): List[A] = {
-    /* WIP!! tidy up required.*/
-    val s = bellmanFord(g,source)
-
-    val maybeCycle = g.edges.flatMap(e=>
-      if (s.distances(e.from) + e.weight < s.distances(e.to)) Some(e.to)  else None)
-
-    @tailrec
-    def loop(v: A, cycle: List[A]) : List[A] = {
-      val p = s.predecessors(v)
-      if (cycle.contains(p)) cycle
-      else loop(p, p :: cycle)
+    val s = bellmanFord(g, source)
+    g.edges.flatMap(e=>
+      if (s.distances(e.from) + e.weight < s.distances(e.to)) Some(e.to)
+      else None
+    )
+    match {
+        case head #:: tail => predecessorList(s,head)
+        case _ => List.empty[A]
     }
-
-    maybeCycle match {
-      case Stream() => Nil
-      case h +: _ => loop(h,List(h))
-    }
-
   }
 
 }
