@@ -88,7 +88,7 @@ object Path {
   def predecessorList[A](s: PathState[A], a: A): List[A] = {
     @tailrec
     def loop(v: A, cycle: List[A]): List[A] = {
-      val p = s.predecessors.getOrElse(v,v)
+      val p = s.predecessors(v)
       if (cycle.contains(p)) cycle else loop(p, p :: cycle)
     }
     loop(a,List(a))
