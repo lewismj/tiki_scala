@@ -64,6 +64,7 @@ object Predef {
     def unapply[A](s: Seq[A]): Option[(A,Seq[A])] = if (s.nonEmpty) Some((s.head,s.tail)) else None
   }
 
+  final val #:: = scala.collection.immutable.Stream.#::
   final val :: = scala.collection.immutable.::
   final val Nil = scala.collection.immutable.Nil
   final val Traversable = scala.collection.immutable.Traversable

@@ -17,51 +17,20 @@ given a weighted directed graph and source vertex.
 The path state is represented as a case class.
 ```scala
 case class PathState[A](distances: Map[A,Double], predecessors: Map[A,A])
-```
 
-The algorithm is simple to implement, as follows:
-```scala
-def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
-  Range(1,g.vertices.size).foldLeft(PathState.empty[A].update(source, 0))((xs, x) => {
-  g.edges.foldLeft(xs)((ys, y) => {
-    val (u, v, w) = (y.from, y.to, y.weight)
-    val du = ys.distances.getOrElse(u, ∞)
-    val dv = ys.distances.getOrElse(v, ∞)
-    (du, dv, w) match {
-      case _ if du + w < dv => ys.update(v, du + w, u)
-      case _ => ys
-    }
-  })
-})
+object PathState {
+  def apply[A](source: A): PathState[A] =
+    PathState(Map.empty[A,Double].updated(source,0.0),Map.empty[A,A])
 }
 ```
 
-A common use case for _Bellman-Ford_ is to find negative cycles:
-
+The algorithm is simple to implement, as follows (with _N_ iterations):
 ```scala
-def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[Seq[A]] = {
-val state = bellmanFord(g,source)
-
-val maybeCycle = g.edges.flatMap(e=> {
-  val (u,v,w) = (e.from,e.to,e.weight)
-  if (state.distances.getOrElse(u,∞) + w < state.distances.getOrElse(v,⧞)) Some(v)
-  else None
-})
-
-/* Return a negative cycle, if one exists. */
-maybeCycle.headOption.flatMap(v => {
-  @tailrec
-  def loop(v: A, cycle: Seq[A]) : Seq[A] = {
-    val p = state.predecessors.getOrElse(v,v)
-    if (cycle.contains(p)) cycle
-    else {
-      loop(p, cycle :+ p)
-    }
-  }
-  Some(loop(v,Seq(v)))
-})
-}
+def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] =
+  g.vertices.indices.foldLeft(PathState(source))((xs, _) => g.edges.foldLeft(xs)(relaxEdge))
 ```
+
+
 
 ```tut
 import tiki._

@@ -31,9 +31,7 @@ import tiki.Predef._
   */
 object Path {
 
-  /* Define +ve,-ve infinity. */
-  val ∞ = Double.PositiveInfinity
-  val ⧞ = Double.NegativeInfinity
+  val ∞ = Double.MaxValue
 
   /**
     * Case class that represents the running state of the Bellman-Ford
@@ -43,18 +41,25 @@ object Path {
     * @param predecessors current predecessors.
     * @tparam A the vertex type.
     */
-  case class PathState[A](distances: Map[A,Double], predecessors: Map[A,A]) {
+  case class PathState[A](distances: Map[A,Double], predecessors: Map[A,A])
 
-    def update(key: A, distance: Double, predecessor: A): PathState[A] =
-      PathState(distances.updated(key,distance),predecessors.updated(key,predecessor))
 
-    def update(key: A, distance: Double): PathState[A] =
-      PathState(distances.updated(key,distance),predecessors)
+  object PathState {
+    def apply[A](source: A): PathState[A] =
+      PathState(Map.empty[A,Double].updated(source,0.0),Map.empty[A,A])
   }
 
-  /** Companion object, provides initial empty state. */
-  object PathState {
-    def empty[A]: PathState[A] = PathState(Map.empty[A,Double],Map.empty[A,A])
+
+  private def relaxEdge[A](state: PathState[A], e: WeightedEdge[A]): PathState[A] = {
+    val du = state.distances.getOrElse(e.from, ∞)
+    val dv = state.distances.getOrElse(e.to, ∞)
+
+    if (du + e.weight  < dv ) {
+      val distances = state.distances.updated(e.to,du + e.weight)
+      val predecessors = state.predecessors.updated(e.to,e.from)
+      PathState(distances,predecessors)
+    } else state
+
   }
 
   /**
@@ -65,19 +70,8 @@ object Path {
     * @tparam A       the vertex type.
     * @return         the path state.
     */
-  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
-      Range(1,g.vertices.size).foldLeft(PathState.empty[A].update(source, 0))((xs, x) => {
-      g.edges.foldLeft(xs)((ys, y) => {
-        val (u, v, w) = (y.from, y.to, y.weight)
-        val du = ys.distances.getOrElse(u, ∞)
-        val dv = ys.distances.getOrElse(v, ∞)
-        (du, dv, w) match {
-          case _ if du + w < dv => ys.update(v, du + w, u)
-          case _ => ys
-        }
-      })
-    })
-  }
+  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] =
+    g.vertices.indices.foldLeft(PathState(source))((xs, _) => g.edges.foldLeft(xs)(relaxEdge))
 
 
   /**
@@ -89,11 +83,16 @@ object Path {
     * @return         a negative cycle, if one exists otherwise None.
     */
   def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[Seq[A]] = {
+    /**
+      * WIP!! This will need to be changed !!, we can relax another iteration
+      * etc.
+      */
+
     val state = bellmanFord(g,source)
 
     val maybeCycle = g.edges.flatMap(e=> {
       val (u,v,w) = (e.from,e.to,e.weight)
-      if (state.distances.getOrElse(u,∞) + w < state.distances.getOrElse(v,⧞)) Some(v)
+      if (state.distances(u) + w < state.distances(v)) Some(v)
       else None
     })
 
@@ -101,7 +100,7 @@ object Path {
     maybeCycle.headOption.flatMap(v => {
       @tailrec
       def loop(v: A, cycle: Seq[A]) : Seq[A] = {
-        val p = state.predecessors.getOrElse(v,v)
+        val p = state.predecessors(v)
         if (cycle.contains(p)) cycle
         else {
           loop(p, cycle :+ p)
@@ -110,6 +109,5 @@ object Path {
       Some(loop(v,Seq(v)))
     })
   }
-
 
 }
