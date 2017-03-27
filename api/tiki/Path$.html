@@ -373,7 +373,7 @@ algorithm.
         <span class="name">bellmanFord</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.bellmanFord.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.bellmanFord.A">A</span></span>)</span><span class="result">: <a href="Path$$PathState.html" class="extype" name="tiki.Path.PathState">PathState</a>[<span class="extype" name="tiki.Path.bellmanFord.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Bellman-Ford algorithm.</p><div class="fullcomment"><div class="comment cmt"><p>Bellman-Ford algorithm.
+      <p class="shortcomment cmt">Bellman-Ford algorithm (performs 'N' iterations).</p><div class="fullcomment"><div class="comment cmt"><p>Bellman-Ford algorithm (performs 'N' iterations).
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>a weighted digraph.</p></dd><dt class="param">source</dt><dd class="cmt"><p>the source vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>the path state.</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
@@ -516,9 +516,9 @@ algorithm.
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="tiki.Path#negativeCycle" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.Option[tiki.Predef.Seq[A]]"></a><a id="negativeCycle[A](WeightedDigraph[A],A):Option[Seq[A]]"></a>
+      <a id="negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.List[A]"></a><a id="negativeCycle[A](WeightedDigraph[A],A):List[A]"></a>
       <span class="permalink">
-      <a href="../tiki/Path$.html#negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.Option[tiki.Predef.Seq[A]]" title="Permalink">
+      <a href="../tiki/Path$.html#negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.List[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -527,7 +527,7 @@ algorithm.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">negativeCycle</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.negativeCycle.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#Seq[A]=scala.collection.immutable.Seq[A]" class="extmbr" name="tiki.Predef.Seq">Seq</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]]</span>
+        <span class="name">negativeCycle</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.negativeCycle.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#List[A]=List[A]" class="extmbr" name="tiki.Predef.List">List</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Check to see if a negative cycle exists within a digraph.</p><div class="fullcomment"><div class="comment cmt"><p>Check to see if a negative cycle exists within a digraph.
@@ -564,6 +564,25 @@ algorithm.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="tiki.Path#predecessorList" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predecessorList[A](s:tiki.Path.PathState[A],a:A):tiki.Predef.List[A]"></a><a id="predecessorList[A](PathState[A],A):List[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/Path$.html#predecessorList[A](s:tiki.Path.PathState[A],a:A):tiki.Predef.List[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">predecessorList</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="s">s: <a href="Path$$PathState.html" class="extype" name="tiki.Path.PathState">PathState</a>[<span class="extype" name="tiki.Path.predecessorList.A">A</span>]</span>, <span name="a">a: <span class="extype" name="tiki.Path.predecessorList.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#List[A]=List[A]" class="extmbr" name="tiki.Predef.List">List</a>[<span class="extype" name="tiki.Path.predecessorList.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Build up list of vertices by looping through the predecessors of a
+path state.</p><div class="fullcomment"><div class="comment cmt"><p>Build up list of vertices by looping through the predecessors of a
+path state.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">s</dt><dd class="cmt"><p>the path state.</p></dd><dt class="param">a</dt><dd class="cmt"><p>the start point.</p></dd><dt>returns</dt><dd class="cmt"><p>the list of predecessors.</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
