@@ -63,7 +63,7 @@ trait Directed[A] {
   * @tparam A the vertex type.
   * @tparam B the edge type.
   */
-trait Graph[A,B] {
+trait Graph[A,B <: EdgeLike[_]] {
   /**
     * Return a stream of vertices.
     *
@@ -85,7 +85,7 @@ trait Graph[A,B] {
   * @tparam A the vertex type.
   * @tparam B the edge type.
   */
-trait Digraph[A,B] extends Graph[A,B] with Directed[A] {}
+trait Digraph[A,B <: EdgeLike[_]] extends Graph[A,B] with Directed[A] {}
 
 /**
   * Weighted digraph.

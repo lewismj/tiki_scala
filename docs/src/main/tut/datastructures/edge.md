@@ -13,10 +13,13 @@ The following case classes may used to define edges:
 - `EdgeLabelled` an unweighted, labelled edge from one vertex to another.
 - `EdgeWeighted` is a weighted edge.
 
-These are defined by the union:
+Each edge type extends the `EdgeLike` trait:
 
 ```scala
-type EdgeLike[A,B]= Edge[A] :+: WeightedEdge[A] :+: LabelledEdge[A,B] :+: CNil
+sealed trait EdgeLike[T] {
+  def from: T
+  def to: T
+}
 ```
 
 Undirected edges? _Unless explicitly stated_ most algorithms would assume an undirected

@@ -27,10 +27,6 @@ package object tiki {
   import tiki.Predef._
   import tiki.implicits._
 
-  /** Edge union */
-  type EdgeLike[A,B] = Edge[A] :+: WeightedEdge[A] :+: LabelledEdge[A,B] :+: CNil
-
-
   /**
     * Provides 'reverse' function for different 'Edge' case classes.
     */

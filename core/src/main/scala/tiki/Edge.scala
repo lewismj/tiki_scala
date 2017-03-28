@@ -26,6 +26,17 @@ package tiki
 
 import tiki.Predef._
 
+/**
+  * Define the common 'edge' behaviour, an edge has
+  * two vertices. We can call them 'from' and 'to',
+  * even if the edge is undirected.
+  *
+  * @tparam T the type of the edge.
+  */
+sealed trait EdgeLike[T] {
+  def from: T
+  def to: T
+}
 
 /**
   * Represents an edge between two vertices.
@@ -39,14 +50,14 @@ import tiki.Predef._
   * @param to     the 'other' vertex in the edge.
   * @tparam A     the type of the vertex.
   */
-case class Edge[A](from: A, to: A) {
+case class Edge[A](from: A, to: A) extends EdgeLike[A] {
   override def toString: String = s"$from --> $to"
 }
 
 /**
   * A labelled edge between two vertices.
   */
-case class LabelledEdge[A,B](edge: Edge[A], label: B)  {
+case class LabelledEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {
 
   def from : A = edge.from
   def to: A = edge.to
@@ -58,12 +69,10 @@ case class LabelledEdge[A,B](edge: Edge[A], label: B)  {
 /**
   * A weighted edge between two vertices.
   */
-case class WeightedEdge[A](edge: Edge[A], weight: Double) {
+case class WeightedEdge[A](edge: Edge[A], weight: Double) extends EdgeLike[A] {
 
   def from: A = edge.from
-
   def to: A = edge.to
-
   def map(f: Double => Double): WeightedEdge[A] = WeightedEdge(edge, f(weight))
 
   override def toString: String = s"$from --> $to :# $weight"

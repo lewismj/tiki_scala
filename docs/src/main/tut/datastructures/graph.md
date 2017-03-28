@@ -72,7 +72,7 @@ With:
 The core _graph_ trait simply defines a graph as either a stream of _vertices_ and _edges_.
 
 ```scala
-trait Graph[A,B] {
+trait Graph[A,B <: EdgeLike[_]] {
   def vertices: Stream[A]
   def edges: Stream[B]
 }
@@ -85,7 +85,7 @@ trait Graph[A,B] {
 A _digraph_ is a graph that supports the `Directed` interface.
 
 ```scala
-trait Digraph[A,B] extends Graph[A,B] with Directed[A] {}
+trait Digraph[A,B <: EdgeLike[_]] extends Graph[A,B] with Directed[A] {}
 ```
 
 ### WeightedDigraph

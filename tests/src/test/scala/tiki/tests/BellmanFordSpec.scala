@@ -158,7 +158,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
     // To test for arbitrage opportunities, you would map
     // over every currency looking for negative cycle.
     val cycle = negativeCycle(digraph, "USD")
-    cycle.isEmpty should be (false)
+    cycle should contain allOf("USD","EUR","CAD")
   }
 
 }
