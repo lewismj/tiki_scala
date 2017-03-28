@@ -123,6 +123,14 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
+two vertices."></a>
+                        <a href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
+two vertices.">
+                          EdgeLike
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="Graph.html" title="Base representation for a graph."></a>
                         <a href="Graph.html" title="Base representation for a graph.">
                           Graph
@@ -283,9 +291,9 @@ As the need for undirected graphs is rare, usually represent
 the undirected graph by two directed edges.
 </p></div></div>
     </li><li name="tiki.Digraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="Digraph[A,B]extendsGraph[A,B]withDirected[A]"></a><a id="Digraph[A,B]:Digraph[A,B]"></a>
+      <a id="Digraph[A,B&lt;:tiki.EdgeLike[_]]extendsGraph[A,B]withDirected[A]"></a><a id="Digraph[A,B&lt;:EdgeLike[_]]:Digraph[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Digraph[A,B]extendsGraph[A,B]withDirected[A]" title="Permalink">
+      <a href="../tiki/index.html#Digraph[A,B&lt;:tiki.EdgeLike[_]]extendsGraph[A,B]withDirected[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -296,7 +304,7 @@ the undirected graph by two directed edges.
       <span class="symbol">
         <a title="A directed graph (a graph that supports the Directed interface." href="Digraph.html">
               <span class="name">Digraph</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.Digraph.A">A</span>, <span class="extype" name="tiki.Digraph.B">B</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[_]</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.Digraph.A">A</span>, <span class="extype" name="tiki.Digraph.B">B</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">A directed graph (a graph that supports the <code>Directed</code> interface.</p><div class="fullcomment"><div class="comment cmt"><p>A directed graph (a graph that supports the <code>Directed</code> interface.
@@ -345,9 +353,9 @@ elements that are partitioned into a number of disjoint subsets.
 Useful for finding the number of components within a graph.
 </p></div></div>
     </li><li name="tiki.Edge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Edge[A]extendsProductwithSerializable"></a><a id="Edge[A]:Edge[A]"></a>
+      <a id="Edge[A]extendsEdgeLike[A]withProductwithSerializable"></a><a id="Edge[A]:Edge[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Edge[A]extendsProductwithSerializable" title="Permalink">
+      <a href="../tiki/index.html#Edge[A]extendsEdgeLike[A]withProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -358,7 +366,7 @@ Useful for finding the number of components within a graph.
       <span class="symbol">
         <a title="Represents an edge between two vertices." href="Edge.html">
               <span class="name">Edge</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="from">from: <span class="extype" name="tiki.Edge.A">A</span></span>, <span name="to">to: <span class="extype" name="tiki.Edge.A">A</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="from">from: <span class="extype" name="tiki.Edge.A">A</span></span>, <span name="to">to: <span class="extype" name="tiki.Edge.A">A</span></span>)</span><span class="result"> extends <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.Edge.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">Represents an edge between two vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Represents an edge between two vertices.</p><p>The edges in a graph tend to be either all directed or all undirected.
@@ -366,26 +374,33 @@ i.e. A property that holds across the graph. An undirected graph can
 be represented by a pair of directed edges. Generally, the library is
 concerned with directed graphs.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">from</dt><dd class="cmt"><p>one vertex in an edge.</p></dd><dt class="param">to</dt><dd class="cmt"><p>the 'other' vertex in the edge.</p></dd></dl></div>
-    </li><li name="tiki.EdgeLike" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="EdgeLike[A,B]=shapeless.:+:[tiki.Edge[A],shapeless.:+:[tiki.WeightedEdge[A],shapeless.:+:[tiki.LabelledEdge[A,B],shapeless.CNil]]]"></a><a id="EdgeLike[A,B]:EdgeLike[A,B]"></a>
+    </li><li name="tiki.EdgeLike" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="EdgeLike[T]extendsAnyRef"></a><a id="EdgeLike[T]:EdgeLike[T]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#EdgeLike[A,B]=shapeless.:+:[tiki.Edge[A],shapeless.:+:[tiki.WeightedEdge[A],shapeless.:+:[tiki.LabelledEdge[A,B],shapeless.CNil]]]" title="Permalink">
+      <a href="../tiki/index.html#EdgeLike[T]extendsAnyRef" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">type</span>
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">EdgeLike</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result alias"> = <span class="extype" name="shapeless.:+:">:+:</span>[<a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>], <span class="extype" name="shapeless.:+:">:+:</span>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>], <span class="extype" name="shapeless.:+:">:+:</span>[<a href="LabelledEdge.html" class="extype" name="tiki.LabelledEdge">LabelledEdge</a>[<span class="extype" name="tiki.EdgeLike.A">A</span>, <span class="extype" name="tiki.EdgeLike.B">B</span>], <span class="extype" name="shapeless.CNil">CNil</span>]]]</span>
+        <a title="Define the common 'edge' behaviour, an edge has
+two vertices." href="EdgeLike.html">
+              <span class="name">EdgeLike</span>
+            </a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       
-      <p class="shortcomment cmt">Edge union</p>
+      <p class="shortcomment cmt">Define the common 'edge' behaviour, an edge has
+two vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Define the common 'edge' behaviour, an edge has
+two vertices. We can call them 'from' and 'to',
+even if the edge is undirected.
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the type of the edge.</p></dd></dl></div>
     </li><li name="tiki.Graph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="Graph[A,B]extendsAnyRef"></a><a id="Graph[A,B]:Graph[A,B]"></a>
+      <a id="Graph[A,B&lt;:tiki.EdgeLike[_]]extendsAnyRef"></a><a id="Graph[A,B&lt;:EdgeLike[_]]:Graph[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Graph[A,B]extendsAnyRef" title="Permalink">
+      <a href="../tiki/index.html#Graph[A,B&lt;:tiki.EdgeLike[_]]extendsAnyRef" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -396,15 +411,15 @@ concerned with directed graphs.
       <span class="symbol">
         <a title="Base representation for a graph." href="Graph.html">
               <span class="name">Graph</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[_]</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">Base representation for a graph.</p><div class="fullcomment"><div class="comment cmt"><p>Base representation for a graph.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the edge type.</p></dd></dl></div>
     </li><li name="tiki.LabelledEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LabelledEdge[A,B]extendsProductwithSerializable"></a><a id="LabelledEdge[A,B]:LabelledEdge[A,B]"></a>
+      <a id="LabelledEdge[A,B]extendsEdgeLike[A]withProductwithSerializable"></a><a id="LabelledEdge[A,B]:LabelledEdge[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#LabelledEdge[A,B]extendsProductwithSerializable" title="Permalink">
+      <a href="../tiki/index.html#LabelledEdge[A,B]extendsEdgeLike[A]withProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -415,7 +430,7 @@ concerned with directed graphs.
       <span class="symbol">
         <a title="A labelled edge between two vertices." href="LabelledEdge.html">
               <span class="name">LabelledEdge</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A labelled edge between two vertices.</p>
@@ -439,9 +454,9 @@ concerned with directed graphs.
       <p class="shortcomment cmt">Weighted digraph.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.WeightedEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WeightedEdge[A]extendsProductwithSerializable"></a><a id="WeightedEdge[A]:WeightedEdge[A]"></a>
+      <a id="WeightedEdge[A]extendsEdgeLike[A]withProductwithSerializable"></a><a id="WeightedEdge[A]:WeightedEdge[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedEdge[A]extendsProductwithSerializable" title="Permalink">
+      <a href="../tiki/index.html#WeightedEdge[A]extendsEdgeLike[A]withProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -452,7 +467,7 @@ concerned with directed graphs.
       <span class="symbol">
         <a title="A weighted edge between two vertices." href="WeightedEdge.html">
               <span class="name">WeightedEdge</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WeightedEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WeightedEdge.A">A</span>]</span>, <span name="weight">weight: <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>)</span><span class="result"> extends <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.WeightedEdge.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">A weighted edge between two vertices.</p>

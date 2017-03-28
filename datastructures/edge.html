@@ -8,9 +8,12 @@
   <li><code class="highlighter-rouge">EdgeWeighted</code> is a weighted edge.</li>
 </ul>
 
-<p>These are defined by the union:</p>
+<p>Each edge type extends the <code class="highlighter-rouge">EdgeLike</code> trait:</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">type</span> <span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]</span><span class="k">=</span> <span class="nc">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">:+:</span> <span class="nc">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">:+:</span> <span class="nc">LabelledEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">]</span> <span class="o">:+:</span> <span class="nc">CNil</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">EdgeLike</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">from</span><span class="k">:</span> <span class="kt">T</span>
+  <span class="k">def</span> <span class="n">to</span><span class="k">:</span> <span class="kt">T</span>
+<span class="o">}</span>
 </code></pre>
 </div>
 
