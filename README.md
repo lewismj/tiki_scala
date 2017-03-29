@@ -24,5 +24,5 @@ Tiki information and documentation is available on the [website](https://lewismj
 
 Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
-Tiki depends on the [shapeless](https://github.com/milessabin/shapeless) library.
+Tiki depends on the [shapeless](https://github.com/milessabin/shapeless) and [cats](https://github.com/typelevel/cats) libraries.
 
