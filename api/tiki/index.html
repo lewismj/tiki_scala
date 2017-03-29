@@ -161,6 +161,12 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="Weighted.html" title="Only weighted edges can have a weight."></a>
+                        <a href="Weighted.html" title="Only weighted edges can have a weight.">
+                          Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="WeightedDigraph.html" title="Weighted digraph."></a>
                         <a href="WeightedDigraph.html" title="Weighted digraph.">
                           WeightedDigraph
@@ -285,9 +291,9 @@ As the need for undirected graphs is rare, usually represent
 the undirected graph by two directed edges.
 </p></div></div>
     </li><li name="tiki.Digraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="Digraph[A,B&lt;:tiki.EdgeLike[A]]extendsGraph[A,B]withDirected[A]"></a><a id="Digraph[A,B&lt;:EdgeLike[A]]:Digraph[A,B]"></a>
+      <a id="Digraph[A]extendsGraph[A]withDirected[A]"></a><a id="Digraph[A]:Digraph[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Digraph[A,B&lt;:tiki.EdgeLike[A]]extendsGraph[A,B]withDirected[A]" title="Permalink">
+      <a href="../tiki/index.html#Digraph[A]extendsGraph[A]withDirected[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -298,11 +304,11 @@ the undirected graph by two directed edges.
       <span class="symbol">
         <a title="A directed graph (a graph that supports the Directed interface." href="Digraph.html">
               <span class="name">Digraph</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.Digraph.A">A</span>, <span class="extype" name="tiki.Digraph.B">B</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.Digraph.A">A</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">A directed graph (a graph that supports the <code>Directed</code> interface.</p><div class="fullcomment"><div class="comment cmt"><p>A directed graph (a graph that supports the <code>Directed</code> interface.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the edge type.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.Directed" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="Directed[A]extendsAnyRef"></a><a id="Directed[A]:Directed[A]"></a>
       <span class="permalink">
@@ -392,9 +398,9 @@ two vertices. We can call them 'from' and 'to',
 even if the edge is undirected.
 </p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the type of the edge.</p></dd></dl></div>
     </li><li name="tiki.Graph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="Graph[A,B&lt;:tiki.EdgeLike[A]]extendsAnyRef"></a><a id="Graph[A,B&lt;:EdgeLike[A]]:Graph[A,B]"></a>
+      <a id="Graph[A]extendsAnyRef"></a><a id="Graph[A]:Graph[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Graph[A,B&lt;:tiki.EdgeLike[A]]extendsAnyRef" title="Permalink">
+      <a href="../tiki/index.html#Graph[A]extendsAnyRef" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -405,11 +411,11 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="Base representation for a graph." href="Graph.html">
               <span class="name">Graph</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.Graph.A">A</span>]</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">Base representation for a graph.</p><div class="fullcomment"><div class="comment cmt"><p>Base representation for a graph.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the edge type.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.LabelledEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="LabelledEdge[A,B]extendsEdgeLike[A]withProductwithSerializable"></a><a id="LabelledEdge[A,B]:LabelledEdge[A,B]"></a>
       <span class="permalink">
@@ -428,10 +434,28 @@ even if the edge is undirected.
       </span>
       
       <p class="shortcomment cmt">A labelled edge between two vertices.</p>
-    </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="WeightedDigraph[A]extendsDigraph[A,tiki.WeightedEdge[A]]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+    </li><li name="tiki.Weighted" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Weighted[A]extendsAnyRef"></a><a id="Weighted[A]:Weighted[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A,tiki.WeightedEdge[A]]" title="Permalink">
+      <a href="../tiki/index.html#Weighted[A]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Only weighted edges can have a weight." href="Weighted.html">
+              <span class="name">Weighted</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Only weighted edges can have a weight.</p>
+    </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WeightedDigraph[A]extendsDigraph[A]withWeighted[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A]withWeighted[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -442,7 +466,7 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="Weighted digraph." href="WeightedDigraph.html">
               <span class="name">WeightedDigraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>, <a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Weighted digraph.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph.
