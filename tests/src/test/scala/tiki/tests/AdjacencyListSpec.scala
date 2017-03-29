@@ -28,39 +28,40 @@ package tests
 
 import org.scalatest.Matchers
 import org.scalatest.prop.Checkers
-import tiki.Predef._
 import tiki.tests.arbitrary.AllArbitrary
+import tiki.Predef._
+import tiki.implicits._
 
 
 class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
 
-  test("`successors` of adjacency list should return correct vertices")(forAll { (xs: List[Edge[Int]]) =>
+  test("`successors` of adjacency list should return correct vertices")(forAll { (xs: Stream[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
-    val adjacency = buildAdjacencyList(xs)
+    val adjacency = AdjacencyList(xs)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
       adjacency.successors(vertex) == children.toSet
     } should be (true)
   })
 
-  test("`successors` of adjacency ... correct vertices (weighted nodes") (forAll { (xs: List[WeightedEdge[Int]]) =>
+  test("`successors` of adjacency ... correct vertices (weighted nodes") (forAll { (xs: Stream[WeightedEdge[Int]]) =>
     /* doesn't test leaf vertices. */
-    val adjacency = buildAdjacencyList(xs)
+    val adjacency = AdjacencyList(xs)
     xs.groupBy(_.edge.from).map { case (k,v) => (k, v.map(_.edge.to))}.forall { case (vertex, children) =>
       adjacency.successors(vertex) == children.toSet
     } should be (true)
   })
 
-  test("`successors` of adjacency ... correct vertices (labelled nodes") (forAll { (xs: List[Edge[Int]]) =>
+  test("`successors` of adjacency ... correct vertices (labelled nodes") (forAll { (xs: Stream[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
     val ys = xs.map(LabelledEdge(_,"label"))
-    val adjacency = buildAdjacencyList(ys)
+    val adjacency = AdjacencyList(ys)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
       adjacency.successors(vertex) == children.toSet
     } should be (true)
   })
 
-  test("`successors` of leaf vertices should be the empty set.") { (xs: List[Edge[Int]]) =>
-    val adjacency = buildAdjacencyList(xs)
+  test("`successors` of leaf vertices should be the empty set.") { (xs: Stream[Edge[Int]]) =>
+    val adjacency = AdjacencyList(xs)
     xs.filter(x => ! xs.exists(_.from == x.to )).forall(e=>adjacency.successors(e.to) == Set.empty[Int])
   }
 
@@ -72,16 +73,16 @@ class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllAr
     AdjacencyList.empty[Int].predecessors(1) should be (Set.empty)
   }
 
-  test("`predecessors` of adjacency list should return correct vertices")(forAll { (xs: List[Edge[Int]]) =>
+  test("`predecessors` of adjacency list should return correct vertices")(forAll { (xs: Stream[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
-    val adjacency = buildAdjacencyList(xs)
+    val adjacency = AdjacencyList(xs)
     xs.groupBy(_.to).map { case (k,v) => (k, v.map(_.from))}.forall { case (vertex, parents) =>
       adjacency.predecessors(vertex) == parents.toSet
     } should be (true)
   })
 
-  test("`predecessors` of root vertices should be the empty set.") { (xs: List[Edge[Int]]) =>
-    val adjacency = buildAdjacencyList(xs)
+  test("`predecessors` of root vertices should be the empty set.") { (xs: Stream[Edge[Int]]) =>
+    val adjacency = AdjacencyList(xs)
     xs.filter(x => ! xs.exists(_.to == x.from )).forall(e=>adjacency.successors(e.to) == Set.empty[Int])
   }
 

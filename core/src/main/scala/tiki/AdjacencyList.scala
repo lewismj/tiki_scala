@@ -57,7 +57,7 @@ object AdjacencyList {
     * @tparam A the vertex type.
     * @return a mapping of vertex to child vertices.
     */
-  private def edgesToMap[A](edges: Iterable[Edge[A]]) =
+  private def edgesToMap[A](edges: Stream[Edge[A]]) =
   edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
     val curr = acc.getOrElse(v.from, Set.empty[A])
     val xs = acc.updated(v.from, curr + v.to)
@@ -76,7 +76,7 @@ object AdjacencyList {
     * @tparam A the type of the vertex.
     * @return a new `AdjacencyList`
     */
-  def apply[A](edges: Iterable[Edge[A]]): AdjacencyList[A] =
+  def apply[A](edges: Stream[Edge[A]]): AdjacencyList[A] =
     new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(reverse(_))))
 
 }

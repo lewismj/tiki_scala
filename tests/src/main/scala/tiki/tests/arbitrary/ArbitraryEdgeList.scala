@@ -33,7 +33,7 @@ import tiki.implicits._
 
 trait ArbitraryEdgeList extends ArbitrarySet {
 
-  def edgeList[A: Arbitrary] : Gen[List[Edge[A]]] = for {
+  def edgeList[A: Arbitrary]: Gen[List[Edge[A]]] = for {
     xs <- arbitrary[Set[A]]
     if xs.nonEmpty
   } yield {
@@ -41,5 +41,13 @@ trait ArbitraryEdgeList extends ArbitrarySet {
       (acc, v) => v.head --> v.last :: acc)
   }
 
-  implicit def arbitraryEdgeList[A:Arbitrary]: Arbitrary[List[Edge[A]]] = Arbitrary(edgeList)
+  def edgeStream[A: Arbitrary]: Gen[Stream[Edge[A]]]
+    = for (xs <- arbitrary[List[Edge[A]]]) yield xs.toStream
+
+  implicit def arbitraryEdgeList[A: Arbitrary]: Arbitrary[List[Edge[A]]]
+    = Arbitrary(edgeList)
+
+  implicit def arbitraryEdgeStream[A:Arbitrary]: Arbitrary[Stream[Edge[A]]]
+    = Arbitrary(edgeStream)
+
 }

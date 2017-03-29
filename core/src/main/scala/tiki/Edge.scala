@@ -78,4 +78,3 @@ case class WeightedEdge[A](edge: Edge[A], weight: Double) extends EdgeLike[A] {
   override def toString: String = s"$from --> $to :# $weight"
 }
 
-

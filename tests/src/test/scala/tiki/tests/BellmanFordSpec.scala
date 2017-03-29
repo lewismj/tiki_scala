@@ -42,7 +42,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
   test("Bellman-Ford simple graph test .1") {
 
-    val xs = List(
+    val xs = Stream(
       'A' --> 'B' :# -1.0,
       'A' --> 'C' :# 4.0,
       'B' --> 'C' :# 3.0,
@@ -51,7 +51,8 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
       'B' --> 'E' :# 2.0,
       'E' --> 'D' :# -3.0
     )
-    val adjacencyList = buildAdjacencyList(xs)
+
+    val adjacencyList = AdjacencyList(xs)
 
 
     val digraph = new WeightedDigraph[Char] {
@@ -61,7 +62,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
       def successors(v: Char) = adjacencyList.successors(v)
       def predecessors(v: Char) = adjacencyList.predecessors(v)
       /* adjacency doesn't store edges. */
-      def edges: Stream[WeightedEdge[Char]] = xs.toStream
+      def edges: Stream[WeightedEdge[Char]] = xs
     }
 
     val state = bellmanFord(digraph,'A')
@@ -73,14 +74,15 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
   test("Negative cycle found") {
 
-    val xs = List(
+    val xs = Stream(
       0 --> 1 :# 5.0,
       0 --> 2 :# 4.0,
       1 --> 3 :# 3.0,
       2 --> 1 :# -6.0,
       3 --> 2 :# 2.0
     )
-    val adjacencyList = buildAdjacencyList(xs)
+
+    val adjacencyList = AdjacencyList(xs)
 
     val digraph = new WeightedDigraph[Int] {
       /* Use adjacency list for basic digraph implementation. */
@@ -89,7 +91,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
       def successors(v: Int) = adjacencyList.successors(v)
       def predecessors(v: Int) = adjacencyList.predecessors(v)
       /* adjacency doesn't store edges. */
-      def edges: Stream[WeightedEdge[Int]] = xs.toStream
+      def edges: Stream[WeightedEdge[Int]] = xs
     }
 
     negativeCycle(digraph,0).nonEmpty should be (true)
@@ -97,8 +99,8 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
 
   test("simple graph should have no negative cycles") {
-    val xs = List ('a' --> 'b' :# 5.0, 'b' --> 'c' :# 10.0, 'c' --> 'a' :# -5.0)
-    val adjacencyList = buildAdjacencyList(xs)
+    val xs = Stream ('a' --> 'b' :# 5.0, 'b' --> 'c' :# 10.0, 'c' --> 'a' :# -5.0)
+    val adjacencyList = AdjacencyList(xs)
     val digraph = new WeightedDigraph[Char] {
       /* Use adjacency list for basic digraph implementation. */
       def contains(v: Char) = adjacencyList.contains(v)
@@ -106,7 +108,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
       def successors(v: Char) = adjacencyList.successors(v)
       def predecessors(v: Char) = adjacencyList.predecessors(v)
       /* adjacency doesn't store edges. */
-      def edges: Stream[WeightedEdge[Char]] = xs.toStream
+      def edges: Stream[WeightedEdge[Char]] = xs
     }
 
     val nCycles = negativeCycle(digraph,'a')
@@ -116,7 +118,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
   test("simple arbitrage detection") {
 
-    val xs = List(
+    val xs = Stream(
       "USD" --> "CAD" :# -log(1.005),
       "EUR" --> "USD" :# -log(1.349),
       "EUR" --> "GBP" :# -log(0.888),
@@ -143,7 +145,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
       "EUR" --> "CAD" :# -log(1.366)
     )
 
-    val adjacencyList = buildAdjacencyList(xs)
+    val adjacencyList = AdjacencyList(xs)
 
     val digraph = new WeightedDigraph[String] {
       /* Use adjacency list for basic digraph implementation. */
@@ -152,7 +154,7 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
       def successors(v: String) = adjacencyList.successors(v)
       def predecessors(v: String) = adjacencyList.predecessors(v)
       /* adjacency doesn't store edges. */
-      def edges: Stream[WeightedEdge[String]] = xs.toStream
+      def edges: Stream[WeightedEdge[String]] = xs
     }
 
     // To test for arbitrage opportunities, you would map

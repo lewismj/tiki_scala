@@ -67,9 +67,8 @@ import tiki.implicits._
 import scala.util.Random
 
 
-val edges = Random.shuffle(List('A' --> 'B', 'A' --> 'C', 'B' --> 'D', 'C' --> 'D'))
-val adj = buildAdjacencyList(edges)
+val edges = Stream('A' --> 'B', 'A' --> 'C', 'B' --> 'D', 'C' --> 'D')
+val adj = AdjacencyList(edges)
 val search = dfs(adj, 'A')
 search.mkString
-
 ```

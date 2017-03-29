@@ -42,6 +42,12 @@ trait ArbitraryWeightedEdgeList extends ArbitrarySet {
       (acc, v) => (v.head --> v.last :# ys) :: acc)
   }
 
+  def weightedEdgeStream[A: Arbitrary]: Gen[Stream[WeightedEdge[A]]]
+  = for (xs <- arbitrary[List[WeightedEdge[A]]]) yield xs.toStream
+
+  implicit def arbitraryWeightedEdgeStream[A:Arbitrary]: Arbitrary[Stream[WeightedEdge[A]]]
+  = Arbitrary(weightedEdgeStream)
+
   implicit def arbitraryWeightedEdgeList[A:Arbitrary]: Arbitrary[List[WeightedEdge[A]]]
     = Arbitrary(weightedEdgeList)
 }

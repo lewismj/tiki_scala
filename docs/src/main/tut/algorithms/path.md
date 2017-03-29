@@ -56,7 +56,7 @@ import tiki.Predef._
 import tiki.Path._
 import tiki.implicits._
 
-val xs = List(
+val xs = Stream(
   'A' --> 'B' :# -1.0,
   'A' --> 'C' :# 4.0,
   'B' --> 'C' :# 3.0,
@@ -65,7 +65,7 @@ val xs = List(
   'B' --> 'E' :# 2.0,
   'E' --> 'D' :# -3.0
 )
-val adjacencyList = buildAdjacencyList(xs)
+val adjacencyList = AdjacencyList(xs)
 
 
 val digraph = new WeightedDigraph[Char] {

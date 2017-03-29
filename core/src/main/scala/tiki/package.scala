@@ -23,8 +23,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
-  import shapeless.{:+:, CNil, Poly1}
-  import tiki.Predef._
+  import shapeless.Poly1
   import tiki.implicits._
 
   /**
@@ -38,17 +37,6 @@ package object tiki {
       = at({ x=> x.edge.to --> x.edge.from :# x.weight})
   }
 
-  /**
-    * Builds an adjacency list, given any type of edge.
-    */
-  implicit object buildAdjacencyList extends Poly1 {
-    implicit def caseEdge[A]: Case.Aux[List[Edge[A]], AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x))
-    implicit def caseLEdge[A, B]: Case.Aux[List[LabelledEdge[A, B]], AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x.map(ledge => ledge.edge)))
-    implicit def caseWEdge[A]: Case.Aux[List[WeightedEdge[A]], AdjacencyList[A]]
-      = at(x => AdjacencyList[A](x.map(wedge => wedge.edge)))
-  }
 
 }
 

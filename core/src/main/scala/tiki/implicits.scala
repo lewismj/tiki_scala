@@ -68,5 +68,7 @@ object implicits {
   implicit def anyToLEdge[A,B](e: Edge[A]): LabelDef[A,B] = new LabelDef[A,B](e)
   implicit def anyToWEdge[A](e: Edge[A]): WeightDef[A] = new WeightDef[A](e)
 
+  implicit def weightedToEdge[A](s: Stream[WeightedEdge[A]]): Stream[Edge[A]] = s.map(_.edge)
+  implicit def labelledToEdge[A,B](s: Stream[LabelledEdge[A,B]]): Stream[Edge[A]] = s.map(_.edge)
 
 }
