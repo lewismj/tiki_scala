@@ -16,11 +16,6 @@ graph. <em>This may change in a later version</em>.</p>
 
 <h2 id="usage">Usage</h2>
 
-<h3 id="constructing-an-adjacency-list">Constructing an adjacency list</h3>
-
-<p>An adjacency should be constructed using the implicit object <code class="highlighter-rouge">adjacencyList</code> which
-will take an <code class="highlighter-rouge">Iterable</code> of any edge type and return an <code class="highlighter-rouge">AdjacencyList</code>.</p>
-
 <h3 id="successors">successors</h3>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
@@ -32,8 +27,8 @@ will take an <code class="highlighter-rouge">Iterable</code> of any edge type an
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">buildAdjacencyList</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">))</span>
-<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">1</span><span class="n">a97eea4</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="nc">Stream</span><span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">))</span>
+<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">3386d</span><span class="mi">907</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">ys</span> <span class="k">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">successors</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
 <span class="n">ys</span><span class="k">:</span> <span class="kt">tiki.Predef.Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
@@ -51,8 +46,8 @@ will take an <code class="highlighter-rouge">Iterable</code> of any edge type an
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="n">buildAdjacencyList</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">))</span>
-<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">3f</span><span class="n">da38</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="nc">Stream</span><span class="o">(</span><span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">--&gt;</span> <span class="mi">3</span><span class="o">))</span>
+<span class="n">xs</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">5997</span><span class="n">acc0</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">ys</span> <span class="k">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">predecessors</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
 <span class="n">ys</span><span class="k">:</span> <span class="kt">tiki.Predef.Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>

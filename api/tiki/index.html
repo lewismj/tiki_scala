@@ -173,12 +173,6 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="object" href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge."></a>
-                        <a href="package$$buildAdjacencyList$.html" title="Builds an adjacency list, given any type of edge.">
-                          buildAdjacencyList
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
                         <a class="object" href="implicits$.html" title="Implicit definitions, e.g."></a>
                         <a href="implicits$.html" title="Implicit definitions, e.g.">
                           implicits
@@ -291,9 +285,9 @@ As the need for undirected graphs is rare, usually represent
 the undirected graph by two directed edges.
 </p></div></div>
     </li><li name="tiki.Digraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="Digraph[A,B&lt;:tiki.EdgeLike[_]]extendsGraph[A,B]withDirected[A]"></a><a id="Digraph[A,B&lt;:EdgeLike[_]]:Digraph[A,B]"></a>
+      <a id="Digraph[A,B&lt;:tiki.EdgeLike[A]]extendsGraph[A,B]withDirected[A]"></a><a id="Digraph[A,B&lt;:EdgeLike[A]]:Digraph[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Digraph[A,B&lt;:tiki.EdgeLike[_]]extendsGraph[A,B]withDirected[A]" title="Permalink">
+      <a href="../tiki/index.html#Digraph[A,B&lt;:tiki.EdgeLike[A]]extendsGraph[A,B]withDirected[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -304,7 +298,7 @@ the undirected graph by two directed edges.
       <span class="symbol">
         <a title="A directed graph (a graph that supports the Directed interface." href="Digraph.html">
               <span class="name">Digraph</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[_]</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.Digraph.A">A</span>, <span class="extype" name="tiki.Digraph.B">B</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.Digraph.A">A</span>, <span class="extype" name="tiki.Digraph.B">B</span>] with <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Digraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">A directed graph (a graph that supports the <code>Directed</code> interface.</p><div class="fullcomment"><div class="comment cmt"><p>A directed graph (a graph that supports the <code>Directed</code> interface.
@@ -398,9 +392,9 @@ two vertices. We can call them 'from' and 'to',
 even if the edge is undirected.
 </p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the type of the edge.</p></dd></dl></div>
     </li><li name="tiki.Graph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="Graph[A,B&lt;:tiki.EdgeLike[_]]extendsAnyRef"></a><a id="Graph[A,B&lt;:EdgeLike[_]]:Graph[A,B]"></a>
+      <a id="Graph[A,B&lt;:tiki.EdgeLike[A]]extendsAnyRef"></a><a id="Graph[A,B&lt;:EdgeLike[A]]:Graph[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Graph[A,B&lt;:tiki.EdgeLike[_]]extendsAnyRef" title="Permalink">
+      <a href="../tiki/index.html#Graph[A,B&lt;:tiki.EdgeLike[A]]extendsAnyRef" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -411,7 +405,7 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="Base representation for a graph." href="Graph.html">
               <span class="name">Graph</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[_]</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B &lt;: <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.Graph.A">A</span>]</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       
       <p class="shortcomment cmt">Base representation for a graph.</p><div class="fullcomment"><div class="comment cmt"><p>Base representation for a graph.
@@ -572,24 +566,6 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
       </span>
       
       <p class="shortcomment cmt">Simple stream based unfold traversal.</p>
-    </li><li name="tiki.buildAdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="buildAdjacencyList"></a><a id="buildAdjacencyList:buildAdjacencyList"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#buildAdjacencyList" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">implicit </span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="Builds an adjacency list, given any type of edge." href="package$$buildAdjacencyList$.html">
-              <span class="name">buildAdjacencyList</span>
-            </a><span class="result"> extends <span class="extype" name="shapeless.Poly1">Poly1</span></span>
-      </span>
-      
-      <p class="shortcomment cmt">Builds an adjacency list, given any type of edge.</p>
     </li><li name="tiki.implicits" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="implicits"></a><a id="implicits:implicits"></a>
       <span class="permalink">
