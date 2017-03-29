@@ -37,7 +37,7 @@ representation.</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">3d</span><span class="mi">775129</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">32</span><span class="n">e8d10d</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
@@ -47,7 +47,7 @@ representation.</p>
      <span class="o">|</span> 
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">5f3988d</span><span class="mi">0</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">4</span><span class="n">c903010</span>
 </code></pre>
 </div>
 
@@ -82,9 +82,6 @@ representation.</p>
   <li><code class="highlighter-rouge">edges</code> a stream of edges.</li>
   <li><code class="highlighter-rouge">vertices</code> a stream of vertices</li>
 </ul>
-
-<p><em>( <code class="highlighter-rouge">Graph[A &lt;: EdgeLike[_]]</code> may be possible, at the moment the above seems to make the code in the
-algorithms easier to read?)</em></p>
 
 <h3 id="digraph">Digraph</h3>
 
