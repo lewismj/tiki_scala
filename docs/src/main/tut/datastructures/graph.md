@@ -72,28 +72,39 @@ With:
 The core _graph_ trait simply defines a graph as either a stream of _vertices_ and _edges_.
 
 ```scala
-trait Graph[A,B <: EdgeLike[_]] {
+trait Graph[A] {
   def vertices: Stream[A]
-  def edges: Stream[B]
+  def edges: Stream[EdgeLike[A]]
 }
 ```
 - `edges` a stream of edges.
 - `vertices` a stream of vertices
+
+_( `Graph[A <: EdgeLike[_]]` may be possible, at the moment the above seems to make the code in the
+algorithms easier to read?)_
+
+
 
 ### Digraph
 
 A _digraph_ is a graph that supports the `Directed` interface.
 
 ```scala
-trait Digraph[A,B <: EdgeLike[_]] extends Graph[A,B] with Directed[A] {}
+trait Digraph[A] extends Graph[A] with Directed[A] {}
 ```
 
 ### WeightedDigraph
 
-The weighted digraph interface can be defined as `Digraph` with weighted edges.
+The weighted digraph interface can be defined as `Digraph` that can support the `Weighted`
+interface.
 
-Note, we could _in the future_ introduce a `Weighted` trait to allow weighted labelled graphs etc.
 
 ```scala
-trait WeightedDigraph[A] extends Digraph[A,WeightedEdge[A]] {}
+trait Weighted[A] {
+  def weight(edge: WeightedEdge[A]): Double = edge.weight
+}
+
+trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
+  def edges: Stream[WeightedEdge[A]]
+}
 ```

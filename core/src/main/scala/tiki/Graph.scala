@@ -57,13 +57,13 @@ trait Directed[A] {
   def predecessors(v: A): Set[A]
 }
 
+
 /**
   * Base representation for a graph.
   *
   * @tparam A the vertex type.
-  * @tparam B the edge type.
   */
-trait Graph[A,B <: EdgeLike[A]] {
+trait Graph[A] {
   /**
     * Return a stream of vertices.
     *
@@ -76,20 +76,28 @@ trait Graph[A,B <: EdgeLike[A]] {
     *
     * @return the stream of edges.
     */
-  def edges: Stream[B]
+  def edges: Stream[EdgeLike[A]]
 }
 
 /**
   * A directed graph (a graph that supports the `Directed` interface.
   *
   * @tparam A the vertex type.
-  * @tparam B the edge type.
   */
-trait Digraph[A,B <: EdgeLike[A]] extends Graph[A,B] with Directed[A] {}
+trait Digraph[A] extends Graph[A] with Directed[A] {}
+
+/**
+  * Only weighted edges can have a weight.
+  */
+trait Weighted[A] {
+  def weight(edge: WeightedEdge[A]): Double = edge.weight
+}
 
 /**
   * Weighted digraph.
   *
   * @tparam A the vertex type.
   */
-trait WeightedDigraph[A] extends Digraph[A,WeightedEdge[A]] { }
+trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
+  def edges: Stream[WeightedEdge[A]]
+}
