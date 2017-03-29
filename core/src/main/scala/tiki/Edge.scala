@@ -50,14 +50,14 @@ sealed trait EdgeLike[T] {
   * @param to     the 'other' vertex in the edge.
   * @tparam A     the type of the vertex.
   */
-case class Edge[A](from: A, to: A) extends EdgeLike[A] {
+final case class Edge[A](from: A, to: A) extends EdgeLike[A] {
   override def toString: String = s"$from --> $to"
 }
 
 /**
   * A labelled edge between two vertices.
   */
-case class LabelledEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {
+final case class LabelledEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {
 
   def from : A = edge.from
   def to: A = edge.to
@@ -69,7 +69,7 @@ case class LabelledEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {
 /**
   * A weighted edge between two vertices.
   */
-case class WeightedEdge[A](edge: Edge[A], weight: Double) extends EdgeLike[A] {
+final case class WeightedEdge[A](edge: Edge[A], weight: Double) extends EdgeLike[A] {
 
   def from: A = edge.from
   def to: A = edge.to

@@ -44,7 +44,6 @@ use cases would allow us to stop once
 
     g.vertices.indices.foldLeft(PathState(source))(
       (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
-  } (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
   }
 ```
 
