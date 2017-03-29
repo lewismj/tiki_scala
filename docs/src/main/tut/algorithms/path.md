@@ -74,7 +74,7 @@ val digraph = new WeightedDigraph[Char] {
   def successors(v: Char) = adjacencyList.successors(v)
   def predecessors(v: Char) = adjacencyList.predecessors(v)
   /* adjacency doesn't store edges. */
-  def edges: Stream[WeightedEdge[Char]] = xs.toStream
+  def edges = xs
 }
 
 val state = bellmanFord(digraph,'A')
