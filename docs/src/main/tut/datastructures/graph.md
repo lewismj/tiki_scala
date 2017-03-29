@@ -80,11 +80,6 @@ trait Graph[A] {
 - `edges` a stream of edges.
 - `vertices` a stream of vertices
 
-_( `Graph[A <: EdgeLike[_]]` may be possible, at the moment the above seems to make the code in the
-algorithms easier to read?)_
-
-
-
 ### Digraph
 
 A _digraph_ is a graph that supports the `Directed` interface.
