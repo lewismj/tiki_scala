@@ -49,7 +49,6 @@ use cases would allow us to stop once
 ```
 
 
-
 ```tut
 import tiki._
 import tiki.Predef._
@@ -80,4 +79,21 @@ val digraph = new WeightedDigraph[Char] {
 
 val state = bellmanFord(digraph,'A')
 state.distances
+```
+
+#### Negative cycles
+A utility method to search for negative cycles is provided:
+
+```scala
+  def negativeCycle[A](g: WeightedDigraph[A], source: A): List[A] = {
+    val s = bellmanFord(g, source)
+    g.edges.flatMap {
+      case e if s.distances(e.from) + e.weight < s.distances(e.to) => Some(e.to)
+      case _ => None
+    } match {
+      case head #:: tail if tail contains source => predecessorList(s, source)
+      case head #:: _ => predecessorList(s, head)
+      case _ => List.empty[A]
+    }
+  }
 ```
