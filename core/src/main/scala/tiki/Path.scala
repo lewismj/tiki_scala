@@ -39,7 +39,7 @@ object Path {
     * Case class that represents the running state of the Bellman-Ford
     * algorithm.
     *
-    * @param distances    current distances.
+    * @param distances current distances.
     * @param predecessors current predecessors.
     * @tparam A the vertex type.
     */
@@ -59,6 +59,7 @@ object Path {
     * @return         the path state.
     */
   def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
+
     def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] =
       state.distances.getOrElse(e.from, ∞) match {
         case du if du < ∞ =>
@@ -85,7 +86,7 @@ object Path {
     * @tparam A   the vertex type.
     * @return the list of predecessors.
     */
-  def predecessorList[A](s: PathState[A], a: A): List[A] = {
+  private def predecessorList[A](s: PathState[A], a: A): List[A] = {
     @tailrec
     def loop(v: A, cycle: List[A]): List[A] = {
       val p = s.predecessors(v)
@@ -104,19 +105,15 @@ object Path {
     */
   def negativeCycle[A](g: WeightedDigraph[A], source: A): List[A] = {
     val s = bellmanFord(g, source)
-    g.edges.flatMap(e=>
-      if (s.distances(e.from) + e.weight < s.distances(e.to)) Some(e.to)
-      else None
-    )
-    match {
-        case head #::tail =>
-          if (tail.contains(source)) predecessorList(s,source)
-          else predecessorList(s,head)
-        case _ => List.empty[A]
+    g.edges.flatMap {
+      case e if s.distances(e.from) + e.weight < s.distances(e.to) => Some(e.to)
+      case _ => None
+    } match {
+      case head #:: tail =>
+        if (tail.contains(source)) predecessorList(s, source) else predecessorList(s, head)
+      case _ => List.empty[A]
     }
   }
-  
-
 
 
 }

@@ -48,7 +48,6 @@ object Traversal {
     case Some((r,v)) => Trampoline.suspend(unfold(v)(f)).flatMap(s => Trampoline.done(r #:: s))
   }
 
-
   /**
    * Generates a graph traversal, as stream of vertices.
    *
@@ -93,8 +92,7 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def dfs[A](g: Directed[A], start: A): Stream[A]
-    = visitOrder(g,start,dfs=true)
+  def dfs[A](g: Directed[A], start: A): Stream[A] = visitOrder(g,start,dfs=true)
 
   /**
     * Perform a breadth first search on a directed graph.
@@ -104,7 +102,6 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def bfs[A](g: Directed[A], start: A): Stream[A]
-    = visitOrder(g,start,dfs=false)
+  def bfs[A](g: Directed[A], start: A): Stream[A] = visitOrder(g,start,dfs=false)
 
 }

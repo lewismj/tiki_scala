@@ -61,7 +61,6 @@ object AdjacencyList {
   edges.foldLeft(Map.empty[A, Set[A]])((acc, v) => {
     val curr = acc.getOrElse(v.from, Set.empty[A])
     val xs = acc.updated(v.from, curr + v.to)
-    /* make sure leaf vertices are in the edge map.*/
     if (xs.contains(v.to)) xs else xs.updated(v.to, Set.empty[A])
   })
 

@@ -14,14 +14,14 @@ given a weighted directed graph and source vertex.
 
 ### Bellman-Ford
 
-The path state is represented as a case class.
+The path state is represented as a case class, holding _distances_ and _predecessors_.
 ```scala
-case class PathState[A](distances: Map[A,Double], predecessors: Map[A,A])
+  case class PathState[A](distances: Map[A,Double], predecessors: Map[A,A])
 
-object PathState {
-  def apply[A](source: A): PathState[A] =
-    PathState(Map.empty[A,Double].updated(source,0.0),Map.empty[A,A])
-}
+  object PathState {
+    def apply[A](source: A): PathState[A] =
+      PathState(Map.empty[A,Double].updated(source,0.0),Map.empty[A,A])
+  }
 ```
 
 The algorithm is implemented (with _N_ iterations). _note_ I think almost all 
@@ -29,6 +29,7 @@ use cases would allow us to stop once
 
 ```scala
   def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
+    
     def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] =
       state.distances.getOrElse(e.from, ∞) match {
         case du if du < ∞ =>
