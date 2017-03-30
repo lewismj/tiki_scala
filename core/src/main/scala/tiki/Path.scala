@@ -109,8 +109,8 @@ object Path {
       case e if s.distances(e.from) + e.weight < s.distances(e.to) => Some(e.to)
       case _ => None
     } match {
-      case head #:: tail =>
-        if (tail.contains(source)) predecessorList(s, source) else predecessorList(s, head)
+      case head #:: tail if tail contains source => predecessorList(s, source)
+      case head #:: _ => predecessorList(s, head)
       case _ => List.empty[A]
     }
   }
