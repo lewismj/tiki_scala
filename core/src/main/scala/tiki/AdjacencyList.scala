@@ -32,7 +32,7 @@ import tiki.Predef._
   * As the need for undirected graphs is rare, usually represent
   * the undirected graph by two directed edges.
   */
-final class AdjacencyList[A](g: Map[A,Set[A]], gr: Map[A,Set[A]]) extends Directed[A] {
+final class AdjacencyList[A](val g: Map[A,Set[A]], val gr: Map[A,Set[A]]) extends Directed[A] {
   lazy val vertices: Stream[A] = g.keys.toSet.union(gr.keys.toSet).toStream
   def contains(v: A): Boolean = vertices.contains(v)
   def successors(v: A): Set[A] = g.getOrElse(v,Set.empty[A])

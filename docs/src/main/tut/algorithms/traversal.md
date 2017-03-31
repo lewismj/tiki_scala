@@ -9,7 +9,6 @@ scaladoc: "#tiki.Traversal"
  
 Traversal is done by performing an `unfold` on the graph representation, the 
  function will return a stream of vertices.
-
 ```scala
 private def unfold[T,R](z:T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
     case None => Trampoline.done(Stream.empty[R])
@@ -18,13 +17,11 @@ private def unfold[T,R](z:T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z
   }
 }
 ```
-
 The traversal can be depth or breadth first. _Note_ the `distinct` on the stream (_visitOrder_ function) 
 does preserve order. 
 A vertex may be visited more than once in a traversal, most of the time we want the first instance.
 
 Currently, cycles are ignored (i.e. the stream _won't_ loop infinitely.)
-
 ```scala
 private def traverse[A](g: Digraph[A], v: A, dfs: Boolean): Stream[A]
 = unfold( (List(v),Set.empty[A]) ) {
@@ -40,14 +37,12 @@ private def traverse[A](g: Digraph[A], v: A, dfs: Boolean): Stream[A]
       }
     }.run
 ```
-
  Two primary functions are available:
  
  - `dfs(g,start)` will perform a depth-first traversal of the graph _g_, starting at _start_ vertex.
  - `bfs(g,start)` as above, except a breadth first search will be done.
  
  Both are implemented in terms of the `visitOrder` function.
- 
  ```scala
 private def visitOrder[A](g: Digraph[A], start: A, dfs: Boolean): Stream[A]
   = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty

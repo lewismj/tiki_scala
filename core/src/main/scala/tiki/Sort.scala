@@ -22,37 +22,32 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package object tiki {
-  import shapeless.Poly1
-  import tiki.Predef._
-  import tiki.implicits._
+package tiki
+
+import tiki.Predef._
+
+
+object Sort {
 
   /**
-    * Provides 'reverse' function for different 'Edge' case classes.
-    */
-  object reverse extends Poly1 {
-    implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]
-      = at({ x=> x.edge.to --> x.edge.from :+ x.label})
-    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]
-      = at({ x=> x.edge.to --> x.edge.from :# x.weight})
-  }
-
-  /**
-    * Remove all edges into the stream of vertices.
+    * Topological sort of a digraph, using Kahn's algorithm.
     *
     * @param g    the digraph.
-    * @param xs   the list of vertices.
     * @tparam A   the vertex type.
-    * @return     the digraph with edges into vertices of xs removed.
+    * @return some stream of vertices representing the topological
+    *         sort, or none if the graph has cycle.
     */
-  def removeEdgeTo[A](g: Digraph[A], xs: Stream[A]): Digraph[A] = new Digraph[A] {
-    override def vertices: Stream[A] = g.vertices
-    override def predecessors(v: A): Set[A] = if (xs.contains(v)) Set.empty[A] else g.predecessors(v)
-    override def successors(v: A): Set[A] = g.successors(v).filter(xs.contains)
-    override def contains(v: A): Boolean = g.contains(v)
-    override def edges: Stream[EdgeLike[A]] = g.edges.filterNot(e => xs.contains(e.to))
+  def tsort[A](g: Digraph[A]): Option[Stream[A]] = {
+    @tailrec
+    def tsort0(g: Digraph[A], l: Stream[A]): Option[Stream[A]] = {
+      val (xs, ys) = g.vertices.partition(g.predecessors(_).isEmpty)
+      xs match {
+        case _ if  (xs isEmpty) && (ys isEmpty) => Some(l)
+        case _ if  xs isEmpty => None
+        case _ => tsort0(removeEdgeTo(g,xs), l #::: xs)
+      }
+    }
+    tsort0(g,Stream.empty[A])
   }
 
 }
-

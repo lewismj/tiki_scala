@@ -54,7 +54,6 @@ class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbi
 
     val adjacencyList = AdjacencyList(xs)
 
-
     val digraph = new WeightedDigraph[Char] {
       /* Use adjacency list for basic digraph implementation. */
       def contains(v: Char) = adjacencyList.contains(v)

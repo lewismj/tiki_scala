@@ -11,6 +11,8 @@ The following functions are currently implemented
 
 -  `bellmanFord(g,start)` performs Bellman-Ford algorithm to find shortest distances from source,
 given a weighted directed graph and source vertex.
+- `negativeCycle(g,source)` discovers a negative cycle (or returns an empty list if none exist) in the graph
+ _g_ starting from vertex _source_.
 
 ### Bellman-Ford
 
@@ -23,10 +25,8 @@ The path state is represented as a case class, holding _distances_ and _predeces
       PathState(Map.empty[A,Double].updated(source,0.0),Map.empty[A,A])
   }
 ```
-
 The algorithm is implemented (with _N_ iterations). _note_ I think almost all 
 use cases would allow us to stop once
-
 ```scala
   def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
     
@@ -47,7 +47,6 @@ use cases would allow us to stop once
       (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
   }
 ```
-
 
 ```tut
 import tiki._
@@ -81,9 +80,8 @@ val state = bellmanFord(digraph,'A')
 state.distances
 ```
 
-#### Negative cycles
+### Negative cycles
 A utility method to search for negative cycles is provided:
-
 ```scala
   def negativeCycle[A](g: WeightedDigraph[A], source: A): List[A] = {
     val s = bellmanFord(g, source)

@@ -57,6 +57,12 @@ trait Directed[A] {
   def predecessors(v: A): Set[A]
 }
 
+/**
+  * Only weighted edges can have a weight.
+  */
+trait Weighted[A] {
+  def weight(e: WeightedEdge[A]): Double = e.weight
+}
 
 /**
   * Base representation for a graph.
@@ -87,17 +93,10 @@ trait Graph[A] {
 trait Digraph[A] extends Graph[A] with Directed[A] {}
 
 /**
-  * Only weighted edges can have a weight.
-  */
-trait Weighted[A] {
-  def weight(edge: WeightedEdge[A]): Double = edge.weight
-}
-
-/**
   * Weighted digraph.
   *
   * @tparam A the vertex type.
   */
 trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
-  def edges: Stream[WeightedEdge[A]]
+  override def edges: Stream[WeightedEdge[A]]
 }

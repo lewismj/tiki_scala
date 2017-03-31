@@ -51,6 +51,9 @@ val digraph = new WeightedDigraph[Char] {
 }
     
 ```
+Graphs types are defined in terms of the interfaces that they support.
+For example digraphs support `Directed` interface and weighted graphs
+support the `Weighted` interface.
 
 ### Directed
 
@@ -66,6 +69,19 @@ With:
 - `contains(v)` should return true if the vertex belongs in the graph.
 - `successors(v)` the vertices that have an incoming edge *from* _v_.
 - `predecessora(v)` the vertices that have an outgoing edge *to* _v_.
+
+### Weighted
+
+```scala
+trait Weighted[A] {
+  /* Only weighted edges can have a weight. */
+  def weight(edge: WeightedEdge[A]): Double = edge.weight
+}
+```
+
+With:
+
+- `weight(edge)` the weight of the edge.
 
 ### Graph
 
@@ -91,15 +107,11 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
 ### WeightedDigraph
 
 The weighted digraph interface can be defined as `Digraph` that can support the `Weighted`
-interface.
+interface. We can, for convenience, override the `edges` method and return weighted edges.
 
 
 ```scala
-trait Weighted[A] {
-  def weight(edge: WeightedEdge[A]): Double = edge.weight
-}
-
 trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
-  def edges: Stream[WeightedEdge[A]]
+  override def edges: Stream[WeightedEdge[A]]
 }
 ```
