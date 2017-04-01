@@ -9,52 +9,7 @@ not always be desirable.</p>
 
 <p>Algorithms (generally) should require the <em>minimal</em> interface as function arguments.</p>
 
-<h2 id="usage">Usage</h2>
-
-<p>In the following example, for a simple test, the <code class="highlighter-rouge">WeightedDigraph</code> was defined using
-an adjacency list and an edge list (containing weights). This may be sub-optimal for
-many situations, but it illustrates how we can build up the graph using any underlying
-representation.</p>
-
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
-<span class="k">import</span> <span class="nn">tiki._</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
-<span class="k">import</span> <span class="nn">tiki.Predef._</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
-<span class="k">import</span> <span class="nn">tiki.implicits._</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span>
-     <span class="o">|</span>   <span class="sc">'A'</span> <span class="o">--&gt;</span> <span class="sc">'B'</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span>
-     <span class="o">|</span>   <span class="sc">'A'</span> <span class="o">--&gt;</span> <span class="sc">'C'</span> <span class="o">:#</span> <span class="mf">4.0</span><span class="o">,</span>
-     <span class="o">|</span>   <span class="sc">'B'</span> <span class="o">--&gt;</span> <span class="sc">'C'</span> <span class="o">:#</span> <span class="mf">3.0</span><span class="o">,</span>
-     <span class="o">|</span>   <span class="sc">'B'</span> <span class="o">--&gt;</span> <span class="sc">'D'</span> <span class="o">:#</span> <span class="mf">2.0</span><span class="o">,</span>
-     <span class="o">|</span>   <span class="sc">'D'</span> <span class="o">--&gt;</span> <span class="sc">'B'</span> <span class="o">:#</span> <span class="mf">1.0</span><span class="o">,</span>
-     <span class="o">|</span>   <span class="sc">'B'</span> <span class="o">--&gt;</span> <span class="sc">'E'</span> <span class="o">:#</span> <span class="mf">2.0</span><span class="o">,</span>
-     <span class="o">|</span>   <span class="sc">'E'</span> <span class="o">--&gt;</span> <span class="sc">'D'</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">3.0</span>
-     <span class="o">|</span> <span class="o">)</span>
-<span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">3</span><span class="n">b5d12a7</span>
-
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
-     <span class="o">|</span>   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
-     <span class="o">|</span>   <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">vertices</span>
-     <span class="o">|</span>   <span class="k">def</span> <span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
-     <span class="o">|</span>   <span class="k">def</span> <span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
-     <span class="o">|</span> 
-     <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
-     <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">5</span><span class="n">bd57572</span>
-</code></pre>
-</div>
-<p>Graphs types are defined in terms of the interfaces that they support.
-For example digraphs support <code class="highlighter-rouge">Directed</code> interface and weighted graphs
-support the <code class="highlighter-rouge">Weighted</code> interface.</p>
-
-<h3 id="graph-1">Graph</h3>
+<h2 id="graph-1">Graph</h2>
 
 <p>The core <em>graph</em> trait simply defines a graph as streams of <em>vertices</em> and <em>edges</em>.</p>
 
@@ -109,6 +64,49 @@ require this.</p>
 <span class="o">}</span>
 </code></pre>
 </div>
+
+<h2 id="usage">Usage</h2>
+
+<p>In the following example, for a simple test, the <code class="highlighter-rouge">WeightedDigraph</code> was defined using
+an adjacency list and an edge list (containing weights). This may be sub-optimal for
+many situations, but it illustrates how we can build up the graph using any underlying
+representation.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
+<span class="k">import</span> <span class="nn">tiki._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+<span class="k">import</span> <span class="nn">tiki.Predef._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
+<span class="k">import</span> <span class="nn">tiki.implicits._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span>
+     <span class="o">|</span>   <span class="sc">'A'</span> <span class="o">--&gt;</span> <span class="sc">'B'</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'A'</span> <span class="o">--&gt;</span> <span class="sc">'C'</span> <span class="o">:#</span> <span class="mf">4.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'B'</span> <span class="o">--&gt;</span> <span class="sc">'C'</span> <span class="o">:#</span> <span class="mf">3.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'B'</span> <span class="o">--&gt;</span> <span class="sc">'D'</span> <span class="o">:#</span> <span class="mf">2.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'D'</span> <span class="o">--&gt;</span> <span class="sc">'B'</span> <span class="o">:#</span> <span class="mf">1.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'B'</span> <span class="o">--&gt;</span> <span class="sc">'E'</span> <span class="o">:#</span> <span class="mf">2.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'E'</span> <span class="o">--&gt;</span> <span class="sc">'D'</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">3.0</span>
+     <span class="o">|</span> <span class="o">)</span>
+<span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">4d</span><span class="mi">2</span><span class="n">ea92</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
+     <span class="o">|</span>   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
+     <span class="o">|</span>   <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">vertices</span>
+     <span class="o">|</span>   <span class="k">def</span> <span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
+     <span class="o">|</span>   <span class="k">def</span> <span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
+     <span class="o">|</span> 
+     <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
+     <span class="o">|</span> <span class="o">}</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">4986f</span><span class="mi">42</span>
+</code></pre>
+</div>
+
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({
 languages:['scala','java','bash']
 });
