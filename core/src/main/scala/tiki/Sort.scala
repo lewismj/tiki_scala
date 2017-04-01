@@ -27,27 +27,7 @@ package tiki
 import tiki.Predef._
 
 object Sort {
-
-  /**
-    * Remove all edges into the stream of vertices *And* remove the
-    * vertex from the graph. i.e. utility function for `tsort` that
-    * may have other uses, but could lead to edges from vertices
-    * that are removed from the graph.
-    *
-    * @param g    the digraph.
-    * @param xs   the list of vertices.
-    * @tparam A   the vertex type.
-    * @return     the digraph with edges into vertices of xs removed.
-    */
-  def removeEdgeTo[A](g: Digraph[A], xs: Stream[A]): Digraph[A] = new Digraph[A] {
-    override def vertices: Stream[A] = g.vertices.filterNot(xs.contains(_))
-    override def predecessors(v: A): Set[A] = if (xs.contains(v)) Set.empty[A] else g.predecessors(v)
-    override def successors(v: A): Set[A] = g.successors(v).filter(xs.contains)
-    override def contains(v: A): Boolean = vertices.contains(v)
-    override def edges: Stream[EdgeLike[A]] = g.edges.filterNot(e => xs.contains(e.to))
-  }
-
-
+  
   /**
     * Topological sort of a digraph. Returns None if a cycle is found.
     *
