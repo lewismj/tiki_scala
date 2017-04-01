@@ -22,10 +22,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tiki.tests
+package tiki
+package tests
 
 
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
+import org.scalatest.prop.{Checkers, GeneratorDrivenPropertyChecks}
 import org.scalatest.{BeforeAndAfterAll, FunSuite, Matchers}
 import org.typelevel.discipline.scalatest.Discipline
 
@@ -34,6 +35,7 @@ import org.typelevel.discipline.scalatest.Discipline
   */
 trait TikiSuite extends FunSuite
   with BeforeAndAfterAll
+  with Checkers
   with Matchers
   with GeneratorDrivenPropertyChecks
   with Discipline {

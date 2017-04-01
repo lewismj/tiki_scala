@@ -37,7 +37,7 @@ import scala.math._
 
 /** WIP - need ScalaCheck test cases. */
 
-class BellmanFordSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
+class BellmanFordSpec extends TikiSuite with AllArbitrary {
 
 
   test("Bellman-Ford simple graph test .1") {

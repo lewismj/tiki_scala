@@ -22,18 +22,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tiki.tests
+package tiki
+package tests
 
-import org.scalatest.Matchers
-import org.scalatest.prop.Checkers
+
 import tiki.Predef._
 import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
-import tiki.{Edge, LabelledEdge, _}
-import scala.math._
 
 
-class EdgeSpec  extends TikiSuite with Checkers with Matchers with AllArbitrary {
+class EdgeSpec  extends TikiSuite with AllArbitrary {
 
   test("Edge creates correct to and from vertices") { (x: Int, y: Int) => {
     (x --> y) should have ('from (x), 'to (y))

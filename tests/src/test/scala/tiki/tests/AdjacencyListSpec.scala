@@ -26,14 +26,12 @@ package tiki
 package tests
 
 
-import org.scalatest.Matchers
-import org.scalatest.prop.Checkers
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.Predef._
 import tiki.implicits._
 
 
-class AdjacencyListSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
+class AdjacencyListSpec extends TikiSuite with AllArbitrary {
 
   test("`successors` of adjacency list should return correct vertices")(forAll { (xs: Stream[Edge[Int]]) =>
     /* doesn't test leaf vertices. */

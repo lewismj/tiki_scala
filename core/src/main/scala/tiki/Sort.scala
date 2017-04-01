@@ -26,28 +26,47 @@ package tiki
 
 import tiki.Predef._
 
-
 object Sort {
 
   /**
-    * Topological sort of a digraph, using Kahn's algorithm.
+    * Remove all edges into the stream of vertices *And* remove the
+    * vertex from the graph. i.e. utility function for `tsort` that
+    * may have other uses, but could lead to edges from vertices
+    * that are removed from the graph.
+    *
+    * @param g    the digraph.
+    * @param xs   the list of vertices.
+    * @tparam A   the vertex type.
+    * @return     the digraph with edges into vertices of xs removed.
+    */
+  def removeEdgeTo[A](g: Digraph[A], xs: Stream[A]): Digraph[A] = new Digraph[A] {
+    override def vertices: Stream[A] = g.vertices.filterNot(xs.contains(_))
+    override def predecessors(v: A): Set[A] = if (xs.contains(v)) Set.empty[A] else g.predecessors(v)
+    override def successors(v: A): Set[A] = g.successors(v).filter(xs.contains)
+    override def contains(v: A): Boolean = vertices.contains(v)
+    override def edges: Stream[EdgeLike[A]] = g.edges.filterNot(e => xs.contains(e.to))
+  }
+
+
+  /**
+    * Topological sort of a digraph. Returns None if a cycle is found.
     *
     * @param g    the digraph.
     * @tparam A   the vertex type.
-    * @return some stream of vertices representing the topological
-    *         sort, or none if the graph has cycle.
+    * @return     the topological sort.
     */
   def tsort[A](g: Digraph[A]): Option[Stream[A]] = {
     @tailrec
-    def tsort0(g: Digraph[A], l: Stream[A]): Option[Stream[A]] = {
-      val (xs, ys) = g.vertices.partition(g.predecessors(_).isEmpty)
-      xs match {
-        case _ if  (xs isEmpty) && (ys isEmpty) => Some(l)
-        case _ if  xs isEmpty => None
-        case _ => tsort0(removeEdgeTo(g,xs), l #::: xs)
-      }
+    def kahn(s0: Stream[A], l: Stream[A], ys: Stream[EdgeLike[A]]): Option[Stream[A]] = s0 match {
+      case _ if (s0 isEmpty) && (ys isEmpty) => Some(l)
+      case _ if s0 isEmpty => None
+      case n #:: tail =>
+        val (edgesFrom, remainder) = ys.partition(_.from == n)
+        val maybeInsert = edgesFrom.map(_.to)
+        val insert = maybeInsert.filterNot(remainder.map(_.to).contains(_))
+        kahn(tail #::: insert, l :+ n, remainder)
     }
-    tsort0(g,Stream.empty[A])
+    kahn(g.vertices.filterNot(g.edges.map(_.to).contains(_)), Stream.empty, g.edges)
   }
 
 }

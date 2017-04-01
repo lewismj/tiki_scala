@@ -1,18 +1,14 @@
-package tiki.tests
+package tiki
+package tests
 
-import org.scalatest.Matchers
-import org.scalatest.prop.Checkers
 import tiki.Predef._
 import tiki.Traversal._
-import tiki._
 import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
-
 import scala.util.Random
 
 
-
-class TraversalSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
+class TraversalSpec extends TikiSuite with AllArbitrary {
 
   test("`dfs` single node with edge to self..") {
     val edges = Stream('A' --> 'A')

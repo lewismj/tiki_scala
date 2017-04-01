@@ -38,21 +38,7 @@ package object tiki {
       = at({ x=> x.edge.to --> x.edge.from :# x.weight})
   }
 
-  /**
-    * Remove all edges into the stream of vertices.
-    *
-    * @param g    the digraph.
-    * @param xs   the list of vertices.
-    * @tparam A   the vertex type.
-    * @return     the digraph with edges into vertices of xs removed.
-    */
-  def removeEdgeTo[A](g: Digraph[A], xs: Stream[A]): Digraph[A] = new Digraph[A] {
-    override def vertices: Stream[A] = g.vertices
-    override def predecessors(v: A): Set[A] = if (xs.contains(v)) Set.empty[A] else g.predecessors(v)
-    override def successors(v: A): Set[A] = g.successors(v).filter(xs.contains)
-    override def contains(v: A): Boolean = g.contains(v)
-    override def edges: Stream[EdgeLike[A]] = g.edges.filterNot(e => xs.contains(e.to))
-  }
+
 
 }
 

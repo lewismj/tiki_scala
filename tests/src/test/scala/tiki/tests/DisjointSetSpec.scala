@@ -26,14 +26,12 @@ package tiki
 package tests
 
 
-import org.scalatest.Matchers
-import org.scalatest.prop.Checkers
 import tiki.Predef._
 import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
 
 
-class DisjointSetSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
+class DisjointSetSpec extends TikiSuite with AllArbitrary {
 
   test("initial number of components equals size of the set")(forAll { (xs: Set[Int]) =>
     DisjointSet(xs).components should equal(xs.size)

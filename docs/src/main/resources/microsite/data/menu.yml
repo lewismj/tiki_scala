@@ -37,6 +37,10 @@ options:
     url: algorithms/traversal.html
     menu_type: algorithms
 
+  - title: Sort
+    url: algorithms/sort.html
+    menu_type: algorithms
+
   - title: Utility
     url: algorithms/utility.html
     menu_type: algorithms

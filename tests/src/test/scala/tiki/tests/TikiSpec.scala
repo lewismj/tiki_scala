@@ -24,14 +24,12 @@
  */
 package tiki.tests
 
-import org.scalatest.Matchers
-import org.scalatest.prop.Checkers
 import tiki.Predef._
 import tiki._
 import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
 
-class TikiSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
+class TikiSpec extends TikiSuite with AllArbitrary {
 
   test("`reverse` of an edge should swap the two and from vertices") { (x:Int, y:Int) => {
      reverse(x --> y) should have ('from (y), 'to (x))
@@ -41,63 +39,6 @@ class TikiSpec extends TikiSuite with Checkers with Matchers with AllArbitrary {
     reverse(x --> y :+ z)  should have ('from (y), 'to (x), 'label (z))
   }}
 
-  test("`removeEdgeTo` correctly removes edges from a weighted graph.") {
-    val xs = Stream(
-      'A' --> 'B' :# -1.0,
-      'A' --> 'C' :# 4.0,
-      'B' --> 'C' :# 3.0,
-      'B' --> 'D' :# 2.0,
-      'D' --> 'B' :# 1.0,
-      'B' --> 'E' :# 2.0,
-      'E' --> 'D' :# -3.0
-    )
-
-    val adjacencyList = AdjacencyList(xs)
-
-    val digraph = new WeightedDigraph[Char] {
-      def contains(v: Char) = adjacencyList.contains(v)
-      def vertices: Stream[Char] = adjacencyList.vertices
-      def successors(v: Char) = adjacencyList.successors(v)
-      def predecessors(v: Char) = adjacencyList.predecessors(v)
-      override def edges: Stream[WeightedEdge[Char]] = xs
-    }
-
-    val updated = removeEdgeTo(digraph,Stream('B','C'))
-
-    val pb  = updated.predecessors('B')
-    val pc  = updated.predecessors('C')
-    val edgeTo = updated.edges.filter(e=>e.to == 'B' || e.to == 'C').map(_.from).toSet
-    pb.union(pc).union(edgeTo) should be (Set.empty)
-  }
-
-  test("`removeEdgeTo` correctly removes edges from an un-weighted graph.") {
-    val xs = Stream(
-      'A' --> 'B' ,
-      'A' --> 'C' ,
-      'B' --> 'C' ,
-      'B' --> 'D' ,
-      'D' --> 'B' ,
-      'B' --> 'E' ,
-      'E' --> 'D'
-    )
-
-    val adjacencyList = AdjacencyList(xs)
-
-    val digraph = new Digraph[Char] {
-      def contains(v: Char) = adjacencyList.contains(v)
-      def vertices: Stream[Char] = adjacencyList.vertices
-      def successors(v: Char) = adjacencyList.successors(v)
-      def predecessors(v: Char) = adjacencyList.predecessors(v)
-      override def edges: Stream[Edge[Char]] = xs
-    }
-
-    val updated = removeEdgeTo(digraph,Stream('B','C'))
-
-    val pb  = updated.predecessors('B')
-    val pc  = updated.predecessors('C')
-    val edgeTo = updated.edges.filter(e=>e.to == 'B' || e.to == 'C').map(_.from).toSet
-    pb.union(pc).union(edgeTo) should be (Set.empty)
-  }
 
 
 }
