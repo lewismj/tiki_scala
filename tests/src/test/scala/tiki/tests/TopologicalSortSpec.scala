@@ -109,7 +109,7 @@ class TopologicalSortSpec extends TikiSuite with AllArbitrary {
       def edges: Stream[WeightedEdge[Char]] = xs
     }
 
-    tsort(digraph) should be (None)
+    hasCycle(digraph) should be (true)
   }
 
   test("`tsort` produces correct ordering of acyclic graph.") {

@@ -39,30 +39,31 @@ See the wikipedia link for references. Implementation follows Kahn's algorithm.
 ```
 
 ```tut
-    import tiki.Predef._
-    import tiki.implicits._
-    import tiki.Sort._
+import tiki._
+import tiki.Predef._
+import tiki.implicits._
+import tiki.Sort._
 
 
-    val xs = Stream (
-        'A' --> 'B',
-        'A' --> 'C',
-        'B' --> 'C',
-        'B' --> 'D',
-        'C' --> 'D',
-        'D' --> 'E',
-        'D' --> 'F',
-        'E' --> 'F'
-    )
+val xs = Stream (
+    'A' --> 'B',
+    'A' --> 'C',
+    'B' --> 'C',
+    'B' --> 'D',
+    'C' --> 'D',
+    'D' --> 'E',
+    'D' --> 'F',
+    'E' --> 'F'
+)
 
-    val adjacencyList = AdjacencyList(xs)
-    val digraph = new Digraph[Char] {
-      def contains(v: Char) = adjacencyList.contains(v)
-      def vertices: Stream[Char] = adjacencyList.vertices
-      def successors(v: Char) = adjacencyList.successors(v)
-      def predecessors(v: Char) = adjacencyList.predecessors(v)
-      def edges: Stream[Edge[Char]] = xs
-    }
+val adjacencyList = AdjacencyList(xs)
+val digraph = new Digraph[Char] {
+  def contains(v: Char) = adjacencyList.contains(v)
+  def vertices: Stream[Char] = adjacencyList.vertices
+  def successors(v: Char) = adjacencyList.successors(v)
+  def predecessors(v: Char) = adjacencyList.predecessors(v)
+  def edges: Stream[Edge[Char]] = xs
+}
 
-    val sorted = tsort(digraph).getOrElse(Stream.empty)
+val sorted = tsort(digraph).getOrElse(Stream.empty)
 ```

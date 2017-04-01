@@ -69,4 +69,13 @@ object Sort {
     kahn(g.vertices.filterNot(g.edges.map(_.to).contains(_)), Stream.empty, g.edges)
   }
 
+  /**
+    * Returns true if the graph has a cycle, false otherwise.
+    *
+    * @param g    the digraph.
+    * @tparam A   the vertex type.
+    * @return     true, if graph has cycle.
+    */
+  def hasCycle[A](g: Digraph[A]): Boolean = tsort(g).isEmpty
+
 }
