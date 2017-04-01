@@ -27,7 +27,7 @@ package tiki
 import tiki.Predef._
 
 object Sort {
-  
+
   /**
     * Topological sort of a digraph. Returns None if a cycle is found.
     *
