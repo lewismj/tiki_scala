@@ -17,7 +17,7 @@ A number of core traits define the graph behaviours.
 Algorithms (generally) should require the _minimal_ interface as function arguments.
 
 
-## Graph
+## Implementation
 
 The core _graph_ trait simply defines a graph as streams of _vertices_ and _edges_.
 
