@@ -59,7 +59,7 @@ support the `Weighted` interface.
 
 ### Graph
 
-The core _graph_ trait simply defines a graph as either a stream of _vertices_ and _edges_.
+The core _graph_ trait simply defines a graph as streams of _vertices_ and _edges_.
 
 ```scala
 trait Graph[A] {
