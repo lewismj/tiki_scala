@@ -42,7 +42,7 @@ See the wikipedia link for references. Implementation follows Kahn's algorithm.
 
 A topological sort of the graph below should _{A,B,C,D,E,F}_
 
-<img src="https://github.com/lewismj/tiki/blob/master/docs/src/main/resources/microsite/img/sort.png"/>
+[<img src="https://github.com/lewismj/tiki/blob/master/docs/src/main/resources/microsite/img/sort.png"/>]
 
 
 ```tut
