@@ -66,4 +66,5 @@ val digraph = new Digraph[Char] {
 }
 
 val sorted = tsort(digraph).getOrElse(Stream.empty)
+sorted.mkString
 ```
