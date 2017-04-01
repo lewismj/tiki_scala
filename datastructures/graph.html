@@ -37,7 +37,7 @@ representation.</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">5</span><span class="n">bea5b3</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">7</span><span class="n">a490f5f</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
@@ -47,44 +47,12 @@ representation.</p>
      <span class="o">|</span> 
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">34188758</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">3752</span><span class="n">bed6</span>
 </code></pre>
 </div>
 <p>Graphs types are defined in terms of the interfaces that they support.
 For example digraphs support <code class="highlighter-rouge">Directed</code> interface and weighted graphs
 support the <code class="highlighter-rouge">Weighted</code> interface.</p>
-
-<h3 id="directed">Directed</h3>
-
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Directed</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
-  <span class="k">def</span> <span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
-  <span class="k">def</span> <span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-<p>With:</p>
-
-<ul>
-  <li><code class="highlighter-rouge">contains(v)</code> should return true if the vertex belongs in the graph.</li>
-  <li><code class="highlighter-rouge">successors(v)</code> the vertices that have an incoming edge <em>from</em> <em>v</em>.</li>
-  <li><code class="highlighter-rouge">predecessora(v)</code> the vertices that have an outgoing edge <em>to</em> <em>v</em>.</li>
-</ul>
-
-<h3 id="weighted">Weighted</h3>
-
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  <span class="cm">/* Only weighted edges can have a weight. */</span>
-  <span class="k">def</span> <span class="n">weight</span><span class="o">(</span><span class="n">edge</span><span class="k">:</span> <span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">edge</span><span class="o">.</span><span class="n">weight</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
-<p>With:</p>
-
-<ul>
-  <li><code class="highlighter-rouge">weight(edge)</code> the weight of the edge.</li>
-</ul>
 
 <h3 id="graph-1">Graph</h3>
 
@@ -101,7 +69,24 @@ support the <code class="highlighter-rouge">Weighted</code> interface.</p>
   <li><code class="highlighter-rouge">vertices</code> a stream of vertices</li>
 </ul>
 
-<h3 id="digraph">Digraph</h3>
+<h4 id="directed">Directed</h4>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Directed</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span>
+  <span class="k">def</span> <span class="n">successors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+  <span class="k">def</span> <span class="n">predecessors</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>With:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">contains(v)</code> should return true if the vertex belongs in the graph.</li>
+  <li><code class="highlighter-rouge">successors(v)</code> the vertices that have an incoming edge <em>from</em> <em>v</em>.</li>
+  <li><code class="highlighter-rouge">predecessora(v)</code> the vertices that have an outgoing edge <em>to</em> <em>v</em>.</li>
+</ul>
+
+<h4 id="digraph">Digraph</h4>
 
 <p>A <em>digraph</em> is a graph that supports the <code class="highlighter-rouge">Directed</code> interface.</p>
 
@@ -109,12 +94,17 @@ support the <code class="highlighter-rouge">Weighted</code> interface.</p>
 </code></pre>
 </div>
 
-<h3 id="weighteddigraph">WeightedDigraph</h3>
+<h4 id="weighteddigraph">WeightedDigraph</h4>
 
-<p>The weighted digraph interface can be defined as <code class="highlighter-rouge">Digraph</code> that can support the <code class="highlighter-rouge">Weighted</code>
-interface. We can, for convenience, override the <code class="highlighter-rouge">edges</code> method and return weighted edges.</p>
+<p>The weighted digraph interface can be defined as <code class="highlighter-rouge">Digraph</code> returns
+ weighted<code class="highlighter-rouge">edges</code>.</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Digraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">with</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+<p>It may prove useful to introduce <code class="highlighter-rouge">Weighted</code> trait, where we want to
+‘look up’ the weight of a particular edge, without iterating over
+a stream of weighted edges. Algorithms currently implemented don’t
+require this.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Digraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">override</span> <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
 <span class="o">}</span>
 </code></pre>
