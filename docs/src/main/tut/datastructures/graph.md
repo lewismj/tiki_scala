@@ -55,33 +55,7 @@ Graphs types are defined in terms of the interfaces that they support.
 For example digraphs support `Directed` interface and weighted graphs
 support the `Weighted` interface.
 
-### Directed
 
-```scala
-trait Directed[A] {
-  def contains(v: A): Boolean
-  def successors(v: A): Set[A]
-  def predecessors(v: A): Set[A]
-}
-```
-With:
-
-- `contains(v)` should return true if the vertex belongs in the graph.
-- `successors(v)` the vertices that have an incoming edge *from* _v_.
-- `predecessora(v)` the vertices that have an outgoing edge *to* _v_.
-
-### Weighted
-
-```scala
-trait Weighted[A] {
-  /* Only weighted edges can have a weight. */
-  def weight(edge: WeightedEdge[A]): Double = edge.weight
-}
-```
-
-With:
-
-- `weight(edge)` the weight of the edge.
 
 ### Graph
 
@@ -96,7 +70,22 @@ trait Graph[A] {
 - `edges` a stream of edges.
 - `vertices` a stream of vertices
 
-### Digraph
+#### Directed
+
+```scala
+trait Directed[A] {
+  def contains(v: A): Boolean
+  def successors(v: A): Set[A]
+  def predecessors(v: A): Set[A]
+}
+```
+With:
+
+- `contains(v)` should return true if the vertex belongs in the graph.
+- `successors(v)` the vertices that have an incoming edge *from* _v_.
+- `predecessora(v)` the vertices that have an outgoing edge *to* _v_.
+
+#### Digraph
 
 A _digraph_ is a graph that supports the `Directed` interface.
 
@@ -104,14 +93,18 @@ A _digraph_ is a graph that supports the `Directed` interface.
 trait Digraph[A] extends Graph[A] with Directed[A] {}
 ```
 
-### WeightedDigraph
+#### WeightedDigraph
 
-The weighted digraph interface can be defined as `Digraph` that can support the `Weighted`
-interface. We can, for convenience, override the `edges` method and return weighted edges.
+The weighted digraph interface can be defined as `Digraph` returns
+ weighted`edges`.
 
+It may prove useful to introduce `Weighted` trait, where we want to
+'look up' the weight of a particular edge, without iterating over
+a stream of weighted edges. Algorithms currently implemented don't
+require this.
 
 ```scala
-trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
+trait WeightedDigraph[A] extends Digraph[A] {
   override def edges: Stream[WeightedEdge[A]]
 }
 ```
