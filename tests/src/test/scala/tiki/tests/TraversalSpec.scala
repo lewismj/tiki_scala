@@ -10,14 +10,14 @@ import scala.util.Random
 
 class TraversalSpec extends TikiSuite with AllArbitrary {
 
-  test("`dfs` single node with edge to self..") {
+  test("`dfs` single node with edge to self") {
     val edges = Stream('A' --> 'A')
     val adj = AdjacencyList(edges)
     val search = dfs(adj, 'A')
     search should be(Seq('A'))
   }
 
-  test("`bfs` single node with edge to self..") {
+  test("`bfs` single node with edge to self") {
     val edges = Random.shuffle(List('A' --> 'A')).toStream
     val adj = AdjacencyList(edges)
     val search = bfs(adj, 'A')
