@@ -25,7 +25,6 @@
 package tiki
 package tests
 
-
 import org.scalatest.prop.{Checkers, GeneratorDrivenPropertyChecks}
 import org.scalatest.{BeforeAndAfterAll, FunSuite, Matchers}
 import org.typelevel.discipline.scalatest.Discipline

@@ -39,6 +39,4 @@ class TikiSpec extends TikiSuite with AllArbitrary {
     reverse(x --> y :+ z)  should have ('from (y), 'to (x), 'label (z))
   }}
 
-
-
 }

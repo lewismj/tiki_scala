@@ -94,18 +94,3 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
 trait WeightedDigraph[A] extends Digraph[A] {
   override def edges: Stream[WeightedEdge[A]]
 }
-
-/**
-  * Provide empty function.
-  */
-object WeightedDigraph {
-
-  def empty[A]: WeightedDigraph[A] = new WeightedDigraph[A] {
-    override def edges: Stream[WeightedEdge[A]] = Stream.empty
-    override def vertices: Stream[A] = Stream.empty
-    override def contains(v: A): Boolean = false
-    override def successors(v: A): Set[A] = Set.empty
-    override def predecessors(v: A): Set[A] = Set.empty
-  }
-
-}

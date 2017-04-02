@@ -31,7 +31,6 @@ import tiki.implicits._
 import tiki.Sort._
 
 
-
 /** WIP - need ScalaCheck test cases. */
 class TopologicalSortSpec extends TikiSuite with AllArbitrary {
 
