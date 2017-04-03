@@ -42,8 +42,6 @@ See the wikipedia link for references. Implementation follows Kahn's algorithm.
 
 A topological sort of the graph below should _{A,B,C,D,E,F}_
 
-![graph]({{site.baseurl}}/tiki/docs/src/main/resources/microsite/img/sort.png)
-
 ```tut
 import tiki._
 import tiki.Predef._
