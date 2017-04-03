@@ -65,7 +65,6 @@ val xs = Stream(
 )
 val adjacencyList = AdjacencyList(xs)
 
-
 val digraph = new WeightedDigraph[Char] {
   /* Use adjacency list for basic digraph implementation. */
   def contains(v: Char) = adjacencyList.contains(v)

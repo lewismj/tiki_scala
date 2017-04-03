@@ -40,9 +40,11 @@ See the wikipedia link for references. Implementation follows Kahn's algorithm.
 
 ### Example
 
-A topological sort of the graph below should _{A,B,C,D,E,F}_
+A topological sort of the graph ...
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/sort.png)
+
+... should yield the set  _{A,B,C,D,E,F}_
 
 ```tut
 import tiki._

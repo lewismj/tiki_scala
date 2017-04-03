@@ -55,13 +55,12 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
 
 #### WeightedDigraph
 
-The weighted digraph interface can be defined as `Digraph` returns
+The weighted digraph interface can be defined as a`Digraph` that returns
  weighted`edges`.
 
-It may prove useful to introduce `Weighted` trait, where we want to
-'look up' the weight of a particular edge, without iterating over
-a stream of weighted edges. Algorithms currently implemented don't
-require this.
+It may prove useful to introduce `Weighted` trait. With a _weight(u,v)_ method.
+The algorithms at present don't require this sort of 'lookup'. So it has not
+been introduced.
 
 ```scala
 trait WeightedDigraph[A] extends Digraph[A] {
@@ -71,10 +70,8 @@ trait WeightedDigraph[A] extends Digraph[A] {
 
 ## Usage
 
-In the following example, for a simple test, the `WeightedDigraph` was defined using
-an adjacency list and an edge list (containing weights). This may be sub-optimal for
-many situations, but it illustrates how we can build up the graph using any underlying
-representation.
+In the following example, the `WeightedDigraph` interface is implemented using the `AdjacencyList`.
+Sometimes this may be the correct choice, though not always.
 
 ```tut
 import tiki._
