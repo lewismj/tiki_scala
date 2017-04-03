@@ -51,13 +51,12 @@ not always be desirable.</p>
 
 <h4 id="weighteddigraph">WeightedDigraph</h4>
 
-<p>The weighted digraph interface can be defined as <code class="highlighter-rouge">Digraph</code> returns
+<p>The weighted digraph interface can be defined as a<code class="highlighter-rouge">Digraph</code> that returns
  weighted<code class="highlighter-rouge">edges</code>.</p>
 
-<p>It may prove useful to introduce <code class="highlighter-rouge">Weighted</code> trait, where we want to
-‘look up’ the weight of a particular edge, without iterating over
-a stream of weighted edges. Algorithms currently implemented don’t
-require this.</p>
+<p>It may prove useful to introduce <code class="highlighter-rouge">Weighted</code> trait. With a <em>weight(u,v)</em> method.
+The algorithms at present don’t require this sort of ‘lookup’. So it has not
+been introduced.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Digraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">override</span> <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
@@ -67,10 +66,8 @@ require this.</p>
 
 <h2 id="usage">Usage</h2>
 
-<p>In the following example, for a simple test, the <code class="highlighter-rouge">WeightedDigraph</code> was defined using
-an adjacency list and an edge list (containing weights). This may be sub-optimal for
-many situations, but it illustrates how we can build up the graph using any underlying
-representation.</p>
+<p>In the following example, the <code class="highlighter-rouge">WeightedDigraph</code> interface is implemented using the <code class="highlighter-rouge">AdjacencyList</code>.
+Sometimes this may be the correct choice, though not always.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -93,7 +90,7 @@ representation.</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">4</span><span class="n">b195fe9</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">2d</span><span class="mi">7</span><span class="n">afd23</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
@@ -103,7 +100,7 @@ representation.</p>
      <span class="o">|</span> 
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">74847</span><span class="n">ad3</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">57161</span><span class="n">caf</span>
 </code></pre>
 </div>
 
