@@ -50,8 +50,9 @@ A vertex may be visited more than once in a traversal, most of the time we want 
 </code></pre>
 </div>
 
-<p>In the graph :
-<img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/traversal.png" alt="graph" /></p>
+<p>In the graph:</p>
+
+<p><img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/traversal.png" alt="graph" /></p>
 
 <ul>
   <li>a depth first search would be {A,B,D,C} or {A,C,D,B}.</li>
@@ -77,7 +78,7 @@ A vertex may be visited more than once in a traversal, most of the time we want 
 <span class="n">edges</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adj</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">edges</span><span class="o">)</span>
-<span class="n">adj</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">16</span><span class="n">ed7dba</span>
+<span class="n">adj</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">20</span><span class="n">b89271</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">dfsSearch</span> <span class="k">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">adj</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">)</span>
 <span class="n">dfsSearch</span><span class="k">:</span> <span class="kt">tiki.Predef.Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="o">?)</span>
