@@ -55,7 +55,8 @@ def bfs[A](g: Digraph[A], start: A): Stream[A]
   = visitOrder(g,start,dfs=false)
 ```
 
-In the graph :
+In the graph:
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/traversal.png)
 
 - a depth first search would be {A,B,D,C} or {A,C,D,B}.
