@@ -169,6 +169,12 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="Weighted.html" title="Defines the Weighted interface."></a>
+                        <a href="Weighted.html" title="Defines the Weighted interface.">
+                          Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges."></a>
                         <a href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges.">
                           WeightedDigraph
@@ -524,9 +530,9 @@ algorithm.
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="tiki.Path#negativeCycle" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.List[A]"></a><a id="negativeCycle[A](WeightedDigraph[A],A):List[A]"></a>
+      <a id="negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.Option[tiki.Predef.List[A]]"></a><a id="negativeCycle[A](WeightedDigraph[A],A):Option[List[A]]"></a>
       <span class="permalink">
-      <a href="../tiki/Path$.html#negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.List[A]" title="Permalink">
+      <a href="../tiki/Path$.html#negativeCycle[A](g:tiki.WeightedDigraph[A],source:A):tiki.Predef.Option[tiki.Predef.List[A]]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -535,10 +541,11 @@ algorithm.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">negativeCycle</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.negativeCycle.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#List[A]=List[A]" class="extmbr" name="tiki.Predef.List">List</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>
+        <span class="name">negativeCycle</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]</span>, <span name="source">source: <span class="extype" name="tiki.Path.negativeCycle.A">A</span></span>)</span><span class="result">: <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[<a href="Predef$.html#List[A]=List[A]" class="extmbr" name="tiki.Predef.List">List</a>[<span class="extype" name="tiki.Path.negativeCycle.A">A</span>]]</span>
       </span>
       
       <p class="shortcomment cmt">Check to see if a negative cycle exists within a digraph.</p><div class="fullcomment"><div class="comment cmt"><p>Check to see if a negative cycle exists within a digraph.
+Returns Bellman-Ford predecessors (not necessarily the minimal cycle!).
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>the digraph.</p></dd><dt class="param">source</dt><dd class="cmt"><p>the source vertex.</p></dd><dt>returns</dt><dd class="cmt"><p>a negative cycle, if one exists otherwise None.</p></dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>

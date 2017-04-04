@@ -167,6 +167,12 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="Weighted.html" title="Defines the Weighted interface."></a>
+                        <a href="Weighted.html" title="Defines the Weighted interface.">
+                          Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges."></a>
                         <a href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges.">
                           WeightedDigraph
@@ -434,10 +440,29 @@ even if the edge is undirected.
       </span>
       
       <p class="shortcomment cmt">A labelled edge between two vertices.</p>
-    </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="WeightedDigraph[A]extendsDigraph[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+    </li><li name="tiki.Weighted" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Weighted[A]extendsAnyRef"></a><a id="Weighted[A]:Weighted[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A]" title="Permalink">
+      <a href="../tiki/index.html#Weighted[A]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Defines the Weighted interface." href="Weighted.html">
+              <span class="name">Weighted</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Defines the <code>Weighted</code> interface.</p><div class="fullcomment"><div class="comment cmt"><p>Defines the <code>Weighted</code> interface.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
+    </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WeightedDigraph[A]extendsDigraph[A]withWeighted[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A]withWeighted[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -448,7 +473,7 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="Weighted digraph, a digraph that returns weighted edges." href="WeightedDigraph.html">
               <span class="name">WeightedDigraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Weighted digraph, a digraph that returns weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph, a digraph that returns weighted edges.
