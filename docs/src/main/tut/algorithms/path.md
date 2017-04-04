@@ -163,7 +163,7 @@ val xs = Stream(
 
 val graph = new WeightedUndirectedGraph[Char] {
   override def edges: Stream[WeightedEdge[Char]] = xs
-  override def vertices: Stream[Char] = Stream('A', 'B', 'C', 'D', 'E', 'F', 'G')
+  override def vertices: Stream[Char] = Stream('a', 'b', 'c', 'd', 'e', 'f', 'g')
 }
 
 val expected = Set(
