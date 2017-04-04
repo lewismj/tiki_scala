@@ -162,4 +162,5 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
     cycle.getOrElse(List.empty) should contain allOf("USD","EUR","CAD")
   }
 
+
 }

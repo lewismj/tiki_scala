@@ -29,7 +29,7 @@ The algorithm is implemented (with _N_ iterations). _note_ I think almost all
 use cases would allow us to stop once
 ```scala
   def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
-    
+
     def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] =
       state.distances.getOrElse(e.from, ∞) match {
         case du if du < ∞ =>
@@ -40,11 +40,13 @@ use cases would allow us to stop once
             val p = state.predecessors.updated(e.to, e.from)
             PathState(d, p)
           } else state
+
         case _ => state
+
       }
 
-    g.vertices.indices.foldLeft(PathState(source))(
-      (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+    Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _)
+     => g.edges.foldLeft(xs)(relaxEdge))
   }
 ```
 
@@ -61,17 +63,16 @@ A utility method to search for negative cycles is provided.
                 s.distances.getOrElse(e.to,∞) => Some(e.from)
       case _ => None
     } match {
-      case edges if edges.nonEmpty => Some(predecessorList(s,edges.head))
+      case head #:: _ => Some(predecessorList(s,head))
       case _ => None
     }
-  }
 ```
 
 The graph ...
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png)
 
-Will have a negative cycle: {a,b,e,d}
+Will have a negative cycle between _b_, _e_ and _d_.
 
 ```tut
 import tiki._

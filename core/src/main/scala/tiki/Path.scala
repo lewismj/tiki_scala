@@ -51,7 +51,7 @@ object Path {
   }
 
   /**
-    * Bellman-Ford algorithm (performs 'N' iterations).
+    * Bellman-Ford algorithm.
     *
     * @param g        a weighted digraph.
     * @param source   the source vertex.
@@ -75,10 +75,8 @@ object Path {
 
       }
 
-    Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _) => g.edges.foldLeft(xs)(relaxEdge))
-
-    //g.vertices.indices.foldLeft(PathState(source))(
-    //  (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+    Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _)
+     => g.edges.foldLeft(xs)(relaxEdge))
   }
 
   /**
@@ -115,9 +113,10 @@ object Path {
                 s.distances.getOrElse(e.to,∞) => Some(e.from)
       case _ => None
     } match {
-      case edges if edges.nonEmpty => Some(predecessorList(s,edges.head))
+      case head #:: _ => Some(predecessorList(s,head))
       case _ => None
     }
+
   }
 
 }
