@@ -48,36 +48,6 @@ use cases would allow us to stop once
   }
 ```
 
-```tut
-import tiki._
-import tiki.Predef._
-import tiki.Path._
-import tiki.implicits._
-
-val xs = Stream(
-  'A' --> 'B' :# -1.0,
-  'A' --> 'C' :# 4.0,
-  'B' --> 'C' :# 3.0,
-  'B' --> 'D' :# 2.0,
-  'D' --> 'B' :# 1.0,
-  'B' --> 'E' :# 2.0,
-  'E' --> 'D' :# -3.0
-)
-val adjacencyList = AdjacencyList(xs)
-
-val digraph = new WeightedDigraph[Char] {
-  /* Use adjacency list for basic digraph implementation. */
-  def contains(v: Char) = adjacencyList.contains(v)
-  def vertices: Stream[Char] = adjacencyList.vertices
-  def successors(v: Char) = adjacencyList.successors(v)
-  def predecessors(v: Char) = adjacencyList.predecessors(v)
-  /* adjacency doesn't store edges. */
-  def edges = xs
-}
-
-val state = bellmanFord(digraph,'A')
-state.distances
-```
 
 ### Negative cycles
 A utility method to search for negative cycles is provided:
@@ -93,4 +63,39 @@ A utility method to search for negative cycles is provided:
       case _ => List.empty[A]
     }
   }
+```
+
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png)
+
+
+```tut
+import tiki._
+import tiki.Predef._
+import tiki.Path._
+import tiki.implicits._
+
+val xs = Stream(
+  'A' --> 'B' :# -1.0,
+  'A' --> 'C' :# 4.0,
+  'B' --> 'C' :# 3.0,
+  'B' --> 'D' :# 2.0,
+  'D' --> 'B' :# 1.0,
+  'B' --> 'E' :# 2.0,
+  'E' --> 'D' :# -6.0
+)
+val adjacencyList = AdjacencyList(xs)
+
+val digraph = new WeightedDigraph[Char] {
+  /* Use adjacency list for basic digraph implementation. */
+  def contains(v: Char) = adjacencyList.contains(v)
+  def vertices: Stream[Char] = adjacencyList.vertices
+  def successors(v: Char) = adjacencyList.successors(v)
+  def predecessors(v: Char) = adjacencyList.predecessors(v)
+  /* adjacency doesn't store edges. */
+  def edges = xs
+}
+
+val state = bellmanFord(digraph,'A')
+state.distances
+negativeCycle(digraph,'A').mkString
 ```
