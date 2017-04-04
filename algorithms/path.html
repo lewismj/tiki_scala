@@ -44,21 +44,17 @@ use cases would allow us to stop once</p>
 </div>
 
 <h3 id="negative-cycles">Negative cycles</h3>
-<p>A utility method to search for negative cycles is provided.</p>
 
-<p><strong>note</strong> At present it just returns the details of the <code class="highlighter-rouge">predecessor</code> 
-list from the Bellman-Ford output. This will contain the negative 
-cycle, but may not be limited to just the cycle.</p>
+<p>A utility method to search for negative cycles is provided.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code>  <span class="k">def</span> <span class="n">negativeCycle</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">source</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
     <span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="n">bellmanFord</span><span class="o">(</span><span class="n">g</span><span class="o">,</span> <span class="n">source</span><span class="o">)</span>
     <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">flatMap</span> <span class="o">{</span>
       <span class="k">case</span> <span class="n">e</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">distances</span><span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">from</span><span class="o">,∞)</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">weight</span> <span class="o">&lt;</span>
-                <span class="n">s</span><span class="o">.</span><span class="n">distances</span><span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">to</span><span class="o">,∞)</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">to</span><span class="o">)</span>
+                <span class="n">s</span><span class="o">.</span><span class="n">distances</span><span class="o">.</span><span class="n">getOrElse</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">to</span><span class="o">,∞)</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">from</span><span class="o">)</span>
       <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="nc">None</span>
     <span class="o">}</span> <span class="k">match</span> <span class="o">{</span>
-      <span class="k">case</span> <span class="n">edges</span> <span class="k">if</span> <span class="n">edges</span> <span class="n">contains</span> <span class="n">source</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="n">predecessorList</span><span class="o">(</span><span class="n">s</span><span class="o">,</span><span class="n">source</span><span class="o">))</span>
-      <span class="k">case</span> <span class="n">edges</span> <span class="k">if</span> <span class="n">edges</span><span class="o">.</span><span class="n">nonEmpty</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="n">predecessorList</span><span class="o">(</span><span class="n">s</span><span class="o">,</span><span class="n">edges</span><span class="o">.</span><span class="n">last</span><span class="o">))</span>
+      <span class="k">case</span> <span class="n">edges</span> <span class="k">if</span> <span class="n">edges</span><span class="o">.</span><span class="n">nonEmpty</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="n">predecessorList</span><span class="o">(</span><span class="n">s</span><span class="o">,</span><span class="n">edges</span><span class="o">.</span><span class="n">head</span><span class="o">))</span>
       <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="nc">None</span>
     <span class="o">}</span>
   <span class="o">}</span>
@@ -69,9 +65,7 @@ cycle, but may not be limited to just the cycle.</p>
 
 <p><img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png" alt="graph" /></p>
 
-<p>Will have a negative cycle, reachable from ‘a’, the predecessor list returned will contain
-{e,d,b}. n.b. If the order of the edges is changed, ‘c’ has a predecessor of ‘b’. 
-The method can be improved to return <em>just</em> the cycle.</p>
+<p>Will have a negative cycle: {a,b,e,d}</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -97,7 +91,7 @@ The method can be improved to return <em>just</em> the cycle.</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">a</span> <span class="o">--&gt;</span> <span class="n">b</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">65</span><span class="n">e51a40</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">3</span><span class="n">c28611c</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="cm">/* Use adjacency list for basic digraph implementation. */</span>
@@ -108,7 +102,7 @@ The method can be improved to return <em>just</em> the cycle.</p>
      <span class="o">|</span>   <span class="cm">/* adjacency doesn't store edges. */</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">4f</span><span class="mi">09756</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">35</span><span class="n">bc4b28</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">cycle</span> <span class="k">=</span> <span class="n">negativeCycle</span><span class="o">(</span><span class="n">digraph</span><span class="o">,</span><span class="sc">'a'</span><span class="o">)</span>
 <span class="n">cycle</span><span class="k">:</span> <span class="kt">tiki.Predef.Option</span><span class="o">[</span><span class="kt">tiki.Predef.List</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">b</span><span class="o">))</span>
