@@ -71,8 +71,8 @@ import scala.util.Random
 
 val edges = Stream('A' --> 'B', 'A' --> 'C', 'B' --> 'D', 'C' --> 'D')
 val adj = AdjacencyList(edges)
-val dfs = dfs(adj, 'A')
-dfs.mkString
-val bfs = bfs(adj, 'A')
-bfs.mkString
+val dfsSearch = dfs(adj, 'A')
+dfsSearch.mkString
+val bfsSearch = bfs(adj, 'A')
+bfsSearch.mkString
 ```
