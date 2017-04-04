@@ -137,8 +137,9 @@ def kruskal[A](g: WeightedGraph[A]): List[WeightedEdge[A]] =
   }).mst  
 ```
 
+An example minimum spanning tree is given below:
 
-
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/span.png)
 
 ```tut
 import tiki.Predef._
@@ -146,17 +147,17 @@ import tiki.implicits._
 import tiki.Path._
 
 val xs = Stream(
-  'A' --> 'B' :# 7.0,
-  'A' --> 'D' :# 5.0,
-  'B' --> 'C' :# 8.0,
-  'B' --> 'E' :# 7.0,
-  'C' --> 'E' :# 5.0,
-  'D' --> 'B' :# 9.0,
-  'D' --> 'E' :# 15.0,
-  'D' --> 'F' :# 6.0,
-  'E' --> 'F' :# 8.0,
-  'E' --> 'G' :# 9.0,
-  'F' --> 'G' :# 11.0
+  'a' --> 'b' :# 7.0,
+  'a' --> 'd' :# 5.0,
+  'b' --> 'c' :# 8.0,
+  'b' --> 'e' :# 7.0,
+  'c' --> 'e' :# 5.0,
+  'd' --> 'b' :# 9.0,
+  'd' --> 'e' :# 15.0,
+  'd' --> 'f' :# 6.0,
+  'e' --> 'f' :# 8.0,
+  'e' --> 'g' :# 9.0,
+  'f' --> 'g' :# 11.0
 )
 
 
@@ -166,12 +167,12 @@ val graph = new WeightedUndirectedGraph[Char] {
 }
 
 val expected = Set(
-  'A' --> 'D' :# 5.0,
-  'C' --> 'E' :# 5.0,
-  'D' --> 'F' :# 6.0,
-  'A' --> 'B' :# 7.0,
-  'B' --> 'E' :# 7.0,
-  'E' --> 'G' :# 9.0
+  'a' --> 'd' :# 5.0,
+  'c' --> 'e' :# 5.0,
+  'd' --> 'f' :# 6.0,
+  'a' --> 'b' :# 7.0,
+  'b' --> 'e' :# 7.0,
+  'e' --> 'g' :# 9.0
 )
 
 val k = kruskal(graph)
