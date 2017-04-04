@@ -50,22 +50,18 @@ use cases would allow us to stop once
 
 
 ### Negative cycles
-A utility method to search for negative cycles is provided.
 
-**note** At present it just returns the details of the `predecessor` 
-list from the Bellman-Ford output. This will contain the negative 
-cycle, but may not be limited to just the cycle.
+A utility method to search for negative cycles is provided.
 
 ```scala
   def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[List[A]] = {
     val s = bellmanFord(g, source)
     g.edges.flatMap {
       case e if s.distances.getOrElse(e.from,∞) + e.weight <
-                s.distances.getOrElse(e.to,∞) => Some(e.to)
+                s.distances.getOrElse(e.to,∞) => Some(e.from)
       case _ => None
     } match {
-      case edges if edges contains source => Some(predecessorList(s,source))
-      case edges if edges.nonEmpty => Some(predecessorList(s,edges.last))
+      case edges if edges.nonEmpty => Some(predecessorList(s,edges.head))
       case _ => None
     }
   }
@@ -75,9 +71,7 @@ The graph ...
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png)
 
-Will have a negative cycle, reachable from 'a', the predecessor list returned will contain
-{e,d,b}. n.b. If the order of the edges is changed, 'c' has a predecessor of 'b'. 
-The method can be improved to return _just_ the cycle.
+Will have a negative cycle: {a,b,e,d}
 
 ```tut
 import tiki._

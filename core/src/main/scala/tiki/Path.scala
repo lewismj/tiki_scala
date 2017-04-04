@@ -70,11 +70,15 @@ object Path {
             val p = state.predecessors.updated(e.to, e.from)
             PathState(d, p)
           } else state
+
         case _ => state
+
       }
 
-    g.vertices.indices.foldLeft(PathState(source))(
-      (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+    Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _) => g.edges.foldLeft(xs)(relaxEdge))
+
+    //g.vertices.indices.foldLeft(PathState(source))(
+    //  (xs, _) => g.edges.foldLeft(xs)(relaxEdge))
   }
 
   /**
@@ -87,8 +91,6 @@ object Path {
     * @return the list of predecessors.
     */
   private def predecessorList[A](s: PathState[A], a: A): List[A] = {
-    val sourceCost = s.distances(a)
-
     @tailrec
     def loop(v: A, cycle: List[A]): List[A] = {
       val p = s.predecessors(v)
@@ -100,7 +102,6 @@ object Path {
 
   /**
     * Check to see if a negative cycle exists within a digraph.
-    * Returns Bellman-Ford predecessors (not necessarily the minimal cycle!).
     *
     * @param g        the digraph.
     * @param source   the source vertex.
@@ -111,11 +112,10 @@ object Path {
     val s = bellmanFord(g, source)
     g.edges.flatMap {
       case e if s.distances.getOrElse(e.from,∞) + e.weight <
-                s.distances.getOrElse(e.to,∞) => Some(e.to)
+                s.distances.getOrElse(e.to,∞) => Some(e.from)
       case _ => None
     } match {
-      case edges if edges contains source => Some(predecessorList(s,source))
-      case edges if edges.nonEmpty => Some(predecessorList(s,edges.last))
+      case edges if edges.nonEmpty => Some(predecessorList(s,edges.head))
       case _ => None
     }
   }
