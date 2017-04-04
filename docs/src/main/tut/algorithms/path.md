@@ -77,7 +77,7 @@ The graph ...
 
 Will have a negative cycle, reachable from 'a', the predecessor list returned will contain
 {e,d,b}. n.b. If the order of the edges is changed, 'c' has a predecessor of 'b'. 
-The method can be improved to return _just_ the cycle, when this happens.
+The method can be improved to return _just_ the cycle.
 
 ```tut
 import tiki._
@@ -106,6 +106,6 @@ val digraph = new WeightedDigraph[Char] {
   def edges = xs
 }
 
-val cycle = negativeCycle(digraph,'A')
+val cycle = negativeCycle(digraph,'a')
 cycle.mkString
 ```
