@@ -71,7 +71,7 @@ cycle, but may not be limited to just the cycle.</p>
 
 <p>Will have a negative cycle, reachable from ‘a’, the predecessor list returned will contain
 {e,d,b}. n.b. If the order of the edges is changed, ‘c’ has a predecessor of ‘b’. 
-The method can be improved to return <em>just</em> the cycle, when this happens.</p>
+The method can be improved to return <em>just</em> the cycle.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -97,7 +97,7 @@ The method can be improved to return <em>just</em> the cycle, when this happens.
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">a</span> <span class="o">--&gt;</span> <span class="n">b</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">1</span><span class="n">a9511ab</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">254</span><span class="n">b2ea0</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="cm">/* Use adjacency list for basic digraph implementation. */</span>
@@ -108,13 +108,13 @@ The method can be improved to return <em>just</em> the cycle, when this happens.
      <span class="o">|</span>   <span class="cm">/* adjacency doesn't store edges. */</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">3661</span><span class="n">a4f9</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">7034</span><span class="n">b5e0</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">cycle</span> <span class="k">=</span> <span class="n">negativeCycle</span><span class="o">(</span><span class="n">digraph</span><span class="o">,</span><span class="sc">'A'</span><span class="o">)</span>
-<span class="n">cycle</span><span class="k">:</span> <span class="kt">tiki.Predef.Option</span><span class="o">[</span><span class="kt">tiki.Predef.List</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">None</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">cycle</span> <span class="k">=</span> <span class="n">negativeCycle</span><span class="o">(</span><span class="n">digraph</span><span class="o">,</span><span class="sc">'a'</span><span class="o">)</span>
+<span class="n">cycle</span><span class="k">:</span> <span class="kt">tiki.Predef.Option</span><span class="o">[</span><span class="kt">tiki.Predef.List</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">b</span><span class="o">))</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">cycle</span><span class="o">.</span><span class="n">mkString</span>
-<span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">List</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
 </code></pre>
 </div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({
