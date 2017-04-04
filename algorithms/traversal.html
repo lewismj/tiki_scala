@@ -38,6 +38,7 @@ A vertex may be visited more than once in a traversal, most of the time we want 
 </ul>
 
 <p>Both are implemented in terms of the <code class="highlighter-rouge">visitOrder</code> function.</p>
+
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">private</span> <span class="k">def</span> <span class="n">visitOrder</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">Digraph</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">start</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">dfs</span><span class="k">:</span> <span class="kt">Boolean</span><span class="o">)</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
   <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">start</span><span class="o">))</span> <span class="n">traverse</span><span class="o">(</span><span class="n">g</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">dfs</span><span class="o">).</span><span class="n">distinct</span> <span class="k">else</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">empty</span>
 
@@ -48,6 +49,14 @@ A vertex may be visited more than once in a traversal, most of the time we want 
   <span class="k">=</span> <span class="n">visitOrder</span><span class="o">(</span><span class="n">g</span><span class="o">,</span><span class="n">start</span><span class="o">,</span><span class="n">dfs</span><span class="k">=</span><span class="kc">false</span><span class="o">)</span>
 </code></pre>
 </div>
+
+<p>In the graph below:
+<img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/traversal.png" alt="graph" /></p>
+
+<ul>
+  <li>a depth first search would be {A,B,D,C} or {A,C,D,B}.</li>
+  <li>a breadth first search would be {A,B,C,D} or {A,C,B,D}.</li>
+</ul>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -68,13 +77,19 @@ A vertex may be visited more than once in a traversal, most of the time we want 
 <span class="n">edges</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.Edge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adj</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">edges</span><span class="o">)</span>
-<span class="n">adj</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">273d</span><span class="mi">482</span>
+<span class="n">adj</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">6</span><span class="n">b892363</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">search</span> <span class="k">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">adj</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">)</span>
-<span class="n">search</span><span class="k">:</span> <span class="kt">tiki.Predef.Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="o">?)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">dfsSearch</span> <span class="k">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">adj</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">)</span>
+<span class="n">dfsSearch</span><span class="k">:</span> <span class="kt">tiki.Predef.Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="o">?)</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="n">search</span><span class="o">.</span><span class="n">mkString</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">dfsSearch</span><span class="o">.</span><span class="n">mkString</span>
 <span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">ABDC</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">bfsSearch</span> <span class="k">=</span> <span class="n">bfs</span><span class="o">(</span><span class="n">adj</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">)</span>
+<span class="n">bfsSearch</span><span class="k">:</span> <span class="kt">tiki.Predef.Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="o">?)</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">bfsSearch</span><span class="o">.</span><span class="n">mkString</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">ABCD</span>
 </code></pre>
 </div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({
