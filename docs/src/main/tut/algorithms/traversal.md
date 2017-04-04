@@ -43,6 +43,7 @@ private def traverse[A](g: Digraph[A], v: A, dfs: Boolean): Stream[A]
  - `bfs(g,start)` as above, except a breadth first search will be done.
  
  Both are implemented in terms of the `visitOrder` function.
+ 
  ```scala
 private def visitOrder[A](g: Digraph[A], start: A, dfs: Boolean): Stream[A]
   = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty
@@ -54,6 +55,12 @@ def bfs[A](g: Digraph[A], start: A): Stream[A]
   = visitOrder(g,start,dfs=false)
 ```
 
+In the graph below:
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/traversal.png)
+
+- a depth first search would be {A,B,D,C} or {A,C,D,B}.
+- a breadth first search would be {A,B,C,D} or {A,C,B,D}.
+
 ```tut
 import tiki._
 import tiki.Predef._
@@ -64,6 +71,8 @@ import scala.util.Random
 
 val edges = Stream('A' --> 'B', 'A' --> 'C', 'B' --> 'D', 'C' --> 'D')
 val adj = AdjacencyList(edges)
-val search = dfs(adj, 'A')
-search.mkString
+val dfs = dfs(adj, 'A')
+dfs.mkString
+val bfs = bfs(adj, 'A')
+bfs.mkString
 ```
