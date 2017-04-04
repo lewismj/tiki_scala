@@ -97,5 +97,4 @@ val digraph = new WeightedDigraph[Char] {
 
 val state = bellmanFord(digraph,'A')
 state.distances
-negativeCycle(digraph,'A').mkString
 ```
