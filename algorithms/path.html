@@ -66,7 +66,7 @@ use cases would allow us to stop once</p>
 
 <p><img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png" alt="graph" /></p>
 
-<p>Will have a negative cycle between <em>b</em>, <em>e</em> and <em>d</em>.</p>
+<p>Will have a negative cycle (<strong>reachable from <em>a</em></strong>) between <em>b</em>, <em>e</em> and <em>d</em>.</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -92,7 +92,7 @@ use cases would allow us to stop once</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">a</span> <span class="o">--&gt;</span> <span class="n">b</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">14d</span><span class="n">c6cd3</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">4588</span><span class="n">bfdd</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="cm">/* Use adjacency list for basic digraph implementation. */</span>
@@ -103,7 +103,7 @@ use cases would allow us to stop once</p>
      <span class="o">|</span>   <span class="cm">/* adjacency doesn't store edges. */</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">3f45f</span><span class="mi">6</span><span class="n">e1</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">4</span><span class="n">ccbe9c7</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">cycle</span> <span class="k">=</span> <span class="n">negativeCycle</span><span class="o">(</span><span class="n">digraph</span><span class="o">,</span><span class="sc">'a'</span><span class="o">)</span>
 <span class="n">cycle</span><span class="k">:</span> <span class="kt">tiki.Predef.Option</span><span class="o">[</span><span class="kt">tiki.Predef.List</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">b</span><span class="o">))</span>
