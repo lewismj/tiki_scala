@@ -36,8 +36,8 @@ object Path {
   val ⧞ = Double.NegativeInfinity
 
   /**
-    * Case class that represents the running state of the Bellman-Ford
-    * algorithm.
+    * Case class that represents the running state of the
+    * Bellman-Ford algorithm.
     *
     * @param distances current distances.
     * @param predecessors current predecessors.
@@ -116,7 +116,36 @@ object Path {
       case head #:: _ => Some(predecessorList(s,head))
       case _ => None
     }
-
   }
+
+
+  /**
+    * Case class that represents the running state of Kruskal's
+    * algorithm.
+    *
+    * @param ds   a disjoint set.
+    * @param mst  the minimum spanning tree.
+    * @tparam A   the vertex type.
+    */
+  case class SpanState[A](ds: DisjointSet[A], mst: List[WeightedEdge[A]])
+
+  object SpanState {
+    def empty[A](g: WeightedGraph[A]): SpanState[A]
+      = new SpanState[A](DisjointSet(g.vertices.toSet),List.empty[WeightedEdge[A]])
+  }
+
+  /**
+    * Kruskal's algorithm for finding the minimum spanning tree.
+    *
+    * @param g    the weighted graph.
+    * @tparam A   the vertex type.
+    * @return     the minimum spanning tree.
+    */
+  def kruskal[A](g: WeightedGraph[A]): List[WeightedEdge[A]] =
+      g.edges.sortBy(_.weight).foldLeft(SpanState.empty(g))((state,y) => y.edge match {
+        case Edge(u,v) if state.ds.find(u) != state.ds.find(v) =>
+          new SpanState(state.ds.union(u,v).getOrElse(state.ds),y :: state.mst)
+        case _ => state
+      }).mst
 
 }

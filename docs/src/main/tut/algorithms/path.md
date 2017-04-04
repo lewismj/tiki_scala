@@ -13,6 +13,7 @@ The following functions are currently implemented
 given a weighted directed graph and source vertex.
 - `negativeCycle(g,source)` discovers a negative cycle (or returns an empty list if none exist) in the graph
  _g_ starting from vertex _source_.
+ - `kruskal(g)` finds the minimum spanning tree of a weighted graph, using Kruskal's algorithm.
 
 ### Bellman-Ford
 
@@ -68,7 +69,7 @@ A utility method to search for negative cycles is provided.
     }
 ```
 
-The graph ...
+The graph:
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png)
 
@@ -103,4 +104,76 @@ val digraph = new WeightedDigraph[Char] {
 
 val cycle = negativeCycle(digraph,'a')
 cycle.mkString
+```
+
+### Kruskal's Algorithm
+
+From [wikipedia](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
+
+"_Kruskal's algorithm is a minimum-spanning-tree algorithm which finds an edge 
+of the least possible weight that connects any two trees in the forest.
+ It is a greedy algorithm in graph theory as it finds a minimum spanning tree
+ for a connected weighted graph adding increasing cost arcs at each step.
+ This means it finds a subset of the edges that forms a tree that includes every vertex,
+  where the total weight of all the edges in the tree is minimized. 
+  If the graph is not connected, then it finds a minimum spanning forest 
+  (a minimum spanning tree for each connected component)_."
+
+This is implemented as a fold over the edges of a weighted graph.
+
+```scala
+case class SpanState[A](ds: DisjointSet[A], mst: List[WeightedEdge[A]])
+
+object SpanState {
+def empty[A](g: WeightedGraph[A]): SpanState[A]
+  = new SpanState[A](DisjointSet(g.vertices.toSet),List.empty[WeightedEdge[A]])
+}
+  
+def kruskal[A](g: WeightedGraph[A]): List[WeightedEdge[A]] =
+  g.edges.sortBy(_.weight).foldLeft(SpanState.empty(g))((state,y)=> y.edge match {
+    case Edge(u,v) if state.ds.find(u) != state.ds.find(v) =>
+      new SpanState(state.ds.union(u,v).getOrElse(state.ds),y :: state.mst)
+    case _ => state
+  }).mst  
+```
+
+
+
+
+```tut
+import tiki.Predef._
+import tiki.implicits._
+import tiki.Path._
+
+val xs = Stream(
+  'A' --> 'B' :# 7.0,
+  'A' --> 'D' :# 5.0,
+  'B' --> 'C' :# 8.0,
+  'B' --> 'E' :# 7.0,
+  'C' --> 'E' :# 5.0,
+  'D' --> 'B' :# 9.0,
+  'D' --> 'E' :# 15.0,
+  'D' --> 'F' :# 6.0,
+  'E' --> 'F' :# 8.0,
+  'E' --> 'G' :# 9.0,
+  'F' --> 'G' :# 11.0
+)
+
+
+val graph = new WeightedUndirectedGraph[Char] {
+  override def edges: Stream[WeightedEdge[Char]] = xs
+  override def vertices: Stream[Char] = Stream('A', 'B', 'C', 'D', 'E', 'F', 'G')
+}
+
+val expected = Set(
+  'A' --> 'D' :# 5.0,
+  'C' --> 'E' :# 5.0,
+  'D' --> 'F' :# 6.0,
+  'A' --> 'B' :# 7.0,
+  'B' --> 'E' :# 7.0,
+  'E' --> 'G' :# 9.0
+)
+
+val k = kruskal(graph)
+k.mkString("\n")
 ```

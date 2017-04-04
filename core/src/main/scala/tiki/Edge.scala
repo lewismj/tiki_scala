@@ -42,9 +42,8 @@ sealed trait EdgeLike[T] {
   * Represents an edge between two vertices.
   *
   * The edges in a graph tend to be either all directed or all undirected.
-  * i.e. A property that holds across the graph. An undirected graph can
-  * be represented by a pair of directed edges. Generally, the library is
-  * concerned with directed graphs.
+  * i.e. A property that holds across the graph. Rather than a property
+  * of the edge.
   *
   * @param from   one vertex in an edge.
   * @param to     the 'other' vertex in the edge.

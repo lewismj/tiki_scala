@@ -22,22 +22,52 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package object tiki {
-  import shapeless.Poly1
-  import tiki.implicits._
+package tiki
+package tests
 
-  /**
-    * Provides 'reverse' function for different 'Edge' case classes.
-    */
-  object reverse extends Poly1 {
-    implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]
-      = at({ x=> x.edge.to --> x.edge.from :+ x.label})
-    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]
-      = at({ x=> x.edge.to --> x.edge.from :# x.weight})
+import tiki.tests.arbitrary.AllArbitrary
+
+import tiki.Predef._
+import tiki.implicits._
+import tiki.Path._
+
+/** WIP: Need to add ScalaCheck tests. */
+
+class KruskalSpec extends TikiSuite with AllArbitrary {
+
+  test("simple graph test, kruskal finds minimum spanning tree") {
+
+    val xs = Stream(
+      'A' --> 'B' :# 7.0,
+      'A' --> 'D' :# 5.0,
+      'B' --> 'C' :# 8.0,
+      'B' --> 'E' :# 7.0,
+      'C' --> 'E' :# 5.0,
+      'D' --> 'B' :# 9.0,
+      'D' --> 'E' :# 15.0,
+      'D' --> 'F' :# 6.0,
+      'E' --> 'F' :# 8.0,
+      'E' --> 'G' :# 9.0,
+      'F' --> 'G' :# 11.0
+    )
+
+
+    val graph = new WeightedUndirectedGraph[Char] {
+      override def edges: Stream[WeightedEdge[Char]] = xs
+      override def vertices: Stream[Char] = Stream('A', 'B', 'C', 'D', 'E', 'F', 'G')
+    }
+
+    val expected = Set(
+      'A' --> 'D' :# 5.0,
+      'C' --> 'E' :# 5.0,
+      'D' --> 'F' :# 6.0,
+      'A' --> 'B' :# 7.0,
+      'B' --> 'E' :# 7.0,
+      'E' --> 'G' :# 9.0
+    )
+
+    val k = kruskal(graph)
+    k.toSet should be(expected)
   }
 
-
-
 }
-

@@ -53,39 +53,49 @@ A _digraph_ is a graph that supports the `Directed` interface.
 trait Digraph[A] extends Graph[A] with Directed[A] {}
 ```
 
-### Weighted
+## Weighted graphs
 
-```scala
-trait Weighted[A] {
-  def weight(u: A, v: A): Option[Double]
-}
-```
+There are two types of weighted graphs, one based on `Digraph` the other
+on `Graph` (i.e. non directed graph).
+
 
 #### WeightedDigraph
 
 The weighted digraph interface can be defined as a`Digraph` that returns
- weighted`edges` and also
-
-
-```scala
-trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
+ weighted`edges`. 
+ 
   
-  /** Returns the edges. */
+```scala
+trait WeightedDigraph[A] extends Digraph[A]  {
   override def edges: Stream[WeightedEdge[A]]
-
-  /**
-    * Provide default implementation of interface. Many algorithms
-    * will just iterate over edges. So, not critical to optimise,
-    * for many use cases.
-    */
-  override def weight(u: A, v: A): Option[Double] =
-    edges.find(_.edge == u --> v).flatMap(we => Some(we.weight))
 }
 ```
-With:
+ 
+### WeightedUndirectedGraph
 
-- `weighted(u,v)` the weight of the edge from u to v.
+The weighted undirected graph is defined as a graph that returns weighted edges.
 
+```scala
+trait WeightedUndirectedGraph[A] extends Graph[A] {
+  def edges: Stream[WeightedEdge[A]]
+}
+```
+
+Rather than force a common point in a type hierarchy, a `WeightedGraph` type-class is
+defined:
+
+```scala
+trait WeightedGraph[A] extends Graph[A] {
+  def edges: Stream[WeightedEdge[A]]
+}
+
+
+object WeightedGraph {
+  def apply[A: WeightedGraph]: WeightedGraph[A] = implicitly
+}
+```
+
+Both types of weighted graph implicitly support this interface.
 
 ## Usage
 

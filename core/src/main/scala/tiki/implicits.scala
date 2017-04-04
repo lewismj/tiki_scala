@@ -71,4 +71,16 @@ object implicits {
   implicit def weightedToEdge[A](s: Stream[WeightedEdge[A]]): Stream[Edge[A]] = s.map(_.edge)
   implicit def labelledToEdge[A,B](s: Stream[LabelledEdge[A,B]]): Stream[Edge[A]] = s.map(_.edge)
 
+
+
+  implicit def undirected[A](g: WeightedUndirectedGraph[A]): WeightedGraph[A] = new WeightedGraph[A] {
+    def vertices: Stream[A] = g.vertices
+    def edges: Stream[WeightedEdge[A]] = g.edges
+  }
+
+  implicit def directed[A](g: WeightedDigraph[A]): WeightedGraph[A] = new WeightedGraph[A] {
+    def edges: Stream[WeightedEdge[A]] = g.edges
+    def vertices: Stream[A] = g.vertices
+  }
+
 }
