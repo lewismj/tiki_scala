@@ -16,8 +16,6 @@
 
 A library for functional graph algorithms (_soon_)
 
-_alpha_ needs some ScalaCheck tests added to the tests and (probably) some bug fixes.
-
 Waffle board [here](https://waffle.io/lewismj/tiki).
 
 ### Documentation

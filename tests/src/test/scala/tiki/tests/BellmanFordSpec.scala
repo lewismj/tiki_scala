@@ -30,6 +30,7 @@ import tiki.tests.arbitrary.AllArbitrary
 import tiki.Predef._
 import tiki.implicits._
 import tiki.Path._
+import tiki.Traversal._
 
 import scala.math._
 
@@ -63,9 +64,11 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
     }
 
     val state = bellmanFord(digraph,'A')
-    val expected = Map('A' -> 0.0, 'B' -> -1.0 , 'C' -> 2.0, 'D' -> - 2.0, 'E' -> 1.0)
+    val expectedDistances = Map('A' -> 0.0, 'B' -> -1.0 , 'C' -> 2.0, 'D' -> - 2.0, 'E' -> 1.0)
+    val expectedPredecessors = Map('B'->'A','C'->'B','D'->'E','E'->'B')
 
-    state.distances should be(expected)
+    state.distances should be(expectedDistances)
+    state.predecessors should be(expectedPredecessors)
   }
 
 
@@ -91,9 +94,8 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
       def edges: Stream[WeightedEdge[Int]] = xs
     }
 
-    negativeCycle(digraph,0).nonEmpty should be (true)
+    negativeCycle(digraph,0).isDefined should be (true)
   }
-
 
   test("simple graph should have no negative cycles") {
     val xs = Stream ('a' --> 'b' :# 5.0, 'b' --> 'c' :# 10.0, 'c' --> 'a' :# -5.0)
@@ -109,7 +111,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
     }
 
     val nCycles = negativeCycle(digraph,'a')
-    nCycles.isEmpty should be (true)
+    nCycles.isDefined should be (false)
   }
 
 
@@ -157,7 +159,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
     // To test for arbitrage opportunities, you would map
     // over every currency looking for negative cycle.
     val cycle = negativeCycle(digraph, "USD")
-    cycle should contain allOf("USD","EUR","CAD")
+    cycle.getOrElse(List.empty) should contain allOf("USD","EUR","CAD")
   }
 
 }

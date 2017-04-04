@@ -87,31 +87,36 @@ object Path {
     * @return the list of predecessors.
     */
   private def predecessorList[A](s: PathState[A], a: A): List[A] = {
+    val sourceCost = s.distances(a)
+
     @tailrec
     def loop(v: A, cycle: List[A]): List[A] = {
       val p = s.predecessors(v)
-      if (cycle.contains(p)) cycle else loop(p, p :: cycle)
+      if (cycle.contains(p)) cycle
+      else loop(p, p :: cycle)
     }
     loop(a,List(a))
   }
 
   /**
     * Check to see if a negative cycle exists within a digraph.
+    * Returns Bellman-Ford predecessors (not necessarily the minimal cycle!).
     *
     * @param g        the digraph.
     * @param source   the source vertex.
     * @tparam A       the vertex type.
     * @return         a negative cycle, if one exists otherwise None.
     */
-  def negativeCycle[A](g: WeightedDigraph[A], source: A): List[A] = {
+  def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[List[A]] = {
     val s = bellmanFord(g, source)
     g.edges.flatMap {
-      case e if s.distances(e.from) + e.weight < s.distances(e.to) => Some(e.to)
+      case e if s.distances.getOrElse(e.from,∞) + e.weight <
+                s.distances.getOrElse(e.to,∞) => Some(e.to)
       case _ => None
     } match {
-      case head #:: tail if tail contains source => predecessorList(s, source)
-      case head #:: _ => predecessorList(s, head)
-      case _ => List.empty[A]
+      case edges if edges contains source => Some(predecessorList(s,source))
+      case edges if edges.nonEmpty => Some(predecessorList(s,edges.last))
+      case _ => None
     }
   }
 

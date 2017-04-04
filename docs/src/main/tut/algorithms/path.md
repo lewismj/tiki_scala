@@ -50,23 +50,34 @@ use cases would allow us to stop once
 
 
 ### Negative cycles
-A utility method to search for negative cycles is provided:
+A utility method to search for negative cycles is provided.
+
+**note** At present it just returns the details of the `predecessor` 
+list from the Bellman-Ford output. This will contain the negative 
+cycle, but may not be limited to just the cycle.
+
 ```scala
-  def negativeCycle[A](g: WeightedDigraph[A], source: A): List[A] = {
+  def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[List[A]] = {
     val s = bellmanFord(g, source)
     g.edges.flatMap {
-      case e if s.distances(e.from) + e.weight < s.distances(e.to) => Some(e.to)
+      case e if s.distances.getOrElse(e.from,∞) + e.weight <
+                s.distances.getOrElse(e.to,∞) => Some(e.to)
       case _ => None
     } match {
-      case head #:: tail if tail contains source => predecessorList(s, source)
-      case head #:: _ => predecessorList(s, head)
-      case _ => List.empty[A]
+      case edges if edges contains source => Some(predecessorList(s,source))
+      case edges if edges.nonEmpty => Some(predecessorList(s,edges.last))
+      case _ => None
     }
   }
 ```
 
+The graph ...
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png)
 
+Will have a negative cycle, reachable from 'a', the predecessor list returned will contain
+{e,d,b}. n.b. If the order of the edges is changed, 'c' has a predecessor of 'b'. 
+The method can be improved to return _just_ the cycle, when this happens.
 
 ```tut
 import tiki._
@@ -75,14 +86,14 @@ import tiki.Path._
 import tiki.implicits._
 
 val xs = Stream(
-  'A' --> 'B' :# -1.0,
-  'A' --> 'C' :# 4.0,
-  'B' --> 'C' :# 3.0,
-  'B' --> 'D' :# 2.0,
-  'D' --> 'B' :# 1.0,
-  'B' --> 'E' :# 2.0,
-  'E' --> 'D' :# -6.0
-)
+        'a' --> 'b' :# -1.0,
+        'a' --> 'c' :# 4.0,
+        'b' --> 'c' :# 3.0,
+        'b' --> 'd' :# 2.0,
+        'd' --> 'b' :# 1.0,
+        'b' --> 'e' :# 2.0,
+        'e' --> 'd' :# -6.0
+      )
 val adjacencyList = AdjacencyList(xs)
 
 val digraph = new WeightedDigraph[Char] {
@@ -95,6 +106,6 @@ val digraph = new WeightedDigraph[Char] {
   def edges = xs
 }
 
-val state = bellmanFord(digraph,'A')
-state.distances
+val cycle = negativeCycle(digraph,'A')
+cycle.mkString
 ```

@@ -53,20 +53,39 @@ A _digraph_ is a graph that supports the `Directed` interface.
 trait Digraph[A] extends Graph[A] with Directed[A] {}
 ```
 
+### Weighted
+
+```scala
+trait Weighted[A] {
+  def weight(u: A, v: A): Option[Double]
+}
+```
+
 #### WeightedDigraph
 
 The weighted digraph interface can be defined as a`Digraph` that returns
- weighted`edges`.
+ weighted`edges` and also
 
-It may prove useful to introduce `Weighted` trait. With a _weight(u,v)_ method.
-The algorithms at present don't require this sort of 'lookup'. So it has not
-been introduced.
 
 ```scala
-trait WeightedDigraph[A] extends Digraph[A] {
+trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
+  
+  /** Returns the edges. */
   override def edges: Stream[WeightedEdge[A]]
+
+  /**
+    * Provide default implementation of interface. Many algorithms
+    * will just iterate over edges. So, not critical to optimise,
+    * for many use cases.
+    */
+  override def weight(u: A, v: A): Option[Double] =
+    edges.find(_.edge == u --> v).flatMap(we => Some(we.weight))
 }
 ```
+With:
+
+- `weighted(u,v)` the weight of the edge from u to v.
+
 
 ## Usage
 

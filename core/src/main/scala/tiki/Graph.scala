@@ -25,7 +25,7 @@
 package tiki
 
 import tiki.Predef._
-
+import tiki.implicits._
 
 /**
   * Defines a 'directed' interface that some graph
@@ -57,6 +57,17 @@ trait Directed[A] {
   def predecessors(v: A): Set[A]
 }
 
+/**
+  * Defines the `Weighted` interface.
+  *
+  * @tparam A the vertex type.
+  */
+trait Weighted[A] {
+  /**
+    * The weight of the edge from u to v.
+    */
+  def weight(u: A, v: A): Option[Double]
+}
 
 /**
   * Base representation for a graph.
@@ -91,6 +102,13 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
   *
   * @tparam A the vertex type.
   */
-trait WeightedDigraph[A] extends Digraph[A] {
+trait WeightedDigraph[A] extends Digraph[A] with Weighted[A] {
   override def edges: Stream[WeightedEdge[A]]
+
+  /**
+    * Provide default implementation.
+    * Representations can override for efficiency.
+    */
+  override def weight(u: A, v: A): Option[Double] =
+    edges.find(_.edge == u --> v).flatMap(we => Some(we.weight))
 }
