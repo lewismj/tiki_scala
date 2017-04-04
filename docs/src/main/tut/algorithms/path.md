@@ -72,7 +72,7 @@ The graph ...
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png)
 
-Will have a negative cycle between _b_, _e_ and _d_.
+Will have a negative cycle (**reachable from _a_**) between _b_, _e_ and _d_.
 
 ```tut
 import tiki._
