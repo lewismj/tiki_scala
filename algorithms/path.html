@@ -7,6 +7,7 @@
 given a weighted directed graph and source vertex.</li>
   <li><code class="highlighter-rouge">negativeCycle(g,source)</code> discovers a negative cycle (or returns an empty list if none exist) in the graph
  <em>g</em> starting from vertex <em>source</em>.</li>
+  <li><code class="highlighter-rouge">kruskal(g)</code> finds the minimum spanning tree of a weighted graph, using Kruskal’s algorithm.</li>
 </ul>
 
 <h3 id="bellman-ford">Bellman-Ford</h3>
@@ -62,7 +63,7 @@ use cases would allow us to stop once</p>
 </code></pre>
 </div>
 
-<p>The graph …</p>
+<p>The graph:</p>
 
 <p><img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/cycle.png" alt="graph" /></p>
 
@@ -92,7 +93,7 @@ use cases would allow us to stop once</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">a</span> <span class="o">--&gt;</span> <span class="n">b</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">4588</span><span class="n">bfdd</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">3</span><span class="n">ce5ba0</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="cm">/* Use adjacency list for basic digraph implementation. */</span>
@@ -103,13 +104,96 @@ use cases would allow us to stop once</p>
      <span class="o">|</span>   <span class="cm">/* adjacency doesn't store edges. */</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">4</span><span class="n">ccbe9c7</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">30335</span><span class="n">bfd</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">cycle</span> <span class="k">=</span> <span class="n">negativeCycle</span><span class="o">(</span><span class="n">digraph</span><span class="o">,</span><span class="sc">'a'</span><span class="o">)</span>
 <span class="n">cycle</span><span class="k">:</span> <span class="kt">tiki.Predef.Option</span><span class="o">[</span><span class="kt">tiki.Predef.List</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">b</span><span class="o">))</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">cycle</span><span class="o">.</span><span class="n">mkString</span>
 <span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">List</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+</code></pre>
+</div>
+
+<h3 id="kruskals-algorithm">Kruskal’s Algorithm</h3>
+
+<p>From <a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm">wikipedia</a></p>
+
+<p>“<em>Kruskal’s algorithm is a minimum-spanning-tree algorithm which finds an edge 
+of the least possible weight that connects any two trees in the forest.
+ It is a greedy algorithm in graph theory as it finds a minimum spanning tree
+ for a connected weighted graph adding increasing cost arcs at each step.
+ This means it finds a subset of the edges that forms a tree that includes every vertex,
+  where the total weight of all the edges in the tree is minimized. 
+  If the graph is not connected, then it finds a minimum spanning forest 
+  (a minimum spanning tree for each connected component)</em>.”</p>
+
+<p>This is implemented as a fold over the edges of a weighted graph.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">case</span> <span class="k">class</span> <span class="nc">SpanState</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">ds</span><span class="k">:</span> <span class="kt">DisjointSet</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">mst</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]])</span>
+
+<span class="k">object</span> <span class="nc">SpanState</span> <span class="o">{</span>
+<span class="k">def</span> <span class="n">empty</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">SpanState</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+  <span class="k">=</span> <span class="k">new</span> <span class="nc">SpanState</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="nc">DisjointSet</span><span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">toSet</span><span class="o">),</span><span class="nc">List</span><span class="o">.</span><span class="n">empty</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]])</span>
+<span class="o">}</span>
+  
+<span class="k">def</span> <span class="n">kruskal</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="k">=</span>
+  <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">sortBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">weight</span><span class="o">).</span><span class="n">foldLeft</span><span class="o">(</span><span class="nc">SpanState</span><span class="o">.</span><span class="n">empty</span><span class="o">(</span><span class="n">g</span><span class="o">))((</span><span class="n">state</span><span class="o">,</span><span class="n">y</span><span class="o">)</span><span class="k">=&gt;</span> <span class="n">y</span><span class="o">.</span><span class="n">edge</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Edge</span><span class="o">(</span><span class="n">u</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="n">u</span><span class="o">)</span> <span class="o">!=</span> <span class="n">state</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span>
+      <span class="k">new</span> <span class="nc">SpanState</span><span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">union</span><span class="o">(</span><span class="n">u</span><span class="o">,</span><span class="n">v</span><span class="o">).</span><span class="n">getOrElse</span><span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="n">ds</span><span class="o">),</span><span class="n">y</span> <span class="o">::</span> <span class="n">state</span><span class="o">.</span><span class="n">mst</span><span class="o">)</span>
+    <span class="k">case</span> <span class="k">_</span> <span class="k">=&gt;</span> <span class="n">state</span>
+  <span class="o">}).</span><span class="n">mst</span>  
+</code></pre>
+</div>
+
+<p>An example minimum spanning tree is given below:</p>
+
+<p><img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/span.png" alt="graph" /></p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Predef._</span>
+<span class="k">import</span> <span class="nn">tiki.Predef._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
+<span class="k">import</span> <span class="nn">tiki.implicits._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.Path._</span>
+<span class="k">import</span> <span class="nn">tiki.Path._</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span>
+     <span class="o">|</span>   <span class="sc">'a'</span> <span class="o">--&gt;</span> <span class="sc">'b'</span> <span class="o">:#</span> <span class="mf">7.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'a'</span> <span class="o">--&gt;</span> <span class="sc">'d'</span> <span class="o">:#</span> <span class="mf">5.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'b'</span> <span class="o">--&gt;</span> <span class="sc">'c'</span> <span class="o">:#</span> <span class="mf">8.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'b'</span> <span class="o">--&gt;</span> <span class="sc">'e'</span> <span class="o">:#</span> <span class="mf">7.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'c'</span> <span class="o">--&gt;</span> <span class="sc">'e'</span> <span class="o">:#</span> <span class="mf">5.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'d'</span> <span class="o">--&gt;</span> <span class="sc">'b'</span> <span class="o">:#</span> <span class="mf">9.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'d'</span> <span class="o">--&gt;</span> <span class="sc">'e'</span> <span class="o">:#</span> <span class="mf">15.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'d'</span> <span class="o">--&gt;</span> <span class="sc">'f'</span> <span class="o">:#</span> <span class="mf">6.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'e'</span> <span class="o">--&gt;</span> <span class="sc">'f'</span> <span class="o">:#</span> <span class="mf">8.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'e'</span> <span class="o">--&gt;</span> <span class="sc">'g'</span> <span class="o">:#</span> <span class="mf">9.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'f'</span> <span class="o">--&gt;</span> <span class="sc">'g'</span> <span class="o">:#</span> <span class="mf">11.0</span>
+     <span class="o">|</span> <span class="o">)</span>
+<span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">a</span> <span class="o">--&gt;</span> <span class="n">b</span> <span class="o">:#</span> <span class="mf">7.0</span><span class="o">,</span> <span class="o">?)</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">graph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedUndirectedGraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
+     <span class="o">|</span>   <span class="k">override</span> <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
+     <span class="o">|</span>   <span class="k">override</span> <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="sc">'A'</span><span class="o">,</span> <span class="sc">'B'</span><span class="o">,</span> <span class="sc">'C'</span><span class="o">,</span> <span class="sc">'D'</span><span class="o">,</span> <span class="sc">'E'</span><span class="o">,</span> <span class="sc">'F'</span><span class="o">,</span> <span class="sc">'G'</span><span class="o">)</span>
+     <span class="o">|</span> <span class="o">}</span>
+<span class="n">graph</span><span class="k">:</span> <span class="kt">tiki.WeightedUndirectedGraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">30278472</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">expected</span> <span class="k">=</span> <span class="nc">Set</span><span class="o">(</span>
+     <span class="o">|</span>   <span class="sc">'a'</span> <span class="o">--&gt;</span> <span class="sc">'d'</span> <span class="o">:#</span> <span class="mf">5.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'c'</span> <span class="o">--&gt;</span> <span class="sc">'e'</span> <span class="o">:#</span> <span class="mf">5.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'d'</span> <span class="o">--&gt;</span> <span class="sc">'f'</span> <span class="o">:#</span> <span class="mf">6.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'a'</span> <span class="o">--&gt;</span> <span class="sc">'b'</span> <span class="o">:#</span> <span class="mf">7.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'b'</span> <span class="o">--&gt;</span> <span class="sc">'e'</span> <span class="o">:#</span> <span class="mf">7.0</span><span class="o">,</span>
+     <span class="o">|</span>   <span class="sc">'e'</span> <span class="o">--&gt;</span> <span class="sc">'g'</span> <span class="o">:#</span> <span class="mf">9.0</span>
+     <span class="o">|</span> <span class="o">)</span>
+<span class="n">expected</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Set</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Set</span><span class="o">(</span><span class="n">a</span> <span class="o">--&gt;</span> <span class="n">b</span> <span class="o">:#</span> <span class="mf">7.0</span><span class="o">,</span> <span class="n">b</span> <span class="o">--&gt;</span> <span class="n">e</span> <span class="o">:#</span> <span class="mf">7.0</span><span class="o">,</span> <span class="n">d</span> <span class="o">--&gt;</span> <span class="n">f</span> <span class="o">:#</span> <span class="mf">6.0</span><span class="o">,</span> <span class="n">c</span> <span class="o">--&gt;</span> <span class="n">e</span> <span class="o">:#</span> <span class="mf">5.0</span><span class="o">,</span> <span class="n">a</span> <span class="o">--&gt;</span> <span class="n">d</span> <span class="o">:#</span> <span class="mf">5.0</span><span class="o">,</span> <span class="n">e</span> <span class="o">--&gt;</span> <span class="n">g</span> <span class="o">:#</span> <span class="mf">9.0</span><span class="o">)</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">k</span> <span class="k">=</span> <span class="n">kruskal</span><span class="o">(</span><span class="n">graph</span><span class="o">)</span>
+<span class="n">k</span><span class="k">:</span> <span class="kt">tiki.Predef.List</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">()</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">k</span><span class="o">.</span><span class="n">mkString</span><span class="o">(</span><span class="s">"\n"</span><span class="o">)</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span>
 </code></pre>
 </div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({

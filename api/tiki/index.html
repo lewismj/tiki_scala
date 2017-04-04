@@ -167,12 +167,6 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="Weighted.html" title="Defines the Weighted interface."></a>
-                        <a href="Weighted.html" title="Defines the Weighted interface.">
-                          Weighted
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
                         <a class="trait" href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges."></a>
                         <a href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges.">
                           WeightedDigraph
@@ -182,6 +176,18 @@ two vertices.">
                         <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
                         <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
                           WeightedEdge
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <a class="object" href="WeightedGraph$.html" title=""></a>
+                        <a class="trait" href="WeightedGraph.html" title="A weighted graph type class."></a>
+                        <a href="WeightedGraph.html" title="A weighted graph type class.">
+                          WeightedGraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="WeightedUndirectedGraph.html" title="A weighted undirected graph is a graph that returns weighted edges."></a>
+                        <a href="WeightedUndirectedGraph.html" title="A weighted undirected graph is a graph that returns weighted edges.">
+                          WeightedUndirectedGraph
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -376,9 +382,8 @@ Useful for finding the number of components within a graph.
       </span>
       
       <p class="shortcomment cmt">Represents an edge between two vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Represents an edge between two vertices.</p><p>The edges in a graph tend to be either all directed or all undirected.
-i.e. A property that holds across the graph. An undirected graph can
-be represented by a pair of directed edges. Generally, the library is
-concerned with directed graphs.
+i.e. A property that holds across the graph. Rather than a property
+of the edge.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">from</dt><dd class="cmt"><p>one vertex in an edge.</p></dd><dt class="param">to</dt><dd class="cmt"><p>the 'other' vertex in the edge.</p></dd></dl></div>
     </li><li name="tiki.EdgeLike" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="EdgeLike[T]extendsAnyRef"></a><a id="EdgeLike[T]:EdgeLike[T]"></a>
@@ -440,29 +445,10 @@ even if the edge is undirected.
       </span>
       
       <p class="shortcomment cmt">A labelled edge between two vertices.</p>
-    </li><li name="tiki.Weighted" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="Weighted[A]extendsAnyRef"></a><a id="Weighted[A]:Weighted[A]"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#Weighted[A]extendsAnyRef" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a title="Defines the Weighted interface." href="Weighted.html">
-              <span class="name">Weighted</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">Defines the <code>Weighted</code> interface.</p><div class="fullcomment"><div class="comment cmt"><p>Defines the <code>Weighted</code> interface.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="WeightedDigraph[A]extendsDigraph[A]withWeighted[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+      <a id="WeightedDigraph[A]extendsDigraph[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A]withWeighted[A]" title="Permalink">
+      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -473,7 +459,7 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="Weighted digraph, a digraph that returns weighted edges." href="WeightedDigraph.html">
               <span class="name">WeightedDigraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Weighted digraph, a digraph that returns weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph, a digraph that returns weighted edges.
@@ -496,6 +482,44 @@ even if the edge is undirected.
       </span>
       
       <p class="shortcomment cmt">A weighted edge between two vertices.</p>
+    </li><li name="tiki.WeightedGraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WeightedGraph[A]extendsGraph[A]"></a><a id="WeightedGraph[A]:WeightedGraph[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedGraph[A]extendsGraph[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="A weighted graph type class." href="WeightedGraph.html">
+              <span class="name">WeightedGraph</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">A weighted graph type class.</p><div class="fullcomment"><div class="comment cmt"><p>A weighted graph type class.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
+    </li><li name="tiki.WeightedUndirectedGraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WeightedUndirectedGraph[A]extendsGraph[A]"></a><a id="WeightedUndirectedGraph[A]:WeightedUndirectedGraph[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedUndirectedGraph[A]extendsGraph[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="A weighted undirected graph is a graph that returns weighted edges." href="WeightedUndirectedGraph.html">
+              <span class="name">WeightedUndirectedGraph</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedUndirectedGraph.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">A weighted undirected graph is a graph that returns weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>A weighted undirected graph is a graph that returns weighted edges.
+(Doesn't support the <code>Directed</code> interface).</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -615,6 +639,24 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
       </span>
       
       <p class="shortcomment cmt">Simple stream based unfold traversal.</p>
+    </li><li name="tiki.WeightedGraph" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WeightedGraph"></a><a id="WeightedGraph:WeightedGraph"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedGraph" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="WeightedGraph$.html">
+              <span class="name">WeightedGraph</span>
+            </a>
+      </span>
+      
+      
     </li><li name="tiki.implicits" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="implicits"></a><a id="implicits:implicits"></a>
       <span class="permalink">

@@ -169,12 +169,6 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="trait" href="Weighted.html" title="Defines the Weighted interface."></a>
-                        <a href="Weighted.html" title="Defines the Weighted interface.">
-                          Weighted
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
                         <a class="trait" href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges."></a>
                         <a href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges.">
                           WeightedDigraph
@@ -184,6 +178,18 @@ two vertices.">
                         <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
                         <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
                           WeightedEdge
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <a class="object" href="WeightedGraph$.html" title=""></a>
+                        <a class="trait" href="WeightedGraph.html" title="A weighted graph type class."></a>
+                        <a href="WeightedGraph.html" title="A weighted graph type class.">
+                          WeightedGraph
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
+                        <a class="trait" href="WeightedUndirectedGraph.html" title="A weighted undirected graph is a graph that returns weighted edges."></a>
+                        <a href="WeightedUndirectedGraph.html" title="A weighted undirected graph is a graph that returns weighted edges.">
+                          WeightedUndirectedGraph
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -290,16 +296,38 @@ two vertices.">
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Case class that represents the running state of the Bellman-Ford
-algorithm." href="Path$$PathState.html">
+        <a title="Case class that represents the running state of the
+Bellman-Ford algorithm." href="Path$$PathState.html">
               <span class="name">PathState</span>
             </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="distances">distances: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>, <span name="predecessors">predecessors: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">Case class that represents the running state of the Bellman-Ford
-algorithm.</p><div class="fullcomment"><div class="comment cmt"><p>Case class that represents the running state of the Bellman-Ford
-algorithm.
+      <p class="shortcomment cmt">Case class that represents the running state of the
+Bellman-Ford algorithm.</p><div class="fullcomment"><div class="comment cmt"><p>Case class that represents the running state of the
+Bellman-Ford algorithm.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">distances</dt><dd class="cmt"><p>current distances.</p></dd><dt class="param">predecessors</dt><dd class="cmt"><p>current predecessors.</p></dd></dl></div>
+    </li><li name="tiki.Path.SpanState" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpanState[A]extendsProductwithSerializable"></a><a id="SpanState[A]:SpanState[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/Path$.html#SpanState[A]extendsProductwithSerializable" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a title="Case class that represents the running state of Kruskal's
+algorithm." href="Path$$SpanState.html">
+              <span class="name">SpanState</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="ds">ds: <a href="DisjointSet.html" class="extype" name="tiki.DisjointSet">DisjointSet</a>[<span class="extype" name="tiki.Path.SpanState.A">A</span>]</span>, <span name="mst">mst: <a href="Predef$.html#List[A]=List[A]" class="extmbr" name="tiki.Predef.List">List</a>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.Path.SpanState.A">A</span>]]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Case class that represents the running state of Kruskal's
+algorithm.</p><div class="fullcomment"><div class="comment cmt"><p>Case class that represents the running state of Kruskal's
+algorithm.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">ds</dt><dd class="cmt"><p>a disjoint set.</p></dd><dt class="param">mst</dt><dd class="cmt"><p>the minimum spanning tree.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -513,6 +541,23 @@ algorithm.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="tiki.Path#kruskal" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="kruskal[A](g:tiki.WeightedGraph[A]):tiki.Predef.List[tiki.WeightedEdge[A]]"></a><a id="kruskal[A](WeightedGraph[A]):List[WeightedEdge[A]]"></a>
+      <span class="permalink">
+      <a href="../tiki/Path$.html#kruskal[A](g:tiki.WeightedGraph[A]):tiki.Predef.List[tiki.WeightedEdge[A]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">kruskal</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="WeightedGraph.html" class="extype" name="tiki.WeightedGraph">WeightedGraph</a>[<span class="extype" name="tiki.Path.kruskal.A">A</span>]</span>)</span><span class="result">: <a href="Predef$.html#List[A]=List[A]" class="extmbr" name="tiki.Predef.List">List</a>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.Path.kruskal.A">A</span>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Kruskal's algorithm for finding the minimum spanning tree.</p><div class="fullcomment"><div class="comment cmt"><p>Kruskal's algorithm for finding the minimum spanning tree.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd><dt class="param">g</dt><dd class="cmt"><p>the weighted graph.</p></dd><dt>returns</dt><dd class="cmt"><p>the minimum spanning tree.</p></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -722,6 +767,24 @@ algorithm.
       <span class="symbol">
         <a title="" href="Path$$PathState$.html">
               <span class="name">PathState</span>
+            </a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.Path.SpanState" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SpanState"></a><a id="SpanState:SpanState"></a>
+      <span class="permalink">
+      <a href="../tiki/Path$.html#SpanState" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="Path$$SpanState$.html">
+              <span class="name">SpanState</span>
             </a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       

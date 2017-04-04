@@ -49,39 +49,47 @@ not always be desirable.</p>
 </code></pre>
 </div>
 
-<h3 id="weighted">Weighted</h3>
+<h2 id="weighted-graphs">Weighted graphs</h2>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">weight</span><span class="o">(</span><span class="n">u</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Double</span><span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
-</div>
+<p>There are two types of weighted graphs, one based on <code class="highlighter-rouge">Digraph</code> the other
+on <code class="highlighter-rouge">Graph</code> (i.e. non directed graph).</p>
 
 <h4 id="weighteddigraph">WeightedDigraph</h4>
 
 <p>The weighted digraph interface can be defined as a<code class="highlighter-rouge">Digraph</code> that returns
- weighted<code class="highlighter-rouge">edges</code> and also</p>
+ weighted<code class="highlighter-rouge">edges</code>.</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Digraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">with</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-  
-  <span class="cm">/** Returns the edges. */</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Digraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>  <span class="o">{</span>
   <span class="k">override</span> <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
-
-  <span class="cm">/**
-    * Provide default implementation of interface. Many algorithms
-    * will just iterate over edges. So, not critical to optimise,
-    * for many use cases.
-    */</span>
-  <span class="k">override</span> <span class="k">def</span> <span class="n">weight</span><span class="o">(</span><span class="n">u</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">v</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Double</span><span class="o">]</span> <span class="k">=</span>
-    <span class="n">edges</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">edge</span> <span class="o">==</span> <span class="n">u</span> <span class="o">--&gt;</span> <span class="n">v</span><span class="o">).</span><span class="n">flatMap</span><span class="o">(</span><span class="n">we</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="n">we</span><span class="o">.</span><span class="n">weight</span><span class="o">))</span>
 <span class="o">}</span>
 </code></pre>
 </div>
-<p>With:</p>
 
-<ul>
-  <li><code class="highlighter-rouge">weighted(u,v)</code> the weight of the edge from u to v.</li>
-</ul>
+<h3 id="weightedundirectedgraph">WeightedUndirectedGraph</h3>
+
+<p>The weighted undirected graph is defined as a graph that returns weighted edges.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedUndirectedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Graph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Rather than force a common point in a type hierarchy, a <code class="highlighter-rouge">WeightedGraph</code> type-class is
+defined:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Graph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
+<span class="o">}</span>
+
+
+<span class="k">object</span> <span class="nc">WeightedGraph</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">A:</span> <span class="kt">WeightedGraph</span><span class="o">]</span><span class="k">:</span> <span class="kt">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">implicitly</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Both types of weighted graph implicitly support this interface.</p>
 
 <h2 id="usage">Usage</h2>
 
@@ -109,7 +117,7 @@ Sometimes this may be the correct choice, though not always.</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="n">A</span> <span class="o">--&gt;</span> <span class="n">B</span> <span class="o">:#</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">7740</span><span class="n">a390</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">7d617f</span><span class="mi">14</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
@@ -119,7 +127,7 @@ Sometimes this may be the correct choice, though not always.</p>
      <span class="o">|</span> 
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">64d</span><span class="n">b9b7f</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">tiki.Predef.Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">7214d</span><span class="mi">18</span><span class="n">c</span>
 </code></pre>
 </div>
 
