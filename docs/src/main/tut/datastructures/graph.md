@@ -71,7 +71,7 @@ trait WeightedDigraph[A] extends Digraph[A]  {
 }
 ```
  
-### WeightedUndirectedGraph
+#### WeightedUndirectedGraph
 
 The weighted undirected graph is defined as a graph that returns weighted edges.
 
