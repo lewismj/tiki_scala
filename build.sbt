@@ -1,6 +1,8 @@
 import sbtassembly.AssemblyPlugin.autoImport._
 import com.typesafe.sbt.SbtGhPages.GhPagesKeys._
 import UnidocKeys._
+import com.typesafe.sbt.pgp.PgpKeys._
+
 
 lazy val commonScalacOptions = Seq(
   "-feature",
@@ -29,7 +31,8 @@ lazy val buildSettings = Seq(
 lazy val noPublishSettings = Seq(
   publish := (),
   publishLocal := (),
-  publishArtifact := false
+  publishArtifact := false,
+  publishSigned := ()
 )
 
 lazy val credentialSettings = Seq(
