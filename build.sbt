@@ -83,7 +83,7 @@ lazy val tikiSettings = buildSettings ++ commonSettings ++ scoverageSettings
 lazy val tiki = project.in(file("."))
   .settings(moduleName := "root")
   .settings(noPublishSettings:_*)
-  .aggregate(core, docs, tests)
+  .aggregate(docs, tests, core)
 
 lazy val core = project.in(file("core"))
   .settings(moduleName := "tiki-core")
