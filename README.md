@@ -1,7 +1,7 @@
 # tiki
 
 <p align=left>
-<img height="100" width="100" src="https://github.com/lewismj/tiki/blob/master/docs/src/main/resources/microsite/img/tiki.png"/>
+<img height="75" width="75" src="https://github.com/lewismj/tiki/blob/master/docs/src/main/resources/microsite/img/tiki.png"/>
 </p>
 
 <p align="left">
