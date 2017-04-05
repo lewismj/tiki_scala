@@ -1,6 +1,6 @@
 ---
 layout: docs 
-title:  "DisjointSet"
+title:  "Disjoint Set"
 section: "datastructures"
 source: "core/src/main/scala/tiki/DisjointSet.scala"
 scaladoc: "#tiki.DisjointSet"
