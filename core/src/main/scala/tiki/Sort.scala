@@ -42,8 +42,7 @@ object Sort {
       case _ if s0 isEmpty => None
       case n #:: tail =>
         val (edgesFrom, remainder) = ys.partition(_.from == n)
-        val maybeInsert = edgesFrom.map(_.to)
-        val insert = maybeInsert.filterNot(remainder.map(_.to).contains(_))
+        val insert = edgesFrom.map(_.to).filterNot(remainder.map(_.to).contains(_))
         kahn(tail #::: insert, l :+ n, remainder)
     }
     kahn(g.vertices.filterNot(g.edges.map(_.to).contains(_)), Stream.empty, g.edges)

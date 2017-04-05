@@ -20,7 +20,6 @@ lazy val commonScalacOptions = Seq(
   "-Yno-imports",
   "-Yno-predef")
 
-
 lazy val buildSettings = Seq(
   name := "tiki",
   organization in Global := "com.waioeka",
@@ -32,6 +31,38 @@ lazy val noPublishSettings = Seq(
   publishLocal := (),
   publishArtifact := false
 )
+
+lazy val credentialSettings = Seq(
+  credentials ++= (for {
+    username <- Option(System.getenv().get("SONATYPE_USERNAME"))
+    password <- Option(System.getenv().get("SONATYPE_PASSWORD"))
+  } yield Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", username, password)).toSeq
+)
+
+lazy val publishSettings = Seq(
+  publishMavenStyle := true,
+  publishArtifact in Test := false,
+  pomIncludeRepository := Function.const(false),
+  publishTo := {
+    val nexus = "https://oss.sonatype.org/"
+    if (isSnapshot.value)
+      Some("Snapshots" at nexus + "content/repositories/snapshots")
+    else
+      Some("Releases" at nexus + "service/local/staging/deploy/maven2")
+  },
+  homepage := Some(url("https://github.com/lewismj/tiki")),
+  licenses := Seq("BSD-style" -> url("http://www.opensource.org/licenses/bsd-license.php")),
+  scmInfo := Some(ScmInfo(url("https://github.com/lewismj/tiki"), "scm:git:git@github.com:lewismj/tiki.git")),
+  autoAPIMappings := true,
+  pomExtra := (
+    <developers>
+      <developer>
+        <name>Michael Lewis</name>
+        <url>https://www.waioeka.com</url>
+      </developer>
+    </developers>
+  )
+) ++ credentialSettings
 
 lazy val scoverageSettings = Seq(
   coverageMinimum := 75,
@@ -51,14 +82,13 @@ lazy val tikiSettings = buildSettings ++ commonSettings ++ scoverageSettings
 
 lazy val tiki = project.in(file("."))
   .settings(moduleName := "root")
-  .settings(noPublishSettings)
+  .settings(noPublishSettings:_*)
   .aggregate(core, docs, tests)
 
 lazy val core = project.in(file("core"))
   .settings(moduleName := "tiki-core")
   .settings(tikiSettings:_*)
-
-
+  .settings(publishSettings:_*)
 
 lazy val docSettings = Seq(
   autoAPIMappings := true,
@@ -92,14 +122,15 @@ lazy val docs = project
     .settings(unidocSettings: _*)
     .settings(ghpages.settings)
     .dependsOn(core)
-    .settings(docSettings)
+    .settings(docSettings:_*)
     .settings(tikiSettings:_*)
-    .settings(noPublishSettings)
+    .settings(noPublishSettings:_*)
 
 lazy val tests = project.in(file("tests"))
   .dependsOn(core)
   .settings(moduleName := "tiki-tests")
   .settings(tikiSettings:_*)
+  .settings(noPublishSettings:_*)
   .settings(
     coverageEnabled := false,
     testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oDF"),
