@@ -5,7 +5,7 @@ section: "datastructures"
 source: "core/src/main/scala/tiki/DisjointSet.scala"
 scaladoc: "#tiki.DisjointSet"
 ---
-# DisjointSet
+# Disjoint Set
 
 `DisjointSet` is a data structure that keeps tracks of non overlapping partitions within a set.
 The data structure provides the following core functions:

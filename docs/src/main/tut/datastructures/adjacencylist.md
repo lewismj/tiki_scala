@@ -5,7 +5,7 @@ section: "datastructures"
 source: "core/src/main/scala/tiki/AdjacencyList.scala"
 scaladoc: "#tiki.AdjacencyList"
 ---
-# AdjacencyList
+# Adjacency List
 
 `AdjacencyList` associates each vertex in the graph with the collection of its neighboring vertices.
 Internally this is represented as a pair of maps (the graph and its reverse). 
