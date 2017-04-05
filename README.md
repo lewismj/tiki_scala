@@ -1,9 +1,5 @@
 # tiki
 
-<p align=left>
-<img height="80" width="80" src="https://github.com/lewismj/tiki/blob/master/docs/src/main/resources/microsite/img/tiki.png"/>
-</p>
-
 ## Summary
 <p align="left">
 <img src="https://travis-ci.org/lewismj/tiki.svg?branch=master"/>
