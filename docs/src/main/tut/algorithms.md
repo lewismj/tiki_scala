@@ -2,7 +2,7 @@
 layout: docs
 title:  "Algorithms"
 section: "algorithms"
-position: 2
+position: 3
 ---
 # Algorithms 
 

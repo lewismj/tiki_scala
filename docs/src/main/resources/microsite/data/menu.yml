@@ -23,6 +23,15 @@ options:
     menu_type: datastructures
 
 
+   ### Type Classes ###
+  - title: Type Classes
+    url: typeclasses.html
+    menu_type: typeclasses
+
+  - title: Weighted Graph
+    url: algorithms/weightedgraph.html
+    menu_type: algorithms
+
    ### Algorithms ###
 
   - title: Algorithms
