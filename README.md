@@ -1,8 +1,4 @@
 # tiki
-<p align=left>
-<img height="80" width="80" src="https://github.com/lewismj/tiki/blob/master/docs/src/main/resources/microsite/img/tiki.png"/>
-</p>
-
 <p align="left">
 <img src="https://travis-ci.org/lewismj/tiki.svg?branch=master"/>
 <a href="https://codecov.io/gh/lewismj/tiki"><img src="https://codecov.io/gh/lewismj/tiki/branch/master/graph/badge.svg" alt="Codecov"/></a>
@@ -10,6 +6,10 @@
 <a href="https://waffle.io/lewismj/tiki"><img src="https://img.shields.io/waffle/label/lewismj/tiki/master.svg"/></a>
 </p>
 
+
+<p align=left>
+<img height="80" width="80" src="https://github.com/lewismj/tiki/blob/master/docs/src/main/resources/microsite/img/tiki.png"/>
+</p>
 
 ## Summary
 
