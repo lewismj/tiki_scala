@@ -6,11 +6,11 @@ options:
     url: datastructures.html
     menu_type: datastructures
 
-  - title: AdjacencyList
+  - title: Adjacency List
     url: datastructures/adjacencylist.html
     menu_type: datastructures
 
-  - title: DisjointSet
+  - title: Disjoint Set
     url: datastructures/disjointset.html
     menu_type: datastructures
 

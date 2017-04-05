@@ -44,7 +44,7 @@ A topological sort of the graph ...
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/sort.png)
 
-... should yield the set  _{A,B,C,D,E,F}_
+... should yield the set  _{a,b,c,d,e,f}_
 
 ```tut
 import tiki._
@@ -54,14 +54,14 @@ import tiki.Sort._
 
 
 val xs = Stream (
-    'A' --> 'B',
-    'A' --> 'C',
-    'B' --> 'C',
-    'B' --> 'D',
-    'C' --> 'D',
-    'D' --> 'E',
-    'D' --> 'F',
-    'E' --> 'F'
+    'a' --> 'b',
+    'a' --> 'c',
+    'b' --> 'c',
+    'b' --> 'd',
+    'c' --> 'd',
+    'd' --> 'e',
+    'd' --> 'f',
+    'e' --> 'f'
 )
 
 val adjacencyList = AdjacencyList(xs)

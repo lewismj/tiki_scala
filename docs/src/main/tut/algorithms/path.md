@@ -41,9 +41,7 @@ use cases would allow us to stop once
             val p = state.predecessors.updated(e.to, e.from)
             PathState(d, p)
           } else state
-
         case _ => state
-
       }
 
     Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _)
