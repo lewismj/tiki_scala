@@ -47,7 +47,7 @@ object WeightedGraph {
 }
 ```
 
-Both types of weighted graph implicitly support this interface _tiki.implicits_.
+Both types of weighted graph implicitly support this interface (_tiki.implicits_).
 
 ```scala
   implicit def undirected[A](g: WeightedUndirectedGraph[A]): WeightedGraph[A] = new WeightedGraph[A] {
@@ -61,3 +61,4 @@ Both types of weighted graph implicitly support this interface _tiki.implicits_.
     def edges: Stream[WeightedEdge[A]] = g.edges
     def vertices: Stream[A] = g.vertices
   }
+```
