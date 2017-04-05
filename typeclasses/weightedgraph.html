@@ -38,7 +38,7 @@ defined:</p>
 </code></pre>
 </div>
 
-<p>Both types of weighted graph implicitly support this interface <em>tiki.implicits</em>.</p>
+<p>Both types of weighted graph implicitly support this interface (<em>tiki.implicits</em>).</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code>  <span class="k">implicit</span> <span class="k">def</span> <span class="n">undirected</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">WeightedUndirectedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
     <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">g</span><span class="o">.</span><span class="n">vertices</span>
@@ -47,11 +47,12 @@ defined:</p>
 </code></pre>
 </div>
 
-<p>```scala
-  implicit def directed<a href="g: WeightedDigraph[A]">A</a>: WeightedGraph[A] = new WeightedGraph[A] {
-    def edges: Stream[WeightedEdge[A]] = g.edges
-    def vertices: Stream[A] = g.vertices
-  }</p>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code>  <span class="k">implicit</span> <span class="k">def</span> <span class="n">directed</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="k">=</span> <span class="n">g</span><span class="o">.</span><span class="n">edges</span>
+    <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">g</span><span class="o">.</span><span class="n">vertices</span>
+  <span class="o">}</span>
+</code></pre>
+</div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({
 languages:['scala','java','bash']
 });
