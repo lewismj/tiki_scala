@@ -56,7 +56,7 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
 ## Weighted Graphs
 
 To avoid forming unnecessary type hierarchies, a `WeightedGraph` type class is used,
-the documentation is [here](../typeclasses/weightedgraph.md).
+the documentation is [here](../typeclasses/weightedgraph.html).
 
 
 ## Usage
