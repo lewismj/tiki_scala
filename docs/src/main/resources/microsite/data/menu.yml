@@ -29,7 +29,7 @@ options:
     menu_type: typeclasses
 
   - title: Weighted Graph
-    url: algorithms/weightedgraph.html
+    url: typeclasses/weightedgraph.html
     menu_type: typeclasses
 
    ### Algorithms ###
