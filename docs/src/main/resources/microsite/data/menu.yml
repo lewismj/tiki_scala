@@ -30,7 +30,7 @@ options:
 
   - title: Weighted Graph
     url: algorithms/weightedgraph.html
-    menu_type: algorithms
+    menu_type: typeclasses
 
    ### Algorithms ###
 
