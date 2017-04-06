@@ -1,11 +1,11 @@
 ---
 layout: docs 
-title:  "Path"
+title:  "Cycle Detection"
 section: "algorithms"
 source: "core/src/main/scala/tiki/Path.scala"
 scaladoc: "#tiki.Path"
 ---
-# Bellman-Ford
+# Cycle Detection
 
 
 ## Example

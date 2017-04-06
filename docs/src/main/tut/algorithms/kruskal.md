@@ -1,4 +1,11 @@
-# Kruskal's Algorithm
+---
+layout: docs 
+title:  "Minimum Spanning Tree"
+section: "algorithms"
+source: "core/src/main/scala/tiki/Path.scala"
+scaladoc: "#tiki.Path"
+---
+# Minimum Spanning Tree
 
 From [wikipedia](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
 
