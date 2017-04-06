@@ -1,6 +1,6 @@
 ---
 layout: docs 
-title:  "Sort"
+title:  "Topological Sort"
 section: "algorithms"
 source: "core/src/main/scala/tiki/Sort.scala"
 scaladoc: "#tiki.Sort"
@@ -16,7 +16,7 @@ from vertex u to vertex v, u comes before v in the ordering_."
 A topological sort (or ordering) is only possible if the digraph contains
 no cycles. That is, we have a directed acyclic graph.
 
-### Example
+## Example
 
 A topological sort of the graph ...
 

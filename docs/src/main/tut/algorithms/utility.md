@@ -11,9 +11,11 @@ The package object defines various utility functions.
 
 - `reverse(xs)` reverses an edge (of any type).
 
-### reverse
+## Example
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/reverse.png)
+
+## reverse
 
 
 ```tut

@@ -7,10 +7,12 @@ scaladoc: "#tiki.AdjacencyList"
 ---
 # Adjacency List
 
-### Example
+
 
 `AdjacencyList` associates each vertex in the graph with the collection of its neighboring vertices.
 Internally this is represented as a pair of maps (the graph and its reverse). 
+
+## Example
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/adjacencyList.png)
 
