@@ -42,6 +42,16 @@ options:
     url: algorithms/path.html
     menu_type: algorithms
 
+        nested_options:
+         - title: Cycle Detection
+           url: algorithms/path.html
+           menu_type: algorithms
+           menu_section: algorithms
+         - title: Minimum Spanning Tree
+           url: algorithms/kruskal.html
+           menu_type: algorithms
+           menu_section: algorithms
+
   - title: Traversal
     url: algorithms/traversal.html
     menu_type: algorithms

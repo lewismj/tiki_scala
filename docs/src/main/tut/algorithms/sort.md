@@ -16,11 +16,19 @@ from vertex u to vertex v, u comes before v in the ordering_."
 A topological sort (or ordering) is only possible if the digraph contains
 no cycles. That is, we have a directed acyclic graph.
 
-The current function will return _None_ if a cycle is found.
+### Example
+
+A topological sort of the graph ...
+
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/topologicalSort.png)
+
+... should yield the set  _{A,B,C,D,E,F}_
+
 
 ## Kahn's Algorithm
 
 See the wikipedia link for references. Implementation follows Kahn's algorithm.
+The current function will return _None_ if a cycle is found.
 
 ```scala
   def tsort[A](g: Digraph[A]): Option[Stream[A]] = {
@@ -37,13 +45,6 @@ See the wikipedia link for references. Implementation follows Kahn's algorithm.
   }
 ```
 
-### Example
-
-A topological sort of the graph ...
-
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/topologicalSort.png)
-
-... should yield the set  _{a,b,c,d,e,f}_
 
 ```tut
 import tiki._

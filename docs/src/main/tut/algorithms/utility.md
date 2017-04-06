@@ -15,6 +15,7 @@ The package object defines various utility functions.
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/reverse.png)
 
+
 ```tut
     import tiki._
     import tiki.Predef._
