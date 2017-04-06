@@ -96,6 +96,13 @@ final class DisjointSet[A] private (parents: Map[A,A], ranks: Map[A,Long], nc: L
     }
   }
 
+  /**
+    * Return string representation of the disjoint set.
+    */
+  override def toString: String = {
+    s"number of components: $nc\nparents: ${parents.toString}\nranks: ${ranks.toString}\n"
+  }
+
 }
 
 object DisjointSet  {
