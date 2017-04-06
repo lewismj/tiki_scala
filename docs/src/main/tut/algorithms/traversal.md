@@ -55,12 +55,9 @@ def bfs[A](g: Digraph[A], start: A): Stream[A]
   = visitOrder(g,start,dfs=false)
 ```
 
-In the graph:
+### Depth first search
 
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/traversal.png)
-
-- a depth first search would be {A,B,D,C} or {A,C,D,B}.
-- a breadth first search would be {A,B,C,D} or {A,C,B,D}.
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/dfs.png)
 
 ```tut
 import tiki._
@@ -70,10 +67,27 @@ import tiki.implicits._
 import scala.util.Random
 
 
-val edges = Stream('A' --> 'B', 'A' --> 'C', 'B' --> 'D', 'C' --> 'D')
+val edges = Stream('a' --> 'b', 'a' --> 'c', 'b' --> 'd', 'c' --> 'd')
 val adj = AdjacencyList(edges)
-val dfsSearch = dfs(adj, 'A')
+val dfsSearch = dfs(adj, 'a')
 dfsSearch.mkString
-val bfsSearch = bfs(adj, 'A')
+```
+
+
+### Breadth first search
+
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/bfs.png)
+
+```tut
+import tiki._
+import tiki.Predef._
+import tiki.Traversal._
+import tiki.implicits._
+import scala.util.Random
+
+
+val edges = Stream('a' --> 'b', 'a' --> 'c', 'b' --> 'd', 'c' --> 'd')
+val adj = AdjacencyList(edges)
+val bfsSearch = bfs(adj, 'a')
 bfsSearch.mkString
 ```

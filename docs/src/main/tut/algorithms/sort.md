@@ -41,7 +41,7 @@ See the wikipedia link for references. Implementation follows Kahn's algorithm.
 
 A topological sort of the graph ...
 
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/sort.png)
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/topologicalSort.png)
 
 ... should yield the set  _{a,b,c,d,e,f}_
 

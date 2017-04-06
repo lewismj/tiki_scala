@@ -11,16 +11,14 @@ The package object defines various utility functions.
 
 - `reverse(xs)` reverses an edge (of any type).
 
-## Usage
-
-
 ### reverse
+
+[graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/reverse.png)
 
 ```tut
     import tiki._
     import tiki.Predef._
     import tiki.implicits._
     
-    List(1 --> 2, 1 --> 4, 2 --> 4).map(reverse)
-    List('a' --> 'b' :+ "label.1", 'b' --> 'c' :+ "label.2").map(reverse)
+    List('a' --> 'b', 'b' --> 'c', 'c' --> 'd').map(reverse)
 ```
