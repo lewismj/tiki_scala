@@ -44,7 +44,7 @@ options:
 
   - title: Minimum Spanning Tree
     url: algorithms/kruskal.html
-    menu_section: algorithms
+    menu_type: algorithms
 
   - title: Traversal
     url: algorithms/traversal.html
