@@ -7,13 +7,16 @@ scaladoc: "#tiki.Path"
 ---
 # Cycle Detection
 
+A minimum spanning tree is a subset of the edges of a connected, edge-weighted undirected graph 
+that connects all the vertices together, without any cycles and with the minimum possible total 
+edge weight.
 
 ## Example
 The graph:
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/negativeCycle.png)
 
-Will have a negative cycle (**reachable from _a_**) between _b_, _e_ and _d_.
+Will have a negative cycle (**reachable from _A_**) between _B_, _E_ and _D_.
 
 ## Functions
 
