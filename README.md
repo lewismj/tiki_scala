@@ -10,7 +10,10 @@
 
 ## Summary
 
-A library for functional graph algorithms (_soon_)
+A library for functional graph algorithms.
+
+The goal is to implement standard set of graph algorithms in a clear, concise and simple fashion.
+
 
 Waffle board [here](https://waffle.io/lewismj/tiki).
 
