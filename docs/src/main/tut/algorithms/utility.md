@@ -13,7 +13,7 @@ The package object defines various utility functions.
 
 ### reverse
 
-[graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/reverse.png)
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/reverse.png)
 
 ```tut
     import tiki._

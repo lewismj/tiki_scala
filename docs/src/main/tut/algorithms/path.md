@@ -69,7 +69,7 @@ A utility method to search for negative cycles is provided.
 
 The graph:
 
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/negativeCyle.png)
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/negativeCycle.png)
 
 Will have a negative cycle (**reachable from _a_**) between _b_, _e_ and _d_.
 
