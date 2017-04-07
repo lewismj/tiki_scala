@@ -14,6 +14,8 @@ A library for functional graph algorithms.
 
 The goal is to implement standard set of graph algorithms in a clear, concise and simple fashion.
 
+The planned Rose-Tree should be the only implementation that makes use of the Monad functionality
+within cats, as a copy of Haskell's Data.Tree.
 
 Waffle board [here](https://waffle.io/lewismj/tiki).
 

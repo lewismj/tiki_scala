@@ -26,18 +26,15 @@ package object tiki {
   import shapeless.Poly1
   import tiki.implicits._
 
-  /**
-    * Provides 'reverse' function for different 'Edge' case classes.
-    */
+  /** Poly 'reverse' function for different 'Edge' case classes. */
   object reverse extends Poly1 {
+    implicit def edgeLike[A]: Case.Aux[EdgeLike[A],EdgeLike[A]] =at({x => x.to --> x.from})
     implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
     implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]
       = at({ x=> x.edge.to --> x.edge.from :+ x.label})
     implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]
       = at({ x=> x.edge.to --> x.edge.from :# x.weight})
   }
-
-
 
 }
 

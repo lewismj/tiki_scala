@@ -38,5 +38,5 @@ class TikiSpec extends TikiSuite with AllArbitrary {
   test("`reverse` of a labelled edge should swap the vertices") { (x: Int, y: Int, z: Double) => {
     reverse(x --> y :+ z)  should have ('from (y), 'to (x), 'label (z))
   }}
-
+  
 }
