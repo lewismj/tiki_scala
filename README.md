@@ -16,11 +16,11 @@ The goal is to implement standard set of graph algorithms (e.g. Bellman-Ford, Kr
 
 The Multiway tree will be a minimal (and _rough_) copy of Haskell's [Data.Tree](http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html).
 
-See also "The Under-Appreciated Unfold" [here](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz)
+See also "The Under-Appreciated Unfold" [here](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz).
 
 ### Issues
 
-Waffle board [here](https://waffle.io/lewismj/tiki).
+Waffle [board](https://waffle.io/lewismj/tiki).
 
 ### Documentation
 
