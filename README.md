@@ -12,10 +12,11 @@
 
 A library for functional graph algorithms.
 
-The goal is to implement standard set of graph algorithms in a clear, concise and simple fashion.
+The goal is to implement standard set of graph algorithms (e.g. Bellman-Ford, Kruskal's etc.) in a clear, concise and simple fashion.
 
-The planned Rose-Tree should be the only implementation that makes use of the comonad functionality
-within cats, as a copy of Haskell's Data.Tree.
+The Multiway tree will be a minimal (and _rough_) copy of Haskell's [Data.Tree](http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html).
+
+### Issues
 
 Waffle board [here](https://waffle.io/lewismj/tiki).
 
