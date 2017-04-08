@@ -32,6 +32,7 @@ import cats.implicits._
 
 /** Rose Tree
   * See: http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html
+  * WIP!
   */
   sealed trait Tree[T] {
     self =>Foldable
@@ -41,7 +42,6 @@ import cats.implicits._
 
   /** Zero or more child trees. */
   def subForest: Stream[Tree[T]]
-
 
   /** -- | The elements of a tree in pre-order. */
   def flatten: Stream[T] = squish(Stream.empty)

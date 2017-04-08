@@ -43,7 +43,7 @@ object Traversal {
     * @tparam R   the type of the emitted traversal.
     * @return a stream of the traversal.
     */
-  private def unfold[T,R](z:T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
+  private def unfold[T,R](z: T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
     case None => Trampoline.done(Stream.empty[R])
     case Some((r,v)) => Trampoline.suspend(unfold(v)(f)).flatMap(s => Trampoline.done(r #:: s))
   }

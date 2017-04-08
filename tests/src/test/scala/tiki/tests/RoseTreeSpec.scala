@@ -35,7 +35,9 @@ import tiki.Tree.{Leaf, Node}
 class RoseTreeSpec extends TikiSuite with AllArbitrary {
 
   test("wip") {
-    val _ = Node[Int](1,Stream(Leaf(2), Leaf(3)))
+    val t = Node[Int](1,Stream(Leaf(2), Leaf(3)))
+    import scala.Predef._
+    println(t.flatten.mkString)
   }
 
 }
