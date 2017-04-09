@@ -17,7 +17,7 @@ The goal is to implement standard set of graph algorithms (e.g. Bellman-Ford, Kr
 
 ### Tree
 
-The Multiway tree will be a minimal (and _rough_) copy of Haskell's [Data.Tree](http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html).
+A different approach is to base graph algorithms on a multiway tree representation. The Multiway tree will be a minimal (and _rough_) copy of Haskell's [Data.Tree](http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html).
 
 #### Background
 

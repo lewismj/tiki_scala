@@ -24,7 +24,5 @@
  */
 package tiki
 
-/** */
-object TreeZipper {
-
-}
+/** WIP */
+object TreeZipper {}
