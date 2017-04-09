@@ -28,7 +28,7 @@ package tests
 import tiki.tests.arbitrary.AllArbitrary
 
 import tiki.Predef._
-import tiki.Tree.{Leaf, Node}
+import tiki.data.Tree.{Leaf, Node}
 
 
 

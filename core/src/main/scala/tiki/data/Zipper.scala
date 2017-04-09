@@ -23,6 +23,23 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
+package data
 
-/** WIP */
-object TreeZipper {}
+import tiki.Predef._
+import tiki.data.Zipper.Context
+
+
+object Zipper {
+  /** Forest is a number of trees. */
+  type Forest[A] = Stream[Tree[A]]
+
+  /** Node context, node together with left, right successors. */
+  case class Position[A](node: A, leftS: Forest[A], rightS: Forest[A])
+
+  /** Location is the current context and contexts for predecessors. */
+  case class Context[A](context: Position[A], predecessors: Stream[Position[A]])
+}
+
+case class Zipper[A](context: Context[A]) {
+
+}

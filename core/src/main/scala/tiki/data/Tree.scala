@@ -23,19 +23,20 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-
-import tiki.Predef._
+package data
 
 import cats._
 import cats.implicits._
+import tiki.Predef._
 
 
 /** Rose Tree
   * See: http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html
   * WIP!
   */
-  sealed trait Tree[T] {
-    self =>Foldable
+
+sealed trait Tree[T] {
+  self => Foldable
 
   /** Label value. */
   def rootLabel: T
@@ -59,6 +60,7 @@ import cats.implicits._
 
 object Tree {
 
+  /** node. */
   object Node {
 
     def apply[A](root: => A, forest: => Stream[Tree[A]]): Tree[A] = new Tree[A] {
@@ -69,6 +71,8 @@ object Tree {
     def unapply[A](t: Tree[A]): Option[(A, Stream[Tree[A]])] = Some((t.rootLabel, t.subForest))
   }
 
+
+  /** leaf. */
   object Leaf {
 
     def apply[A](root: => A): Tree[A] = Node(root, Stream.empty)
