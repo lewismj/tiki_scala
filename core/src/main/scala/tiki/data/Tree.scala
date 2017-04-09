@@ -28,6 +28,7 @@ package data
 import cats._
 import cats.implicits._
 import tiki.Predef._
+import tiki.data.Tree.Node
 
 
 /** Rose Tree
@@ -35,8 +36,7 @@ import tiki.Predef._
   * WIP!
   */
 
-sealed trait Tree[T] {
-  self => Foldable
+sealed trait Tree[T] { self => Foldable
 
   /** Label value. */
   def rootLabel: T
@@ -53,35 +53,32 @@ sealed trait Tree[T] {
   /** -- | Lists of nodes at each level of the tree. */
   def levels: Stream[Stream[T]] = {
     val f = (s: Stream[Tree[T]]) => Foldable[Stream].foldMap(s)(_.subForest)
-    Stream.iterate(Stream(this))(f) takeWhile (_.nonEmpty) map (_ map (_.rootLabel))
+    Stream.iterate(Stream(this))(f).takeWhile(_.nonEmpty).map(_.map(_.rootLabel))
   }
 
+  def map[B](f: T => B): Tree[B] = Node(f(rootLabel),subForest.map(_.map(f)))
 }
 
 object Tree {
 
   /** node. */
   object Node {
-
     def apply[A](root: => A, forest: => Stream[Tree[A]]): Tree[A] = new Tree[A] {
       lazy val rootLabel = root
       lazy val subForest = forest
     }
-
-    def unapply[A](t: Tree[A]): Option[(A, Stream[Tree[A]])] = Some((t.rootLabel, t.subForest))
+    def unapply[A](t: Tree[A]): Option[(A, Stream[Tree[A]])]
+      = Some((t.rootLabel, t.subForest))
   }
-
 
   /** leaf. */
   object Leaf {
-
     def apply[A](root: => A): Tree[A] = Node(root, Stream.empty)
 
     def unapply[A](t: Tree[A]): Option[A] = t match {
       case Node(root, Stream.Empty) => Some(root)
       case _ => None
     }
-
   }
 
 }

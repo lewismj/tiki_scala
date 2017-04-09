@@ -26,20 +26,42 @@ package tiki
 package data
 
 import tiki.Predef._
-import tiki.data.Zipper.Context
+import tiki.data.Tree.Node
+import tiki.data.TreeZipper.{Context, Forest, Parent}
 
 
-object Zipper {
-  /** Forest is a number of trees. */
+
+object TreeZipper {
+
   type Forest[A] = Stream[Tree[A]]
 
-  /** Node context, node together with left, right successors. */
-  case class Position[A](node: A, leftS: Forest[A], rightS: Forest[A])
+  case class Parent[A](lf: Forest[A], v: A, rf: Forest[A]) {
+    def map[B](f: A => B): Parent[B]
+      = Parent(lf.map(tree => tree.map(f)), f(v), rf.map(tree => tree.map(f)))
+  }
 
-  /** Location is the current context and contexts for predecessors. */
-  case class Context[A](context: Position[A], predecessors: Stream[Position[A]])
+  case class Context[A](node: Tree[A], lf: Forest[A], rf: Forest[A], parents: Stream[Parent[A]]) {
+    def map[B](f: A => B): Context[B]
+      = Context(node.map(f), lf.map(_.map(f)), rf.map(_.map(f)),parents.map(_.map(f)))
+  }
+
 }
 
-case class Zipper[A](context: Context[A]) {
+case class TreeZipper[A](context: Context[A]) {
+
+  def map[B](f: A => B): TreeZipper[B] = TreeZipper(context.map(f))
+
+  def updateTree(f: Tree[A] => Tree[A]): TreeZipper[A]
+    = TreeZipper(context.copy(node =f(context.node)))
+
+  def parent: Option[Context[A]] = context.parents match {
+    case Parent(lf,v,rf) #:: tail =>
+      val n = Node(v,mergeForest(context.node,context.lf,context.rf))
+      Some(Context(n,lf,rf,tail))
+    case _ => None
+  }
+
+  def mergeForest(n: Tree[A], fa: Forest[A], fb: Forest[A]): Forest[A]
+    = fa.foldLeft(n #:: fb)((y,tree)=> tree #:: y )
 
 }
