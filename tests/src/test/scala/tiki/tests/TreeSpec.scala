@@ -31,13 +31,33 @@ import tiki.Predef._
 import tiki.data.Tree.{Leaf, Node}
 
 
+/**
+  * Under development, all tests WIP,
+  * will be replaced.
+  */
 
-class RoseTreeSpec extends TikiSuite with AllArbitrary {
+class TreeSpec extends TikiSuite with AllArbitrary {
 
-  test("wip") {
-    val t = Node[Int](1,Stream(Leaf(2), Leaf(3)))
-    import scala.Predef._
-    println(t.flatten.mkString)
+
+  test("wip: flatten simple tree") {
+    val t = Node(1,Stream(Leaf(2), Leaf(3)))
+    t.flatten.mkString should be ("123")
+    t.rootLabel should be (1)
+    t.subForest.map(_.rootLabel).toList.mkString should be ("23")
+  }
+
+  test("wip: levels correct for simple tree") {
+    val t = Node(1, Stream( Node(3, Stream(Leaf(5),Leaf(6))), Leaf(2)))
+    val expected = Stream(Stream(1),Stream(3,2),Stream(5,6))
+    t.levels should be (expected)
+  }
+
+  test("wip: map node") {
+    val t = Node(1, Stream( Node(3, Stream(Leaf(5),Leaf(6))), Leaf(2)))
+    val t2 = t.map(_ + 1)
+
+    val expected = Stream(Stream(2),Stream(4,3),Stream(6,7))
+    t2.levels should be (expected)
   }
 
 }
