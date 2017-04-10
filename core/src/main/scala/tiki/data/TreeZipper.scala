@@ -49,6 +49,12 @@ object TreeZipper {
 
 case class TreeZipper[A](context: Context[A]) {
 
+  @tailrec
+  def root: TreeZipper[A] = parent match {
+    case Some(ctx) => TreeZipper(ctx).root
+    case None => this
+  }
+
   def map[B](f: A => B): TreeZipper[B] = TreeZipper(context.map(f))
 
   def updateTree(f: Tree[A] => Tree[A]): TreeZipper[A]
