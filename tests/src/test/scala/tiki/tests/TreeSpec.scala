@@ -83,7 +83,7 @@ class TreeSpec extends TikiSuite with AllArbitrary {
 
     val z4 = z0.lastChild.getOrElse(z0)
     z4.getLabel should be(5)
-    
+
     val z5 = z4.moveLeft.getOrElse(z0)
     z5.getLabel should be (4)
 
@@ -115,5 +115,4 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     val expected = Stream(Stream(2),Stream(4,3),Stream(6,7))
     t2.levels should be (expected)
   }
-
 }

@@ -92,7 +92,7 @@ object Predef {
   final val Range = scala.collection.immutable.Range
 
   final class ArrowAssoc[A](val x: A) {
-    def -> [B](y: B): (A, B) = (x, y)
+    def ->[B](y: B): (A, B) = (x, y)
   }
   implicit def any2ArrowAssoc[A](x: A): ArrowAssoc[A] = new ArrowAssoc(x)
 
