@@ -40,11 +40,14 @@ class TreeSpec extends TikiSuite with AllArbitrary {
 
   /** simple test, move around example tree. */
   test("simple rose tree traversal") {
+
     /*
         0 -> [1,4,5]
         1 -> [2,3]
         4 -> []
         5 -> [6,7]
+
+        i.e. similar to adjacency list.
      */
     val exampleTree = Node(0,
                         Stream(
@@ -65,7 +68,6 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     z3.getLabel should be (1)
 
     val root = z3.root
-
     root should be (z0)
 
     root.toTree should be (exampleTree)
@@ -80,25 +82,20 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     t.levels should be (expected)
   }
 
-
-/*
-
-  test("wip: flatten simple tree") {
-    val t = Node(1,Stream(Leaf(2), Leaf(3)))
+  test("flatten simple tree") {
+    val t = Node(1,Stream(Node(2,Stream.empty), Node(3,Stream.empty)))
     t.flatten.mkString should be ("123")
     t.rootLabel should be (1)
     t.subForest.map(_.rootLabel).toList.mkString should be ("23")
   }
 
-
-
-  test("wip: map node") {
-    val t = Node(1, Stream( Node(3, Stream(Leaf(5),Leaf(6))), Leaf(2)))
+  test("map node") {
+    val t = Node(1, Stream( Node(3, Stream(Node(5,Stream.empty),
+        Node(6,Stream.empty))), Node(2,Stream.empty)))
     val t2 = t.map(_ + 1)
 
     val expected = Stream(Stream(2),Stream(4,3),Stream(6,7))
     t2.levels should be (expected)
   }
-  */
 
 }

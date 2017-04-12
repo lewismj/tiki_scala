@@ -26,7 +26,6 @@ package tiki
 
 import cats.Foldable
 import cats.implicits._
-
 import tiki.Predef._
 
 
@@ -34,7 +33,6 @@ object Types {
 
   /** Forest is a stream of trees. */
   type Forest[A] = Stream[Tree[A]]
-
 
   /**
     * Simplified tree.
@@ -57,6 +55,17 @@ object Types {
       val f = (s: Stream[Tree[A]]) => Foldable[Stream].foldMap(s)(_.subForest)
       Stream.iterate(Stream(this))(f).takeWhile(_.nonEmpty).map(_.map(_.rootLabel))
     }
+
+    /** wip: fold entire stream. */
+    private def squish(xs: Stream[A]): Stream[A] =
+      rootLabel #:: subForest.foldRight(xs)(_.squish(_))
+
+    /** -- | The elements of a tree in pre-order. */
+    def flatten: Stream[A] = squish(Stream.empty)
+
+    /** Apply f to the nodes of the tree. */
+    def map[B](f: A => B): Tree[B] =
+      Node(f(rootLabel),subForest.map(_.map(f)))
   }
 
   /** Node. */
@@ -64,8 +73,8 @@ object Types {
     override def isLeaf: Boolean = false
   }
 
-  /** Leaf. */
-  case object Leaf extends Tree[Nothing] {
+  /** Leaf, Empty marker. */
+  case object Empty extends Tree[Nothing] {
     override def rootLabel: Nothing = throw new NoSuchElementException("Leaf rootLabel is Nothing")
     override def subForest: Forest[Nothing] = throw new NoSuchElementException("Leaf subForest is Nothing.")
     override def isLeaf: Boolean = true
