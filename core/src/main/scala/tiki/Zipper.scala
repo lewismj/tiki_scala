@@ -44,7 +44,7 @@ object Zipper {
 
     /** -- Moving around --------------------------------------------------------------- */
     private[this] def forest(before: Forest[A], n: Tree[A], after: Forest[A]): Forest[A]
-    = before.foldLeft(n #:: after)((y,tree) => tree #:: y )
+      = before.foldLeft(n #:: after)((y,tree) => tree #:: y )
 
     /* -- | The parent of the given location. */
     def parent: Option[Zipper[A]] =  parents match {
