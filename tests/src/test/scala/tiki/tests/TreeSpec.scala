@@ -71,6 +71,15 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     root should be (z0)
 
     root.toTree should be (exampleTree)
+
+    val update = root.setLabel(-1)
+    update.getLabel should be(-1)
+
+    root.moveLeft should be (None)
+    root.moveRight should be (None)
+
+    val z4 = z0.lastChild.getOrElse(z0)
+    z4.getLabel should be(5)
   }
 
   test("levels correct for simple tree") {

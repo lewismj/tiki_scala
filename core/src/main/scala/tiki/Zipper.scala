@@ -82,9 +82,10 @@ object Zipper {
 
     /* -- | The last child of the given location. */
     def lastChild: Option[Zipper[A]] = focus.subForest match {
-      case t #:: ts => Some(Zipper(t,ts,Stream.empty,down))
-      case _ => None
-    }
+        case t if t.nonEmpty => Some(Zipper(t.last,t.init,Stream.empty,down))
+        case _ => None
+      }
+
 
     /** -- Conversions ----------------------------------------------------------------- */
     def toTree: Tree[A] = root.focus
