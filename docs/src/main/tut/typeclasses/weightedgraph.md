@@ -38,6 +38,7 @@ defined:
 
 ```scala
 trait WeightedGraph[A] extends Graph[A] {
+  /** todo: add weight(u,v) interface. */
   def edges: Stream[WeightedEdge[A]]
 }
 
@@ -46,5 +47,5 @@ object WeightedGraph {
   def apply[A: WeightedGraph]: WeightedGraph[A] = implicitly
 }
 ```
-
+(wip)
 Both types of weighted graph implicitly support this interface (_tiki.implicits_).

@@ -103,14 +103,14 @@ trait WeightedDigraph[A] extends Digraph[A] {
 }
 
 /**
-  * A weighted graph type class.
+  * A weighted graph class.
   *
   * @tparam A the vertex type.
   */
 trait WeightedGraph[A] extends Graph[A] {
+  /** todo: add weight(u,v) interface. */
   def edges: Stream[WeightedEdge[A]]
 }
-
 
 object WeightedGraph {
   def apply[A: WeightedGraph]: WeightedGraph[A] = implicitly

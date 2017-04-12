@@ -50,7 +50,7 @@ class EdgeSpec  extends TikiSuite with AllArbitrary {
 
   test("`toString` of an edge is correct") { (x: Int, y: Int) => {
     val edge = Edge[Int](x,y)
-    val str = edge.toString
+    val str = edge.toString()
     str should be (s"$x --> $y")
   }}
 

@@ -58,6 +58,9 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     val z0 = Zipper(exampleTree,Stream.empty,Stream.empty,Stream.empty)
     z0.getLabel should be (0)
 
+    z0.moveLeft should be (None)
+    z0.moveRight should be (None)
+
     val z1 = z0.firstChild.getOrElse(z0)
     z1.getLabel should be (1)
 
@@ -70,7 +73,7 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     val root = z3.root
     root should be (z0)
 
-    root.toTree should be (exampleTree)
+    root.fromZipper should be (exampleTree)
 
     val update = root.setLabel(-1)
     update.getLabel should be(-1)
