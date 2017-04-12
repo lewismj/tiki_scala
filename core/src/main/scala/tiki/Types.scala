@@ -47,9 +47,6 @@ object Types {
     /** Sub-forest. */
     def subForest: Forest[A]
 
-    /** leaf flag. */
-    def isLeaf: Boolean
-
     /** -- | Lists of nodes at each level of the tree. */
     def levels: Stream[Stream[A]] = {
       val f = (s: Stream[Tree[A]]) => Foldable[Stream].foldMap(s)(_.subForest)
@@ -69,16 +66,6 @@ object Types {
   }
 
   /** Node. */
-  case class Node[A](rootLabel: A, subForest: Forest[A]) extends Tree[A] {
-    override def isLeaf: Boolean = false
-  }
-
-  /** Leaf, Empty marker. */
-  case object Empty extends Tree[Nothing] {
-    override def rootLabel: Nothing = throw new NoSuchElementException("Leaf rootLabel is Nothing")
-    override def subForest: Forest[Nothing] = throw new NoSuchElementException("Leaf subForest is Nothing.")
-    override def isLeaf: Boolean = true
-  }
-
+  case class Node[A](rootLabel: A, subForest: Forest[A]) extends Tree[A]
 }
 
