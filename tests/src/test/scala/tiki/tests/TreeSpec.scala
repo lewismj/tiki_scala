@@ -28,7 +28,7 @@ package tests
 import tiki.tests.arbitrary.AllArbitrary
 
 import tiki.Predef._
-import tiki.data.Tree.{Leaf, Node}
+//import tiki.data.Tree.{Leaf, Node}
 
 
 /**
@@ -37,7 +37,7 @@ import tiki.data.Tree.{Leaf, Node}
   */
 
 class TreeSpec extends TikiSuite with AllArbitrary {
-
+/*
 
   test("wip: flatten simple tree") {
     val t = Node(1,Stream(Leaf(2), Leaf(3)))
@@ -59,5 +59,6 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     val expected = Stream(Stream(2),Stream(4,3),Stream(6,7))
     t2.levels should be (expected)
   }
+  */
 
 }

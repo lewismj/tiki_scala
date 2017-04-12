@@ -23,62 +23,36 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package data
 
-import cats._
-import cats.implicits._
 import tiki.Predef._
-import tiki.data.Tree.Node
 
-
-/** Rose Tree
-  * See: http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html
-  * WIP!
-  */
-
-sealed trait Tree[T] { self => Foldable
-
-  /** Label value. */
-  def rootLabel: T
-
-  /** Zero or more child trees. */
-  def subForest: Stream[Tree[T]]
-
-  /** -- | The elements of a tree in pre-order. */
-  def flatten: Stream[T] = squish(Stream.empty)
-
-  def squish(xs: Stream[T]): Stream[T] =
-    rootLabel #:: subForest.foldRight(xs)(_.squish(_))
-
-  /** -- | Lists of nodes at each level of the tree. */
-  def levels: Stream[Stream[T]] = {
-    val f = (s: Stream[Tree[T]]) => Foldable[Stream].foldMap(s)(_.subForest)
-    Stream.iterate(Stream(this))(f).takeWhile(_.nonEmpty).map(_.map(_.rootLabel))
-  }
-
-  def map[B](f: T => B): Tree[B] = Node(f(rootLabel),subForest.map(_.map(f)))
-}
-
+/** Simple RoseTree. */
 object Tree {
 
-  /** node. */
-  object Node {
-    def apply[A](root: => A, forest: => Stream[Tree[A]]): Tree[A] = new Tree[A] {
-      lazy val rootLabel = root
-      lazy val subForest = forest
-    }
-    def unapply[A](t: Tree[A]): Option[(A, Stream[Tree[A]])]
-      = Some((t.rootLabel, t.subForest))
+  /** Forest is a stream of trees. */
+  type Forest[A] = Stream[Tree[A]]
+
+  sealed abstract class Tree[A] {
+    /** Root node. */
+    def rootLabel: A
+
+    /** Sub-forest. */
+    def subForest: Forest[A]
+
+    /** leaf flag. */
+    def isLeaf: Boolean
   }
 
-  /** leaf. */
-  object Leaf {
-    def apply[A](root: => A): Tree[A] = Node(root, Stream.empty)
+  /** Node. */
+  case class Node[A](rootLabel: A, subForest: Forest[A]) extends Tree[A] {
+    override def isLeaf: Boolean = false
+  }
 
-    def unapply[A](t: Tree[A]): Option[A] = t match {
-      case Node(root, Stream.Empty) => Some(root)
-      case _ => None
-    }
+  /** Leaf. */
+  case object Leaf extends Tree[Nothing] {
+    override def rootLabel: Nothing = throw new NoSuchElementException("Leaf rootLabel is Nothing")
+    override def subForest: Forest[Nothing] = throw new NoSuchElementException("Leaf subForest is Nothing.")
+    override def isLeaf: Boolean = true
   }
 
 }
