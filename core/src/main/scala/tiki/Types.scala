@@ -26,8 +26,7 @@ package tiki
 
 import tiki.Predef._
 
-/** Simple RoseTree. */
-object Tree {
+object Types {
 
   /** Forest is a stream of trees. */
   type Forest[A] = Stream[Tree[A]]
@@ -56,3 +55,4 @@ object Tree {
   }
 
 }
+
