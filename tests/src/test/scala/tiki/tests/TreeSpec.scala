@@ -26,9 +26,9 @@ package tiki
 package tests
 
 import tiki.tests.arbitrary.AllArbitrary
-
 import tiki.Predef._
-//import tiki.data.Tree.{Leaf, Node}
+import tiki.Types._
+import tiki.Zipper._
 
 
 /**
@@ -37,6 +37,40 @@ import tiki.Predef._
   */
 
 class TreeSpec extends TikiSuite with AllArbitrary {
+
+  /** simple test, move around example tree. */
+  test("simple rose tree traversal") {
+    /*
+        0 -> [1,4,5]
+        1 -> [2,3]
+        4 -> []
+        5 -> [6,7]
+     */
+    val exampleTree = Node(0,
+                        Stream(
+                          Node(1,Stream(Node(2,Stream.empty),Node(3,Stream.empty))),
+                          Node(4,Stream.empty),
+                          Node(5,Stream(Node(6,Stream.empty),Node(7,Stream.empty)))))
+
+    val z0 = Zipper(exampleTree,Stream.empty,Stream.empty,Stream.empty)
+    z0.getLabel should be (0)
+
+    val z1 = z0.firstChild.getOrElse(z0)
+    z1.getLabel should be (1)
+
+    val z2 = z1.moveRight.getOrElse(z0)
+    z2.getLabel should be(4)
+
+    val z3 = z2.moveLeft.getOrElse(z0)
+    z3.getLabel should be (1)
+
+    val root = z3.root
+
+    root should be (z0)
+
+    root.toTree should be (exampleTree)
+  }
+
 /*
 
   test("wip: flatten simple tree") {

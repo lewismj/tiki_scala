@@ -49,6 +49,7 @@ object Zipper {
     /* -- | The parent of the given location. */
     def parent: Option[Zipper[A]] =  parents match {
       case (ls,a,rs) #:: ps => Some(Zipper(Node(a,forest(before,focus,after)),ls,rs,ps))
+      case _ => None
     }
 
     /* -- | The top-most parent of the given location. */
