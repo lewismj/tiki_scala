@@ -71,6 +71,16 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     root.toTree should be (exampleTree)
   }
 
+  test("levels correct for simple tree") {
+    val t = Node(1,
+              Stream(Node(3,Stream(Node(5,Stream.empty),Node(6,Stream.empty))),
+                     Node(2,Stream.empty)))
+
+    val expected = Stream(Stream(1),Stream(3,2),Stream(5,6))
+    t.levels should be (expected)
+  }
+
+
 /*
 
   test("wip: flatten simple tree") {
@@ -80,11 +90,7 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     t.subForest.map(_.rootLabel).toList.mkString should be ("23")
   }
 
-  test("wip: levels correct for simple tree") {
-    val t = Node(1, Stream( Node(3, Stream(Leaf(5),Leaf(6))), Leaf(2)))
-    val expected = Stream(Stream(1),Stream(3,2),Stream(5,6))
-    t.levels should be (expected)
-  }
+
 
   test("wip: map node") {
     val t = Node(1, Stream( Node(3, Stream(Leaf(5),Leaf(6))), Leaf(2)))

@@ -24,14 +24,25 @@
  */
 package tiki
 
+import cats.Foldable
+import cats.implicits._
+
 import tiki.Predef._
+
 
 object Types {
 
   /** Forest is a stream of trees. */
   type Forest[A] = Stream[Tree[A]]
 
+
+  /**
+    * Simplified tree.
+    * See: http://hackage.haskell.org/package/containers-0.5.10.2/docs/src/Data-Tree.html
+    */
   sealed abstract class Tree[A] {
+    self => Foldable
+
     /** Root node. */
     def rootLabel: A
 
@@ -40,6 +51,12 @@ object Types {
 
     /** leaf flag. */
     def isLeaf: Boolean
+
+    /** -- | Lists of nodes at each level of the tree. */
+    def levels: Stream[Stream[A]] = {
+      val f = (s: Stream[Tree[A]]) => Foldable[Stream].foldMap(s)(_.subForest)
+      Stream.iterate(Stream(this))(f).takeWhile(_.nonEmpty).map(_.map(_.rootLabel))
+    }
   }
 
   /** Node. */
