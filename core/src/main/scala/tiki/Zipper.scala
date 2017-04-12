@@ -59,15 +59,16 @@ object Zipper {
       case None => this
     }
 
+
     /* -- | The tree before this location, if any. */
     def prevTree: Option[Zipper[A]] = before match {
-      case t #:: ts => Some(Zipper(t,ts, focus #:: after,parents))
+      case t if t.nonEmpty => Some(Zipper(t.last,t.init, focus #:: after,parents))
       case _ => None
     }
 
     /* -- | The tree after this location, if any. */
     def nextTree: Option[Zipper[A]] = after match {
-      case t #:: ts => Some(Zipper(t, focus #:: before, ts, parents))
+      case t if t.nonEmpty => Some(Zipper(t.head, before #::: Stream(focus), t.tail, parents))
       case _ => None
     }
 
@@ -82,9 +83,9 @@ object Zipper {
 
     /* -- | The last child of the given location. */
     def lastChild: Option[Zipper[A]] = focus.subForest match {
-        case t if t.nonEmpty => Some(Zipper(t.last,t.init,Stream.empty,down))
-        case _ => None
-      }
+      case t if t.nonEmpty => Some(Zipper(t.last, t.init, Stream.empty, down))
+      case _ => None
+    }
 
 
     /** -- Conversions ----------------------------------------------------------------- */
