@@ -25,7 +25,7 @@
 package tiki
 
 import tiki.Predef._
-import tiki.Types._
+import tiki.RoseTree._
 
 object Zipper {
 
@@ -41,6 +41,18 @@ object Zipper {
     def moveLeft: Option[Zipper[A]] = prevTree
     def moveRight: Option[Zipper[A]] = nextTree
     def getLabel: A = focus.rootLabel
+
+    /** Insert to the left of the current node & move focus. */
+    def insertLeft(t: Tree[A]): Zipper[A] = Zipper(t,before, focus #:: after, parents)
+
+    /** Insert to the right of the current node & move focus. */
+    def insertRight(t: Tree[A]): Zipper[A] = Zipper(t, before #::: Stream(focus),after,parents)
+
+    /** Insert tree as child of current node (to leftmost position in the sub-forest). */
+    def insertChild(t: Tree[A]): Zipper[A] = Zipper(t, Stream.empty, focus.subForest, down)
+
+    /** Insert tree as child of current node (to rightmost position in the sub-forest). */
+    def appendChild(t: Tree[A]): Zipper[A] = Zipper(t, focus.subForest.reverse, Stream.empty, down)
 
     /** -- Moving around --------------------------------------------------------------- */
     private[this] def forest(before: Forest[A], n: Tree[A], after: Forest[A]): Forest[A]

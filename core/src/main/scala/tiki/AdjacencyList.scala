@@ -28,9 +28,7 @@ import tiki.Predef._
 
 
 /**
-  * Class represents a set of directed edges as an adjacency list.
-  * As the need for undirected graphs is rare, usually represent
-  * the undirected graph by two directed edges.
+  * Class represents a set of edges as an adjacency list.
   */
 final class AdjacencyList[A](val g: Map[A,Set[A]], val gr: Map[A,Set[A]]) extends Directed[A] {
   lazy val vertices: Stream[A] = g.keys.toSet.union(gr.keys.toSet).toStream

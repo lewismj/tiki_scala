@@ -27,7 +27,7 @@ package tests
 
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.Predef._
-import tiki.Types._
+import tiki.RoseTree._
 import tiki.Zipper._
 
 
@@ -91,13 +91,30 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     z5.lastChild should be (None)
   }
 
-  test("levels correct for simple tree") {
+  test("levels correct for simple tree with insertions") {
     val t = Node(1,
               Stream(Node(3,Stream(Node(5,Stream.empty),Node(6,Stream.empty))),
                      Node(2,Stream.empty)))
 
     val expected = Stream(Stream(1),Stream(3,2),Stream(5,6))
     t.levels should be (expected)
+
+    val z0 = Zipper(t,Stream.empty,Stream.empty,Stream.empty)
+    val z1 = z0.firstChild.getOrElse(z0)
+    z1.getLabel should be (3)
+
+    /* check levels after insertion. */
+    val n = Node(99,Stream.empty)
+    val z2 = z1.insertLeft(n)
+    val z3 = z1.insertRight(n)
+
+    z2.fromZipper.levels should be (Stream(Stream(1),Stream(99,3,2),Stream(5,6)))
+    z3.fromZipper.levels should be (Stream(Stream(1),Stream(3,99,2),Stream(5,6)))
+
+    val z4 = z0.insertChild(n)
+    val z5 = z0.appendChild(n)
+    z4.fromZipper.levels should be (Stream(Stream(1),Stream(99,3,2),Stream(5,6)))
+    z5.fromZipper.levels should be (Stream(Stream(1),Stream(3,2,99),Stream(5,6)))
   }
 
   test("flatten simple tree") {

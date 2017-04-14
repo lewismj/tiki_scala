@@ -29,7 +29,7 @@ import cats.implicits._
 import tiki.Predef._
 
 
-object Types {
+object RoseTree {
 
   /** Forest is a stream of trees. */
   type Forest[A] = Stream[Tree[A]]

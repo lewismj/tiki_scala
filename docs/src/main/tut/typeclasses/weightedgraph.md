@@ -48,4 +48,4 @@ object WeightedGraph {
 }
 ```
 (wip)
-Both types of weighted graph implicitly support this interface (_tiki.implicits_).
+Both types of weighted graph will implicitly support the _weight_ interface.
