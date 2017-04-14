@@ -91,8 +91,8 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
                         <a class="object" href="AdjacencyList$.html" title=""></a>
-                        <a class="class" href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list."></a>
-                        <a href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list.">
+                        <a class="class" href="AdjacencyList.html" title="Class represents a set of edges as an adjacency list."></a>
+                        <a href="AdjacencyList.html" title="Class represents a set of edges as an adjacency list.">
                           AdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
@@ -157,6 +157,12 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="object" href="RoseTree$.html" title=""></a>
+                        <a href="RoseTree$.html" title="">
+                          RoseTree
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="object" href="Sort$.html" title=""></a>
                         <a href="Sort$.html" title="">
                           Sort
@@ -166,12 +172,6 @@ two vertices.">
                         <a class="object" href="Traversal$.html" title="Simple stream based unfold traversal."></a>
                         <a href="Traversal$.html" title="Simple stream based unfold traversal.">
                           Traversal
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="object" href="Types$.html" title=""></a>
-                        <a href="Types$.html" title="">
-                          Types
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -296,9 +296,9 @@ two vertices.">
         <div id="types" class="types members">
               <h3>Type Members</h3>
               <ol><li name="tiki.Zipper.Parent" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Parent[A]=(tiki.Types.Forest[A],A,tiki.Types.Forest[A])"></a><a id="Parent[A]:Parent[A]"></a>
+      <a id="Parent[A]=(tiki.RoseTree.Forest[A],A,tiki.RoseTree.Forest[A])"></a><a id="Parent[A]:Parent[A]"></a>
       <span class="permalink">
-      <a href="../tiki/Zipper$.html#Parent[A]=(tiki.Types.Forest[A],A,tiki.Types.Forest[A])" title="Permalink">
+      <a href="../tiki/Zipper$.html#Parent[A]=(tiki.RoseTree.Forest[A],A,tiki.RoseTree.Forest[A])" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -307,7 +307,7 @@ two vertices.">
         <span class="kind">type</span>
       </span>
       <span class="symbol">
-        <span class="name">Parent</span><span class="tparams">[<span name="A">A</span>]</span><span class="result alias"> = (<a href="Types$.html#Forest[A]=tiki.Predef.Stream[tiki.Types.Tree[A]]" class="extmbr" name="tiki.Types.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Parent.A">A</span>], <span class="extype" name="tiki.Zipper.Parent.A">A</span>, <a href="Types$.html#Forest[A]=tiki.Predef.Stream[tiki.Types.Tree[A]]" class="extmbr" name="tiki.Types.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Parent.A">A</span>])</span>
+        <span class="name">Parent</span><span class="tparams">[<span name="A">A</span>]</span><span class="result alias"> = (<a href="RoseTree$.html#Forest[A]=tiki.Predef.Stream[tiki.RoseTree.Tree[A]]" class="extmbr" name="tiki.RoseTree.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Parent.A">A</span>], <span class="extype" name="tiki.Zipper.Parent.A">A</span>, <a href="RoseTree$.html#Forest[A]=tiki.Predef.Stream[tiki.RoseTree.Tree[A]]" class="extmbr" name="tiki.RoseTree.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Parent.A">A</span>])</span>
       </span>
       
       
@@ -326,7 +326,7 @@ two vertices.">
         <a title="See: https://hackage.haskell.org/package/rosezipper-0.2/src/Data/Tree/Zipper.hs
      By Krasimir Angelov &amp; Iavor S." href="Zipper$$Zipper.html">
               <span class="name">Zipper</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="focus">focus: <a href="Types$$Tree.html" class="extype" name="tiki.Types.Tree">Tree</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]</span>, <span name="before">before: <a href="Types$.html#Forest[A]=tiki.Predef.Stream[tiki.Types.Tree[A]]" class="extmbr" name="tiki.Types.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]</span>, <span name="after">after: <a href="Types$.html#Forest[A]=tiki.Predef.Stream[tiki.Types.Tree[A]]" class="extmbr" name="tiki.Types.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]</span>, <span name="parents">parents: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="#Parent[A]=(tiki.Types.Forest[A],A,tiki.Types.Forest[A])" class="extmbr" name="tiki.Zipper.Parent">Parent</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="focus">focus: <a href="RoseTree$$Tree.html" class="extype" name="tiki.RoseTree.Tree">Tree</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]</span>, <span name="before">before: <a href="RoseTree$.html#Forest[A]=tiki.Predef.Stream[tiki.RoseTree.Tree[A]]" class="extmbr" name="tiki.RoseTree.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]</span>, <span name="after">after: <a href="RoseTree$.html#Forest[A]=tiki.Predef.Stream[tiki.RoseTree.Tree[A]]" class="extmbr" name="tiki.RoseTree.Forest">Forest</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]</span>, <span name="parents">parents: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<a href="#Parent[A]=(tiki.RoseTree.Forest[A],A,tiki.RoseTree.Forest[A])" class="extmbr" name="tiki.Zipper.Parent">Parent</a>[<span class="extype" name="tiki.Zipper.Zipper.A">A</span>]]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
       <p class="shortcomment cmt">See: https://hackage.haskell.org/package/rosezipper-0.2/src/Data/Tree/Zipper.hs

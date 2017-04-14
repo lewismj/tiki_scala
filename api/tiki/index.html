@@ -89,8 +89,8 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
     </li><li class="current-entities indented1">
                         <a class="object" href="AdjacencyList$.html" title=""></a>
-                        <a class="class" href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list."></a>
-                        <a href="AdjacencyList.html" title="Class represents a set of directed edges as an adjacency list.">
+                        <a class="class" href="AdjacencyList.html" title="Class represents a set of edges as an adjacency list."></a>
+                        <a href="AdjacencyList.html" title="Class represents a set of edges as an adjacency list.">
                           AdjacencyList
                         </a>
                       </li><li class="current-entities indented1">
@@ -155,6 +155,12 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="object" href="RoseTree$.html" title=""></a>
+                        <a href="RoseTree$.html" title="">
+                          RoseTree
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="object" href="Sort$.html" title=""></a>
                         <a href="Sort$.html" title="">
                           Sort
@@ -164,12 +170,6 @@ two vertices.">
                         <a class="object" href="Traversal$.html" title="Simple stream based unfold traversal."></a>
                         <a href="Traversal$.html" title="Simple stream based unfold traversal.">
                           Traversal
-                        </a>
-                      </li><li class="current-entities indented1">
-                        <span class="separator"></span>
-                        <a class="object" href="Types$.html" title=""></a>
-                        <a href="Types$.html" title="">
-                          Types
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -293,7 +293,7 @@ two vertices.">
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="tiki.AdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+              <ol><li name="tiki.AdjacencyList" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="AdjacencyList[A]extendsDirected[A]"></a><a id="AdjacencyList[A]:AdjacencyList[A]"></a>
       <span class="permalink">
       <a href="../tiki/index.html#AdjacencyList[A]extendsDirected[A]" title="Permalink">
@@ -305,15 +305,12 @@ two vertices.">
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a title="Class represents a set of directed edges as an adjacency list." href="AdjacencyList.html">
+        <a title="Class represents a set of edges as an adjacency list." href="AdjacencyList.html">
               <span class="name">AdjacencyList</span>
             </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.AdjacencyList.A">A</span>]</span>
       </span>
       
-      <p class="shortcomment cmt">Class represents a set of directed edges as an adjacency list.</p><div class="fullcomment"><div class="comment cmt"><p>Class represents a set of directed edges as an adjacency list.
-As the need for undirected graphs is rare, usually represent
-the undirected graph by two directed edges.
-</p></div></div>
+      <p class="shortcomment cmt">Class represents a set of edges as an adjacency list.</p>
     </li><li name="tiki.Digraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="Digraph[A]extendsGraph[A]withDirected[A]"></a><a id="Digraph[A]:Digraph[A]"></a>
       <span class="permalink">
@@ -615,6 +612,24 @@ even if the edge is undirected.
 Mainly designed to ensure that algorithms within the library don't accidentally use
 mutable collections or other parts of the <code>scala.Predef</code> that are not required.
 </p></div></div>
+    </li><li name="tiki.RoseTree" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RoseTree"></a><a id="RoseTree:RoseTree"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#RoseTree" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="RoseTree$.html">
+              <span class="name">RoseTree</span>
+            </a>
+      </span>
+      
+      
     </li><li name="tiki.Sort" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Sort"></a><a id="Sort:Sort"></a>
       <span class="permalink">
@@ -651,24 +666,6 @@ mutable collections or other parts of the <code>scala.Predef</code> that are not
       </span>
       
       <p class="shortcomment cmt">Simple stream based unfold traversal.</p>
-    </li><li name="tiki.Types" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Types"></a><a id="Types:Types"></a>
-      <span class="permalink">
-      <a href="../tiki/index.html#Types" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="Types$.html">
-              <span class="name">Types</span>
-            </a>
-      </span>
-      
-      
     </li><li name="tiki.WeightedGraph" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="WeightedGraph"></a><a id="WeightedGraph:WeightedGraph"></a>
       <span class="permalink">
