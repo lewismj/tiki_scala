@@ -99,7 +99,7 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
   * @tparam A the vertex type.
   */
 trait WeightedDigraph[A] extends Digraph[A] {
-  override def edges: Stream[WeightedEdge[A]]
+  def edges: Stream[WeightedEdge[A]]
 }
 
 /**
@@ -108,10 +108,6 @@ trait WeightedDigraph[A] extends Digraph[A] {
   * @tparam A the vertex type.
   */
 trait WeightedGraph[A] extends Graph[A] {
-  /** todo: add weight(u,v) interface. */
   def edges: Stream[WeightedEdge[A]]
 }
 
-object WeightedGraph {
-  def apply[A: WeightedGraph]: WeightedGraph[A] = implicitly
-}

@@ -55,8 +55,27 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
 
 ## Weighted Graphs
 
-To avoid forming unnecessary type hierarchies, a `WeightedGraph` type class is used,
-the documentation is [here](../typeclasses/weightedgraph.html).
+There are two types of weighted graphs, one based on `Digraph` the other
+on `Graph` (i.e. non directed graph).
+
+The weighted digraph interface can be defined as a`Digraph` that returns
+ weighted`edges`.  The weighted undirected graph is defined as a graph t
+ hat returns weighted edges.
+ 
+ Rather than force an unnecessary join in the type hierarchy, for algorithms
+ like Kruskal's, there is an implicit conversion to a `WeightedGraph`
+
+```scala
+  implicit def undirected[A](g: WeightedUndirectedGraph[A]): WeightedGraph[A] = new WeightedGraph[A] {
+    def vertices: Stream[A] = g.vertices
+    def edges: Stream[WeightedEdge[A]] = g.edges
+  }
+
+  implicit def directed[A](g: WeightedDigraph[A]): WeightedGraph[A] = new WeightedGraph[A] {
+    def edges: Stream[WeightedEdge[A]] = g.edges
+    def vertices: Stream[A] = g.vertices
+  }
+```
 
 
 ## Usage
