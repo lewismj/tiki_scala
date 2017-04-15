@@ -52,10 +52,9 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
       override def vertices: Stream[Int] = adj.vertices
       override def edges: Stream[EdgeLike[Int]] = xs
     }
-
-    val expected = Set(List(4), List(3), List(0, 1, 2))
-    kosaraju(g).toSet should be (expected)
-
+    val expected = Set(Set(4), Set(3), Set(0, 1, 2))
+    val scc = kosaraju(g).toSet
+    scc.map(_.toSet[Int]) should be (expected)
   }
 
   test("strongly connect components .2") {
@@ -91,8 +90,9 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
       override def edges: Stream[EdgeLike[Int]] = xs
     }
 
-    val expected = Set(List(8, 7, 9, 10, 12, 11), List(3, 6), List(5, 2, 4), List(1))
-    kosaraju(g).toSet should be (expected)
+    val expected = Set(Set(8, 7, 9, 10, 12, 11), Set(3, 6), Set(5, 2, 4), Set(1))
+    val scc = kosaraju(g).toSet
+    scc.map(_.toSet[Int]) should be (expected)
   }
 
 }

@@ -22,7 +22,7 @@ object Transposable {
 Within the `implicits` section:
 
 ```scala
-  def transpose[T: Transposable](t: T): T= Transposable[T].transpose
+def transpose[T: Transposable](t: T): T= Transposable[T].transpose
  ```
  
  
@@ -31,13 +31,13 @@ this can be implemented independently of the underlying representation used to i
 interface.
 
 ```scala
-  implicit class Weighted[T](g: WeightedDigraph[T]) extends Transposable[WeightedDigraph[T]] {
-    override def transpose: WeightedDigraph[T] = new WeightedDigraph[T] {
+implicit class Weighted[T](g: WeightedDigraph[T]) extends Transposable[WeightedDigraph[T]] {
+  override def transpose: WeightedDigraph[T] = new WeightedDigraph[T] {
       override def edges: Stream[WeightedEdge[T]] = g.edges.map(edge=>tiki.reverse(edge))
       override def predecessors(v: T): Set[T] = g.successors(v)
       override def successors(v: T): Set[T] = g.predecessors(v)
       override def contains(v: T): Boolean = g.contains(v)
       override def vertices: Stream[T] = g.vertices
-    }
   }
+}
 ```
