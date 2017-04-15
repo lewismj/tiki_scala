@@ -83,4 +83,31 @@ object implicits {
     def vertices: Stream[A] = g.vertices
   }
 
+
+  /* !-- Transposable graphs. */
+  def transpose[T: Transposable](t: T): T= Transposable[T].transpose
+
+  implicit class Weighted[T](g: WeightedDigraph[T]) extends Transposable[WeightedDigraph[T]] {
+    override def transpose: WeightedDigraph[T] = new WeightedDigraph[T] {
+      override def edges: Stream[WeightedEdge[T]] = g.edges.map(edge=>tiki.reverse(edge))
+      override def predecessors(v: T): Set[T] = g.successors(v)
+      override def successors(v: T): Set[T] = g.predecessors(v)
+      override def contains(v: T): Boolean = g.contains(v)
+      override def vertices: Stream[T] = g.vertices
+    }
+  }
+
+  implicit class Unweighted[T](g: Digraph[T]) extends Transposable[Digraph[T]] {
+    override def transpose: Digraph[T] = new Digraph[T] {
+      override def edges: Stream[Edge[T]] = g.edges.map(edge=>edge.to --> edge.from)
+      override def predecessors(v: T): Set[T] = g.successors(v)
+      override def successors(v: T): Set[T] = g.predecessors(v)
+      override def contains(v: T): Boolean = g.contains(v)
+      override def vertices: Stream[T] = g.vertices
+    }
+  }
+
+
+
+
 }

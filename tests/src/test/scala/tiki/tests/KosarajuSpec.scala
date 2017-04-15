@@ -1,4 +1,3 @@
-import tiki.Predef.{Boolean, Set, Stream}
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -23,18 +22,39 @@ import tiki.Predef.{Boolean, Set, Stream}
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package object tiki {
-  import shapeless.Poly1
-  import tiki.implicits._
+package tiki
+package tests
 
-  /** Poly 'reverse' function for different 'Edge' case classes. */
-  object reverse extends Poly1 {
-    implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]
-      = at({ x=> x.edge.to --> x.edge.from :+ x.label})
-    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]
-      = at({ x=> x.edge.to --> x.edge.from :# x.weight})
+import tiki.tests.arbitrary.AllArbitrary
+
+import tiki.Predef._
+import tiki.implicits._
+import tiki.Components._
+
+
+class KosarajuSpec extends TikiSuite with AllArbitrary {
+  
+  test("Can correctly identify scc.") {
+    val xs =  Stream(
+      1 --> 0,
+      0 --> 2,
+      2 --> 1,
+      0 --> 3,
+      3 --> 4
+    )
+
+    val adj = AdjacencyList(xs)
+
+    val g = new Digraph[Int] {
+      override def contains(v: Int): Boolean = adj.contains(v)
+      override def successors(v: Int): Set[Int] = adj.successors(v)
+      override def predecessors(v: Int): Set[Int] = adj.predecessors(v)
+      override def vertices: Stream[Int] = adj.vertices
+      override def edges: Stream[EdgeLike[Int]] = xs
     }
 
-}
+    val expected = Set(List(4), List(3), List(0, 1, 2))
+    kosaraju(g).toSet should be (expected)
+  }
 
+}

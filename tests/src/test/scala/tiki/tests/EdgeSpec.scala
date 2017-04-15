@@ -30,7 +30,7 @@ import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
 
 
-class EdgeSpec  extends TikiSuite with AllArbitrary {
+class EdgeSpec extends TikiSuite with AllArbitrary {
 
   test("Edge creates correct to and from vertices") { (x: Int, y: Int) => {
     (x --> y) should have ('from (x), 'to (y))

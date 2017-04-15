@@ -1,4 +1,3 @@
-import tiki.Predef.{Boolean, Set, Stream}
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -23,18 +22,15 @@ import tiki.Predef.{Boolean, Set, Stream}
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package object tiki {
-  import shapeless.Poly1
-  import tiki.implicits._
+package tiki
 
-  /** Poly 'reverse' function for different 'Edge' case classes. */
-  object reverse extends Poly1 {
-    implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]
-      = at({ x=> x.edge.to --> x.edge.from :+ x.label})
-    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]
-      = at({ x=> x.edge.to --> x.edge.from :# x.weight})
-    }
+import tiki.Predef._
 
+/** Simple type class for Transposable graphs. */
+trait Transposable[T] {
+  def transpose: T
 }
 
+object Transposable {
+  def apply[T: Transposable]: Transposable[T] = implicitly
+}

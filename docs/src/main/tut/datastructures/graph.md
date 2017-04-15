@@ -59,8 +59,7 @@ There are two types of weighted graphs, one based on `Digraph` the other
 on `Graph` (i.e. non directed graph).
 
 The weighted digraph interface can be defined as a`Digraph` that returns
- weighted`edges`.  The weighted undirected graph is defined as a graph t
- hat returns weighted edges.
+ weighted`edges`.  The weighted undirected graph is defined as a graph that returns weighted edges.
  
  Rather than force an unnecessary join in the type hierarchy, for algorithms
  like Kruskal's, there is an implicit conversion to a `WeightedGraph`

@@ -47,3 +47,13 @@ options:
   - title: Utility
     url: algorithms/utility.html
     menu_type: algorithms
+
+   ### Type Classes ###
+
+  - title: Type Classes
+    url: typeclasses.html
+    menu_type: typeclasses
+
+  - title: Transposable
+    url: typeclasses/typeclasses.html
+    menu_type: typeclasses

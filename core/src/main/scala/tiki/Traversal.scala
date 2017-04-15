@@ -43,7 +43,7 @@ object Traversal {
     * @tparam R   the type of the emitted traversal.
     * @return a stream of the traversal.
     */
-  private def unfold[T,R](z: T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
+  def unfold[T,R](z: T)(f: T => Option[(R,T)]): Trampoline[Stream[R]] = f(z) match {
     case None => Trampoline.done(Stream.empty[R])
     case Some((r,v)) => Trampoline.suspend(unfold(v)(f)).flatMap(s => Trampoline.done(r #:: s))
   }
@@ -52,14 +52,14 @@ object Traversal {
    * Generates a graph traversal, as stream of vertices.
    *
    * @param g    underlying data structure that supports `Directed`.
-   * @param v    the start vertex.
+   * @param l    the starting list.
    * @param dfs  flag to indicate if depth first search (true) or
    *             breadth first search (false).
    * @tparam A   the type of the vertex.
    * @return     the traversal stream.
    */
-  private def traverse[A](g: Directed[A], v: A, dfs: Boolean): Stream[A]
-    = unfold( (List(v),Set.empty[A]) ) {
+  def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
+    = unfold( (l,Set.empty[A]) ) {
           case (current,visited) => current match {
             case w :: Nil =>
               Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
@@ -82,7 +82,7 @@ object Traversal {
     * @return         visit order stream.
     */
   private def visitOrder[A](g: Directed[A], start: A, dfs: Boolean): Stream[A]
-    = if (g.contains(start)) traverse(g, start, dfs).distinct else Stream.empty
+    = if (g.contains(start)) traverse(g, List(start), dfs).distinct else Stream.empty
 
   /**
     * Perform a depth first search on a directed graph.
