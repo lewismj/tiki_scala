@@ -31,29 +31,11 @@ From [wikipedia](https://en.wikipedia.org/wiki/Strongly_connected_component)
     The set of visited vertices will be the strongly connected component containing _v_.
     Remove these vertices from the transpose and _s_.
   
-
-## Implementation
-
-For step 2, we can reuse the `traverse` function used by the depth first search:
-
-```scala
-def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
-  = unfold( (l,Set.empty[A]) ) { ... }
-```
-
-When a depth first search is performed from a single vertex _start_ we call `traverse`, passing
-in a single element list `List(start)` for _l_. 
-
-In order to satisfy step 2, we can `unfold` using the complete list of vertices in the graph
-as our initial starting point. Each call to unfold will prepend the depth first search of a vertex,
-until all vertices have been searched. The call to `distinct` will preserve the ordering.
-
-i.e.
-```scala
-  traverse(g, g.vertices.toList, dfs=true).distinct.toList
- ```
-
 ## Example
+
+The following graph shows the three strongly connected components:
+
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/scc.png)
 
 ```tut
 import tiki._
@@ -83,3 +65,23 @@ val expected = Set(List(4), List(3), List(0, 1, 2))
 kosaraju(g).mkString(",")
 ```
 
+## Implementation
+
+For step 2, we can reuse the `traverse` function used by the depth first search:
+
+```scala
+def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
+  = unfold( (l,Set.empty[A]) ) { ... }
+```
+
+When a depth first search is performed from a single vertex _start_ we call `traverse`, passing
+in a single element list `List(start)` for _l_. 
+
+In order to satisfy step 2, we can `unfold` using the complete list of vertices in the graph
+as our initial starting point. Each call to unfold will prepend the depth first search of a vertex,
+until all vertices have been searched. The call to `distinct` will preserve the ordering.
+
+i.e.
+```scala
+  traverse(g, g.vertices.toList, dfs=true).distinct.toList
+ ```
