@@ -44,6 +44,10 @@ options:
     url: algorithms/sort.html
     menu_type: algorithms
 
+  - title: Strongly Connected Components
+    url: algorithms/kosaraju.html
+    menu_type: algorithms
+
   - title: Utility
     url: algorithms/utility.html
     menu_type: algorithms

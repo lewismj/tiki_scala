@@ -32,7 +32,7 @@ import tiki.implicits._
 import tiki.Components._
 
 
-/* WIP: initial check-in Kosaraju's Algorithm */
+
 class KosarajuSpec extends TikiSuite with AllArbitrary {
 
   test("strongly connected components .1") {
@@ -53,8 +53,9 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
       override def edges: Stream[EdgeLike[Int]] = xs
     }
 
-    //val expected = Set(List(4), List(3), List(0, 1, 2))
-    //kosaraju(g).toSet should be (expected)
+    val expected = Set(List(4), List(3), List(0, 1, 2))
+    kosaraju(g).toSet should be (expected)
+
   }
 
   test("strongly connect components .2") {
@@ -89,9 +90,9 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
       override def vertices: Stream[Int] = adj.vertices
       override def edges: Stream[EdgeLike[Int]] = xs
     }
-    import scala.Predef._
-    println(kosaraju(g))
 
+    val expected = Set(List(8, 7, 9, 10, 12, 11), List(3, 6), List(5, 2, 4), List(1))
+    kosaraju(g).toSet should be (expected)
   }
 
 }

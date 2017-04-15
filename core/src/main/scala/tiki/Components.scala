@@ -36,13 +36,11 @@ object Components {
     * edges. This could be made more efficient.
     */
   private def remove[A](g: Digraph[A], l: List[A]) = new Digraph[A] {
-    val vertices0 = g.vertices.filterNot(l.contains)
-    val edges0 = g.edges.filterNot(e=> l.contains(e.from) || l.contains(e.to))
-    override def contains(v: A): Boolean = vertices0.contains(v)
+    override def contains(v: A): Boolean = !l.contains(v) && g.contains(v)
     override def successors(v: A): Set[A] = g.successors(v).filterNot(l.contains)
     override def predecessors(v: A): Set[A] = g.predecessors(v).filterNot(l.contains)
-    override def vertices: Stream[A] = vertices0
-    override def edges: Stream[EdgeLike[A]] = edges0
+    override def vertices: Stream[A] = g.vertices.filterNot(l.contains)
+    override def edges: Stream[EdgeLike[A]] = g.edges.filterNot(e=> l.contains(e.from) || l.contains(e.to))
   }
 
   /**
@@ -54,25 +52,18 @@ object Components {
     * @return     the list of strongly connected components.
     */
   def kosaraju[A](g: Digraph[A]): List[List[A]] = {
+
     @tailrec
-    def loop(gr: Digraph[A],s: List[A],scc: List[List[A]]): List[List[A]] = s match {
+    def loop(gr: Digraph[A], s: List[A], scc: List[List[A]]): List[List[A]] = s match {
       case Nil => scc
       case head :: tail =>
-        import scala.Predef._
-        println(s"head= $head")
         val component = dfs(gr,head).toList
-        println(s"dfs=$component")
-        loop(remove(g,component), s.diff(component), component :: scc)
+        loop(remove(gr,component), s.diff(component), component :: scc)
     }
 
-    /*
-     * Build dfs based stack based on unfold over the list of all vertices.
-     * n.b. Relies on  distinct method preserving the visit order.
-     */
+    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(remove(g,a),v).toList ::: a)
 
-    loop( g.transpose,
-          traverse(g, g.vertices.toList, dfs=true).distinct.toList,
-          List.empty[List[A]])
+    loop(g.transpose,stack,List.empty[List[A]])
   }
 
 }

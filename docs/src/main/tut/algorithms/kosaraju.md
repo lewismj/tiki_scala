@@ -65,23 +65,21 @@ val expected = Set(List(4), List(3), List(0, 1, 2))
 kosaraju(g).mkString(",")
 ```
 
-## Implementation  (Work in Progress, Experimental)
-
-For step 2, we can reuse the `traverse` function used by the depth first search:
+## Implementation  
 
 ```scala
-def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
-  = unfold( (l,Set.empty[A]) ) { ... }
+  def kosaraju[A](g: Digraph[A]): List[List[A]] = {
+
+    @tailrec
+    def loop(gr: Digraph[A], s: List[A], scc: List[List[A]]): List[List[A]] = s match {
+      case Nil => scc
+      case head :: tail =>
+        val component = dfs(gr,head).toList
+        loop(remove(gr,component), s.diff(component), component :: scc)
+    }
+
+    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(remove(g,a),v).toList ::: a)
+
+    loop(g.transpose,stack,List.empty[List[A]])
+  }
 ```
-
-When a depth first search is performed from a single vertex _start_ we call `traverse`, passing
-in a single element list `List(start)` for _l_. 
-
-In order to satisfy step 2, we can `unfold` using the complete list of vertices in the graph
-as our initial starting point. Each call to unfold will prepend the depth first search of a vertex,
-until all vertices have been searched. The call to `distinct` will preserve the ordering.
-
-i.e.
-```scala
-  traverse(g, g.vertices.toList, dfs=true).distinct.toList
- ```
