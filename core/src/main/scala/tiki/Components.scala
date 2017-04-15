@@ -55,10 +55,13 @@ object Components {
     */
   def kosaraju[A](g: Digraph[A]): List[List[A]] = {
     @tailrec
-    def loop(g: Digraph[A],s: List[A],scc: List[List[A]]): List[List[A]] = s match {
+    def loop(gr: Digraph[A],s: List[A],scc: List[List[A]]): List[List[A]] = s match {
       case Nil => scc
       case head :: tail =>
-        val component = dfs(g,head).toList
+        import scala.Predef._
+        println(s"head= $head")
+        val component = dfs(gr,head).toList
+        println(s"dfs=$component")
         loop(remove(g,component), s.diff(component), component :: scc)
     }
 
@@ -66,6 +69,7 @@ object Components {
      * Build dfs based stack based on unfold over the list of all vertices.
      * n.b. Relies on  distinct method preserving the visit order.
      */
+
     loop( g.transpose,
           traverse(g, g.vertices.toList, dfs=true).distinct.toList,
           List.empty[List[A]])
