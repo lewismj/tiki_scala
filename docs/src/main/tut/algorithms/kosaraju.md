@@ -34,7 +34,7 @@ From [wikipedia](https://en.wikipedia.org/wiki/Strongly_connected_component)
 
 ## Implementation
 
-For step 2, we can reuse the `unfold` function used by the depth first search:
+For step 2, we can reuse the `traverse` function used by the depth first search:
 
 ```scala
 def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
