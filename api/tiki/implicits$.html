@@ -97,6 +97,12 @@
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="object" href="Components$.html" title=""></a>
+                        <a href="Components$.html" title="">
+                          Components
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="Digraph.html" title="A directed graph (a graph that supports the Directed interface."></a>
                         <a href="Digraph.html" title="A directed graph (a graph that supports the Directed interface.">
                           Digraph
@@ -166,6 +172,12 @@ two vertices.">
                         <a class="object" href="Sort$.html" title=""></a>
                         <a href="Sort$.html" title="">
                           Sort
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <a class="object" href="Transposable$.html" title=""></a>
+                        <a class="trait" href="Transposable.html" title="Simple type class for Transposable graphs."></a>
+                        <a href="Transposable.html" title="Simple type class for Transposable graphs.">
+                          Transposable
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -335,6 +347,24 @@ directed edge.
       
       <p class="shortcomment cmt">Defines implicit operators for constructing labelled edges.</p><div class="fullcomment"><div class="comment cmt"><p>Defines implicit operators for constructing labelled edges.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the type of the label.</p></dd></dl></div>
+    </li><li name="tiki.implicits.Unweighted" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Unweighted[T]extendsTransposable[tiki.Digraph[T]]"></a><a id="Unweighted[T]:Unweighted[T]"></a>
+      <span class="permalink">
+      <a href="../tiki/implicits$.html#Unweighted[T]extendsTransposable[tiki.Digraph[T]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="implicits$$Unweighted.html">
+              <span class="name">Unweighted</span>
+            </a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Transposable.html" class="extype" name="tiki.Transposable">Transposable</a>[<a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.implicits.Unweighted.T">T</span>]]</span>
+      </span>
+      
+      
     </li><li name="tiki.implicits.WeightDef" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="WeightDef[A]extendsAnyRef"></a><a id="WeightDef[A]:WeightDef[A]"></a>
       <span class="permalink">
@@ -354,6 +384,24 @@ directed edge.
       
       <p class="shortcomment cmt">Defines implicit operators for constructing weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>Defines implicit operators for constructing weighted edges.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd></dl></div>
+    </li><li name="tiki.implicits.Weighted" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Weighted[T]extendsTransposable[tiki.WeightedDigraph[T]]"></a><a id="Weighted[T]:Weighted[T]"></a>
+      <span class="permalink">
+      <a href="../tiki/implicits$.html#Weighted[T]extendsTransposable[tiki.WeightedDigraph[T]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="implicits$$Weighted.html">
+              <span class="name">Weighted</span>
+            </a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Transposable.html" class="extype" name="tiki.Transposable">Transposable</a>[<a href="WeightedDigraph.html" class="extype" name="tiki.WeightedDigraph">WeightedDigraph</a>[<span class="extype" name="tiki.implicits.Weighted.T">T</span>]]</span>
+      </span>
+      
+      
     </li></ol>
             </div>
 
@@ -710,6 +758,22 @@ directed edge.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="tiki.implicits#transpose" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="transpose[T](t:T)(implicitevidence$1:tiki.Transposable[T]):T"></a><a id="transpose[T](T)(Transposable[T]):T"></a>
+      <span class="permalink">
+      <a href="../tiki/implicits$.html#transpose[T](t:T)(implicitevidence$1:tiki.Transposable[T]):T" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">transpose</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="t">t: <span class="extype" name="tiki.implicits.transpose.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="Transposable.html" class="extype" name="tiki.Transposable">Transposable</a>[<span class="extype" name="tiki.implicits.transpose.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="tiki.implicits.transpose.T">T</span></span>
+      </span>
+      
+      
     </li><li name="tiki.implicits#undirected" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="undirected[A](g:tiki.WeightedUndirectedGraph[A]):tiki.WeightedGraph[A]"></a><a id="undirected[A](WeightedUndirectedGraph[A]):WeightedGraph[A]"></a>
       <span class="permalink">

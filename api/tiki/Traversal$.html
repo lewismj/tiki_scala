@@ -97,6 +97,12 @@
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="object" href="Components$.html" title=""></a>
+                        <a href="Components$.html" title="">
+                          Components
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="Digraph.html" title="A directed graph (a graph that supports the Directed interface."></a>
                         <a href="Digraph.html" title="A directed graph (a graph that supports the Directed interface.">
                           Digraph
@@ -166,6 +172,12 @@ two vertices.">
                         <a class="object" href="Sort$.html" title=""></a>
                         <a href="Sort$.html" title="">
                           Sort
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <a class="object" href="Transposable$.html" title=""></a>
+                        <a class="trait" href="Transposable.html" title="Simple type class for Transposable graphs."></a>
+                        <a href="Transposable.html" title="Simple type class for Transposable graphs.">
+                          Transposable
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
@@ -603,6 +615,41 @@ two vertices.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="tiki.Traversal#traverse" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="traverse[A](g:tiki.Directed[A],l:tiki.Predef.List[A],dfs:tiki.Predef.Boolean):tiki.Predef.Stream[A]"></a><a id="traverse[A](Directed[A],List[A],Boolean):Stream[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/Traversal$.html#traverse[A](g:tiki.Directed[A],l:tiki.Predef.List[A],dfs:tiki.Predef.Boolean):tiki.Predef.Stream[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">traverse</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="g">g: <a href="Directed.html" class="extype" name="tiki.Directed">Directed</a>[<span class="extype" name="tiki.Traversal.traverse.A">A</span>]</span>, <span name="l">l: <a href="Predef$.html#List[A]=List[A]" class="extmbr" name="tiki.Predef.List">List</a>[<span class="extype" name="tiki.Traversal.traverse.A">A</span>]</span>, <span name="dfs">dfs: <a href="Predef$.html#Boolean=Boolean" class="extmbr" name="tiki.Predef.Boolean">Boolean</a></span>)</span><span class="result">: <a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<span class="extype" name="tiki.Traversal.traverse.A">A</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Generates a graph traversal, as stream of vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Generates a graph traversal, as stream of vertices.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">g</dt><dd class="cmt"><p>underlying data structure that supports <code>Directed</code>.</p></dd><dt class="param">l</dt><dd class="cmt"><p>the starting list.</p></dd><dt class="param">dfs</dt><dd class="cmt"><p>flag to indicate if depth first search (true) or
+            breadth first search (false).</p></dd><dt>returns</dt><dd class="cmt"><p>the traversal stream.</p></dd></dl></div>
+    </li><li name="tiki.Traversal#unfold" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="unfold[T,R](z:T)(f:T=&gt;tiki.Predef.Option[(R,T)]):cats.free.Trampoline[tiki.Predef.Stream[R]]"></a><a id="unfold[T,R](T)((T)⇒Option[(R,T)]):Trampoline[Stream[R]]"></a>
+      <span class="permalink">
+      <a href="../tiki/Traversal$.html#unfold[T,R](z:T)(f:T=&gt;tiki.Predef.Option[(R,T)]):cats.free.Trampoline[tiki.Predef.Stream[R]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unfold</span><span class="tparams">[<span name="T">T</span>, <span name="R">R</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="tiki.Traversal.unfold.T">T</span></span>)</span><span class="params">(<span name="f">f: (<span class="extype" name="tiki.Traversal.unfold.T">T</span>) ⇒ <a href="Predef$.html#Option[A]=Option[A]" class="extmbr" name="tiki.Predef.Option">Option</a>[(<span class="extype" name="tiki.Traversal.unfold.R">R</span>, <span class="extype" name="tiki.Traversal.unfold.T">T</span>)]</span>)</span><span class="result">: <span class="extype" name="cats.free.Trampoline">Trampoline</span>[<a href="Predef$.html#Stream[A]=scala.collection.immutable.Stream[A]" class="extmbr" name="tiki.Predef.Stream">Stream</a>[<span class="extype" name="tiki.Traversal.unfold.R">R</span>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Unfold a collection into a stream.</p><div class="fullcomment"><div class="comment cmt"><p>Unfold a collection into a stream.
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the type of the initial element, i.e. traversal start point.</p></dd><dt class="tparam">R</dt><dd class="cmt"><p>the type of the emitted traversal.</p></dd><dt class="param">z</dt><dd class="cmt"><p>the initial element (type T) of the stream.</p></dd><dt class="param">f</dt><dd class="cmt"><p>f: T =&gt; Option ( R, T ), R is the output type.</p></dd><dt>returns</dt><dd class="cmt"><p>a stream of the traversal.</p></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
