@@ -40,6 +40,10 @@ options:
     url: algorithms/traversal.html
     menu_type: algorithms
 
+  - title: Strongly Connected Components
+    url: algorithms/kosaraju.html
+    menu_type: algorithms
+
   - title: Topological Sort
     url: algorithms/sort.html
     menu_type: algorithms

@@ -32,8 +32,9 @@ import tiki.implicits._
 import tiki.Components._
 
 
+/* WIP: initial check-in Kosaraju's Algorithm */
 class KosarajuSpec extends TikiSuite with AllArbitrary {
-  
+
   test("Can correctly identify scc.") {
     val xs =  Stream(
       1 --> 0,
