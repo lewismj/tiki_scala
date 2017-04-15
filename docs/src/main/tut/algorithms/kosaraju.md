@@ -38,21 +38,30 @@ The following graph shows the three strongly connected components:
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/scc.png)
 
 ```tut
-import tiki._
-import tiki.Predef._
-import tiki.implicits._
-import tiki.Components._
-
-val xs =  Stream(
-  1 --> 0,
-  0 --> 2,
-  2 --> 1,
-  0 --> 3,
-  3 --> 4
+val xs = Stream(
+  1 --> 2,
+  2 --> 3,
+  2 --> 4,
+  2 --> 5,
+  3 --> 6,
+  4 --> 5,
+  4 --> 7,
+  5 --> 2,
+  5 --> 6,
+  5 --> 7,
+  6 --> 3,
+  6 --> 8,
+  7 --> 8,
+  7 --> 10,
+  8 --> 7,
+  9 --> 7,
+  10 --> 9,
+  10 --> 11,
+  11 --> 12,
+  12 --> 10
 )
 
 val adj = AdjacencyList(xs)
-
 val g = new Digraph[Int] {
   override def contains(v: Int): Boolean = adj.contains(v)
   override def successors(v: Int): Set[Int] = adj.successors(v)
@@ -61,8 +70,8 @@ val g = new Digraph[Int] {
   override def edges: Stream[EdgeLike[Int]] = xs
 }
 
-val expected = Set(List(4), List(3), List(0, 1, 2))
-kosaraju(g).mkString(",")
+val scc = kosaraju(g).toSet
+scc.mkString(",")
 ```
 
 ## Implementation  
