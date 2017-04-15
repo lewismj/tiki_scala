@@ -14,17 +14,6 @@ A library for functional graph algorithms.
 
 The goal is to implement standard set of graph algorithms (e.g. Bellman-Ford, Kruskal's etc.) in a clear, concise and simple fashion.
 
-
-### Tree (experimental)
-
-The Multiway tree approach will be a minimal (and _rough_) copy of Haskell's [Data.Tree](http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html).
-
-#### Background
-
-- _The Under-Appreciated Unfold_ [1](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz).
-
-- _Zippers and Data Type Derivaties_ [2](https://www21.in.tum.de/teaching/fp/SS15/papers/11.pdf)
-
 ### Issues
 
 Waffle [board](https://waffle.io/lewismj/tiki).
@@ -35,5 +24,13 @@ Tiki information and documentation is available on the [website](https://lewismj
 
 Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
-Tiki depends on the [shapeless](https://github.com/milessabin/shapeless) and [cats](https://github.com/typelevel/cats) libraries.
 
+### Tree (experimental)
+
+The Multiway tree approach will be a minimal (and _rough_) copy of Haskell's [Data.Tree](http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html).
+
+#### Background
+
+- _The Under-Appreciated Unfold_ [1](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz).
+
+- _Zippers and Data Type Derivaties_ [2](https://www21.in.tum.de/teaching/fp/SS15/papers/11.pdf)
