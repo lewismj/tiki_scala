@@ -25,11 +25,11 @@ Tiki information and documentation is available on the [website](https://lewismj
 Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
 
-### Tree (experimental)
+#### Tree (experimental)
 
 The Multiway tree approach will be a minimal (and _rough_) copy of Haskell's [Data.Tree](http://hackage.haskell.org/package/containers-0.5.10.2/docs/Data-Tree.html).
 
-#### Background
+##### Background
 
 - _The Under-Appreciated Unfold_ [1](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz).
 
