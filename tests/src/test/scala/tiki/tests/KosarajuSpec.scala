@@ -35,7 +35,7 @@ import tiki.Components._
 /* WIP: initial check-in Kosaraju's Algorithm */
 class KosarajuSpec extends TikiSuite with AllArbitrary {
 
-  test("Can correctly identify scc.") {
+  test("strongly connected components .1") {
     val xs =  Stream(
       1 --> 0,
       0 --> 2,
@@ -45,7 +45,6 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
     )
 
     val adj = AdjacencyList(xs)
-
     val g = new Digraph[Int] {
       override def contains(v: Int): Boolean = adj.contains(v)
       override def successors(v: Int): Set[Int] = adj.successors(v)
@@ -56,6 +55,42 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
 
     val expected = Set(List(4), List(3), List(0, 1, 2))
     kosaraju(g).toSet should be (expected)
+  }
+
+  test("strongly connect components .2") {
+    val xs = Stream(
+      1 --> 2,
+      2 --> 3,
+      2 --> 4,
+      2 --> 5,
+      3 --> 6,
+      4 --> 5,
+      4 --> 7,
+      5 --> 6,
+      5 --> 7,
+      6 --> 3,
+      6 --> 8,
+      7 --> 8,
+      7 --> 10,
+      8 --> 7,
+      9 --> 7,
+      10 --> 9,
+      10 --> 11,
+      11 --> 12,
+      12 --> 10
+    )
+
+    val adj = AdjacencyList(xs)
+    val g = new Digraph[Int] {
+      override def contains(v: Int): Boolean = adj.contains(v)
+      override def successors(v: Int): Set[Int] = adj.successors(v)
+      override def predecessors(v: Int): Set[Int] = adj.predecessors(v)
+      override def vertices: Stream[Int] = adj.vertices
+      override def edges: Stream[EdgeLike[Int]] = xs
+    }
+    import scala.Predef._
+    println(kosaraju(g))
+
   }
 
 }

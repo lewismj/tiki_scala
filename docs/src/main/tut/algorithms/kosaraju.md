@@ -15,7 +15,7 @@ From [wikipedia](https://en.wikipedia.org/wiki/Strongly_connected_component)
   themselves strongly connected. It is possible to test the strong connectivity of a graph, 
   or to find its strongly connected components, in linear time._"
 
-## Kosaraju's Algorithm
+## Kosaraju's Algorithm 
 
 
 1. Given a digraph _g_ and empty stack _s_.  While _s_ does not contain all vertices:
@@ -65,7 +65,7 @@ val expected = Set(List(4), List(3), List(0, 1, 2))
 kosaraju(g).mkString(",")
 ```
 
-## Implementation
+## Implementation  (Work in Progress, Experimental)
 
 For step 2, we can reuse the `traverse` function used by the depth first search:
 
