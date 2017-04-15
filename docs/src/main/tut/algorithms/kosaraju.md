@@ -33,7 +33,7 @@ From [wikipedia](https://en.wikipedia.org/wiki/Strongly_connected_component)
   
 ## Example
 
-The following graph shows the three strongly connected components:
+The following graph shows the four strongly connected components:
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/scc.png)
 
