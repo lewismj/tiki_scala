@@ -66,6 +66,7 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
       3 --> 6,
       4 --> 5,
       4 --> 7,
+      5 --> 2,
       5 --> 6,
       5 --> 7,
       6 --> 3,

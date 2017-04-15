@@ -7,7 +7,7 @@ position: 3
 # Type Classes 
 
 {% for x in site.pages %}
-  {% if x.section == 'algorithms' and x.title != page.title %}
+  {% if x.section == 'typeclasses' and x.title != page.title %}
 - [{{x.title}}]({{site.baseurl}}{{x.url}})
   {% endif %}
 {% endfor %}
