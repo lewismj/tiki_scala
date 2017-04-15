@@ -38,6 +38,11 @@ The following graph shows the three strongly connected components:
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/scc.png)
 
 ```tut
+import tiki._
+import tiki.Predef._
+import tiki.Components._
+import tiki.implicits._
+
 val xs = Stream(
   1 --> 2,
   2 --> 3,
