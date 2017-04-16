@@ -78,15 +78,28 @@ object implicits {
     def edges: Stream[WeightedEdge[A]] = g.edges
   }
 
+  /** Implicit conversions to WeightedGraph. */
   implicit def directed[A](g: WeightedDigraph[A]): WeightedGraph[A] = new WeightedGraph[A] {
     def edges: Stream[WeightedEdge[A]] = g.edges
     def vertices: Stream[A] = g.vertices
   }
 
 
-  /* !-- Transposable graphs. */
+  /**
+    * Transpose a 'Tansposable' type T.
+    *
+    * @param t    the type to transpose.
+    * @tparam T   the type of the graph (or other supporting data structure) to transpose.
+    * @return     the transposed value.
+    */
   def transpose[T: Transposable](t: T): T= Transposable[T].transpose
 
+  /**
+    * Implicit implementation of `Transposable` interface for `WeightedDigraph`.
+    *
+    * @param g    the weighted digraph.
+    * @tparam T   the vertex type.
+    */
   implicit class Weighted[T](g: WeightedDigraph[T]) extends Transposable[WeightedDigraph[T]] {
     override def transpose: WeightedDigraph[T] = new WeightedDigraph[T] {
       override def edges: Stream[WeightedEdge[T]] = g.edges.map(edge=>tiki.reverse(edge))
@@ -97,6 +110,12 @@ object implicits {
     }
   }
 
+  /**
+    * Implicit implementation of `Transpoable` interface for `Digraph` type.
+    *
+    * @param g    the digraph.
+    * @tparam T   the vertex type.
+    */
   implicit class Unweighted[T](g: Digraph[T]) extends Transposable[Digraph[T]] {
     override def transpose: Digraph[T] = new Digraph[T] {
       override def edges: Stream[Edge[T]] = g.edges.map(edge=>edge.to --> edge.from)
@@ -106,8 +125,5 @@ object implicits {
       override def vertices: Stream[T] = g.vertices
     }
   }
-
-
-
 
 }

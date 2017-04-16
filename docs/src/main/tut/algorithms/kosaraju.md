@@ -79,6 +79,10 @@ val scc = kosaraju(g).toSet
 scc.mkString(",")
 ```
 
+## Functions
+
+- _kosaraju(g)_ returns a list of lists, where each sub-list is a strongly connected component of the graph _g_.
+
 ## Implementation  
 
 ```scala

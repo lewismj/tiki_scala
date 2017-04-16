@@ -28,14 +28,16 @@ import tiki.Predef._
 import tiki.Traversal._
 import tiki.implicits._
 
-
+/**
+  * Defines methods for finding strongly connected components.
+  */
 object Components {
 
   /**
     * Currently only Kosaraju's algorithm requires removal of
     * edges. This could be made more efficient.
     */
-  private def remove[A](g: Digraph[A], l: List[A]) = new Digraph[A] {
+  private def remove[A](g: Digraph[A], l: List[A]): Digraph[A] = new Digraph[A] {
     override def contains(v: A): Boolean = !l.contains(v) && g.contains(v)
     override def successors(v: A): Set[A] = g.successors(v).filterNot(l.contains)
     override def predecessors(v: A): Set[A] = g.predecessors(v).filterNot(l.contains)
@@ -45,14 +47,12 @@ object Components {
 
   /**
     * Kosaraju's algorithm for finding strongly connected components.
-    * (Experimental).
     *
     * @param g    the digraph.
     * @tparam A   the vertex type.
     * @return     the list of strongly connected components.
     */
   def kosaraju[A](g: Digraph[A]): List[List[A]] = {
-
     @tailrec
     def loop(gr: Digraph[A], s: List[A], scc: List[List[A]]): List[List[A]] = s match {
       case Nil => scc
@@ -60,9 +60,7 @@ object Components {
         val component = dfs(gr,head).toList
         loop(remove(gr,component), s.diff(component), component :: scc)
     }
-
     val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(remove(g,a),v).toList ::: a)
-
     loop(g.transpose,stack,List.empty[List[A]])
   }
 
