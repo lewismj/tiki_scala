@@ -20,6 +20,8 @@ of the least possible weight that connects any two trees in the forest.
 
 This is implemented as a fold over the edges of a weighted graph.
 
+Optimisations can be made if the points on the graph represent Euclidean distances (_further work_).
+
 ## Example
 
 The edges of the minimum spanning tree are highlighted below:

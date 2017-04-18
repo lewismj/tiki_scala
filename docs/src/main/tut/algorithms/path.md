@@ -1,15 +1,13 @@
 ---
 layout: docs 
-title:  "Cycle Detection"
+title:  "Negative Cycle Detection"
 section: "algorithms"
 source: "core/src/main/scala/tiki/Path.scala"
 scaladoc: "#tiki.Path"
 ---
-# Cycle Detection
+# Negative Cycle Detection
 
-A minimum spanning tree is a subset of the edges of a connected, edge-weighted undirected graph 
-that connects all the vertices together, without any cycles and with the minimum possible total 
-edge weight.
+A negative cycle in a graph is a cycle whose edges sum to a negative value.
 
 ## Example
 The graph:

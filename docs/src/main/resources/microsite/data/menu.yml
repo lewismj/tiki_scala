@@ -32,7 +32,7 @@ options:
     url: algorithms/kruskal.html
     menu_type: algorithms
 
-  - title: Cycle Detection
+  - title: Negative Cycle Detection
     url: algorithms/path.html
     menu_type: algorithms
 
