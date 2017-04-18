@@ -37,6 +37,29 @@ The following graph shows the four strongly connected components:
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/scc.png)
 
+## Functions
+
+- _kosaraju(g)_ returns a list of lists, where each sub-list is a strongly connected component of the graph _g_.
+
+## Implementation  
+
+```scala
+  def kosaraju[A](g: Digraph[A]): List[List[A]] = {
+
+    @tailrec
+    def loop(gr: Digraph[A], s: List[A], scc: List[List[A]]): List[List[A]] = s match {
+      case Nil => scc
+      case head :: tail =>
+        val component = dfs(gr,head).toList
+        loop(remove(gr,component), s.diff(component), component :: scc)
+    }
+
+    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(remove(g,a),v).toList ::: a)
+
+    loop(g.transpose,stack,List.empty[List[A]])
+  }
+```
+
 ```tut
 import tiki._
 import tiki.Predef._
@@ -77,27 +100,4 @@ val g = new Digraph[Int] {
 
 val scc = kosaraju(g).toSet
 scc.mkString(",")
-```
-
-## Functions
-
-- _kosaraju(g)_ returns a list of lists, where each sub-list is a strongly connected component of the graph _g_.
-
-## Implementation  
-
-```scala
-  def kosaraju[A](g: Digraph[A]): List[List[A]] = {
-
-    @tailrec
-    def loop(gr: Digraph[A], s: List[A], scc: List[List[A]]): List[List[A]] = s match {
-      case Nil => scc
-      case head :: tail =>
-        val component = dfs(gr,head).toList
-        loop(remove(gr,component), s.diff(component), component :: scc)
-    }
-
-    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(remove(g,a),v).toList ::: a)
-
-    loop(g.transpose,stack,List.empty[List[A]])
-  }
 ```
