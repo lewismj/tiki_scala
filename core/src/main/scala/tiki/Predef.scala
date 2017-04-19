@@ -59,12 +59,7 @@ object Predef {
   type Seq[A]     = scala.collection.immutable.Seq[A]
   /* `.toSeq` can return scala.collection.Seq, force to immutable. */
   implicit def seq[A](a: scala.collection.Seq[A]): Seq[A] = a.asInstanceOf[Seq[A]]
-
-  /* Pattern matching sequences.*/
-  object +: {
-    def unapply[A](s: Seq[A]): Option[(A,Seq[A])] = if (s.nonEmpty) Some((s.head,s.tail)) else None
-  }
-
+  
   final val #:: = scala.collection.immutable.Stream.#::
   final val :: = scala.collection.immutable.::
   final val Nil = scala.collection.immutable.Nil
