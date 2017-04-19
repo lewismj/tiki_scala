@@ -46,8 +46,6 @@ class TreeSpec extends TikiSuite with AllArbitrary {
         1 -> [2,3]
         4 -> []
         5 -> [6,7]
-
-        i.e. similar to adjacency list.
      */
     val exampleTree = Node(0,
                         Stream(

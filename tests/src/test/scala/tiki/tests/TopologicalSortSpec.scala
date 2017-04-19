@@ -41,12 +41,12 @@ class TopologicalSortSpec extends TikiSuite with AllArbitrary {
       'C' --> 'A' :# 1.0
     )
 
-    val adjacencyList = AdjacencyList(xs)
     val digraph = new WeightedDigraph[Char] {
-      def contains(v: Char) = adjacencyList.contains(v)
-      def vertices: Stream[Char] = adjacencyList.vertices
-      def successors(v: Char) = adjacencyList.successors(v)
-      def predecessors(v: Char) = adjacencyList.predecessors(v)
+      lazy val ys = AdjacencyList(xs)
+      def contains(v: Char) = ys.contains(v)
+      def vertices: Stream[Char] = ys.vertices
+      def successors(v: Char) = ys.successors(v)
+      def predecessors(v: Char) = ys.predecessors(v)
       def edges: Stream[WeightedEdge[Char]] = xs
     }
 
@@ -66,12 +66,12 @@ class TopologicalSortSpec extends TikiSuite with AllArbitrary {
         'E' --> 'F'
     )
 
-    val adjacencyList = AdjacencyList(xs)
     val digraph = new Digraph[Char] {
-      def contains(v: Char) = adjacencyList.contains(v)
-      def vertices: Stream[Char] = adjacencyList.vertices
-      def successors(v: Char) = adjacencyList.successors(v)
-      def predecessors(v: Char) = adjacencyList.predecessors(v)
+      lazy val ys = AdjacencyList(xs)
+      def contains(v: Char) = ys.contains(v)
+      def vertices: Stream[Char] = ys.vertices
+      def successors(v: Char) = ys.successors(v)
+      def predecessors(v: Char) = ys.predecessors(v)
       def edges: Stream[Edge[Char]] = xs
     }
 

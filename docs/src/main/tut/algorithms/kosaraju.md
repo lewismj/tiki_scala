@@ -89,12 +89,12 @@ val xs = Stream(
   12 --> 10
 )
 
-val adj = AdjacencyList(xs)
 val g = new Digraph[Int] {
-  override def contains(v: Int): Boolean = adj.contains(v)
-  override def successors(v: Int): Set[Int] = adj.successors(v)
-  override def predecessors(v: Int): Set[Int] = adj.predecessors(v)
-  override def vertices: Stream[Int] = adj.vertices
+  lazy val ys = AdjacencyList(xs)
+  override def contains(v: Int): Boolean = ys.contains(v)
+  override def successors(v: Int): Set[Int] = ys.successors(v)
+  override def predecessors(v: Int): Set[Int] = ys.predecessors(v)
+  override def vertices: Stream[Int] = ys.vertices
   override def edges: Stream[EdgeLike[Int]] = xs
 }
 

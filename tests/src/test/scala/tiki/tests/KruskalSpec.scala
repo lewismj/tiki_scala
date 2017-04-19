@@ -68,8 +68,9 @@ class KruskalSpec extends TikiSuite with AllArbitrary {
 
     kruskal(graph).toSet should be(expected)
 
-    val ys = AdjacencyList(xs)
+
     val graph0 = new WeightedDigraph[Char] {
+      lazy val ys = AdjacencyList(xs)
       override def edges: Stream[WeightedEdge[Char]] = xs
       override def vertices: Stream[Char] = Stream('A', 'B', 'C', 'D', 'E', 'F', 'G')
       override def contains(v: Char): Boolean = ys.contains(v)

@@ -80,15 +80,13 @@ val xs = Stream(
         'b' --> 'e' :# 2.0,
         'e' --> 'd' :# -6.0
       )
-val adjacencyList = AdjacencyList(xs)
 
 val digraph = new WeightedDigraph[Char] {
-  /* Use adjacency list for basic digraph implementation. */
-  def contains(v: Char) = adjacencyList.contains(v)
-  def vertices: Stream[Char] = adjacencyList.vertices
-  def successors(v: Char) = adjacencyList.successors(v)
-  def predecessors(v: Char) = adjacencyList.predecessors(v)
-  /* adjacency doesn't store edges. */
+  lazy val ys = AdjacencyList(xs)
+  def contains(v: Char) = ys.contains(v)
+  def vertices: Stream[Char] = ys.vertices
+  def successors(v: Char) = ys.successors(v)
+  def predecessors(v: Char) = ys.predecessors(v)
   def edges = xs
 }
 
