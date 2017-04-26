@@ -39,7 +39,7 @@ import tiki.tree.Zipper._
 class TreeSpec extends TikiSuite with AllArbitrary {
 
   /** simple test, move around example tree. */
-  test("simple rose tree traversal") {
+  test("Traversal of rose tree is correct.") {
 
     /*
         0 -> [1,4,5]
@@ -89,7 +89,7 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     z5.lastChild should be (None)
   }
 
-  test("levels correct for simple tree with insertions") {
+  test("Levels correct for simple tree with insertions.") {
     val t = Node(1,
               Stream(Node(3,Stream(Node(5,Stream.empty),Node(6,Stream.empty))),
                      Node(2,Stream.empty)))
@@ -115,14 +115,14 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     z5.fromZipper.levels should be (Stream(Stream(1),Stream(3,2,99),Stream(5,6)))
   }
 
-  test("flatten simple tree") {
+  test("Flatten simple tree.") {
     val t = Node(1,Stream(Node(2,Stream.empty), Node(3,Stream.empty)))
     t.flatten.mkString should be ("123")
     t.rootLabel should be (1)
     t.subForest.map(_.rootLabel).toList.mkString should be ("23")
   }
 
-  test("map node") {
+  test("Map node.") {
     val t = Node(1, Stream( Node(3, Stream(Node(5,Stream.empty),
         Node(6,Stream.empty))), Node(2,Stream.empty)))
     val t2 = t.map(_ + 1)

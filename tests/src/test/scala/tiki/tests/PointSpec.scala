@@ -22,26 +22,56 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tiki.tests
+package tiki
+package tests
 
-import tiki.Predef._
-import tiki._
-import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
+import tiki.cluster._
+import tiki.cluster.Point._
 
-class TikiSpec extends TikiSuite with AllArbitrary {
 
-  test("Function `reverse` of an edge should swap the two and from vertices.") { (x:Int, y:Int) => {
-     reverse(x --> y) should have ('from (y), 'to (x))
+class PointSpec extends TikiSuite with AllArbitrary {
+
+  test("Add points.") { (p1: Point, p2: Point) => {
+    val expected = Point(p1.x+p2.x,p2.x+p2.y)
+    p1 + p2 should be (expected)
   }}
 
-  test("Function `reverse` of a labelled edge should swap the vertices.") { (x: Int, y: Int, z: Double) => {
-    reverse(x --> y :+ z)  should have ('from (y), 'to (x), 'label (z))
+  test("Subtract points.") { (p1: Point, p2: Point) => {
+    val expected = Point(p1.x-p2.x,p2.x-p2.y)
+    p1 - p2 should be (expected)
   }}
 
-  test("Approximate equals, ignores differences < ε.") { (x: Double) => {
-    val  y = x - (ε/2.0)
-    (y ≅ x) should be (true)
+  test("Cross product.") { (p1: Point, p2: Point) => {
+    val expected = p1.x*p2.y - p1.y*p2.x
+    p1 ⨯ p2 should be (expected)
   }}
+
+  test("Dot product.") { (p1: Point, p2: Point) => {
+    val expected = p1.x*p2.x + p1.y*p2.y
+    p1 ⋅ p2 should be (expected)
+  }}
+
+  test("Approximately equal.") { (p1: Point) => {
+    val p2 = Point(p1.x - (ε/2.0), p1.y - (ε/2.0))
+    (p1 ≅ p2 ) should be (true)
+  }}
+
+  test("Correctly detect collinear points.") { (p1: Point) => {
+    val p2 = Point(p1.x,p1.y+10)
+    val p3 = Point(p1.x,p1.y-10)
+    collinear(p1,p2,p3) should be (true)
+
+    val p4 = Point(p1.x+10,p1.y)
+    val p5 = Point(p1.x-10,p1.y)
+    collinear(p1,p4,p5) should be (true)
+
+    collinear(p1,Point(p1.x+10,p1.y+10),Point(p1.x-10,p1.y+10)) should be (false)
+  }}
+
+  test("Counter clockwise side is correct.") { (p1: Point, p2: Point, p3: Point)=> {
+    side(p1,p2,p3) should be ((p2-p1) ⨯ (p3-p1))
+  }}
+
 
 }

@@ -35,7 +35,7 @@ import tiki.Path._
 
 class KruskalSpec extends TikiSuite with AllArbitrary {
 
-  test("simple graph test, kruskal finds minimum spanning tree") {
+  test("Simple graph test, Kruskal finds minimum spanning tree.") {
 
     val xs = Stream(
       'A' --> 'B' :# 7.0,

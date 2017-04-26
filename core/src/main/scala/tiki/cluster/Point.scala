@@ -173,14 +173,4 @@ object Point {
     }
   }
 
-  implicit class Distance(origin: Point) extends Ordering[Point] {
-    override def compare(p1: Point, p2: Point): Int = {
-      val d1 = distance(origin,p1)
-      val d2 = distance(origin,p2)
-      if (d1 < d2) - 1
-      else if (d1 > d2) 1
-      else 0
-    }
-  }
-
 }

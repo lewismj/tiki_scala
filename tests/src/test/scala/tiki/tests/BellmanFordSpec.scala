@@ -69,7 +69,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
   }
 
 
-  test("Negative cycle found") {
+  test("Can correctly find negative cycle.") {
 
     val xs = Stream(
       0 --> 1 :# 5.0,
@@ -92,7 +92,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
     negativeCycle(digraph,0).isDefined should be (true)
   }
 
-  test("simple graph should have no negative cycles") {
+  test("Simple graph should have no negative cycles.") {
     val xs = Stream ('a' --> 'b' :# 5.0, 'b' --> 'c' :# 10.0, 'c' --> 'a' :# -5.0)
     val digraph = new WeightedDigraph[Char] {
       lazy val ys = AdjacencyList(xs)
@@ -108,7 +108,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
   }
 
 
-  test("simple arbitrage detection") {
+  test("Simple arbitrage opportunity detected.") {
 
     val xs = Stream(
       "USD" --> "CAD" :# -log(1.005),

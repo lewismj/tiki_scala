@@ -34,7 +34,7 @@ import tiki.Sort._
 /** WIP - need ScalaCheck test cases. */
 class TopologicalSortSpec extends TikiSuite with AllArbitrary {
 
-  test("topological sort of graph with cycle should return none") {
+  test("Topological sort of graph with cycle should return None.") {
     val xs = Stream(
       'A' --> 'B' :# 1.0,
       'B' --> 'C' :# 1.0 ,
@@ -53,7 +53,7 @@ class TopologicalSortSpec extends TikiSuite with AllArbitrary {
     hasCycle(digraph) should be (true)
   }
 
-  test("`tsort` produces correct ordering of acyclic graph.") {
+  test("Function `tsort` produces correct ordering of acyclic graph.") {
 
     val xs = Stream (
         'A' --> 'B',

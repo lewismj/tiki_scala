@@ -22,26 +22,26 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tiki.tests
+package tiki
+package tests
+package arbitrary
 
-import tiki.Predef._
-import tiki._
-import tiki.implicits._
-import tiki.tests.arbitrary.AllArbitrary
+import tiki.cluster._
+import org.scalacheck.{Arbitrary, Gen}
 
-class TikiSpec extends TikiSuite with AllArbitrary {
 
-  test("Function `reverse` of an edge should swap the two and from vertices.") { (x:Int, y:Int) => {
-     reverse(x --> y) should have ('from (y), 'to (x))
-  }}
+trait ArbitraryPoint {
 
-  test("Function `reverse` of a labelled edge should swap the vertices.") { (x: Int, y: Int, z: Double) => {
-    reverse(x --> y :+ z)  should have ('from (y), 'to (x), 'label (z))
-  }}
+  def point: Gen[Point] = for {
+  /*
+    * Library fns. do handle inf. values etc.
+    * Test functions may not, explicitly
+    * put in tests for edge cases.
+    */
+    x <- Gen.choose(-1.0e-100,1.0e100)
+    y <-  Gen.choose(-1.0e-100,1.0e100)
+  } yield Point(x,y)
 
-  test("Approximate equals, ignores differences < ε.") { (x: Double) => {
-    val  y = x - (ε/2.0)
-    (y ≅ x) should be (true)
-  }}
+  implicit def arbitraryPoint: Arbitrary[Point] = Arbitrary(point)
 
 }

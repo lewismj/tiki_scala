@@ -35,7 +35,7 @@ import tiki.Components._
 
 class KosarajuSpec extends TikiSuite with AllArbitrary {
 
-  test("strongly connected components .1") {
+  test("Strongly connected components .1") {
     val xs =  Stream(
       1 --> 0,
       0 --> 2,
@@ -57,7 +57,7 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
     scc.map(_.toSet[Int]) should be (expected)
   }
 
-  test("strongly connect components .2") {
+  test("Strongly connect components .2") {
     val xs = Stream(
       1 --> 2,
       2 --> 3,
