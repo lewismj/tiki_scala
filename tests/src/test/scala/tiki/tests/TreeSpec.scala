@@ -71,7 +71,7 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     val root = z3.root
     root should be (z0)
 
-    root.fromZipper should be (exampleTree)
+    root.toTree should be (exampleTree)
 
     val update = root.setLabel(-1)
     update.getLabel should be(-1)
@@ -106,13 +106,13 @@ class TreeSpec extends TikiSuite with AllArbitrary {
     val z2 = z1.insertLeft(n)
     val z3 = z1.insertRight(n)
 
-    z2.fromZipper.levels should be (Stream(Stream(1),Stream(99,3,2),Stream(5,6)))
-    z3.fromZipper.levels should be (Stream(Stream(1),Stream(3,99,2),Stream(5,6)))
+    z2.toTree.levels should be (Stream(Stream(1),Stream(99,3,2),Stream(5,6)))
+    z3.toTree.levels should be (Stream(Stream(1),Stream(3,99,2),Stream(5,6)))
 
     val z4 = z0.insertChild(n)
     val z5 = z0.appendChild(n)
-    z4.fromZipper.levels should be (Stream(Stream(1),Stream(99,3,2),Stream(5,6)))
-    z5.fromZipper.levels should be (Stream(Stream(1),Stream(3,2,99),Stream(5,6)))
+    z4.toTree.levels should be (Stream(Stream(1),Stream(99,3,2),Stream(5,6)))
+    z5.toTree.levels should be (Stream(Stream(1),Stream(3,2,99),Stream(5,6)))
   }
 
   test("Flatten simple tree.") {

@@ -38,7 +38,6 @@ object Zipper {
     */
   case class Zipper[A](focus: Tree[A], before: Forest[A], after: Forest[A], parents: Stream[Parent[A]]) {
 
-    def fromZipper: Tree[A] = toTree
     def moveLeft: Option[Zipper[A]] = prevTree
     def moveRight: Option[Zipper[A]] = nextTree
     def getLabel: A = focus.rootLabel
