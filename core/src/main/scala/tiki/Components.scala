@@ -40,9 +40,14 @@ object Components {
   private def remove[A](g: Digraph[A], l: List[A]): Digraph[A] = new Digraph[A] {
     override def contains(v: A): Boolean = !l.contains(v) && g.contains(v)
     override def successors(v: A): Set[A] = g.successors(v).filterNot(l.contains)
+    /*
+      |-- Functions below are not used by Kosaraju's algorithm.
+     */
+    // $COVERAGE-OFF$
     override def predecessors(v: A): Set[A] = g.predecessors(v).filterNot(l.contains)
     override def vertices: Stream[A] = g.vertices.filterNot(l.contains)
     override def edges: Stream[EdgeLike[A]] = g.edges.filterNot(e=> l.contains(e.from) || l.contains(e.to))
+    // $COVERAGE-ON$
   }
 
   /**
@@ -56,7 +61,7 @@ object Components {
     @tailrec
     def loop(gr: Digraph[A], s: List[A], scc: List[List[A]]): List[List[A]] = s match {
       case Nil => scc
-      case head :: tail =>
+      case head :: _ =>
         val component = dfs(gr,head).toList
         loop(remove(gr,component), s.diff(component), component :: scc)
     }

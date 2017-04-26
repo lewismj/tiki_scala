@@ -33,8 +33,8 @@ import tiki.cluster.Point._
 class PointSpec extends TikiSuite with AllArbitrary {
 
   test("Add points.") { (p1: Point, p2: Point) => {
-    val expected = Point(p1.x+p2.x,p2.x+p2.y)
-    p1 + p2 should be (expected)
+    val expected = tiki.cluster.Point(p1.x+p2.x,p2.x+p2.y)
+    p1 +p2 should be (expected)
   }}
 
   test("Subtract points.") { (p1: Point, p2: Point) => {

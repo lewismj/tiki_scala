@@ -32,10 +32,12 @@ import scala.math._
 /**
   * Point represents 2D Cartesian coordinates.
   *
+  * Note, making (x0,y0) private breaks scoverage.
+  *
   * @param x0 the x coordinate.
   * @param y0 the y coordinate.
   */
-case class Point(private val x0: Double, private val y0: Double) {
+case class Point(x0: Double, y0: Double) {
   /** Set coordinates to zero if abs < ε */
   val x = if (abs(x0) ≅ 0.0) 0.0 else x0
   val y = if (abs(y0) ≅ 0.0) 0.0 else y0
