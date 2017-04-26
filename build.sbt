@@ -69,7 +69,7 @@ lazy val publishSettings = Seq(
 
 lazy val scoverageSettings = Seq(
   coverageMinimum := 75,
-  coverageFailOnMinimum := true
+  coverageFailOnMinimum := false
 )
 
 lazy val commonSettings = Seq(
