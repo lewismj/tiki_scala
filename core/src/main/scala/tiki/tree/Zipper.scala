@@ -23,9 +23,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
+package tree
 
 import tiki.Predef._
-import tiki.RoseTree._
+import tiki.tree.RoseTree._
 
 object Zipper {
 

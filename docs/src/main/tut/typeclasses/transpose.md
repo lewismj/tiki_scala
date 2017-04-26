@@ -1,20 +1,20 @@
 ---
 layout: docs 
-title:  "Transposable"
+title:  "Transpose"
 section: "typeclasses"
-source: "core/src/main/scala/tiki/Transposable.scala"
-scaladoc: "#tiki.Transposable"
+source: "core/src/main/scala/tiki/Transpose.scala"
+scaladoc: "#tiki.Transpose"
 ---
-# Transposable
+# Transpose
 
-A simple type class `Transposable` is used to define the interface for transposing a graph.
+A simple type class `Transpose` is used to define the interface for transposing a graph.
 
 ```scala
-trait Transposable[T] {
+trait Transpose[T] {
   def transpose: T
 }
 
-object Transposable {
+object Transpose {
   def apply[T: Transposable]: Transposable[T] = implicitly
 }
 ```
@@ -31,7 +31,7 @@ this can be implemented independently of the underlying representation used to i
 interface.
 
 ```scala
-implicit class Weighted[T](g: WeightedDigraph[T]) extends Transposable[WeightedDigraph[T]] {
+implicit class Weighted[T](g: WeightedDigraph[T]) extends Transpose[WeightedDigraph[T]] {
   override def transpose: WeightedDigraph[T] = new WeightedDigraph[T] {
       override def edges: Stream[WeightedEdge[T]] = g.edges.map(edge=>tiki.reverse(edge))
       override def predecessors(v: T): Set[T] = g.successors(v)

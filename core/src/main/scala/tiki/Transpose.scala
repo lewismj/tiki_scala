@@ -26,11 +26,11 @@ package tiki
 
 import tiki.Predef._
 
-/** Simple type class for Transposable graphs. */
-trait Transposable[T] {
+/** Simple type class for graphs that support transpose. */
+trait Transpose[T] {
   def transpose: T
 }
 
-object Transposable {
-  def apply[T: Transposable]: Transposable[T] = implicitly
+object Transpose {
+  def apply[T: Transpose]: Transpose[T] = implicitly
 }

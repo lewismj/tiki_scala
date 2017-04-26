@@ -32,9 +32,6 @@ import scala.math._
   */
 object Path {
 
-  val ∞ = Double.PositiveInfinity
-  val ⧞ = Double.NegativeInfinity
-
   /**
     * Case class that represents the running state of the
     * Bellman-Ford algorithm.

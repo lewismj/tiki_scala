@@ -27,8 +27,8 @@ package tests
 
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.Predef._
-import tiki.RoseTree._
-import tiki.Zipper._
+import tiki.tree.RoseTree._
+import tiki.tree.Zipper._
 
 
 /**

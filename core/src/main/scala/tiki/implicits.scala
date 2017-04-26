@@ -25,6 +25,7 @@
 package tiki
 
 import tiki.Predef._
+import scala.math.abs
 
 
 /**
@@ -86,13 +87,13 @@ object implicits {
 
 
   /**
-    * Transpose a 'Tansposable' type T.
+    * Transpose a 'Transpose' type T.
     *
     * @param t    the type to transpose.
     * @tparam T   the type of the graph (or other supporting data structure) to transpose.
     * @return     the transposed value.
     */
-  def transpose[T: Transposable](t: T): T= Transposable[T].transpose
+  def transpose[T: Transpose](t: T): T= Transpose[T].transpose
 
   /**
     * Implicit implementation of `Transposable` interface for `WeightedDigraph`.
@@ -100,7 +101,7 @@ object implicits {
     * @param g    the weighted digraph.
     * @tparam T   the vertex type.
     */
-  implicit class Weighted[T](g: WeightedDigraph[T]) extends Transposable[WeightedDigraph[T]] {
+  implicit class Weighted[T](g: WeightedDigraph[T]) extends Transpose[WeightedDigraph[T]] {
     override def transpose: WeightedDigraph[T] = new WeightedDigraph[T] {
       override def edges: Stream[WeightedEdge[T]] = g.edges.map(edge=>tiki.reverse(edge))
       override def predecessors(v: T): Set[T] = g.successors(v)
@@ -116,7 +117,7 @@ object implicits {
     * @param g    the digraph.
     * @tparam T   the vertex type.
     */
-  implicit class Unweighted[T](g: Digraph[T]) extends Transposable[Digraph[T]] {
+  implicit class Unweighted[T](g: Digraph[T]) extends Transpose[Digraph[T]] {
     override def transpose: Digraph[T] = new Digraph[T] {
       override def edges: Stream[Edge[T]] = g.edges.map(edge=>edge.to --> edge.from)
       override def predecessors(v: T): Set[T] = g.successors(v)
@@ -125,5 +126,24 @@ object implicits {
       override def vertices: Stream[T] = g.vertices
     }
   }
+
+  /** |-- Implicit required for graph clustering algorithms. */
+
+  /**
+    * Provides a 'Real' class, used to implement the ≅ method.
+    *
+    * @param x  the underlying double.
+    */
+  final class Real(x: Double) extends Proxy with Ordered[Double] {
+    def self: Any = x
+    def compare(y: Double): Int = java.lang.Double.compare(x, y)
+    def ≅(that: Double)(implicit eps: Double = ε): Boolean = {
+      if (x == ∞ && that == ∞ || x == ⧞ && that == ⧞) true
+      else abs(x - that) <= eps
+    }
+  }
+
+  /** Implicit conversion from double to placeholder 'Real'. */
+  implicit def double2Real(x: Double): Real = new Real(x)
 
 }

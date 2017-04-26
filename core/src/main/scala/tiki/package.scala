@@ -24,8 +24,18 @@ import tiki.Predef.{Boolean, Set, Stream}
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
-  import shapeless.Poly1
+  import tiki.Predef._
   import tiki.implicits._
+  import shapeless.Poly1
+
+  /** Positive infinity. */
+  val ∞ = Double.PositiveInfinity
+
+  /** Negative infinity. */
+  val ⧞ = Double.NegativeInfinity
+
+  /** Epsilon used for default double comparison. */
+  val ε = 1.0e-10
 
   /** Poly 'reverse' function for different 'Edge' case classes. */
   object reverse extends Poly1 {

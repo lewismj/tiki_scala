@@ -24,12 +24,14 @@
  */
 package tiki
 
+
 /**
   * Predef is a set of type aliases for types which are commonly used in the library.
   * Mainly designed to ensure that algorithms within the library don't accidentally use
   * mutable collections or other parts of the `scala.Predef` that are not required.
   */
 object Predef {
+  import scala.runtime.RichDouble
   import scala.annotation.{implicitNotFound}
   import scala.{deprecated, inline}
 
@@ -55,11 +57,14 @@ object Predef {
   type tailrec = scala.annotation.tailrec
   type Set[A]     = scala.collection.immutable.Set[A]
   type Range  = scala.collection.immutable.Range
+  type Proxy = scala.Proxy
+  type Ordered[A] = scala.Ordered[A]
+  type Any = scala.Any
 
   type Seq[A]     = scala.collection.immutable.Seq[A]
   /* `.toSeq` can return scala.collection.Seq, force to immutable. */
   implicit def seq[A](a: scala.collection.Seq[A]): Seq[A] = a.asInstanceOf[Seq[A]]
-  
+
   final val #:: = scala.collection.immutable.Stream.#::
   final val :: = scala.collection.immutable.::
   final val Nil = scala.collection.immutable.Nil
@@ -90,6 +95,10 @@ object Predef {
     def ->[B](y: B): (A, B) = (x, y)
   }
   implicit def any2ArrowAssoc[A](x: A): ArrowAssoc[A] = new ArrowAssoc(x)
+  implicit def double2RichDouble(x: Double): RichDouble = new RichDouble(x)
+  final val +: = scala.+:
+  final val Vector = scala.collection.immutable.Vector
+  final val NaN = scala.Double.NaN
 
   /** Allowable exceptions. */
   type NoSuchElementException = scala.NoSuchElementException
