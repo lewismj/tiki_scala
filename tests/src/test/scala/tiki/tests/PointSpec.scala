@@ -27,7 +27,7 @@ package tests
 
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.cluster._
-import tiki.cluster.Point._
+import tiki.cluster.Point.{collinear,side}
 
 
 class PointSpec extends TikiSuite with AllArbitrary {

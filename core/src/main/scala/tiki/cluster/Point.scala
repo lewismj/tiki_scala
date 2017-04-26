@@ -29,30 +29,32 @@ import tiki.Predef._
 import tiki.implicits._
 import scala.math._
 
+
 /**
   * Point represents 2D Cartesian coordinates.
-  *
-  * Note, making (x0,y0) private breaks scoverage.
   *
   * @param x0 the x coordinate.
   * @param y0 the y coordinate.
   */
-case class Point(x0: Double, y0: Double) {
+// $COVERAGE-OFF$Scoverage fails to pick up PointSpec b/c of case-class/object.
+case class Point(private val x0: Double, private val y0: Double) {
   /** Set coordinates to zero if abs < ε */
   val x = if (abs(x0) ≅ 0.0) 0.0 else x0
   val y = if (abs(y0) ≅ 0.0) 0.0 else y0
 
   /** Polar coordinates. */
   lazy val r = sqrt(r2)
-  lazy val r2 = x*x + y*y
-  lazy val φ = atan2(y,x)
+  lazy val r2 = x * x + y * y
+  lazy val φ = atan2(y, x)
 
   /** +,- Point operators. */
   def +(that: Point): Point = Point(this.x + that.x, this.y + that.y)
+
   def -(that: Point): Point = Point(this.x - that.x, this.y - that.y)
 
   /** Cross and Dot product. */
   def ⨯(that: Point): Double = this.x * that.y - this.y * that.x
+
   def ⋅(that: Point): Double = this.x * that.x + this.y * that.y
 
   /** Approximately equal. */
@@ -174,5 +176,5 @@ object Point {
       } else -ccw(origin,p1,p2) /* todo: avoid area re-calc. */
     }
   }
-
 }
+// $COVERAGE-ON
