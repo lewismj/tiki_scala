@@ -36,7 +36,6 @@ import scala.math._
   * @param x0 the x coordinate.
   * @param y0 the y coordinate.
   */
-// $COVERAGE-OFF$Scoverage fails to pick up PointSpec b/c of case-class/object.
 case class Point(private val x0: Double, private val y0: Double) {
   /** Set coordinates to zero if abs < ε */
   val x = if (abs(x0) ≅ 0.0) 0.0 else x0
@@ -177,4 +176,3 @@ object Point {
     }
   }
 }
-// $COVERAGE-ON

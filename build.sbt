@@ -67,6 +67,8 @@ lazy val publishSettings = Seq(
   )
 ) ++ credentialSettings
 
+// don't fail on min. as
+// scoverage flaky.
 lazy val scoverageSettings = Seq(
   coverageMinimum := 75,
   coverageFailOnMinimum := false

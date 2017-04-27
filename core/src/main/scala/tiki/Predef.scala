@@ -60,6 +60,7 @@ object Predef {
   type Proxy = scala.Proxy
   type Ordered[A] = scala.Ordered[A]
   type Any = scala.Any
+  type Vector[A] = scala.collection.immutable.Vector[A]
 
   type Seq[A]     = scala.collection.immutable.Seq[A]
   /* `.toSeq` can return scala.collection.Seq, force to immutable. */
