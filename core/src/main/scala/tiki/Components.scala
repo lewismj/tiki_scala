@@ -35,23 +35,6 @@ import scala.annotation.tailrec
 object Components {
 
   /**
-    * Currently only Kosaraju's algorithm requires removal of
-    * edges. This could be made more efficient.
-    */
-  private def remove[A](g: Digraph[A], l: List[A]): Digraph[A] = new Digraph[A] {
-    override def contains(v: A): Boolean = !l.contains(v) && g.contains(v)
-    override def successors(v: A): Set[A] = g.successors(v).filterNot(l.contains)
-    /*
-      |-- Functions below are not used by Kosaraju's algorithm.
-     */
-    // $COVERAGE-OFF$
-    override def predecessors(v: A): Set[A] = g.predecessors(v).filterNot(l.contains)
-    override def vertices: Stream[A] = g.vertices.filterNot(l.contains)
-    override def edges: Stream[EdgeLike[A]] = g.edges.filterNot(e=> l.contains(e.from) || l.contains(e.to))
-    // $COVERAGE-ON$
-  }
-
-  /**
     * Kosaraju's algorithm for finding strongly connected components.
     *
     * @param g    the digraph.
@@ -64,9 +47,9 @@ object Components {
       case Nil => scc
       case head :: _ =>
         val component = dfs(gr,head).toList
-        loop(remove(gr,component), s.diff(component), component :: scc)
+        loop(gr.filterNot(component), s.diff(component), component :: scc)
     }
-    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(remove(g,a),v).toList ::: a)
+    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(g.filterNot(a),v).toList ::: a)
     loop(g.transpose,stack,List.empty[List[A]])
   }
 

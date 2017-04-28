@@ -23,13 +23,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package instances
 
-trait WeightedDigraphInstances {
+/** Graph filtering/pruning. */
+trait Filter[A,B] {
+  def filterNot(l: List[A]): B
+}
 
-  implicit def directed[A](g: WeightedDigraph[A]): WeightedGraph[A] = new WeightedGraph[A] {
-    def edges: Stream[WeightedEdge[A]] = g.edges
-    def vertices: Stream[A] = g.vertices
-  }
-
+object Filter {
+  def filterNot[A,B](l: List[A])(implicit t: Filter[A,B]): B = t.filterNot(l)
 }

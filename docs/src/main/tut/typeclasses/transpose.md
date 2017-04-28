@@ -14,36 +14,22 @@ trait Transpose[T] {
   def transpose: T
 }
 
-
 object Transpose {
-
   def apply[T: Transpose]: Transpose[T] = implicitly
-
-  /**
-   * Transpose a 'Transpose' type T.
-   *
-   * @param t    the type to transpose.
-   * @tparam T   the type of the graph (or other supporting data structure) to transpose.
-   * @return     the transposed value.
-   */
   def transpose[T: Transpose](t: T): T = Transpose[T].transpose
 }
-
 ```
- 
- 
 An example implementation is shown below. The transpose of the graph is a reversal of the edges,
-this can be implemented independently of the underlying representation used to implement the particular graph
+this can be implemented independently of the underlying data structure (_e.g._an adjacency list) used to implement the particular graph
 interface.
-
 ```scala
-implicit class Weighted[T](g: WeightedDigraph[T]) extends Transpose[WeightedDigraph[T]] {
-  override def transpose: WeightedDigraph[T] = new WeightedDigraph[T] {
-      override def edges: Stream[WeightedEdge[T]] = g.edges.map(edge=>tiki.reverse(edge))
+  implicit class UnweightedT[T](g: Digraph[T]) extends Transpose[Digraph[T]] {
+    override def transpose: Digraph[T] = new Digraph[T] {
+      override def edges: Stream[Edge[T]] = g.edges.map(edge => Edge(edge.to,edge.from))
       override def predecessors(v: T): Set[T] = g.successors(v)
       override def successors(v: T): Set[T] = g.predecessors(v)
       override def contains(v: T): Boolean = g.contains(v)
       override def vertices: Stream[T] = g.vertices
+    }
   }
-}
 ```
