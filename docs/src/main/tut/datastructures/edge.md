@@ -47,7 +47,7 @@ will allow you to use the `-->` and `--> :+` operators.
 ```tut
 import tiki._
 import tiki.implicits._
-
+import cats.implicits._
 
 val e = 1 --> 2
 e.show
@@ -58,6 +58,7 @@ e.show
 ```tut
 import tiki._
 import tiki.implicits._
+import cats.implicits._
 
 val le = 1 --> 2 :+ "a label"
 le.show
@@ -71,6 +72,7 @@ to create these edges:
 ```tut
 import tiki._
 import tiki.implicits._
+import cats.implicits._
 
 val we = 1 --> 2 :# 2.345
 ```

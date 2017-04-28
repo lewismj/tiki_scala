@@ -43,12 +43,6 @@ class EdgeSpec extends TikiSuite with AllArbitrary {
     (x --> y :# z) should have ('from (x), 'to (y), 'weight (z))
   }}
 
-  test("Function `toString` of an edge is correct.") { (x: Int, y: Int) => {
-    val edge = Edge[Int](x,y)
-    val str = edge.toString()
-    str should be (s"$x --> $y")
-  }}
-
   test("Function `toString` of a labelled edge is correct.") { (x: Int, y: Int, z: Int) => {
     (x --> y :+ z).toString should be (s"$x --> $y :+ $z")
   }}

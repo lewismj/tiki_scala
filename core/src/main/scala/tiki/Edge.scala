@@ -24,6 +24,7 @@
  */
 package tiki
 
+
 /**
   * Define the common 'edge' behaviour, an edge has
   * two vertices. We can call them 'from' and 'to',

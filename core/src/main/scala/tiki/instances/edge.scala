@@ -27,26 +27,15 @@ package instances
 
 import cats.Show
 
-
 trait EdgeInstances {
-
 
   final class EdgeDef[A](v: A) {
     def -->(w: A): Edge[A] = new Edge[A](v,w)
   }
 
-
-
   implicit def anyToEdge[A](v: A): EdgeDef[A] = new EdgeDef[A](v)
-
-
-
-
-
-
 
   implicit def catsStdShowForEdge[A]: Show[Edge[A]]
     = (f: Edge[A]) => s"${f.from} --> ${f.to}"
-
 
 }
