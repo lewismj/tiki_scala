@@ -6,15 +6,21 @@
   <span class="k">def</span> <span class="n">transpose</span><span class="k">:</span> <span class="kt">T</span>
 <span class="o">}</span>
 
+
 <span class="k">object</span> <span class="nc">Transpose</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">Transposable</span><span class="o">]</span><span class="k">:</span> <span class="kt">Transposable</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="k">=</span> <span class="n">implicitly</span>
+
+  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">Transpose</span><span class="o">]</span><span class="k">:</span> <span class="kt">Transpose</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="k">=</span> <span class="n">implicitly</span>
+
+  <span class="cm">/**
+   * Transpose a 'Transpose' type T.
+   *
+   * @param t    the type to transpose.
+   * @tparam T   the type of the graph (or other supporting data structure) to transpose.
+   * @return     the transposed value.
+   */</span>
+  <span class="k">def</span> <span class="n">transpose</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">Transpose</span><span class="o">](</span><span class="n">t</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=</span> <span class="nc">Transpose</span><span class="o">[</span><span class="kt">T</span><span class="o">].</span><span class="n">transpose</span>
 <span class="o">}</span>
-</code></pre>
-</div>
 
-<p>Within the <code class="highlighter-rouge">implicits</code> section:</p>
-
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="n">transpose</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">Transposable</span><span class="o">](</span><span class="n">t</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span><span class="o">=</span> <span class="nc">Transposable</span><span class="o">[</span><span class="kt">T</span><span class="o">].</span><span class="n">transpose</span>
 </code></pre>
 </div>
 
