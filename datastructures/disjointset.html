@@ -26,15 +26,18 @@ are used to determine if two elements belong to the same partition.</li>
 <span class="k">import</span> <span class="nn">cats.implicits._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">disjoint</span> <span class="k">=</span> <span class="nc">DisjointSet</span><span class="o">(</span><span class="nc">Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">))</span>
-<span class="n">disjoint</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mi">47</span><span class="n">c8ee69</span>
+<span class="n">disjoint</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mi">58</span><span class="n">b89c8f</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">disjoint</span><span class="o">.</span><span class="n">show</span>
 <span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
-<span class="n">parents</span><span class="k">:</span>
-<span class="err">1</span> <span class="kt">-&gt;</span> <span class="err">1</span>
-<span class="err">2</span> <span class="kt">-&gt;</span> <span class="err">2</span><span class="kt">ranks:</span>
-<span class="err">1</span> <span class="kt">-&gt;</span> <span class="err">1</span>
-<span class="err">2</span> <span class="kt">-&gt;</span> <span class="err">1</span><span class="kt">num</span> <span class="kt">components:</span> <span class="err">2</span>
+<span class="s">"parents:
+1 -&gt; 1
+2 -&gt; 2
+ranks:
+1 -&gt; 1
+2 -&gt; 1
+num components: 2
+"</span>
 </code></pre>
 </div>
 
@@ -52,10 +55,21 @@ are used to determine if two elements belong to the same partition.</li>
 <span class="k">import</span> <span class="nn">cats.implicits._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">ds0</span> <span class="k">=</span> <span class="nc">DisjointSet</span><span class="o">(</span><span class="nc">Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">))</span>
-<span class="n">ds0</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mf">1f0d</span><span class="mi">543</span><span class="n">b</span>
+<span class="n">ds0</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mi">3</span><span class="n">eae9716</span>
+
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">ds0</span><span class="o">.</span><span class="n">show</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
+<span class="s">"parents:
+1 -&gt; 1
+2 -&gt; 2
+ranks:
+1 -&gt; 1
+2 -&gt; 1
+num components: 2
+"</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">ds0</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
-<span class="n">res1</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="n">res2</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
 </code></pre>
 </div>
 
@@ -67,26 +81,32 @@ are used to determine if two elements belong to the same partition.</li>
 <span class="k">import</span> <span class="nn">tiki._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">ds0</span> <span class="k">=</span> <span class="nc">DisjointSet</span><span class="o">(</span><span class="nc">Set</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">))</span>
-<span class="n">ds0</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mf">2d</span><span class="mi">585</span><span class="n">c1a</span>
+<span class="n">ds0</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mi">37</span><span class="n">ae637f</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">ds0</span><span class="o">.</span><span class="n">show</span>
-<span class="n">res2</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
-<span class="n">parents</span><span class="k">:</span>
-<span class="err">1</span> <span class="kt">-&gt;</span> <span class="err">1</span>
-<span class="err">2</span> <span class="kt">-&gt;</span> <span class="err">2</span><span class="kt">ranks:</span>
-<span class="err">1</span> <span class="kt">-&gt;</span> <span class="err">1</span>
-<span class="err">2</span> <span class="kt">-&gt;</span> <span class="err">1</span><span class="kt">num</span> <span class="kt">components:</span> <span class="err">2</span>
+<span class="n">res3</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
+<span class="s">"parents:
+1 -&gt; 1
+2 -&gt; 2
+ranks:
+1 -&gt; 1
+2 -&gt; 1
+num components: 2
+"</span>
 
-<span class="kt">scala&gt;</span> <span class="kt">val</span> <span class="kt">ds1</span> <span class="o">=</span> <span class="n">ds0</span><span class="o">.</span><span class="n">union</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">).</span><span class="n">getOrElse</span><span class="o">(</span><span class="n">ds0</span><span class="o">)</span>
-<span class="n">ds1</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mi">228371</span><span class="n">e3</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">ds1</span> <span class="k">=</span> <span class="n">ds0</span><span class="o">.</span><span class="n">union</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">).</span><span class="n">getOrElse</span><span class="o">(</span><span class="n">ds0</span><span class="o">)</span>
+<span class="n">ds1</span><span class="k">:</span> <span class="kt">tiki.DisjointSet</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">DisjointSet</span><span class="k">@</span><span class="mi">590</span><span class="n">ec4ed</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">ds1</span><span class="o">.</span><span class="n">show</span>
-<span class="n">res3</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
-<span class="n">parents</span><span class="k">:</span>
-<span class="err">1</span> <span class="kt">-&gt;</span> <span class="err">1</span>
-<span class="err">2</span> <span class="kt">-&gt;</span> <span class="err">1</span><span class="kt">ranks:</span>
-<span class="err">1</span> <span class="kt">-&gt;</span> <span class="err">2</span>
-<span class="err">2</span> <span class="kt">-&gt;</span> <span class="err">1</span><span class="kt">num</span> <span class="kt">components:</span> <span class="err">1</span>
+<span class="n">res4</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span>
+<span class="s">"parents:
+1 -&gt; 1
+2 -&gt; 1
+ranks:
+1 -&gt; 2
+2 -&gt; 1
+num components: 1
+"</span>
 </code></pre>
 </div>
 </section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({
