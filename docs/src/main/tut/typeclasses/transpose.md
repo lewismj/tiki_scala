@@ -14,16 +14,22 @@ trait Transpose[T] {
   def transpose: T
 }
 
+
 object Transpose {
-  def apply[T: Transposable]: Transposable[T] = implicitly
+
+  def apply[T: Transpose]: Transpose[T] = implicitly
+
+  /**
+   * Transpose a 'Transpose' type T.
+   *
+   * @param t    the type to transpose.
+   * @tparam T   the type of the graph (or other supporting data structure) to transpose.
+   * @return     the transposed value.
+   */
+  def transpose[T: Transpose](t: T): T = Transpose[T].transpose
 }
+
 ```
-
-Within the `implicits` section:
-
-```scala
-def transpose[T: Transposable](t: T): T= Transposable[T].transpose
- ```
  
  
 An example implementation is shown below. The transpose of the graph is a reversal of the edges,
