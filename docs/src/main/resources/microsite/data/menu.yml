@@ -6,19 +6,6 @@ options:
     url: datastructures.html
     menu_type: datastructures
 
-  - title: Clustering
-    url: datastructures/triangle.html
-    menu_type: datastructures
-    menu_section: clustering
-
-    nested_options:
-     - title: Point
-       url: datastructures/point.html
-       menu_section: clustering
-     - title: Triangle
-       url: typeclasses/triangle.html
-       menu_section: clustering
-
   - title: Adjacency List
     url: datastructures/adjacencylist.html
     menu_type: datastructures
@@ -34,6 +21,19 @@ options:
   - title: Graph
     url: datastructures/graph.html
     menu_type: datastructures
+
+  - title: Clustering
+    url: datastructures/triangle.html
+    menu_type: datastructures
+    menu_section: clustering
+
+    nested_options:
+     - title: Point
+       url: datastructures/point.html
+       menu_section: clustering
+     - title: Triangle
+       url: datastructures/triangle.html
+       menu_section: clustering
 
    ### Algorithms ###
 
