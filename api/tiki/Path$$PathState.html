@@ -149,7 +149,7 @@ algorithm.">
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">PathState</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="distances">distances: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>, <span name="predecessors">predecessors: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">PathState</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="distances">distances: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>, <span name="predecessors">predecessors: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
@@ -207,9 +207,9 @@ Bellman-Ford algorithm.
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="tiki.Path.PathState#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(distances:tiki.Predef.Map[A,tiki.Predef.Double],predecessors:tiki.Predef.Map[A,A]):tiki.Path.PathState[A]"></a><a id="&lt;init&gt;:PathState[A]"></a>
+      <a id="&lt;init&gt;(distances:Map[A,Double],predecessors:Map[A,A]):tiki.Path.PathState[A]"></a><a id="&lt;init&gt;:PathState[A]"></a>
       <span class="permalink">
-      <a href="../tiki/Path$$PathState.html#&lt;init&gt;(distances:tiki.Predef.Map[A,tiki.Predef.Double],predecessors:tiki.Predef.Map[A,A]):tiki.Path.PathState[A]" title="Permalink">
+      <a href="../tiki/Path$$PathState.html#&lt;init&gt;(distances:Map[A,Double],predecessors:Map[A,A]):tiki.Path.PathState[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -218,7 +218,7 @@ Bellman-Ford algorithm.
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">PathState</span><span class="params">(<span name="distances">distances: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>, <span name="predecessors">predecessors: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>)</span>
+        <span class="name">PathState</span><span class="params">(<span name="distances">distances: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>, <span name="predecessors">predecessors: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>)</span>
       </span>
       
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">distances</dt><dd class="cmt"><p>current distances.</p></dd><dt class="param">predecessors</dt><dd class="cmt"><p>current predecessors.</p></dd></dl></div>
@@ -260,7 +260,7 @@ Bellman-Ford algorithm.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -319,9 +319,9 @@ Bellman-Ford algorithm.
               
         </dd></dl></div>
     </li><li name="tiki.Path.PathState#distances" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="distances:tiki.Predef.Map[A,tiki.Predef.Double]"></a><a id="distances:Map[A,Double]"></a>
+      <a id="distances:Map[A,Double]"></a>
       <span class="permalink">
-      <a href="../tiki/Path$$PathState.html#distances:tiki.Predef.Map[A,tiki.Predef.Double]" title="Permalink">
+      <a href="../tiki/Path$$PathState.html#distances:Map[A,Double]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -330,7 +330,7 @@ Bellman-Ford algorithm.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">distances</span><span class="result">: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a>]</span>
+        <span class="name">distances</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>
       </span>
       
       
@@ -453,9 +453,9 @@ Bellman-Ford algorithm.
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="tiki.Path.PathState#predecessors" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="predecessors:tiki.Predef.Map[A,A]"></a><a id="predecessors:Map[A,A]"></a>
+      <a id="predecessors:Map[A,A]"></a>
       <span class="permalink">
-      <a href="../tiki/Path$$PathState.html#predecessors:tiki.Predef.Map[A,A]" title="Permalink">
+      <a href="../tiki/Path$$PathState.html#predecessors:Map[A,A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -464,7 +464,7 @@ Bellman-Ford algorithm.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">predecessors</span><span class="result">: <a href="Predef$.html#Map[A,B]=scala.collection.immutable.Map[A,B]" class="extmbr" name="tiki.Predef.Map">Map</a>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>
+        <span class="name">predecessors</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.Path.PathState.A">A</span>, <span class="extype" name="tiki.Path.PathState.A">A</span>]</span>
       </span>
       
       
@@ -518,7 +518,7 @@ Bellman-Ford algorithm.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>

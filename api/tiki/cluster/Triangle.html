@@ -109,14 +109,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="tiki">tiki</a></dd></dl></div>
     </li><li class="current-entities indented2">
                         <a class="object" href="Point$.html" title=""></a>
-                        <a class="class" href="" title="Point represents 2D Cartesian coordinates."></a>
-                        <a href="" title="Point represents 2D Cartesian coordinates.">
+                        <a class="class" href="Point.html" title="Point represents 2D Cartesian coordinates."></a>
+                        <a href="Point.html" title="Point represents 2D Cartesian coordinates.">
                           Point
                         </a>
                       </li><li class="current-entities indented2">
                         <a class="object" href="Triangle$.html" title=""></a>
-                        <a class="class" href="Triangle.html" title="Triangle represented by three vertices."></a>
-                        <a href="Triangle.html" title="Triangle represented by three vertices.">
+                        <a class="class" href="" title="Triangle represented by three vertices."></a>
+                        <a href="" title="Triangle represented by three vertices.">
                           Triangle
                         </a>
                       </li><li class="current-entities indented2">
@@ -132,15 +132,15 @@
           <div id="content">
             <body class="class type">
       <div id="definition">
-        <a href="Point$.html" title="See companion object"><div class="big-circle class-companion-object">c</div></a>
+        <a href="Triangle$.html" title="See companion object"><div class="big-circle class-companion-object">c</div></a>
         <p id="owner"><a href="../index.html" class="extype" name="tiki">tiki</a>.<a href="index.html" class="extype" name="tiki.cluster">cluster</a></p>
-        <h1><a href="Point$.html" title="See companion object">Point</a><span class="permalink">
-      <a href="../../tiki/cluster/Point.html" title="Permalink">
+        <h1><a href="Triangle$.html" title="See companion object">Triangle</a><span class="permalink">
+      <a href="../../tiki/cluster/Triangle.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
         <h3><span class="morelinks"><div>
-            Companion <a href="Point$.html" title="See companion object">object Point</a>
+            Companion <a href="Triangle$.html" title="See companion object">object Triangle</a>
           </div></span></h3>
       </div>
 
@@ -150,14 +150,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Point</span><span class="params">(<span name="x">x: <span class="extype" name="spire.math.Real">Real</span></span>, <span name="y">y: <span class="extype" name="spire.math.Real">Real</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">Triangle</span><span class="params">(<span name="a">a: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="b">b: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="c">c: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Point represents 2D Cartesian coordinates.
-No need to make generic, double makes sense for clustering etc.
-</p></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Triangle represented by three vertices. Used in the Delaunay Triangulation.
+</p></div><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -187,7 +186,7 @@ No need to make generic, double makes sense for clustering etc.
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.cluster.Point"><span>Point</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.cluster.Triangle"><span>Triangle</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -207,10 +206,10 @@ No need to make generic, double makes sense for clustering etc.
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="tiki.cluster.Point#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(x:spire.math.Real,y:spire.math.Real):tiki.cluster.Point"></a><a id="&lt;init&gt;:Point"></a>
+              <ol><li name="tiki.cluster.Triangle#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(a:tiki.cluster.Point,b:tiki.cluster.Point,c:tiki.cluster.Point):tiki.cluster.Triangle"></a><a id="&lt;init&gt;:Triangle"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#&lt;init&gt;(x:spire.math.Real,y:spire.math.Real):tiki.cluster.Point" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#&lt;init&gt;(a:tiki.cluster.Point,b:tiki.cluster.Point,c:tiki.cluster.Point):tiki.cluster.Triangle" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -219,10 +218,10 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Point</span><span class="params">(<span name="x">x: <span class="extype" name="spire.math.Real">Real</span></span>, <span name="y">y: <span class="extype" name="spire.math.Real">Real</span></span>)</span>
+        <span class="name">Triangle</span><span class="params">(<span name="a">a: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="b">b: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="c">c: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span>
       </span>
       
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl></div>
+      
     </li></ol>
             </div>
 
@@ -236,7 +235,7 @@ No need to make generic, double makes sense for clustering etc.
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -252,7 +251,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html###():Int" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -265,42 +264,10 @@ No need to make generic, double makes sense for clustering etc.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="tiki.cluster.Point#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="+(that:tiki.cluster.Point):tiki.cluster.Point"></a><a id="+(Point):Point"></a>
-      <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#+(that:tiki.cluster.Point):tiki.cluster.Point" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $plus" class="name">+</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>
-      </span>
-      
-      <p class="shortcomment cmt">+,- Point operators.</p>
-    </li><li name="tiki.cluster.Point#-" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="-(that:tiki.cluster.Point):tiki.cluster.Point"></a><a id="-(Point):Point"></a>
-      <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#-(that:tiki.cluster.Point):tiki.cluster.Point" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $minus" class="name">-</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>
-      </span>
-      
-      
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -313,10 +280,26 @@ No need to make generic, double makes sense for clustering etc.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="tiki.cluster.Triangle#a" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="a:tiki.cluster.Point"></a><a id="a:Point"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Triangle.html#a:tiki.cluster.Point" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">a</span><span class="result">: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>
+      </span>
+      
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -329,10 +312,61 @@ No need to make generic, double makes sense for clustering etc.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="tiki.cluster.Triangle#b" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="b:tiki.cluster.Point"></a><a id="b:Point"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Triangle.html#b:tiki.cluster.Point" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">b</span><span class="result">: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.cluster.Triangle#c" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="c:tiki.cluster.Point"></a><a id="c:Point"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Triangle.html#c:tiki.cluster.Point" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">c</span><span class="result">: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.cluster.Triangle#ccContains" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ccContains(p:tiki.cluster.Point):Boolean"></a><a id="ccContains(Point):Boolean"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Triangle.html#ccContains(p:tiki.cluster.Point):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ccContains</span><span class="params">(<span name="p">p: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Returns true if the point given is within the circumcircle
+of the triangle.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if the point given is within the circumcircle
+of the triangle.
+</p></div><dl class="paramcmts block"><dt class="param">p</dt><dd class="cmt"><p>the point.</p></dd><dt>returns</dt><dd class="cmt"><p>true if point withing circumcircle, false otherwise.</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#clone():Object" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -354,7 +388,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -370,7 +404,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#finalize():Unit" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -392,7 +426,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#getClass():Class[_]" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -408,7 +442,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -424,7 +458,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -440,7 +474,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#notify():Unit" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -456,7 +490,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#notifyAll():Unit" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -469,10 +503,10 @@ No need to make generic, double makes sense for clustering etc.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="tiki.cluster.Point#r" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="tiki.cluster.Triangle#r" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="r:spire.math.Real"></a><a id="r:Real"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#r:spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#r:spire.math.Real" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -484,11 +518,11 @@ No need to make generic, double makes sense for clustering etc.
         <span class="name">r</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
       </span>
       
-      <p class="shortcomment cmt">Polar coordinates.</p>
-    </li><li name="tiki.cluster.Point#r2" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      
+    </li><li name="tiki.cluster.Triangle#r2" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="r2:spire.math.Real"></a><a id="r2:Real"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#r2:spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#r2:spire.math.Real" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -500,11 +534,28 @@ No need to make generic, double makes sense for clustering etc.
         <span class="name">r2</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
       </span>
       
+      <p class="shortcomment cmt">Radius of circumcircle.</p>
+    </li><li name="tiki.cluster.Triangle#sharesVertex" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sharesVertex(that:tiki.cluster.Triangle):Boolean"></a><a id="sharesVertex(Triangle):Boolean"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Triangle.html#sharesVertex(that:tiki.cluster.Triangle):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sharesVertex</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Triangle">Triangle</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
       
+      <p class="shortcomment cmt">Returns true if given triangle has a matching vertex.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if given triangle has a matching vertex.
+</p></div><dl class="paramcmts block"><dt class="param">that</dt><dd class="cmt"><p>a triangle.</p></dd><dt>returns</dt><dd class="cmt"><p>true if there is a matching vertex, false otherwise.</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -517,10 +568,10 @@ No need to make generic, double makes sense for clustering etc.
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="tiki.cluster.Point#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
+    </li><li name="tiki.cluster.Triangle#toEdges" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toEdges:Vector[tiki.Edge[tiki.cluster.Point]]"></a><a id="toEdges:Vector[Edge[Point]]"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#toString():String" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#toEdges:Vector[tiki.Edge[tiki.cluster.Point]]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -529,14 +580,31 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">toEdges</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<a href="../Edge.html" class="extype" name="tiki.Edge">Edge</a>[<a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a>]]</span>
       </span>
       
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.cluster.Point">Point</a> → AnyRef → Any</dd></dl></div>
+      <p class="shortcomment cmt">Returns the vector of edges representing the triangle.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the vector of edges representing the triangle.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the vector of edges.</p></dd></dl></div>
+    </li><li name="tiki.cluster.Triangle#u" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="u:tiki.cluster.Point"></a><a id="u:Point"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Triangle.html#u:tiki.cluster.Point" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">u</span><span class="result">: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">The circumcenter of the triangle.</p>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#wait():Unit" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -558,7 +626,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -580,7 +648,7 @@ No need to make generic, double makes sense for clustering etc.
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -599,58 +667,10 @@ No need to make generic, double makes sense for clustering etc.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.cluster.Point#x" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="x:spire.math.Real"></a><a id="x:Real"></a>
+    </li><li name="tiki.cluster.Triangle#≅" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="≅(that:tiki.cluster.Triangle):Boolean"></a><a id="≅(Triangle):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#x:spire.math.Real" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">x</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
-      </span>
-      
-      
-    </li><li name="tiki.cluster.Point#y" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="y:spire.math.Real"></a><a id="y:Real"></a>
-      <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#y:spire.math.Real" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">y</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
-      </span>
-      
-      
-    </li><li name="tiki.cluster.Point#φ" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="φ:spire.math.Real"></a><a id="φ:Real"></a>
-      <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#φ:spire.math.Real" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">φ</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
-      </span>
-      
-      
-    </li><li name="tiki.cluster.Point#⋅" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="⋅(that:tiki.cluster.Point):spire.math.Real"></a><a id="⋅(Point):Real"></a>
-      <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#⋅(that:tiki.cluster.Point):spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Triangle.html#≅(that:tiki.cluster.Triangle):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -659,26 +679,12 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u22C5" class="name">⋅</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span title="gt4s: $u2245" class="name">≅</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Triangle">Triangle</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       
-      
-    </li><li name="tiki.cluster.Point#⨯" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="⨯(that:tiki.cluster.Point):spire.math.Real"></a><a id="⨯(Point):Real"></a>
-      <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#⨯(that:tiki.cluster.Point):spire.math.Real" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $u2A2F" class="name">⨯</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
-      </span>
-      
-      <p class="shortcomment cmt">Cross and Dot product.</p>
+      <p class="shortcomment cmt">Check to see if the triangles are approximately equal.</p><div class="fullcomment"><div class="comment cmt"><p>Check to see if the triangles are approximately equal.
+</p></div><dl class="paramcmts block"><dt class="param">that</dt><dd class="cmt"><p>a triangle.</p></dd><dt>returns</dt><dd class="cmt"><p>true if the triangles are approximately the same,
+        false otherwise.</p></dd></dl></div>
     </li>
               </ol>
             </div>

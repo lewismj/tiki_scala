@@ -113,6 +113,18 @@
                         <a href="Point.html" title="Point represents 2D Cartesian coordinates.">
                           Point
                         </a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Triangle$.html" title=""></a>
+                        <a class="class" href="Triangle.html" title="Triangle represented by three vertices."></a>
+                        <a href="Triangle.html" title="Triangle represented by three vertices.">
+                          Triangle
+                        </a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Triangulation$.html" title=""></a>
+                        <a href="Triangulation$.html" title="">
+                          Triangulation
+                        </a>
                       </li>
               </ul>
             </div>
@@ -209,7 +221,7 @@
       <span class="symbol">
         <a title="Counter clockwise ordering for Point." href="Point$$CCWOrdering.html">
               <span class="name">CCWOrdering</span>
-            </a><span class="result"> extends <span class="extype" name="scala.math.Ordering">Ordering</span>[<a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a>]</span>
+            </a><span class="result"> extends <span class="extype" name="scala.Ordering">Ordering</span>[<a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Counter clockwise ordering for <code>Point</code>.</p>
@@ -249,7 +261,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -270,9 +282,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="tiki.cluster.Point#angle" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="angle(origin:tiki.cluster.Point,p1:tiki.cluster.Point,p2:tiki.cluster.Point):tiki.Predef.Double"></a><a id="angle(Point,Point,Point):Double"></a>
+      <a id="angle(origin:tiki.cluster.Point,p1:tiki.cluster.Point,p2:tiki.cluster.Point):spire.math.Real"></a><a id="angle(Point,Point,Point):Real"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point$.html#angle(origin:tiki.cluster.Point,p1:tiki.cluster.Point,p2:tiki.cluster.Point):tiki.Predef.Double" title="Permalink">
+      <a href="../../tiki/cluster/Point$.html#angle(origin:tiki.cluster.Point,p1:tiki.cluster.Point,p2:tiki.cluster.Point):spire.math.Real" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -281,7 +293,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">angle</span><span class="params">(<span name="origin">origin: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="../Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>
+        <span class="name">angle</span><span class="params">(<span name="origin">origin: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
       </span>
       
       <p class="shortcomment cmt">Calculate angle between two points p1, p2 (given the origin).</p><div class="fullcomment"><div class="comment cmt"><p>Calculate angle between two points p1, p2 (given the origin).
@@ -303,9 +315,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="tiki.cluster.Point#ccw" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ccw(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Int"></a><a id="ccw(Point,Point,Point):Int"></a>
+      <a id="ccw(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):Int"></a><a id="ccw(Point,Point,Point):Int"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point$.html#ccw(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Int" title="Permalink">
+      <a href="../../tiki/cluster/Point$.html#ccw(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -314,7 +326,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ccw</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="../Predef$.html#Int=Int" class="extmbr" name="tiki.Predef.Int">Int</a></span>
+        <span class="name">ccw</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       
       
@@ -341,9 +353,9 @@
               
         </dd></dl></div>
     </li><li name="tiki.cluster.Point#collinear" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="collinear(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Boolean"></a><a id="collinear(Point,Point,Point):Boolean"></a>
+      <a id="collinear(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):Boolean"></a><a id="collinear(Point,Point,Point):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point$.html#collinear(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Boolean" title="Permalink">
+      <a href="../../tiki/cluster/Point$.html#collinear(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -352,7 +364,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">collinear</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="../Predef$.html#Boolean=Boolean" class="extmbr" name="tiki.Predef.Boolean">Boolean</a></span>
+        <span class="name">collinear</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       
       <p class="shortcomment cmt">Returns true if the points p1, p2 and p3 are collinear
@@ -360,9 +372,9 @@
 (lie in a straight line).
 </p></div><dl class="paramcmts block"><dt class="param">p1</dt><dd class="cmt"><p>the first point.</p></dd><dt class="param">p2</dt><dd class="cmt"><p>the second point.</p></dd><dt class="param">p3</dt><dd class="cmt"><p>the third point.</p></dd><dt>returns</dt><dd class="cmt"><p>true, if the points are collinear, false otherwise.</p></dd></dl></div>
     </li><li name="tiki.cluster.Point#distance" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="distance(p1:tiki.cluster.Point,p2:tiki.cluster.Point):tiki.Predef.Double"></a><a id="distance(Point,Point):Double"></a>
+      <a id="distance(p1:tiki.cluster.Point,p2:tiki.cluster.Point):spire.math.Real"></a><a id="distance(Point,Point):Real"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point$.html#distance(p1:tiki.cluster.Point,p2:tiki.cluster.Point):tiki.Predef.Double" title="Permalink">
+      <a href="../../tiki/cluster/Point$.html#distance(p1:tiki.cluster.Point,p2:tiki.cluster.Point):spire.math.Real" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -371,7 +383,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">distance</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="../Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>
+        <span class="name">distance</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
       </span>
       
       <p class="shortcomment cmt">The distance between two points p1, p2.</p><div class="fullcomment"><div class="comment cmt"><p>The distance between two points p1, p2.
@@ -458,7 +470,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -479,9 +491,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="tiki.cluster.Point#minAngle" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="minAngle(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Double"></a><a id="minAngle(Point,Point,Point):Double"></a>
+      <a id="minAngle(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):spire.math.Real"></a><a id="minAngle(Point,Point,Point):Real"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point$.html#minAngle(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Double" title="Permalink">
+      <a href="../../tiki/cluster/Point$.html#minAngle(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):spire.math.Real" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -490,7 +502,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">minAngle</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="../Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>
+        <span class="name">minAngle</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
       </span>
       
       
@@ -543,9 +555,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="tiki.cluster.Point#rightTurn" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="rightTurn(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Boolean"></a><a id="rightTurn(Point,Point,Point):Boolean"></a>
+      <a id="rightTurn(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):Boolean"></a><a id="rightTurn(Point,Point,Point):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point$.html#rightTurn(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Boolean" title="Permalink">
+      <a href="../../tiki/cluster/Point$.html#rightTurn(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -554,16 +566,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">rightTurn</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="../Predef$.html#Boolean=Boolean" class="extmbr" name="tiki.Predef.Boolean">Boolean</a></span>
+        <span class="name">rightTurn</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       
       <p class="shortcomment cmt">Returns true, if point p3 is right of the p1, p2 line.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true, if point p3 is right of the p1, p2 line.
 </p></div><dl class="paramcmts block"><dt class="param">p1</dt><dd class="cmt"><p>the first point.</p></dd><dt class="param">p2</dt><dd class="cmt"><p>the second point.</p></dd><dt class="param">p3</dt><dd class="cmt"><p>the third point.</p></dd><dt>returns</dt><dd class="cmt"><p>true, if point p3 is left of the p1, p2 line,
         false otherwise.</p></dd></dl></div>
     </li><li name="tiki.cluster.Point#side" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="side(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Double"></a><a id="side(Point,Point,Point):Double"></a>
+      <a id="side(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):spire.math.Real"></a><a id="side(Point,Point,Point):Real"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point$.html#side(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):tiki.Predef.Double" title="Permalink">
+      <a href="../../tiki/cluster/Point$.html#side(p1:tiki.cluster.Point,p2:tiki.cluster.Point,p3:tiki.cluster.Point):spire.math.Real" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -572,7 +584,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">side</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="../Predef$.html#Double=Double" class="extmbr" name="tiki.Predef.Double">Double</a></span>
+        <span class="name">side</span><span class="params">(<span name="p1">p1: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p2">p2: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>, <span name="p3">p3: <a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
       </span>
       
       <p class="shortcomment cmt">!-- Counter clockwise utility functions.</p>
@@ -642,7 +654,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -689,7 +701,7 @@
         <a title="Ordering of Point by Y coordinate, if y's match, x's
 are compared." href="Point$$YXOrdering$.html">
               <span class="name">YXOrdering</span>
-            </a><span class="result"> extends <span class="extype" name="scala.math.Ordering">Ordering</span>[<a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a>]</span>
+            </a><span class="result"> extends <span class="extype" name="scala.Ordering">Ordering</span>[<a href="Point.html" class="extype" name="tiki.cluster.Point">Point</a>]</span>
       </span>
       
       <p class="shortcomment cmt">Ordering of <code>Point</code> by Y coordinate, if y's match, x's
