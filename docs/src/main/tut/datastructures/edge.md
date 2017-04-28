@@ -75,4 +75,5 @@ import tiki.implicits._
 import cats.implicits._
 
 val we = 1 --> 2 :# 2.345
+we.show
 ```
