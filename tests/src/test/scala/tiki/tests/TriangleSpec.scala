@@ -26,7 +26,6 @@ package tiki
 package tests
 
 import tiki.tests.arbitrary.AllArbitrary
-import tiki.Predef._
 import tiki.implicits._
 import tiki.cluster._
 import tiki.cluster.Point._
@@ -52,16 +51,9 @@ class TriangleSpec extends TikiSuite with AllArbitrary {
   test("Circumcenter of triangle.") {
     val t0 = Triangle(Point(3.0, 2.0),Point(1.0, 4.0),Point(5.0,4.0))
     t0.u should be (Point(3.0,4.0))
-    t0.ccContains(Point(t0.u.x+ε,t0.u.y+ε)) should be (true)
+    t0.ccContains(Point(t0.u.x+0.01,t0.u.y+0.01)) should be (true)
   }
 
-  test("Approximately equal triangles.") { (p1: Point, p2: Point, p3: Point) =>
-    val p4 = Point(p1.x+ (ε/2.0),p1.y+(ε/2.0))
-    val p5 = Point(p2.x+ (ε/2.0),p2.y+(ε/2.0))
-    val p6 = Point(p3.x+ (ε/2.0),p3.y+(ε/2.0))
-
-    (Triangle(p1,p2,p3) ≅ Triangle(p4,p5,p6)) should be (true)
-  }
 
   test("Generate edges from a triangle.") { (p1: Point, p2: Point, p3: Point) =>
     Triangle(p1,p2,p3).toEdges should be (List(p1 --> p2, p2 --> p3, p3 --> p1))

@@ -67,7 +67,6 @@ A utility method to search for negative cycles is provided.
 
 ```tut
 import tiki._
-import tiki.Predef._
 import tiki.Path._
 import tiki.implicits._
 

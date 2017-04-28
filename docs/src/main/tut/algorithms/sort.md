@@ -48,9 +48,8 @@ The current function will return _None_ if a cycle is found.
 
 ```tut
 import tiki._
-import tiki.Predef._
-import tiki.implicits._
 import tiki.Sort._
+import tiki.implicits._
 
 
 val xs = Stream (

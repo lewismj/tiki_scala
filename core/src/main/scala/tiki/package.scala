@@ -1,4 +1,3 @@
-import tiki.Predef.{Boolean, Set, Stream}
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -24,27 +23,12 @@ import tiki.Predef.{Boolean, Set, Stream}
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package object tiki {
-  import tiki.Predef._
-  import tiki.implicits._
-  import shapeless.Poly1
 
   /** Positive infinity. */
   val ∞ = Double.PositiveInfinity
 
   /** Negative infinity. */
   val ⧞ = Double.NegativeInfinity
-
-  /** Epsilon used for default double comparison. */
-  val ε = 1.0e-10
-
-  /** Poly 'reverse' function for different 'Edge' case classes. */
-  object reverse extends Poly1 {
-    implicit def edge[A] : Case.Aux[Edge[A],Edge[A]]= at({x=> x.to --> x.from})
-    implicit def labelledEdge[A,B] : Case.Aux[LabelledEdge[A,B],LabelledEdge[A,B]]
-      = at({ x=> x.edge.to --> x.edge.from :+ x.label})
-    implicit def weightedEdge[A] : Case.Aux[WeightedEdge[A],WeightedEdge[A]]
-      = at({ x=> x.edge.to --> x.edge.from :# x.weight})
-    }
 
 }
 

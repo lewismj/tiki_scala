@@ -25,7 +25,6 @@
 package tiki.tests.arbitrary
 
 import org.scalacheck.{Arbitrary, Gen}
-import tiki.Predef._
 
 
 /**

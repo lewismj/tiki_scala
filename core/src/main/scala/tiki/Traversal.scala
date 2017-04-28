@@ -24,10 +24,8 @@
  */
 package tiki
 
-
 import cats.free._
 import cats.implicits._
-import tiki.Predef._
 
 /**
   * Simple stream based unfold traversal.

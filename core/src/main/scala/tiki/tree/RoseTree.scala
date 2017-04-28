@@ -27,7 +27,6 @@ package tree
 
 import cats.Foldable
 import cats.implicits._
-import tiki.Predef._
 
 
 object RoseTree {

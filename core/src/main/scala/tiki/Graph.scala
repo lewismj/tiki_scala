@@ -24,8 +24,6 @@
  */
 package tiki
 
-import tiki.Predef._
-
 /**
   * Defines a 'directed' interface that some graph
   * representations may support.

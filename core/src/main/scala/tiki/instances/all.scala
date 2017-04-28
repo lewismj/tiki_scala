@@ -23,45 +23,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
+package instances
 
-/**
-  * Define the common 'edge' behaviour, an edge has
-  * two vertices. We can call them 'from' and 'to',
-  * even if the edge is undirected.
-  *
-  * @tparam T the type of the edge.
-  */
-sealed trait EdgeLike[T] {
-  def from: T
-  def to: T
-}
-
-/**
-  * Represents an edge between two vertices.
-  *
-  * The edges in a graph tend to be either all directed or all undirected.
-  * i.e. A property that holds across the graph. Rather than a property
-  * of the edge.
-  *
-  * @param from   one vertex in an edge.
-  * @param to     the 'other' vertex in the edge.
-  * @tparam A     the type of the vertex.
-  */
-final case class Edge[A](from: A, to: A) extends EdgeLike[A]
-
-/**
-  * A labelled edge between two vertices.
-  */
-final case class LabelledEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {
-  def from : A = edge.from
-  def to: A = edge.to
-}
-
-/**
-  * A weighted edge between two vertices.
-  */
-final case class WeightedEdge[A](edge: Edge[A], weight: Double) extends EdgeLike[A] {
-  def from: A = edge.from
-  def to: A = edge.to
-}
-
+trait AllInstances
+  extends EdgeInstances
+  with WeightedEdgeInstances
+  with LabelledEdgeInstances
+  with DigraphInstances
+  with WeightedUndirectedInstances
+  with WeightedDigraphInstances

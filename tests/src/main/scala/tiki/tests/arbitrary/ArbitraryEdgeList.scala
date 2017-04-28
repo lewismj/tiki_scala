@@ -28,7 +28,6 @@ package tiki.tests.arbitrary
 import org.scalacheck.Arbitrary.arbitrary
 import org.scalacheck.{Arbitrary, Gen}
 import tiki.Edge
-import tiki.Predef._
 import tiki.implicits._
 
 trait ArbitraryEdgeList extends ArbitrarySet {

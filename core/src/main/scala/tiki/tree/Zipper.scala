@@ -25,8 +25,9 @@
 package tiki
 package tree
 
-import tiki.Predef._
 import tiki.tree.RoseTree._
+
+import scala.annotation.tailrec
 
 object Zipper {
 

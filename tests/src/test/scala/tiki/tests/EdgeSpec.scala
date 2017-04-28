@@ -25,7 +25,6 @@
 package tiki
 package tests
 
-import tiki.Predef._
 import tiki.implicits._
 import tiki.tests.arbitrary.AllArbitrary
 
@@ -42,10 +41,6 @@ class EdgeSpec extends TikiSuite with AllArbitrary {
 
   test("WEdge creates correct to, from vertices and weight.") { (x: Int, y: Int, z: Double) => {
     (x --> y :# z) should have ('from (x), 'to (y), 'weight (z))
-  }}
-
-  test("Function 'lmap' correctly relabels a labelled edge.") { (x: Int, y: Int, w: Double, s: String) => {
-    (x --> y :+ w).map[String](_=>s) should have ('label (s), 'from (x), 'to (y))
   }}
 
   test("Function `toString` of an edge is correct.") { (x: Int, y: Int) => {
@@ -75,37 +70,10 @@ class EdgeSpec extends TikiSuite with AllArbitrary {
     (from, to, weight) should be ((1,2,8.8))
   }
 
-  test("Function `map` correctly relabels.") {
-    val l0 = LabelledEdge[Int,Double](Edge(1,2),1.0)
-    val l1 = l0.map[String](_.toString)
-    l1.label should be(1.0.toString)
-  }
-
-  test("Function `map` applies function to weighed edge.") {
-    val w0 = 1 --> 2 :# 2.2
-    val w1 = w0.map(_ * 2.0)
-    w1.weight should be (4.4)
-  }
-
   test("Labelled edge properties are correct.") {
     val l0 = LabelledEdge[Int,Double](Edge(1,2),1.0)
     val (from,to,label) = (l0.from,l0.to,l0.label)
     (from, to, label) should be ((1,2,1.0))
   }
-
-  test("Can reverse a labelled edge.") {
-    val e = 1 --> 2 :+ 1.1
-    reverse(e) should be (2 --> 1 :+ 1.1)
-  }
-
-  test("Can reverse an edge.") {
-    val e = 1 --> 2
-    reverse(e) should be (2 --> 1)
-  }
-
-  test("Can reverse a weighted edge.") {
-    val e = 1 --> 2 :# 2.2
-    reverse(e) should be(2 --> 1 :# 2.2)
-  }
-
+  
 }

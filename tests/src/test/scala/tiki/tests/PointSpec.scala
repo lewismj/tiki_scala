@@ -52,10 +52,6 @@ class PointSpec extends TikiSuite with AllArbitrary {
     p1 ⋅ p2 should be (expected)
   }}
 
-  test("Approximately equal.") { (p1: Point) => {
-    val p2 = Point(p1.x - (ε/2.0), p1.y - (ε/2.0))
-    (p1 ≅ p2 ) should be (true)
-  }}
 
   test("Correctly detect collinear points.") { (p1: Point) => {
     val p2 = Point(p1.x,p1.y+10)

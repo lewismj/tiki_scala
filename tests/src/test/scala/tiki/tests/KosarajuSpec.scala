@@ -26,8 +26,6 @@ package tiki
 package tests
 
 import tiki.tests.arbitrary.AllArbitrary
-
-import tiki.Predef._
 import tiki.implicits._
 import tiki.Components._
 

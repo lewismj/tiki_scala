@@ -25,11 +25,10 @@
 package tiki
 package cluster
 
-import tiki.Predef._
 import tiki.implicits._
 import tiki.cluster.Point._
 
-import scala.math._
+import spire.implicits._
 
 
 /** |-- Delaunay Triangulation. */
@@ -58,7 +57,7 @@ case class Triangle(a: Point, b: Point, c: Point) {
 
   /** Radius of circumcircle. */
   lazy val r2 = u0.x*u0.x + u0.y*u0.y
-  lazy val r = sqrt(r2)
+  lazy val r = r2.sqrt()
 
   /**
     * Returns true if the point given is within the circumcircle
@@ -77,7 +76,7 @@ case class Triangle(a: Point, b: Point, c: Point) {
     * @return true if there is a matching vertex, false otherwise.
     */
   def sharesVertex(that: Triangle): Boolean = {
-    def hasVertex(p: Point): Boolean = (p ≅ this.a) || (p ≅ this.b) || (p ≅ this.c)
+    def hasVertex(p: Point): Boolean = (p == this.a) || (p == this.b) || (p == this.c)
     hasVertex(that.a) || hasVertex(that.b) || hasVertex(that.c)
   }
 
@@ -85,12 +84,14 @@ case class Triangle(a: Point, b: Point, c: Point) {
     * Check to see if the triangles are approximately equal.
     *
     * @param that a triangle.
-    * @param eps  epsilon value.
     * @return true if the triangles are approximately the same,
     *         false otherwise.
     */
-  def ≅(that: Triangle)(implicit eps: Double = ε): Boolean
-    = (this.u ≅ that.u) && (this.r2 ≅ that.r2)
+  def ≅(that: Triangle): Boolean = {
+    val points = Vector(that.a, that.b, that.c)
+    Vector(a, b, c).forall(points.contains)
+  }
+
 
   /**
     * Returns the vector of edges representing the triangle.

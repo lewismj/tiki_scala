@@ -23,45 +23,22 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
+package instances
 
-/**
-  * Define the common 'edge' behaviour, an edge has
-  * two vertices. We can call them 'from' and 'to',
-  * even if the edge is undirected.
-  *
-  * @tparam T the type of the edge.
-  */
-sealed trait EdgeLike[T] {
-  def from: T
-  def to: T
+import cats.Show
+
+
+trait LabelledEdgeInstances {
+
+  final class LabelDef[A,B](e: Edge[A]) {
+    def :+(l :B): LabelledEdge[A,B] = new LabelledEdge[A,B](e,l)
+  }
+
+  implicit def anyToLEdge[A,B](e: Edge[A]): LabelDef[A,B] = new LabelDef[A,B](e)
+
+  implicit def labelledToEdge[A,B](s: Stream[LabelledEdge[A,B]]): Stream[Edge[A]] = s.map(_.edge)
+
+  implicit def catsStdShowForLEdge[A,B]: Show[LabelledEdge[A,B]]
+    = (f: LabelledEdge[A,B]) => s"${f.from} --> ${f.to} :+ ${f.label}"
+
 }
-
-/**
-  * Represents an edge between two vertices.
-  *
-  * The edges in a graph tend to be either all directed or all undirected.
-  * i.e. A property that holds across the graph. Rather than a property
-  * of the edge.
-  *
-  * @param from   one vertex in an edge.
-  * @param to     the 'other' vertex in the edge.
-  * @tparam A     the type of the vertex.
-  */
-final case class Edge[A](from: A, to: A) extends EdgeLike[A]
-
-/**
-  * A labelled edge between two vertices.
-  */
-final case class LabelledEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {
-  def from : A = edge.from
-  def to: A = edge.to
-}
-
-/**
-  * A weighted edge between two vertices.
-  */
-final case class WeightedEdge[A](edge: Edge[A], weight: Double) extends EdgeLike[A] {
-  def from: A = edge.from
-  def to: A = edge.to
-}
-

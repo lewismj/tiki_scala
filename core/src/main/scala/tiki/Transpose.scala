@@ -24,7 +24,6 @@
  */
 package tiki
 
-import tiki.Predef._
 
 /** Simple type class for graphs that support transpose. */
 trait Transpose[T] {
@@ -32,5 +31,16 @@ trait Transpose[T] {
 }
 
 object Transpose {
+
   def apply[T: Transpose]: Transpose[T] = implicitly
+
+  /**
+    * Transpose a 'Transpose' type T.
+    *
+    * @param t    the type to transpose.
+    * @tparam T   the type of the graph (or other supporting data structure) to transpose.
+    * @return     the transposed value.
+    */
+  def transpose[T: Transpose](t: T): T = Transpose[T].transpose
 }
+

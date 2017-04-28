@@ -59,10 +59,8 @@ def bfs[A](g: Digraph[A], start: A): Stream[A]
 
 ```tut
 import tiki._
-import tiki.Predef._
 import tiki.Traversal._
 import tiki.implicits._
-import scala.util.Random
 
 
 val edges = Stream('a' --> 'b', 'a' --> 'c', 'b' --> 'd', 'c' --> 'd')
@@ -78,10 +76,8 @@ dfsSearch.mkString
 
 ```tut
 import tiki._
-import tiki.Predef._
 import tiki.Traversal._
 import tiki.implicits._
-import scala.util.Random
 
 
 val edges = Stream('a' --> 'b', 'a' --> 'c', 'b' --> 'd', 'c' --> 'd')

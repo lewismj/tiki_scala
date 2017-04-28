@@ -48,16 +48,12 @@ options:
     url: algorithms/kosaraju.html
     menu_type: algorithms
 
-  - title: Utility
-    url: algorithms/utility.html
-    menu_type: algorithms
-
    ### Type Classes ###
 
   - title: Type Classes
     url: typeclasses.html
     menu_type: typeclasses
 
-  - title: Transposable
-    url: typeclasses/transposable.html
+  - title: Transpose
+    url: typeclasses/transpose.html
     menu_type: typeclasses

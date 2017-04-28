@@ -24,24 +24,10 @@
  */
 package tiki.tests
 
-import tiki.Predef._
-import tiki._
-import tiki.implicits._
+
 import tiki.tests.arbitrary.AllArbitrary
 
 class TikiSpec extends TikiSuite with AllArbitrary {
 
-  test("Function `reverse` of an edge should swap the two and from vertices.") { (x:Int, y:Int) => {
-     reverse(x --> y) should have ('from (y), 'to (x))
-  }}
-
-  test("Function `reverse` of a labelled edge should swap the vertices.") { (x: Int, y: Int, z: Double) => {
-    reverse(x --> y :+ z)  should have ('from (y), 'to (x), 'label (z))
-  }}
-
-  test("Approximate equals, ignores differences < ε.") { (x: Double) => {
-    val  y = x - (ε/2.0)
-    (y ≅ x) should be (true)
-  }}
 
 }

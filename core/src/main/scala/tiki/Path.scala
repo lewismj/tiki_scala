@@ -24,7 +24,7 @@
  */
 package tiki
 
-import tiki.Predef._
+import scala.annotation.tailrec
 import scala.math._
 
 /**

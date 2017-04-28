@@ -24,8 +24,6 @@
  */
 package tiki
 
-import tiki.Predef._
-
 
 /**
   * A disjoint set is a data structure that keeps track of a set of

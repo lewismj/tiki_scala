@@ -24,8 +24,6 @@
  */
 package tiki
 
-import tiki.Predef._
-
 
 /**
   * Class represents a set of edges as an adjacency list.
@@ -74,6 +72,6 @@ object AdjacencyList {
     * @return a new `AdjacencyList`
     */
   def apply[A](edges: Stream[Edge[A]]): AdjacencyList[A] =
-    new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(reverse(_))))
+    new AdjacencyList[A](edgesToMap(edges), edgesToMap(edges.map(e=>Edge(e.to,e.from))))
 
 }

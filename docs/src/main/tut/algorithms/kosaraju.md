@@ -62,7 +62,6 @@ The following graph shows the four strongly connected components:
 
 ```tut
 import tiki._
-import tiki.Predef._
 import tiki.Components._
 import tiki.implicits._
 

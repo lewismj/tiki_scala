@@ -24,9 +24,10 @@
  */
 package tiki
 
-import tiki.Predef._
 import tiki.Traversal._
 import tiki.implicits._
+
+import scala.annotation.tailrec
 
 /**
   * Defines methods for finding strongly connected components.

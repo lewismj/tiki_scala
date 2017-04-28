@@ -26,7 +26,6 @@ package tiki.tests.arbitrary
 
 import org.scalacheck.Arbitrary._
 import org.scalacheck.{Arbitrary, Gen}
-import tiki.Predef._
 import tiki.WeightedEdge
 import tiki.implicits._
 
