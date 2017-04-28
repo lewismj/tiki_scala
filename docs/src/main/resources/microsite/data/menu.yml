@@ -54,10 +54,10 @@ options:
     url: typeclasses.html
     menu_type: typeclasses
 
-  - title: Transpose
-    url: typeclasses/transpose.html
-    menu_type: typeclasses
-
   - title: Filter
     url: typeclasses/filter.html
+    menu_type: typeclasses
+
+  - title: Transpose
+    url: typeclasses/transpose.html
     menu_type: typeclasses
