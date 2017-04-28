@@ -227,6 +227,12 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="Weighted.html" title="Weighted graphs should be able to return weighted edges."></a>
+                        <a href="Weighted.html" title="Weighted graphs should be able to return weighted edges.">
+                          Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges."></a>
                         <a href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges.">
                           WeightedDigraph
@@ -514,10 +520,29 @@ even if the edge is undirected.
       </span>
       
       <p class="shortcomment cmt">Simple type class for graphs that support transpose.</p>
-    </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="WeightedDigraph[A]extendsDigraph[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+    </li><li name="tiki.Weighted" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Weighted[A]extendsAnyRef"></a><a id="Weighted[A]:Weighted[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A]" title="Permalink">
+      <a href="../tiki/index.html#Weighted[A]extendsAnyRef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Weighted graphs should be able to return weighted edges." href="Weighted.html">
+              <span class="name">Weighted</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Weighted graphs should be able to return weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted graphs should be able to return weighted edges.
+</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
+    </li><li name="tiki.WeightedDigraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="WeightedDigraph[A]extendsDigraph[A]withWeighted[A]"></a><a id="WeightedDigraph[A]:WeightedDigraph[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#WeightedDigraph[A]extendsDigraph[A]withWeighted[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -528,7 +553,7 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="Weighted digraph, a digraph that returns weighted edges." href="WeightedDigraph.html">
               <span class="name">WeightedDigraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Digraph.html" class="extype" name="tiki.Digraph">Digraph</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedDigraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">Weighted digraph, a digraph that returns weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph, a digraph that returns weighted edges.
@@ -552,9 +577,9 @@ even if the edge is undirected.
       
       <p class="shortcomment cmt">A weighted edge between two vertices.</p>
     </li><li name="tiki.WeightedGraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="WeightedGraph[A]extendsGraph[A]"></a><a id="WeightedGraph[A]:WeightedGraph[A]"></a>
+      <a id="WeightedGraph[A]extendsGraph[A]withWeighted[A]"></a><a id="WeightedGraph[A]:WeightedGraph[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedGraph[A]extendsGraph[A]" title="Permalink">
+      <a href="../tiki/index.html#WeightedGraph[A]extendsGraph[A]withWeighted[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -565,15 +590,15 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="A weighted graph class." href="WeightedGraph.html">
               <span class="name">WeightedGraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">A weighted graph class.</p><div class="fullcomment"><div class="comment cmt"><p>A weighted graph class.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.WeightedUndirectedGraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="WeightedUndirectedGraph[A]extendsGraph[A]"></a><a id="WeightedUndirectedGraph[A]:WeightedUndirectedGraph[A]"></a>
+      <a id="WeightedUndirectedGraph[A]extendsGraph[A]withWeighted[A]"></a><a id="WeightedUndirectedGraph[A]:WeightedUndirectedGraph[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedUndirectedGraph[A]extendsGraph[A]" title="Permalink">
+      <a href="../tiki/index.html#WeightedUndirectedGraph[A]extendsGraph[A]withWeighted[A]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -584,7 +609,7 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="A weighted undirected graph is a graph that returns weighted edges." href="WeightedUndirectedGraph.html">
               <span class="name">WeightedUndirectedGraph</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedUndirectedGraph.A">A</span>]</span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedUndirectedGraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedUndirectedGraph.A">A</span>]</span>
       </span>
       
       <p class="shortcomment cmt">A weighted undirected graph is a graph that returns weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>A weighted undirected graph is a graph that returns weighted edges.

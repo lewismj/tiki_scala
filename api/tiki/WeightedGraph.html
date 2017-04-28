@@ -229,6 +229,12 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
+                        <a class="trait" href="Weighted.html" title="Weighted graphs should be able to return weighted edges."></a>
+                        <a href="Weighted.html" title="Weighted graphs should be able to return weighted edges.">
+                          Weighted
+                        </a>
+                      </li><li class="current-entities indented1">
+                        <span class="separator"></span>
                         <a class="trait" href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges."></a>
                         <a href="WeightedDigraph.html" title="Weighted digraph, a digraph that returns weighted edges.">
                           WeightedDigraph
@@ -280,7 +286,7 @@ two vertices.">
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">WeightedGraph</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]</span>
+        <span class="name">WeightedGraph</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>] with <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]</span>
       </span>
       </h4>
 
@@ -290,7 +296,7 @@ two vertices.">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>], <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -316,7 +322,7 @@ two vertices.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.WeightedGraph"><span>WeightedGraph</span></li><li class="in" name="tiki.Graph"><span>Graph</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.WeightedGraph"><span>WeightedGraph</span></li><li class="in" name="tiki.Weighted"><span>Weighted</span></li><li class="in" name="tiki.Graph"><span>Graph</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -340,7 +346,7 @@ two vertices.">
 
         <div class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="tiki.WeightedGraph#edges" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+              <ol><li name="tiki.Weighted#edges" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="edges:Stream[tiki.WeightedEdge[A]]"></a><a id="edges:Stream[WeightedEdge[A]]"></a>
       <span class="permalink">
       <a href="../tiki/WeightedGraph.html#edges:Stream[tiki.WeightedEdge[A]]" title="Permalink">
@@ -355,8 +361,7 @@ two vertices.">
         <span class="name">edges</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]]</span>
       </span>
       
-      <p class="shortcomment cmt">Returns a stream of edges.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a stream of edges.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the stream of edges.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.WeightedGraph">WeightedGraph</a> → <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a></dd></dl></div>
     </li><li name="tiki.Graph#vertices" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="vertices:Stream[A]"></a>
       <span class="permalink">
@@ -724,7 +729,9 @@ two vertices.">
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="tiki.Graph">
+        <div class="parent" name="tiki.Weighted">
+              <h3>Inherited from <a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]</h3>
+            </div><div class="parent" name="tiki.Graph">
               <h3>Inherited from <a href="Graph.html" class="extype" name="tiki.Graph">Graph</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>

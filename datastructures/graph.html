@@ -49,26 +49,22 @@ not always be desirable.</p>
 </code></pre>
 </div>
 
-<h2 id="weighted-graphs">Weighted Graphs</h2>
+<h2 id="weighted">Weighted</h2>
 
-<p>There are two types of weighted graphs, one based on <code class="highlighter-rouge">Digraph</code> the other
-on <code class="highlighter-rouge">Graph</code> (i.e. non directed graph).</p>
+<p>For convenience (many algorithms just require the set of weighted edges, rather than
+say a function <em>weight(u,v)</em>), the weighted interface is defined as follows:</p>
 
-<p>The weighted digraph interface can be defined as a<code class="highlighter-rouge">Digraph</code> that returns
- weighted<code class="highlighter-rouge">edges</code>.  The weighted undirected graph is defined as a graph that returns weighted edges.</p>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 
-<p>Rather than force an unnecessary join in the type hierarchy, for algorithms
- like Kruskal’s, there is an implicit conversion to a <code class="highlighter-rouge">WeightedGraph</code></p>
+<p>The definition for weighted graphs (n.b. they don’t form a sub-hierarchy) is as follows:</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code>  <span class="k">implicit</span> <span class="k">def</span> <span class="n">undirected</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">WeightedUndirectedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">g</span><span class="o">.</span><span class="n">vertices</span>
-    <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="k">=</span> <span class="n">g</span><span class="o">.</span><span class="n">edges</span>
-  <span class="o">}</span>
-
-  <span class="k">implicit</span> <span class="k">def</span> <span class="n">directed</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">g</span><span class="k">:</span> <span class="kt">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">]]</span> <span class="k">=</span> <span class="n">g</span><span class="o">.</span><span class="n">edges</span>
-    <span class="k">def</span> <span class="n">vertices</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">g</span><span class="o">.</span><span class="n">vertices</span>
-  <span class="o">}</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">WeightedUndirectedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Graph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">with</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="k">trait</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Digraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">with</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="k">trait</span> <span class="nc">WeightedGraph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">extends</span> <span class="nc">Graph</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">with</span> <span class="nc">Weighted</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
 </code></pre>
 </div>
 
@@ -95,7 +91,7 @@ Sometimes this may be the correct choice, though not always.</p>
 <span class="n">xs</span><span class="k">:</span> <span class="kt">scala.collection.immutable.Stream</span><span class="o">[</span><span class="kt">tiki.WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="nc">WeightedEdge</span><span class="o">(</span><span class="nc">Edge</span><span class="o">(</span><span class="n">A</span><span class="o">,</span><span class="n">B</span><span class="o">),-</span><span class="mf">1.0</span><span class="o">),</span> <span class="o">?)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">adjacencyList</span> <span class="k">=</span> <span class="nc">AdjacencyList</span><span class="o">(</span><span class="n">xs</span><span class="o">)</span>
-<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mi">4774</span><span class="n">ea7b</span>
+<span class="n">adjacencyList</span><span class="k">:</span> <span class="kt">tiki.AdjacencyList</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="n">tiki</span><span class="o">.</span><span class="nc">AdjacencyList</span><span class="k">@</span><span class="mf">99d</span><span class="n">b74e</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">digraph</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="o">{</span>
      <span class="o">|</span>   <span class="k">def</span> <span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Char</span><span class="o">)</span> <span class="k">=</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
@@ -105,7 +101,7 @@ Sometimes this may be the correct choice, though not always.</p>
      <span class="o">|</span> 
      <span class="o">|</span>   <span class="k">def</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[</span><span class="kt">WeightedEdge</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span> <span class="n">xs</span>
      <span class="o">|</span> <span class="o">}</span>
-<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mi">5</span><span class="n">e079827</span>
+<span class="n">digraph</span><span class="k">:</span> <span class="kt">tiki.WeightedDigraph</span><span class="o">[</span><span class="kt">Char</span><span class="o">]</span> <span class="k">=</span> <span class="nc">$anon$1</span><span class="k">@</span><span class="mf">3212f</span><span class="mi">97</span><span class="n">e</span>
 </code></pre>
 </div>
 
