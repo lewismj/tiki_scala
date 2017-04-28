@@ -28,6 +28,10 @@ options:
     url: algorithms.html
     menu_type: algorithms
 
+  - title: Strongly Connected Components
+    url: algorithms/kosaraju.html
+    menu_type: algorithms
+
   - title: Minimum Spanning Tree
     url: algorithms/kruskal.html
     menu_type: algorithms
@@ -36,16 +40,12 @@ options:
     url: algorithms/path.html
     menu_type: algorithms
 
-  - title: Traversal
-    url: algorithms/traversal.html
-    menu_type: algorithms
-
   - title: Topological Sort
     url: algorithms/sort.html
     menu_type: algorithms
 
-  - title: Strongly Connected Components
-    url: algorithms/kosaraju.html
+  - title: Traversal
+    url: algorithms/traversal.html
     menu_type: algorithms
 
    ### Type Classes ###
