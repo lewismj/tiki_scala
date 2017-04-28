@@ -32,3 +32,5 @@ trait AllInstances
   with DigraphInstances
   with WeightedUndirectedInstances
   with WeightedDigraphInstances
+  with AdjacencyListInstances
+  with DisjointSetInstances

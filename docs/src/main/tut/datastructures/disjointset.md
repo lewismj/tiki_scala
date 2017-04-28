@@ -23,8 +23,11 @@ A Disjoint-set can be created from a standard set:
 
 ```tut
 import tiki._
+import tiki.implicits._
+import cats.implicits._
 
 val disjoint = DisjointSet(Set[Int](1,2))
+disjoint.show
 ```
 
 ### find
@@ -33,9 +36,11 @@ Initially, each element will belong to its own partition:
 
 ```tut
 import tiki._
+import tiki.implicits._
+import cats.implicits._
 
-val disjoint = DisjointSet(Set[Int](1,2))
-disjoint.find(1)
+val ds0 = DisjointSet(Set[Int](1,2))
+ds0.find(1)
 ```
 
 ### union
@@ -45,7 +50,10 @@ Union is used to merge elements of the set:
 ```tut
 import tiki._
 
-val disjoint = DisjointSet(Set[Int](1,2))
-disjoint.union(1,2)
+val ds0 = DisjointSet(Set[Int](1,2))
+ds0.show
+
+val ds1 = ds0.union(1,2).getOrElse(ds0)
+ds1.show
 
 ```

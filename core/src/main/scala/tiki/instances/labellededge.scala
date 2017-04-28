@@ -38,7 +38,7 @@ trait LabelledEdgeInstances {
 
   implicit def labelledToEdge[A,B](s: Stream[LabelledEdge[A,B]]): Stream[Edge[A]] = s.map(_.edge)
 
-  implicit def catsStdShowForLEdge[A,B](implicit A: Show[A], B: Show[B]): Show[LabelledEdge[A,B]]
+  implicit def showForLEdge[A,B](implicit A: Show[A], B: Show[B]): Show[LabelledEdge[A,B]]
     = (f: LabelledEdge[A,B]) => s"${f.from} --> ${f.to} :+ ${f.label}"
 
 }

@@ -38,7 +38,7 @@ trait WeightedEdgeInstances {
 
   implicit def weightedToEdge[A](s: Stream[WeightedEdge[A]]): Stream[Edge[A]] = s.map(_.edge)
 
-  implicit def catsStdShowForWEdge[A]: Show[WeightedEdge[A]]
+  implicit def showForWEdge[A]: Show[WeightedEdge[A]]
     = (f: WeightedEdge[A]) => s"${f.from} --> ${f.to} :# ${f.weight}"
 }
 

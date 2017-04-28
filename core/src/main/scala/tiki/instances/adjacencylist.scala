@@ -27,13 +27,9 @@ package instances
 
 import cats.Show
 
-trait EdgeInstances {
+trait AdjacencyListInstances {
 
-  final class EdgeDef[A](v: A) {
-    def -->(w: A): Edge[A] = new Edge[A](v,w)
-  }
-  implicit def anyToEdge[A](v: A): EdgeDef[A] = new EdgeDef[A](v)
-
-  implicit def showForEdge[A]: Show[Edge[A]] = (f: Edge[A]) => s"${f.from} --> ${f.to}"
+  implicit def showForAdjacencyList[A]: Show[AdjacencyList[A]]
+  = (f: AdjacencyList[A]) => s"${f.g.mkString("\n")}"
 
 }

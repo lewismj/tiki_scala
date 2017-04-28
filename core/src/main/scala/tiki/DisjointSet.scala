@@ -30,10 +30,7 @@ package tiki
   * elements that are partitioned into a number of disjoint subsets.
   * Useful for finding the number of components within a graph.
   */
-final class DisjointSet[A] private (parents: Map[A,A], ranks: Map[A,Long], nc: Long) {
-
-  /** Returns the number of components. */
-  def components: Long = nc
+final class DisjointSet[A](val parents: Map[A,A], val ranks: Map[A,Long], val components: Long) {
 
   /**
     * Finds the root representative of the element.
@@ -88,17 +85,10 @@ final class DisjointSet[A] private (parents: Map[A,A], ranks: Map[A,Long], nc: L
   } yield {
     if (x == y) this
     else (xr,yr) match {
-      case _ if xr < yr => new DisjointSet[A](parents.updated(x, y), ranks, nc-1)
-      case _ if xr > yr => new DisjointSet[A](parents.updated(y, x), ranks, nc-1)
-      case _ => new DisjointSet[A](parents.updated(y, x), ranks.updated(x,xr+1), nc-1)
+      case _ if xr < yr => new DisjointSet[A](parents.updated(x, y), ranks, components - 1)
+      case _ if xr > yr => new DisjointSet[A](parents.updated(y, x), ranks, components - 1)
+      case _ => new DisjointSet[A](parents.updated(y, x), ranks.updated(x,xr+1), components - 1)
     }
-  }
-
-  /**
-    * Return string representation of the disjoint set.
-    */
-  override def toString: String = {
-    s"number of components: $nc\nparents: ${parents.toString}\nranks: ${ranks.toString}\n"
   }
 
 }

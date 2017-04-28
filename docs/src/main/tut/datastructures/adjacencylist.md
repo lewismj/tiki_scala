@@ -31,8 +31,11 @@ The adjacency list is usually used to help implement one of the `Graph` interfac
 ```tut
 import tiki._
 import tiki.implicits._
+import cats.implicits._
 
 val xs = AdjacencyList(Stream(1 --> 2, 1 --> 3, 2 --> 3))
+xs.show
+
 val ys = xs.successors(1)
 ```
  
@@ -43,6 +46,8 @@ import tiki._
 import tiki.implicits._
 
 val xs = AdjacencyList(Stream(1 --> 2, 1 --> 3, 2 --> 3))
+xs.show
+
 val ys = xs.predecessors(3)
 ```
   

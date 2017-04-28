@@ -27,13 +27,12 @@ package instances
 
 import cats.Show
 
-trait EdgeInstances {
 
-  final class EdgeDef[A](v: A) {
-    def -->(w: A): Edge[A] = new Edge[A](v,w)
-  }
-  implicit def anyToEdge[A](v: A): EdgeDef[A] = new EdgeDef[A](v)
+trait DisjointSetInstances {
 
-  implicit def showForEdge[A]: Show[Edge[A]] = (f: Edge[A]) => s"${f.from} --> ${f.to}"
+  implicit def showForDisjointSet[A]: Show[DisjointSet[A]]
+  = (f: DisjointSet[A]) => s"parents:\n${f.parents.mkString("\n")}" +
+                            s"ranks:\n${f.ranks.mkString("\n")}" +
+                            s"num components: ${f.components}"
 
 }
