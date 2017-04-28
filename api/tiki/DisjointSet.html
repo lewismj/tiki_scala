@@ -350,7 +350,26 @@ Useful for finding the number of components within a graph.
 
       <div id="template">
         <div id="allMembers">
-        
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="tiki.DisjointSet#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(parents:Map[A,A],ranks:Map[A,Long],components:Long):tiki.DisjointSet[A]"></a><a id="&lt;init&gt;:DisjointSet[A]"></a>
+      <span class="permalink">
+      <a href="../tiki/DisjointSet.html#&lt;init&gt;(parents:Map[A,A],ranks:Map[A,Long],components:Long):tiki.DisjointSet[A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DisjointSet</span><span class="params">(<span name="parents">parents: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.DisjointSet.A">A</span>, <span class="extype" name="tiki.DisjointSet.A">A</span>]</span>, <span name="ranks">ranks: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.DisjointSet.A">A</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>, <span name="components">components: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span>
+      </span>
+      
+      
+    </li></ol>
+            </div>
 
         
 
@@ -454,13 +473,13 @@ Useful for finding the number of components within a graph.
     </span>
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">components</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
       
-      <p class="shortcomment cmt">Returns the number of components.</p>
+      
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -629,6 +648,38 @@ this would require find returning a new 'DisjointSet'.</p></div><dl class="param
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="tiki.DisjointSet#parents" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="parents:Map[A,A]"></a>
+      <span class="permalink">
+      <a href="../tiki/DisjointSet.html#parents:Map[A,A]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parents</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.DisjointSet.A">A</span>, <span class="extype" name="tiki.DisjointSet.A">A</span>]</span>
+      </span>
+      
+      
+    </li><li name="tiki.DisjointSet#ranks" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ranks:Map[A,Long]"></a>
+      <span class="permalink">
+      <a href="../tiki/DisjointSet.html#ranks:Map[A,Long]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ranks</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="tiki.DisjointSet.A">A</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
@@ -645,7 +696,7 @@ this would require find returning a new 'DisjointSet'.</p></div><dl class="param
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="tiki.DisjointSet#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <span class="permalink">
       <a href="../tiki/DisjointSet.html#toString():String" title="Permalink">
@@ -657,11 +708,10 @@ this would require find returning a new 'DisjointSet'.</p></div><dl class="param
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       
-      <p class="shortcomment cmt">Return string representation of the disjoint set.</p><div class="fullcomment"><div class="comment cmt"><p>Return string representation of the disjoint set.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.DisjointSet">DisjointSet</a> → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="tiki.DisjointSet#union" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="union(u:A,v:A):Option[tiki.DisjointSet[A]]"></a><a id="union(A,A):Option[DisjointSet[A]]"></a>
       <span class="permalink">
