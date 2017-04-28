@@ -25,6 +25,27 @@
 package tiki
 
 /**
+  * Base representation for a graph.
+  *
+  * @tparam A the vertex type.
+  */
+trait Graph[A] {
+  /**
+    * Return a stream of vertices.
+    *
+    * @return the stream of vertices.
+    */
+  def vertices: Stream[A]
+
+  /**
+    * Returns a stream of edges.
+    *
+    * @return the stream of edges.
+    */
+  def edges: Stream[EdgeLike[A]]
+}
+
+/**
   * Defines a 'directed' interface that some graph
   * representations may support.
   */
@@ -55,32 +76,11 @@ trait Directed[A] {
 }
 
 /**
-  * Base representation for a graph.
+  * Weighted graphs should be able to return weighted edges.
   *
   * @tparam A the vertex type.
   */
-trait Graph[A] {
-  /**
-    * Return a stream of vertices.
-    *
-    * @return the stream of vertices.
-    */
-  def vertices: Stream[A]
-
-  /**
-    * Returns a stream of edges.
-    *
-    * @return the stream of edges.
-    */
-  def edges: Stream[EdgeLike[A]]
-}
-
-/**
-  * A weighted undirected graph is a graph that returns weighted edges.
-  * (Doesn't support the `Directed` interface).
-  * @tparam A the vertex type.
-  */
-trait WeightedUndirectedGraph[A] extends Graph[A] {
+trait Weighted[A] {
   def edges: Stream[WeightedEdge[A]]
 }
 
@@ -92,20 +92,21 @@ trait WeightedUndirectedGraph[A] extends Graph[A] {
 trait Digraph[A] extends Graph[A] with Directed[A] {}
 
 /**
+  * A weighted undirected graph is a graph that returns weighted edges.
+  * (Doesn't support the `Directed` interface).
+  * @tparam A the vertex type.
+  */
+trait WeightedUndirectedGraph[A] extends Graph[A] with Weighted[A]
+
+/**
   * Weighted digraph, a digraph that returns weighted edges.
   *
   * @tparam A the vertex type.
   */
-trait WeightedDigraph[A] extends Digraph[A] {
-  def edges: Stream[WeightedEdge[A]]
-}
-
+trait WeightedDigraph[A] extends Digraph[A] with Weighted[A]
 /**
   * A weighted graph class.
   *
   * @tparam A the vertex type.
   */
-trait WeightedGraph[A] extends Graph[A] {
-  def edges: Stream[WeightedEdge[A]]
-}
-
+trait WeightedGraph[A] extends Graph[A] with Weighted[A]
