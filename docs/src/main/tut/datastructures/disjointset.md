@@ -40,6 +40,7 @@ import tiki.implicits._
 import cats.implicits._
 
 val ds0 = DisjointSet(Set[Int](1,2))
+ds0.show
 ds0.find(1)
 ```
 
@@ -55,5 +56,4 @@ ds0.show
 
 val ds1 = ds0.union(1,2).getOrElse(ds0)
 ds1.show
-
 ```

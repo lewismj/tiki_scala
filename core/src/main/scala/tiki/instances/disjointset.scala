@@ -31,8 +31,8 @@ import cats.Show
 trait DisjointSetInstances {
 
   implicit def showForDisjointSet[A]: Show[DisjointSet[A]]
-  = (f: DisjointSet[A]) => s"parents:\n${f.parents.mkString("\n")}" +
-                            s"ranks:\n${f.ranks.mkString("\n")}" +
-                            s"num components: ${f.components}"
+  = (f: DisjointSet[A]) => s"parents:\n${f.parents.mkString("\n")}\n" +
+                            s"ranks:\n${f.ranks.mkString("\n")}\n" +
+                            s"num components: ${f.components}\n"
 
 }
