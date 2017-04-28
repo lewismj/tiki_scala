@@ -92,7 +92,7 @@ object Triangulation {
       polygon.foldLeft(ts.diff(xs))((zs,edge) => Triangle(edge.from,edge.to,pt) :: zs)
     }).filterNot(_.sharesVertex(boundary))
 
-    triangles.map(_.toEdges).flatten.distinct.toVector
+    triangles.flatMap(_.toEdges).distinct.toVector
   }
 
 }
