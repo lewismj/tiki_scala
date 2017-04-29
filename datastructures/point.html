@@ -5,30 +5,14 @@ for basic graph clustering algorithms.</p>
 
 <p>The <a href="https://github.com/non/spire">spire</a> library is used for the <code class="highlighter-rouge">Real</code> computable real number implementation.</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">case</span> <span class="k">class</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Real</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">Real</span><span class="o">)</span> <span class="o">{</span>
-
-  <span class="cm">/** Polar coordinates. */</span>
-  <span class="k">lazy</span> <span class="k">val</span> <span class="n">r</span>  <span class="k">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">sqrt</span>
-  <span class="k">lazy</span> <span class="k">val</span> <span class="n">r2</span> <span class="k">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span>
-  <span class="k">lazy</span> <span class="k">val</span> <span class="n">φ</span>  <span class="k">=</span> <span class="n">atan2</span><span class="o">(</span><span class="n">y</span><span class="o">,</span> <span class="n">x</span><span class="o">)</span>
-
-
-  <span class="cm">/** +,- Point operators. */</span>
-  <span class="k">def</span> <span class="o">+(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Point</span><span class="o">)</span><span class="k">:</span> <span class="kt">Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="n">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="n">y</span><span class="o">)</span>
-  <span class="k">def</span> <span class="o">-(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Point</span><span class="o">)</span><span class="k">:</span> <span class="kt">Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">that</span><span class="o">.</span><span class="n">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">that</span><span class="o">.</span><span class="n">y</span><span class="o">)</span>
-
-  <span class="cm">/** Cross and Dot product. */</span>
-  <span class="k">def</span> <span class="o">⨯(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Point</span><span class="o">)</span><span class="k">:</span> <span class="kt">Real</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">that</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="k">this</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">that</span><span class="o">.</span><span class="n">x</span>
-  <span class="k">def</span> <span class="o">⋅(</span><span class="n">that</span><span class="k">:</span> <span class="kt">Point</span><span class="o">)</span><span class="k">:</span> <span class="kt">Real</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">that</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">that</span><span class="o">.</span><span class="n">y</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
 <p>Together will a number of utility functions within the companion object, such as orderings<code class="highlighter-rouge">YXOrdering</code>
-and <code class="highlighter-rouge">CCWOrdering</code>, these allow sorting by <em>y</em> then <em>x</em> value and counter clockwise about an origin point.
-These orderings are used for Delaunay triangulation, required to calculate Euclidean minimum spanning trees.</p>
+and <code class="highlighter-rouge">CCWOrdering</code>, these allow sorting by <em>y</em> then <em>x</em> value and counter clockwise about an origin point.</p>
 
-<h2 id="example">Example</h2>
+<p>These orderings are used for Delaunay triangulation, required to calculate Euclidean minimum spanning trees.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="example">Example</h3>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
@@ -59,7 +43,7 @@ These orderings are used for Delaunay triangulation, required to calculate Eucli
 </code></pre>
 </div>
 
-<h2 id="functions">Functions</h2>
+<h3 id="functions">Functions</h3>
 
 <ul>
   <li><code class="highlighter-rouge">rightTurn(p1,p2,p3)</code> returns true, if <em>p3</em> is a right turn on the <em>p1</em>,<em>p2</em> line.</li>
