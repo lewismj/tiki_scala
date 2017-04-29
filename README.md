@@ -22,16 +22,15 @@ Tiki information and documentation is available on the [website](https://lewismj
 
 Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
-## Algorithms
+### Algorithms
 
-### Basic Graph Algorithms
+#### Basic Graph Algorithms
 
 Depth First and Breadth First Search, using `unfold`.
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.dfs.png)
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.bfs.png)
-
 
 
 Topological sort using __Kahn's algorithm__.
@@ -44,7 +43,6 @@ Negative cycle detection using __Bellman-Ford__.
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.negativeCycle.png)
 
 
-
 Minimum spanning tree using __Kruskal's algorithm__.
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.minimumSpanningTree.png)
@@ -54,13 +52,15 @@ Strongly connected components using __Kosaraju's algorithm__.
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.scc.png)
 
-## Clustering
 
-__Delaunay Triangulation__
+#### Cluster algorithms for graphs
+
+Point space triangulation (__Delaunay triangulation__).
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png)
 
-## TODO
+
+### Todo
 
 - Euclidean distance minimum spanning tree
 - K-Means clustering
