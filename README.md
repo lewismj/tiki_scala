@@ -29,27 +29,33 @@ Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 ##### Depth First and Breadth First Search
 
 Traversal is performed using the `unfold` function.
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.dfs.png)
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.bfs.png)
 
 ##### Topological sort
 
 Topological sort using Kahn's algorithm.
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.topologicalSort.png)
 
 ##### Negative Cycle Detection 
 
 Negative cycle detection using Bellman-Ford.
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.negativeCycle.png)
 
 ##### Minimum Spanning Tree
 
 Minimum spanning tree using Kruskal's algorithm.
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.minimumSpanningTree.png)
 
 ##### Strongly Connected Components
 
 Strongly connected components using Kosaraju's algorithm.
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.scc.png)
 
 ## Clustering
@@ -58,6 +64,10 @@ Strongly connected components using Kosaraju's algorithm.
 
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png)
 
+## TODO
+
+##### Euclidean distance minimum spanning tree
+##### K-Means clustering
 
 ### References
 - _The Under-Appreciated Unfold_ [1](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz).
