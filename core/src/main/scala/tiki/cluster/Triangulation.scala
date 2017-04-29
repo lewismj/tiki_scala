@@ -82,7 +82,7 @@ object Triangulation {
     val triangles = points.foldLeft(List(boundary))((ts, pt)=> {
 
       val init = BadTriangles(Vector.empty[Triangle],Vector.empty[Edge[Point]])
-      
+
       val BadTriangles(xs,ys) = ts.foldLeft(init)((bt, t) => {
         if (t.ccContains(pt))
           BadTriangles(t +: bt.triangles, Vector(t.a --> t.b, t.b --> t.c, t.c --> t.a) ++ bt.edges)

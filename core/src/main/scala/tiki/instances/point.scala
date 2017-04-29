@@ -32,6 +32,6 @@ import tiki.cluster.Point
 
 trait PointInstances {
 
-  implicit def showForPoint[A]: Show[Point] = (f: Point) => s"Point${f.x},${f.y})"
+  implicit def showForPoint[A]: Show[Point] = (f: Point) => s"Point(${f.x},${f.y})"
 
 }

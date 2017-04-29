@@ -19,7 +19,7 @@ vertices (2D points).
 The triangle class is used to calculate the circumcircle of three vertices that may form 
 a triangle, as shown below:
 
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/triangleBisectors.tex)
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/triangleBisectors.png)
 
 The is used to triangulate the set of vertices. The [Bowyer-Watson](https://en.wikipedia.org/wiki/Bowyer–Watson_algorithm) algorithm has been implemented.
 
