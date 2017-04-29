@@ -30,5 +30,8 @@ package object tiki {
   /** Negative infinity. */
   val ⧞ = Double.NegativeInfinity
 
+  /** Epsilon used for default double comparison. */
+  val ε = 1.0e-10
+
 }
 

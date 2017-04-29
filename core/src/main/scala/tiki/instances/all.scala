@@ -35,3 +35,4 @@ trait AllInstances
   with AdjacencyListInstances
   with DisjointSetInstances
   with PointInstances
+  with RealInstances

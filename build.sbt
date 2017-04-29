@@ -74,9 +74,7 @@ lazy val scoverageSettings = Seq(
 lazy val commonSettings = Seq(
   scalacOptions ++= commonScalacOptions,
   libraryDependencies ++= Seq(
-    "org.typelevel" %% "cats" % "0.9.0",
-    "com.chuusai" %% "shapeless" % "2.3.2",
-    "org.typelevel" %% "spire" % "0.14.1"
+    "org.typelevel" %% "cats" % "0.9.0"
   ),
   fork in test := true
 )

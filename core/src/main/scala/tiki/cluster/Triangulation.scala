@@ -26,8 +26,7 @@ package tiki
 package cluster
 
 import tiki.implicits._
-import spire.math.Real
-import spire.implicits._
+import scala.math._
 
 
 object Triangulation {
@@ -36,7 +35,7 @@ object Triangulation {
   val k = 2
 
   /** possible use composable fold if available in cats? */
-  case class MinMax(xMin: Real, xMax: Real, yMin: Real, yMax: Real)
+  case class MinMax(xMin: Double, xMax: Double, yMin: Double, yMax: Double)
   def minMax(xs: Vector[Point]): MinMax = {
     xs.foldLeft(MinMax(∞,⧞,∞,⧞))((acc,pt)=> {
       val xMin = if (pt.x < acc.xMin) pt.x else acc.xMin
@@ -59,7 +58,7 @@ object Triangulation {
       val dy = yMax - yMin
       val xMid = (xMin + xMax)/2.0
       val yMid = (yMin + yMax)/2.0
-      val dMax = dx.max(dy)
+      val dMax = max(dx,dy)
       Triangle(
         Point(xMid - k * dMax, yMid - dMax),
         Point(xMid, yMid + k * dMax),

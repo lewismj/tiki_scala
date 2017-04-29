@@ -28,7 +28,7 @@ package cluster
 import tiki.implicits._
 import tiki.cluster.Point._
 
-import spire.implicits._
+import scala.math._
 
 
 /** |-- Delaunay Triangulation. */
@@ -57,7 +57,7 @@ case class Triangle(a: Point, b: Point, c: Point) {
 
   /** Radius of circumcircle. */
   lazy val r2 = u0.x*u0.x + u0.y*u0.y
-  lazy val r = r2.sqrt()
+  lazy val r = sqrt(r2)
 
   /**
     * Returns true if the point given is within the circumcircle

@@ -21,13 +21,12 @@ to generate a set of edges. Form an undirected weighted graph from those edges. 
 weight of each edge is the distance between the points.
 Then run Kruskal's algorithm over the graph to generate the Euclidean minimum spanning tree.
 
-Note, at present the 'clustering' algorithms use the `Real` class from the [spire](https://github.com/non/spire) library.
 
 ```scala
   def euclideanMST(points: Vector[Point]): List[WeightedEdge[Point]] = {
     val graph = new WeightedUndirectedGraph[Point] {
       override def edges: Stream[WeightedEdge[Point]]
-        = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to).toDouble).toStream
+        = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
       override def vertices: Stream[Point] = points.toStream
     }
     kruskal(graph)

@@ -43,7 +43,7 @@ object Distance {
   def euclideanMST(points: Vector[Point]): List[WeightedEdge[Point]] = {
     val graph = new WeightedUndirectedGraph[Point] {
       override def edges: Stream[WeightedEdge[Point]]
-        = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to).toDouble).toStream
+        = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
       override def vertices: Stream[Point] = points.toStream
     }
     kruskal(graph)

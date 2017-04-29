@@ -25,31 +25,33 @@
 package tiki
 package cluster
 
-import spire.math._
-import spire.implicits._
-
+import tiki.implicits._
+import scala.math._
 
 /**
   * Point represents 2D Cartesian coordinates.
   * No need to make generic, double makes sense for clustering etc.
   *
-  * @param x the x coordinate.
-  * @param y the y coordinate.
+  * @param x0 the x coordinate.
+  * @param y0 the y coordinate.
   */
-case class Point(x: Real, y: Real) {
+case class Point(x0: Double, y0: Double) {
+  val x = if (abs(x0) ≅ 0.0) 0.0 else x0
+  val y = if (abs(y0) ≅ 0.0) 0.0 else y0
 
   /** Polar coordinates. */
-  lazy val r  = r2.sqrt
+  lazy val r  = sqrt(r2)
   lazy val r2 = x * x + y * y
   lazy val φ  = atan2(y, x)
 
   /** +,- Point operators. */
+  def ≅(that: Point): Boolean = this.x == that.x && this.y == that.y
   def +(that: Point): Point = Point(this.x + that.x, this.y + that.y)
   def -(that: Point): Point = Point(this.x - that.x, this.y - that.y)
 
   /** Cross and Dot Product. */
-  def ⨯(that: Point): Real = this.x * that.y - this.y * that.x
-  def ⋅(that: Point): Real = this.x * that.x + this.y * that.y
+  def ⨯(that: Point): Double = this.x * that.y - this.y * that.x
+  def ⋅(that: Point): Double = this.x * that.x + this.y * that.y
 }
 
 
@@ -75,7 +77,7 @@ object Point {
     * @param p2 the second point.
     * @return the distance between the points.
     */
-  def distance(p1: Point, p2: Point): Real = (p1 - p2).r
+  def distance(p1: Point, p2: Point): Double = (p1 - p2).r
 
   /**
     * Returns true if the points p1, p2 and p3 are collinear
@@ -87,11 +89,11 @@ object Point {
     * @return true, if the points are collinear, false otherwise.
     */
   def collinear(p1: Point, p2: Point, p3: Point): Boolean
-    = ((p1-p2) ⨯ (p3-p2)) === 0.0
+    = ((p1-p2) ⨯ (p3-p2)) ≅ 0.0
 
 
   /** !-- Counter clockwise utility functions. */
-  def side(p1: Point, p2: Point, p3: Point): Real =  (p2-p1) ⨯ (p3-p1)
+  def side(p1: Point, p2: Point, p3: Point): Double =  (p2-p1) ⨯ (p3-p1)
   def ccw(p1: Point, p2: Point, p3: Point): Int = side(p1, p2, p3) match {
     case s if s > 0 => 1
     case s if s < 0 => -1
@@ -106,13 +108,13 @@ object Point {
     * @param p2 the second point.
     * @return the angle between the two points.
     */
-  def angle(origin: Point, p1: Point, p2: Point): Real = {
+  def angle(origin: Point, p1: Point, p2: Point): Double = {
     val d1 = p1 - origin
     val d2 = p2 - origin
     acos( (d1 ⋅ d2) / (d1.r * d2.r) )
   }
 
-  def minAngle(p1: Point, p2: Point, p3: Point): Real =
+  def minAngle(p1: Point, p2: Point, p3: Point): Double =
     min(angle(p1,p2,p3),min(angle(p2,p3,p1),angle(p3,p1,p2)))
 
   /**
@@ -131,8 +133,8 @@ object Point {
       *         1 otherwise.
       */
     override def compare(p1: Point, p2: Point): Int = {
-      if (p1 == p2) 0
-      else if (p1.y < p2.y || (p1.y === p2.y && p1.x < p2.x)) -1
+      if (p1 ≅ p2) 0
+      else if (p1.y < p2.y || (p1.y == p2.y && p1.x < p2.x)) -1
       else 1
     }
   }
@@ -157,7 +159,7 @@ object Point {
       val dy2 = p2.y - origin.y
       if (dy1 >=0 && dy2 < 0) -1
       else if (dy2 >=0 && dy1 <0) 1
-      else if ((dy1 === 0) && (dy2 === 0)) {
+      else if ((dy1 == 0) && (dy2 == 0)) {
         val dx1 = p1.x - origin.x
         val dx2 = p2.x - origin.x
         if ( dx1 >= 0 && dx2 <0 ) -1

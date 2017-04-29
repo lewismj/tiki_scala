@@ -10,8 +10,6 @@ scaladoc: "#tiki.cluster.Point"
 The Point class is used in the clustering algorithms. At present just representing 2D points,
 for basic graph clustering algorithms.
 
-The [spire](https://github.com/non/spire) library is used for the `Real` computable real number implementation.
-
 Together will a number of utility functions within the companion object, such as orderings`YXOrdering`
 and `CCWOrdering`, these allow sorting by _y_ then _x_ value and counter clockwise about an origin point.
 
