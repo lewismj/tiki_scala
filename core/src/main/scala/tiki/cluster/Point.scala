@@ -43,17 +43,13 @@ case class Point(x: Real, y: Real) {
   lazy val r2 = x * x + y * y
   lazy val φ  = atan2(y, x)
 
-
   /** +,- Point operators. */
   def +(that: Point): Point = Point(this.x + that.x, this.y + that.y)
   def -(that: Point): Point = Point(this.x - that.x, this.y - that.y)
 
-  /** Cross and Dot product. */
+  /** Cross and Dot Product. */
   def ⨯(that: Point): Real = this.x * that.y - this.y * that.x
   def ⋅(that: Point): Real = this.x * that.x + this.y * that.y
-
-
-  override def toString: String = s"Point($x,$y)"
 }
 
 

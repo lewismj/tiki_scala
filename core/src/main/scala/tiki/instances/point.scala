@@ -25,13 +25,13 @@
 package tiki
 package instances
 
-trait AllInstances
-  extends EdgeInstances
-  with WeightedEdgeInstances
-  with LabelledEdgeInstances
-  with DigraphInstances
-  with WeightedUndirectedInstances
-  with WeightedDigraphInstances
-  with AdjacencyListInstances
-  with DisjointSetInstances
-  with PointInstances
+import cats.Show
+import tiki.cluster.Point
+
+
+
+trait PointInstances {
+
+  implicit def showForPoint[A]: Show[Point] = (f: Point) => s"Point${f.x},${f.y})"
+
+}
