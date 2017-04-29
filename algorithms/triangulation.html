@@ -1,0 +1,60 @@
+<html><head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><title>tiki</title><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Scala graph algorithms" /><meta name="author" content="com.waioeka" /><meta name="og:image" content="/tiki/img/poster.png" /><meta name="og:title" content="tiki" /><meta name="og:site_name" content="tiki" /><meta name="og:url" content="" /><meta name="og:type" content="website" /><meta name="og:description" content="Scala graph algorithms" /><meta name="twitter:image" content="/tiki/img/poster.png" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="" /><link rel="icon" type="image/png" href="/tiki/img/favicon.png" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" /><link rel="stylesheet" href="/tiki/highlight/styles/atom-one-light.css" /><link rel="stylesheet" href="/tiki/css/style.css" /><link rel="stylesheet" href="/tiki/css/palette.css" /><link rel="stylesheet" href="/tiki/css/override.css" /></head><body class="docs"><div id="wrapper"><div id="sidebar-wrapper"><ul id="sidebar" class="sidebar-nav"><li class="sidebar-brand"><a href="/tiki/" class="brand"><div class="brand-wrapper" style="background:url('/tiki/img/sidebar_brand.png') no-repeat"><span>tiki</span></div></a></li>       <li><a href="/tiki/algorithms.html" class="">Algorithms</a></li> <li><a href="/tiki/algorithms/kosaraju.html" class="">Strongly Connected Components</a></li> <li><a href="/tiki/algorithms/kruskal.html" class="">Minimum Spanning Tree</a></li> <li><a href="/tiki/algorithms/path.html" class="">Negative Cycle Detection</a></li> <li><a href="/tiki/algorithms/sort.html" class="">Topological Sort</a></li> <li><a href="/tiki/algorithms/traversal.html" class="">Traversal</a></li>    </ul></div><div id="page-content-wrapper"><div class="nav"><div class="container-fluid"><div class="row"><div class="col-lg-12"><div class="action-menu pull-left clearfix"><a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a></div><ul class="pull-right"><li class="hidden-xs"><a href="https://github.com/lewismj/tiki"><i class="fa fa-eye"></i><span>WATCH<span id="eyes" class="label label-default">--</span></span></a></li><li class="hidden-xs"><a href="https://github.com/lewismj/tiki"><i class="fa fa-star-o"></i><span>STARS<span id="stars" class="label label-default">--</span></span></a></li><li><a href="#" onclick="shareSiteTwitter('tiki Scala graph algorithms');"><i class="fa fa-twitter"></i></a></li><li><a href="#" onclick="shareSiteFacebook('tiki Scala graph algorithms');"><i class="fa fa-facebook"></i></a></li><li><a href="#" onclick="shareSiteGoogle();"><i class="fa fa-google-plus"></i></a></li></ul></div></div></div></div><div id="content" data-github-owner="lewismj" data-github-repo="tiki"><div class="content-wrapper"><section><h2 id="triangulation">Triangulation</h2>
+
+<p>In order to perform graph clustering, we need to calculate a Euclidean minimum
+distance spanning tree. The first step is to perform a Delaunay triangulation.
+One of the simplest methods is the Bowyer-Watson algorithm.</p>
+
+<p>From <a href="https://en.wikipedia.org/wiki/Bowyer–Watson_algorithm">wikipedia</a></p>
+
+<p>“<em>After every insertion, any triangles whose circumcircles contain 
+the new point are deleted, leaving a star-shaped polygonal 
+hole which is then re-triangulated using the new point. 
+By using the connectivity of the triangulation to efficiently 
+locate triangles to remove, the algorithm can take O(N log N) 
+operations to triangulate N points, although special degenerate 
+cases exist where this goes up to O(N2).</em>”</p>
+
+<h2 id="example">Example</h2>
+
+<p><img src="https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/triangulation.png" alt="graph" /></p>
+
+<h2 id="bowyer-watson">Bowyer-Watson</h2>
+
+<p>This is implemented as follows:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code>  <span class="k">def</span> <span class="n">bowyerWatson</span><span class="o">(</span><span class="n">points</span><span class="k">:</span> <span class="kt">Vector</span><span class="o">[</span><span class="kt">Point</span><span class="o">])</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Edge</span><span class="o">[</span><span class="kt">Point</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
+
+    <span class="k">case</span> <span class="k">class</span> <span class="nc">BadTriangles</span><span class="o">(</span><span class="n">triangles</span><span class="k">:</span> <span class="kt">Vector</span><span class="o">[</span><span class="kt">Triangle</span><span class="o">],</span> <span class="n">edges</span><span class="k">:</span> <span class="kt">Vector</span><span class="o">[</span><span class="kt">Edge</span><span class="o">[</span><span class="kt">Point</span><span class="o">]])</span>
+    <span class="k">val</span> <span class="n">boundary</span> <span class="k">=</span> <span class="n">superTriangle</span><span class="o">(</span><span class="n">minMax</span><span class="o">(</span><span class="n">points</span><span class="o">))</span>
+
+    <span class="k">val</span> <span class="n">triangles</span> <span class="k">=</span> <span class="n">points</span><span class="o">.</span><span class="n">foldLeft</span><span class="o">(</span><span class="nc">List</span><span class="o">(</span><span class="n">boundary</span><span class="o">))((</span><span class="n">ts</span><span class="o">,</span> <span class="n">pt</span><span class="o">)</span><span class="k">=&gt;</span> <span class="o">{</span>
+
+      <span class="k">val</span> <span class="n">init</span> <span class="k">=</span> <span class="nc">BadTriangles</span><span class="o">(</span><span class="nc">Vector</span><span class="o">.</span><span class="n">empty</span><span class="o">[</span><span class="kt">Triangle</span><span class="o">],</span><span class="nc">Vector</span><span class="o">.</span><span class="n">empty</span><span class="o">[</span><span class="kt">Edge</span><span class="o">[</span><span class="kt">Point</span><span class="o">]])</span>
+
+      <span class="k">val</span> <span class="nc">BadTriangles</span><span class="o">(</span><span class="n">xs</span><span class="o">,</span><span class="n">ys</span><span class="o">)</span> <span class="k">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">foldLeft</span><span class="o">(</span><span class="n">init</span><span class="o">)((</span><span class="n">bt</span><span class="o">,</span> <span class="n">t</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="n">ccContains</span><span class="o">(</span><span class="n">pt</span><span class="o">))</span>
+          <span class="nc">BadTriangles</span><span class="o">(</span><span class="n">t</span> <span class="o">+:</span> <span class="n">bt</span><span class="o">.</span><span class="n">triangles</span><span class="o">,</span> <span class="nc">Vector</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="n">a</span> <span class="o">--&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">b</span><span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="n">b</span> <span class="o">--&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">c</span><span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="n">c</span> <span class="o">--&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">a</span><span class="o">)</span> <span class="o">++</span> <span class="n">bt</span><span class="o">.</span><span class="n">edges</span><span class="o">)</span>
+        <span class="k">else</span> <span class="n">bt</span>
+      <span class="o">})</span>
+
+      <span class="k">val</span> <span class="n">polygon</span> <span class="k">=</span> <span class="n">ys</span><span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="n">e</span><span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">from</span><span class="o">.</span><span class="n">r2</span> <span class="o">&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">r2</span><span class="o">)</span> <span class="n">e</span> <span class="k">else</span> <span class="n">e</span><span class="o">.</span><span class="n">to</span> <span class="o">--&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">from</span><span class="o">)</span>
+                    <span class="o">.</span><span class="n">filterNot</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_2</span><span class="o">.</span><span class="n">size</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">).</span><span class="n">keys</span>
+
+      <span class="n">polygon</span><span class="o">.</span><span class="n">foldLeft</span><span class="o">(</span><span class="n">ts</span><span class="o">.</span><span class="n">diff</span><span class="o">(</span><span class="n">xs</span><span class="o">))((</span><span class="n">zs</span><span class="o">,</span><span class="n">edge</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Triangle</span><span class="o">(</span><span class="n">edge</span><span class="o">.</span><span class="n">from</span><span class="o">,</span><span class="n">edge</span><span class="o">.</span><span class="n">to</span><span class="o">,</span><span class="n">pt</span><span class="o">)</span> <span class="o">::</span> <span class="n">zs</span><span class="o">)</span>
+    <span class="o">}).</span><span class="n">filterNot</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">sharesVertex</span><span class="o">(</span><span class="n">boundary</span><span class="o">))</span>
+
+    <span class="n">triangles</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toEdges</span><span class="o">).</span><span class="n">distinct</span>
+  <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>This can be optimised relatively easily. For example <code class="highlighter-rouge">ts.foldLeft</code> 
+is folding over all the trigangles. It would be possible to use 
+something like a Quad tree and cut down the search space. 
+This would improve performance and still leave the implementation to a 
+few core lines of code (vs. larger implementations for s-hull etc.).</p>
+</section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/tiki/highlight/highlight.pack.js"></script><script>hljs.configure({
+languages:['scala','java','bash']
+});
+hljs.initHighlighting();
+             </script><script src="/tiki/js/main.js"></script></body></html>
