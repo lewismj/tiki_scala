@@ -108,6 +108,12 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="tiki">tiki</a></dd></dl></div>
     </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Distance$.html" title=""></a>
+                        <a href="Distance$.html" title="">
+                          Distance
+                        </a>
+                      </li><li class="current-entities indented2">
                         <a class="object" href="Point$.html" title=""></a>
                         <a class="class" href="" title="Point represents 2D Cartesian coordinates."></a>
                         <a href="" title="Point represents 2D Cartesian coordinates.">
@@ -150,14 +156,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Point</span><span class="params">(<span name="x">x: <span class="extype" name="spire.math.Real">Real</span></span>, <span name="y">y: <span class="extype" name="spire.math.Real">Real</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">Point</span><span class="params">(<span name="x0">x0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="y0">y0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Point represents 2D Cartesian coordinates.
 No need to make generic, double makes sense for clustering etc.
-</p></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl><div class="toggleContainer block">
+</p></div><dl class="paramcmts block"><dt class="param">x0</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y0</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -208,9 +214,9 @@ No need to make generic, double makes sense for clustering etc.
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="tiki.cluster.Point#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(x:spire.math.Real,y:spire.math.Real):tiki.cluster.Point"></a><a id="&lt;init&gt;:Point"></a>
+      <a id="&lt;init&gt;(x0:Double,y0:Double):tiki.cluster.Point"></a><a id="&lt;init&gt;:Point"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#&lt;init&gt;(x:spire.math.Real,y:spire.math.Real):tiki.cluster.Point" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#&lt;init&gt;(x0:Double,y0:Double):tiki.cluster.Point" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -219,10 +225,10 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Point</span><span class="params">(<span name="x">x: <span class="extype" name="spire.math.Real">Real</span></span>, <span name="y">y: <span class="extype" name="spire.math.Real">Real</span></span>)</span>
+        <span class="name">Point</span><span class="params">(<span name="x0">x0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="y0">y0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span>
       </span>
       
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">x0</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y0</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -280,7 +286,7 @@ No need to make generic, double makes sense for clustering etc.
         <span title="gt4s: $plus" class="name">+</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>
       </span>
       
-      <p class="shortcomment cmt">+,- Point operators.</p>
+      
     </li><li name="tiki.cluster.Point#-" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="-(that:tiki.cluster.Point):tiki.cluster.Point"></a><a id="-(Point):Point"></a>
       <span class="permalink">
@@ -470,9 +476,9 @@ No need to make generic, double makes sense for clustering etc.
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="tiki.cluster.Point#r" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="r:spire.math.Real"></a><a id="r:Real"></a>
+      <a id="r:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#r:spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#r:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -481,14 +487,14 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">r</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span class="name">r</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       <p class="shortcomment cmt">Polar coordinates.</p>
     </li><li name="tiki.cluster.Point#r2" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="r2:spire.math.Real"></a><a id="r2:Real"></a>
+      <a id="r2:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#r2:spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#r2:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -497,7 +503,7 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">r2</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span class="name">r2</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
@@ -584,9 +590,9 @@ No need to make generic, double makes sense for clustering etc.
               
         </dd></dl></div>
     </li><li name="tiki.cluster.Point#x" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="x:spire.math.Real"></a><a id="x:Real"></a>
+      <a id="x:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#x:spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#x:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -595,14 +601,30 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">x</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span class="name">x</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.cluster.Point#x0" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="x0:Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Point.html#x0:Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">x0</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
     </li><li name="tiki.cluster.Point#y" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="y:spire.math.Real"></a><a id="y:Real"></a>
+      <a id="y:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#y:spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#y:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -611,14 +633,30 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">y</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span class="name">y</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.cluster.Point#y0" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="y0:Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Point.html#y0:Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">y0</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
     </li><li name="tiki.cluster.Point#φ" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="φ:spire.math.Real"></a><a id="φ:Real"></a>
+      <a id="φ:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#φ:spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#φ:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -627,14 +665,14 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">φ</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span class="name">φ</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
-    </li><li name="tiki.cluster.Point#⋅" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="⋅(that:tiki.cluster.Point):spire.math.Real"></a><a id="⋅(Point):Real"></a>
+    </li><li name="tiki.cluster.Point#≅" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="≅(that:tiki.cluster.Point):Boolean"></a><a id="≅(Point):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#⋅(that:tiki.cluster.Point):spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#≅(that:tiki.cluster.Point):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -643,14 +681,30 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u22C5" class="name">⋅</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span title="gt4s: $u2245" class="name">≅</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">+,- Point operators.</p>
+    </li><li name="tiki.cluster.Point#⋅" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="⋅(that:tiki.cluster.Point):Double"></a><a id="⋅(Point):Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/cluster/Point.html#⋅(that:tiki.cluster.Point):Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u22C5" class="name">⋅</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
     </li><li name="tiki.cluster.Point#⨯" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="⨯(that:tiki.cluster.Point):spire.math.Real"></a><a id="⨯(Point):Real"></a>
+      <a id="⨯(that:tiki.cluster.Point):Double"></a><a id="⨯(Point):Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Point.html#⨯(that:tiki.cluster.Point):spire.math.Real" title="Permalink">
+      <a href="../../tiki/cluster/Point.html#⨯(that:tiki.cluster.Point):Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -659,7 +713,7 @@ No need to make generic, double makes sense for clustering etc.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2A2F" class="name">⨯</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <span class="extype" name="spire.math.Real">Real</span></span>
+        <span title="gt4s: $u2A2F" class="name">⨯</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.cluster.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       <p class="shortcomment cmt">Cross and Dot Product.</p>

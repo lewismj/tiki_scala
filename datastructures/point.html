@@ -3,8 +3,6 @@
 <p>The Point class is used in the clustering algorithms. At present just representing 2D points,
 for basic graph clustering algorithms.</p>
 
-<p>The <a href="https://github.com/non/spire">spire</a> library is used for the <code class="highlighter-rouge">Real</code> computable real number implementation.</p>
-
 <p>Together will a number of utility functions within the companion object, such as orderings<code class="highlighter-rouge">YXOrdering</code>
 and <code class="highlighter-rouge">CCWOrdering</code>, these allow sorting by <em>y</em> then <em>x</em> value and counter clockwise about an origin point.</p>
 
@@ -27,19 +25,19 @@ and <code class="highlighter-rouge">CCWOrdering</code>, these allow sorting by <
 <span class="k">import</span> <span class="nn">cats.implicits._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)</span>
-<span class="n">a</span><span class="k">:</span> <span class="kt">tiki.cluster.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)</span>
+<span class="n">a</span><span class="k">:</span> <span class="kt">tiki.cluster.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.0</span><span class="o">,</span><span class="mf">3.0</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">show</span>
-<span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.0</span><span class="o">,</span><span class="mf">3.0</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">)</span>
-<span class="n">b</span><span class="k">:</span> <span class="kt">tiki.cluster.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">)</span>
+<span class="n">b</span><span class="k">:</span> <span class="kt">tiki.cluster.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">3.0</span><span class="o">,</span><span class="mf">4.0</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">show</span>
-<span class="n">res1</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">)</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">3.0</span><span class="o">,</span><span class="mf">4.0</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">z</span> <span class="k">=</span> <span class="n">a</span> <span class="o">⨯</span> <span class="n">b</span>
-<span class="n">z</span><span class="k">:</span> <span class="kt">spire.math.Real</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">z</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
 </code></pre>
 </div>
 
