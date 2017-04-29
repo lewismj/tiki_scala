@@ -22,7 +22,7 @@ Tiki information and documentation is available on the [website](https://lewismj
 
 Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
-<hr size="1">
+
 
 ### Algorithms
 
