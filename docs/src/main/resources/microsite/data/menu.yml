@@ -61,6 +61,16 @@ options:
     url: algorithms/traversal.html
     menu_type: algorithms
 
+  - title: Clustering
+    url: algorithms/triangulation.html
+    menu_type: datastructures
+    menu_section: clustering
+
+    nested_options:
+     - title: Triangulation
+       url: algorithms/triangulation.html
+       menu_section: clustering
+
    ### Type Classes ###
 
   - title: Type Classes

@@ -45,17 +45,14 @@ The following graph shows the four strongly connected components:
 
 ```scala
   def kosaraju[A](g: Digraph[A]): List[List[A]] = {
-
     @tailrec
     def loop(gr: Digraph[A], s: List[A], scc: List[List[A]]): List[List[A]] = s match {
       case Nil => scc
-      case head :: tail =>
+      case head :: _ =>
         val component = dfs(gr,head).toList
-        loop(remove(gr,component), s.diff(component), component :: scc)
+        loop(gr.filterNot(component), s.diff(component), component :: scc)
     }
-
-    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(remove(g,a),v).toList ::: a)
-
+    val stack = g.vertices.foldLeft(List.empty[A])((a,v) => dfs(g.filterNot(a),v).toList ::: a)
     loop(g.transpose,stack,List.empty[List[A]])
   }
 ```
