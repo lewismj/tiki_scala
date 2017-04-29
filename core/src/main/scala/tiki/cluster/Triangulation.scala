@@ -66,13 +66,15 @@ object Triangulation {
         Point(xMid + k * dMax, yMid - dMax))
   }
 
+
+
   /**
     * Implementation of Bowyer-Watson algorithm for Delaunay triangulation.
     *
     * @param points the vector of 2D points.
     * @return the vector of edges.
     */
-  def bowyerWatson(points: Vector[Point]): Vector[Edge[Point]] = {
+  def bowyerWatson(points: Vector[Point]): List[Edge[Point]] = {
 
     case class BadTriangles(triangles: Vector[Triangle], edges: Vector[Edge[Point]])
     val boundary = superTriangle(minMax(points))
@@ -80,6 +82,7 @@ object Triangulation {
     val triangles = points.foldLeft(List(boundary))((ts, pt)=> {
 
       val init = BadTriangles(Vector.empty[Triangle],Vector.empty[Edge[Point]])
+      
       val BadTriangles(xs,ys) = ts.foldLeft(init)((bt, t) => {
         if (t.ccContains(pt))
           BadTriangles(t +: bt.triangles, Vector(t.a --> t.b, t.b --> t.c, t.c --> t.a) ++ bt.edges)
@@ -92,7 +95,7 @@ object Triangulation {
       polygon.foldLeft(ts.diff(xs))((zs,edge) => Triangle(edge.from,edge.to,pt) :: zs)
     }).filterNot(_.sharesVertex(boundary))
 
-    triangles.flatMap(_.toEdges).distinct.toVector
+    triangles.flatMap(_.toEdges).distinct
   }
 
 }
