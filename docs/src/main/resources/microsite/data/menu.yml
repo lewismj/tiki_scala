@@ -63,7 +63,7 @@ options:
 
   - title: Clustering
     url: algorithms/triangulation.html
-    menu_type: datastructures
+    menu_type: algorithms
     menu_section: clustering
 
     nested_options:
