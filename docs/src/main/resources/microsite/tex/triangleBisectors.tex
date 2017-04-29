@@ -1,0 +1,18 @@
+\begin{tikzpicture}  [
+    scale=3,
+    >=stealth,
+    point/.style = {draw, circle,  fill = black, inner sep = .1pt},
+    dot/.style   = {draw, circle,  fill = black, inner sep = .2pt},
+  ]
+\def\rad{1}
+\node (origin) at (0,0) [point, label = {below right:$U$}]{};
+\draw (origin) circle (\rad);
+\node (n1) at +(60:\rad) [point, label = above:$A$] {};
+\node (n2) at +(-145:\rad) [point, label = below:$B$] {};
+\node (n3) at +(-45:\rad) [point, label = {below right:$C$}] {};
+\draw[-] (n3) -- node (a) [label = {}] {} (n1);
+\draw[-] (n3) -- node (b) [label = {}] {} (n2);
+\draw[-] (n2) -- (n1);
+\draw[dotted] ($ (origin) ! 2 ! (a) $) node [right] {} -- ($(a) ! 3 ! (origin)$ );
+\draw[dotted]($ (origin) ! 2 ! (b) $) -- ($(b) ! 3 ! (origin)$ ) node [right] {};
+\end{tikzpicture}

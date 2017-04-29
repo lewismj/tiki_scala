@@ -81,19 +81,6 @@ case class Triangle(a: Point, b: Point, c: Point) {
   }
 
   /**
-    * Check to see if the triangles are approximately equal.
-    *
-    * @param that a triangle.
-    * @return true if the triangles are approximately the same,
-    *         false otherwise.
-    */
-  def ≅(that: Triangle): Boolean = {
-    val points = Vector(that.a, that.b, that.c)
-    Vector(a, b, c).forall(points.contains)
-  }
-
-
-  /**
     * Returns the vector of edges representing the triangle.
     *
     * @return the vector of edges.

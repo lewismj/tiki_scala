@@ -1,0 +1,31 @@
+\begin{minipage}{.9 \linewidth}
+\begin{tikzpicture}
+    \node[shape=circle,draw=black] (A) at (0,0) {A};
+    \node[shape=circle,draw=black] (B) at (0,3) {B};
+    \node[shape=circle,draw=black] (C) at (2.5,4) {C};
+    \node[shape=circle,draw=black] (D) at (2.5,1) {D};
+    \node[shape=circle,draw=black] (E) at (2.5,-3) {E};
+    \node[shape=circle,draw=black] (F) at (5,3) {F} ;
+    \path [->](A) edge node {} (B);
+    \path [->](B) edge node {} (C);
+    \path [->](A) edge node {} (D);
+    \path [->](D) edge node {} (C);
+    \path [->](A) edge node {} (E);
+    \path [->](D) edge node {} (E);
+    \path [->](D) edge node {} (F);
+    \path [->](C) edge node {} (F);
+    \path [->](E) edge node {} (F);
+    \path [->](B) edge[bend right=60] node {} (E);  
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.9 \linewidth}
+Adjacency list \\
+\begin{tabular}{l | l}
+   A & $\rightarrow$ \{B, D, E\} \\
+   B & $\rightarrow$ \{C, E\} \\
+   C & $\rightarrow$ \{F\} \\
+   D & $\rightarrow$ \{C, E, F\} \\
+   E & $\rightarrow$ \{F \}  \\
+   F & $\rightarrow$ \{ \} \\
+\end{tabular}\\ 
+\end{minipage}

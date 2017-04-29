@@ -1,0 +1,43 @@
+\begin{minipage}[t]{0,3\textwidth}
+  \begin{tikzpicture}
+    \node[shape=circle,draw=black] (a) at (0,0) {A};
+    \node[shape=circle,draw=black] (b) at (-1.2,-1.2) {B};
+    \node[shape=circle,draw=black] (c) at (1.2,-1.2) {C};
+    \node[shape=circle,draw=black] (d) at (0,-2.4) {D};
+    \path [->](a) edge node {} (b);
+    \path [->](a) edge node {} (c);
+    \path [->](b) edge node {} (d);
+    \path [->](c) edge node {} (d);
+  \end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{0,3\textwidth}
+  \begin{tikzpicture}
+    \node[shape=circle,draw=black] (a) at (0,0) {A};
+    \node[shape=circle,draw=black] (b) at (-1.2,-1.2) {B};
+    \node (c) at (1.2,-1.2) {};
+    \node (d) at (0,-2.4) {};
+    \path [->,red,dotted](a) edge node {} (b);
+  \end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{0,3\textwidth}
+  \begin{tikzpicture}
+    \node[shape=circle,draw=black] (a) at (0,0) {A};
+    \node[shape=circle,draw=black] (b) at (-1.2,-1.2) {B};
+    \node (c) at (1.2,-1.2) {};
+    \node[shape=circle,draw=black] (d) at (0,-2.4) {D};
+    \path [->,red,dotted](a) edge node {} (b);
+    \path [->,red,dotted](b) edge node {} (d);
+  \end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{0,3\textwidth}
+  \begin{tikzpicture}
+    \node[shape=circle,draw=black] (a) at (0,0) {A};
+    \node[shape=circle,draw=black] (b) at (-1.2,-1.2) {B};
+    \node[shape=circle,draw=black] (c) at (1.2,-1.2) {C};
+    \node[shape=circle,draw=black] (d) at (0,-2.4) {D};
+    \path [->,red,dotted](a) edge node {} (b);
+    \path [->,red,dotted](b) edge node {} (d);
+    \path [->,red,dotted](a) edge node {} (c);
+  \end{tikzpicture}
+\end{minipage}%
+

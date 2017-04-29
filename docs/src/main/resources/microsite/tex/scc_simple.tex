@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+    \node[shape=circle,draw=black] (1) at (0,0) {1};
+    \node[shape=circle,draw=black] (0) at (2.4,0) {0};
+    \node[shape=circle,draw=black] (2) at (0,-2.4) {2};
+    \node[shape=circle,draw=black] (3) at (4.8,0) {3};
+    \node[shape=circle,draw=black] (4) at (4.8,-2.4) {4};
+    \node[draw=black,dashed, fit=(1) (0) (2)](fit1) {};
+    \node[draw=black,dashed, fit=(3)](fit2) {};
+    \node[draw=black,dashed, fit=(4)](fit3) {};
+    \path [->](1) edge node {} (0);
+    \path [->](0) edge node {} (2);
+    \path [->](2) edge node {} (1);
+    \path [->](0) edge node {} (3);
+    \path [->](3) edge node {} (4);
+  \end{tikzpicture}
