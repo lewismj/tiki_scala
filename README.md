@@ -24,7 +24,7 @@ Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
 ### Algorithms
 
-#### Basic Graph Algorithms
+### Basic Graph Algorithms
 
 Depth First and Breadth First Search, using `unfold`.
 
@@ -53,7 +53,7 @@ Strongly connected components using __Kosaraju's algorithm__.
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.scc.png)
 
 
-#### Cluster algorithms for graphs
+### Cluster algorithms for graphs
 
 Point space triangulation (__Delaunay triangulation__).
 
