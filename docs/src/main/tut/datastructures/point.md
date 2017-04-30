@@ -15,6 +15,8 @@ and `CCWOrdering`, these allow sorting by _y_ then _x_ value and counter clockwi
 
 These orderings are used for Delaunay triangulation, required to calculate Euclidean minimum spanning trees.
 
+If we have edges between vertices (_e.g._ waypoints with names) it may make sense to introduce a `Cartesian` typeclass,
+that a vertex type could support.
 
 ## Usage
 
