@@ -23,20 +23,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package tests
-package arbitrary
+package instances
 
-import tiki.cluster._
-import org.scalacheck.{Arbitrary, Gen}
+import cats._
 
+trait VectorInstances {
 
-trait ArbitraryPoint {
+  import cats.syntax.show._
+  implicit def showForVector[A:Show]: Show[Vector[A]]
+    = (f: Vector[A]) => f.iterator.map(_.show).mkString(",")
 
-  def point: Gen[Point] = for {
-    x <- Gen.choose(-1.0,1.0)
-    y <-  Gen.choose(-1.0,1.0)
-  } yield Point(x,y)
-
-  implicit def arbitraryPoint: Arbitrary[Point] = Arbitrary(point)
 
 }

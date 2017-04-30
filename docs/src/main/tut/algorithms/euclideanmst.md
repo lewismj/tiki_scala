@@ -24,11 +24,18 @@ Then run Kruskal's algorithm over the graph to generate the Euclidean minimum sp
 
 ```scala
   def euclideanMST(points: Vector[Point]): List[WeightedEdge[Point]] = {
-    val graph = new WeightedUndirectedGraph[Point] {
-      override def edges: Stream[WeightedEdge[Point]]
-        = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
-      override def vertices: Stream[Point] = points.toStream
+    points match {
+      case xs if xs.length < 2 =>
+        List.empty[WeightedEdge[Point]]
+      case xs if xs.length == 2 =>
+        List(points.head --> points.last :# distance(points.head,points.last))
+      case _ =>
+        val graph = new WeightedUndirectedGraph[Point] {
+          override def edges: Stream[WeightedEdge[Point]]
+          = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
+          override def vertices: Stream[Point] = points.toStream
+        }
+        kruskal(graph)
     }
-    kruskal(graph)
   }
 ```

@@ -26,6 +26,7 @@ package tiki
 package instances
 
 import cats.Show
+import cats.Eq
 
 
 trait WeightedEdgeInstances {
@@ -40,5 +41,7 @@ trait WeightedEdgeInstances {
 
   implicit def showForWEdge[A]: Show[WeightedEdge[A]]
     = (f: WeightedEdge[A]) => s"${f.from} --> ${f.to} :# ${f.weight}"
+
 }
+
 

@@ -24,19 +24,41 @@
  */
 package tiki
 package tests
-package arbitrary
 
+
+import tiki.tests.arbitrary.AllArbitrary
+
+import tiki.implicits._
+import tiki.Path._
 import tiki.cluster._
-import org.scalacheck.{Arbitrary, Gen}
+import tiki.cluster.Point._
+import tiki.cluster.Distance._
 
 
-trait ArbitraryPoint {
+class DistanceSpec extends TikiSuite with AllArbitrary {
 
-  def point: Gen[Point] = for {
-    x <- Gen.choose(-1.0,1.0)
-    y <-  Gen.choose(-1.0,1.0)
-  } yield Point(x,y)
+  test("EMST from Delaunay matches MST from complete graph.") {
+    forAll { (points: Vector[Point]) =>
 
-  implicit def arbitraryPoint: Arbitrary[Point] = Arbitrary(point)
+      val emst = euclideanMST(points).toStream
+
+      val denseGraph = new WeightedUndirectedGraph[Point] {
+        val xs = for {
+          i <- points.indices
+          j <- 0 until i
+          if i != j
+        } yield points(i) --> points(j) :# distance(points(i), points(j))
+
+        override def edges: Stream[WeightedEdge[Point]] = xs.toStream
+        override def vertices: Stream[Point] = points.toStream
+      }
+
+      /* todo: define 'Eq' for graphs. */
+      val s1 = emst.map(e => if (e.from.r2 > e.to.r2) e else e.to --> e.from :# e.weight).toSet
+      val s2 = kruskal(denseGraph).map(e => if (e.from.r2 > e.to.r2) e else e.to --> e.from :# e.weight).toSet
+      s1 should be(s2)
+    }
+  }
+
 
 }

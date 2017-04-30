@@ -30,6 +30,7 @@ import org.scalacheck.{Arbitrary, Gen}
 import tiki.Edge
 import tiki.implicits._
 
+
 trait ArbitraryEdgeList extends ArbitrarySet {
 
   def edgeList[A: Arbitrary]: Gen[List[Edge[A]]] = for {

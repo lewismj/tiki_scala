@@ -28,6 +28,4 @@ package tiki.tests
 import tiki.tests.arbitrary.AllArbitrary
 
 class TikiSpec extends TikiSuite with AllArbitrary {
-
-
 }

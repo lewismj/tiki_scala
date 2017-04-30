@@ -31,3 +31,4 @@ trait AllArbitrary
   extends ArbitrarySet
   with ArbitraryEdgeList
   with ArbitraryWeightedEdgeList
+  with ArbitraryPoint
