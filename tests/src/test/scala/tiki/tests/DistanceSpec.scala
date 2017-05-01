@@ -59,5 +59,5 @@ class DistanceSpec extends TikiSuite with AllArbitrary {
     }
   }
 
-  
+
 }
