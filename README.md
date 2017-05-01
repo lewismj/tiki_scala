@@ -30,9 +30,13 @@ Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
 Depth First and Breadth First Search, using `unfold`.
 
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.dfs.png)
+|  Algorithm | Example  |
+| :------------- | :------------- |
+| dfs | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.dfs.png) |
+| bfs | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.bfs.png)  |
 
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.bfs.png)
+
+
 
 
 Topological sort using __Kahn's algorithm__.
