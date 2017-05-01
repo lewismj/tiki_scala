@@ -62,6 +62,7 @@ Point space triangulation (__Delaunay triangulation__).
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png)
 
 Euclidean distance minimum spanning tree
+
 ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.emst.png)
 
 
