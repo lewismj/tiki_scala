@@ -4,16 +4,27 @@
 
 <ul>
   <li><code class="highlighter-rouge">Edge</code> an unweighted edge from one vertex to another.</li>
-  <li><code class="highlighter-rouge">EdgeLabelled</code> an unweighted, labelled edge from one vertex to another.</li>
-  <li><code class="highlighter-rouge">EdgeWeighted</code> is a weighted edge.</li>
+  <li><code class="highlighter-rouge">LabelledEdge</code> an unweighted, labelled edge from one vertex to another.</li>
+  <li><code class="highlighter-rouge">WeightedEdge</code> is a weighted edge.</li>
 </ul>
 
-<p>Each edge type extends the <code class="highlighter-rouge">EdgeLike</code> trait:</p>
+<p>Each <code class="highlighter-rouge">EdgeLike</code> trait specifies the interface of the edge. Implicit instances implement behaviours.</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">EdgeLike</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">EdgeLike</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">from</span><span class="k">:</span> <span class="kt">T</span>
   <span class="k">def</span> <span class="n">to</span><span class="k">:</span> <span class="kt">T</span>
 <span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">EdgeLike</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">EdgeLike</span><span class="o">]</span><span class="k">:</span> <span class="kt">EdgeLike</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="k">=</span> <span class="n">implicitly</span>
+  <span class="k">def</span> <span class="n">from</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">EdgeLike</span><span class="o">](</span><span class="n">t</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=</span> <span class="nc">EdgeLike</span><span class="o">[</span><span class="kt">T</span><span class="o">].</span><span class="n">from</span>
+  <span class="k">def</span> <span class="n">to</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">EdgeLike</span><span class="o">](</span><span class="n">t</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=</span> <span class="nc">EdgeLike</span><span class="o">[</span><span class="kt">T</span><span class="o">].</span><span class="n">to</span>
+<span class="o">}</span>
+
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">from</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">to</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">LabelledEdge</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">](</span><span class="n">edge</span><span class="k">:</span> <span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">label</span><span class="k">:</span> <span class="kt">B</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">WeightedEdge</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">edge</span><span class="k">:</span> <span class="kt">Edge</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">weight</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span>
+
 </code></pre>
 </div>
 

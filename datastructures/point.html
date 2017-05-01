@@ -18,8 +18,8 @@ that a vertex type could support.</p>
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki._</span>
 <span class="k">import</span> <span class="nn">tiki._</span>
 
-<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.cluster._</span>
-<span class="k">import</span> <span class="nn">tiki.cluster._</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.geometry._</span>
+<span class="k">import</span> <span class="nn">tiki.geometry._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">tiki.implicits._</span>
 <span class="k">import</span> <span class="nn">tiki.implicits._</span>
@@ -28,13 +28,13 @@ that a vertex type could support.</p>
 <span class="k">import</span> <span class="nn">cats.implicits._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">)</span>
-<span class="n">a</span><span class="k">:</span> <span class="kt">tiki.cluster.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.0</span><span class="o">,</span><span class="mf">3.0</span><span class="o">)</span>
+<span class="n">a</span><span class="k">:</span> <span class="kt">tiki.geometry.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.0</span><span class="o">,</span><span class="mf">3.0</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">show</span>
 <span class="n">res0</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.0</span><span class="o">,</span><span class="mf">3.0</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">)</span>
-<span class="n">b</span><span class="k">:</span> <span class="kt">tiki.cluster.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">3.0</span><span class="o">,</span><span class="mf">4.0</span><span class="o">)</span>
+<span class="n">b</span><span class="k">:</span> <span class="kt">tiki.geometry.Point</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">3.0</span><span class="o">,</span><span class="mf">4.0</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">show</span>
 <span class="n">res1</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">3.0</span><span class="o">,</span><span class="mf">4.0</span><span class="o">)</span>

@@ -89,10 +89,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
-    </li><li name="tiki.cluster" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="cluster"></a><a id="cluster:cluster"></a>
+    </li><li name="tiki.geometry" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="geometry"></a><a id="geometry:geometry"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#cluster" title="Permalink">
+      <a href="../tiki/index.html#geometry" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -101,8 +101,8 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="" href="cluster/index.html">
-              <span class="name">cluster</span>
+        <a title="" href="geometry/index.html">
+              <span class="name">geometry</span>
             </a>
       </span>
       
@@ -179,12 +179,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="Edge.html" title="Represents an edge between two vertices."></a>
-                        <a href="Edge.html" title="Represents an edge between two vertices.">
+                        <a class="class" href="Edge.html" title="Labelled and Weighted edges."></a>
+                        <a href="Edge.html" title="Labelled and Weighted edges.">
                           Edge
                         </a>
                       </li><li class="current-entities indented1">
-                        <span class="separator"></span>
+                        <a class="object" href="EdgeLike$.html" title=""></a>
                         <a class="trait" href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
 two vertices."></a>
                         <a href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
@@ -205,8 +205,8 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="LabelledEdge.html" title="A labelled edge between two vertices."></a>
-                        <a href="LabelledEdge.html" title="A labelled edge between two vertices.">
+                        <a class="class" href="LabelledEdge.html" title=""></a>
+                        <a href="LabelledEdge.html" title="">
                           LabelledEdge
                         </a>
                       </li><li class="current-entities indented1">
@@ -259,8 +259,8 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
-                        <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
+                        <a class="class" href="WeightedEdge.html" title=""></a>
+                        <a href="WeightedEdge.html" title="">
                           WeightedEdge
                         </a>
                       </li><li class="current-entities indented1">
@@ -364,23 +364,7 @@ two vertices.">
 
         <div class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="tiki.Weighted#edges" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="edges:Stream[tiki.WeightedEdge[A]]"></a><a id="edges:Stream[WeightedEdge[A]]"></a>
-      <span class="permalink">
-      <a href="../tiki/WeightedGraph.html#edges:Stream[tiki.WeightedEdge[A]]" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">edges</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]]</span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a></dd></dl></div>
-    </li><li name="tiki.Graph#vertices" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+              <ol><li name="tiki.Graph#vertices" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="vertices:Stream[A]"></a>
       <span class="permalink">
       <a href="../tiki/WeightedGraph.html#vertices:Stream[A]" title="Permalink">
@@ -397,6 +381,22 @@ two vertices.">
       
       <p class="shortcomment cmt">Return a stream of vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Return a stream of vertices.
 </p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the stream of vertices.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Graph.html" class="extype" name="tiki.Graph">Graph</a></dd></dl></div>
+    </li><li name="tiki.Weighted#weights" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="weights:Stream[tiki.WeightedEdge[A]]"></a><a id="weights:Stream[WeightedEdge[A]]"></a>
+      <span class="permalink">
+      <a href="../tiki/WeightedGraph.html#weights:Stream[tiki.WeightedEdge[A]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">weights</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<a href="WeightedEdge.html" class="extype" name="tiki.WeightedEdge">WeightedEdge</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a></dd></dl></div>
     </li></ol>
             </div>
 
@@ -489,6 +489,22 @@ two vertices.">
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="tiki.Weighted#edges" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="edges:Stream[tiki.Edge[A]]"></a><a id="edges:Stream[Edge[A]]"></a>
+      <span class="permalink">
+      <a href="../tiki/WeightedGraph.html#edges:Stream[tiki.Edge[A]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">edges</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WeightedGraph.A">A</span>]]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Weighted.html" class="extype" name="tiki.Weighted">Weighted</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">

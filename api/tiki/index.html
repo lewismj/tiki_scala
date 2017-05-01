@@ -87,10 +87,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
-    </li><li name="tiki.cluster" visbl="pub" class="indented2 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="cluster"></a><a id="cluster:cluster"></a>
+    </li><li name="tiki.geometry" visbl="pub" class="indented2 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="geometry"></a><a id="geometry:geometry"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#cluster" title="Permalink">
+      <a href="../tiki/index.html#geometry" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -99,8 +99,8 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="" href="cluster/index.html">
-              <span class="name">cluster</span>
+        <a title="" href="geometry/index.html">
+              <span class="name">geometry</span>
             </a>
       </span>
       
@@ -177,12 +177,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="Edge.html" title="Represents an edge between two vertices."></a>
-                        <a href="Edge.html" title="Represents an edge between two vertices.">
+                        <a class="class" href="Edge.html" title="Labelled and Weighted edges."></a>
+                        <a href="Edge.html" title="Labelled and Weighted edges.">
                           Edge
                         </a>
                       </li><li class="current-entities indented1">
-                        <span class="separator"></span>
+                        <a class="object" href="EdgeLike$.html" title=""></a>
                         <a class="trait" href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
 two vertices."></a>
                         <a href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
@@ -203,8 +203,8 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="LabelledEdge.html" title="A labelled edge between two vertices."></a>
-                        <a href="LabelledEdge.html" title="A labelled edge between two vertices.">
+                        <a class="class" href="LabelledEdge.html" title=""></a>
+                        <a href="LabelledEdge.html" title="">
                           LabelledEdge
                         </a>
                       </li><li class="current-entities indented1">
@@ -257,8 +257,8 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
-                        <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
+                        <a class="class" href="WeightedEdge.html" title=""></a>
+                        <a href="WeightedEdge.html" title="">
                           WeightedEdge
                         </a>
                       </li><li class="current-entities indented1">
@@ -439,27 +439,24 @@ elements that are partitioned into a number of disjoint subsets.</p><div class="
 elements that are partitioned into a number of disjoint subsets.
 Useful for finding the number of components within a graph.
 </p></div></div>
-    </li><li name="tiki.Edge" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Edge[A]extendsEdgeLike[A]withProductwithSerializable"></a><a id="Edge[A]:Edge[A]"></a>
+    </li><li name="tiki.Edge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Edge[A]extendsProductwithSerializable"></a><a id="Edge[A]:Edge[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#Edge[A]extendsEdgeLike[A]withProductwithSerializable" title="Permalink">
+      <a href="../tiki/index.html#Edge[A]extendsProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="Represents an edge between two vertices." href="Edge.html">
+        <a title="Labelled and Weighted edges." href="Edge.html">
               <span class="name">Edge</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="from">from: <span class="extype" name="tiki.Edge.A">A</span></span>, <span name="to">to: <span class="extype" name="tiki.Edge.A">A</span></span>)</span><span class="result"> extends <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.Edge.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="from">from: <span class="extype" name="tiki.Edge.A">A</span></span>, <span name="to">to: <span class="extype" name="tiki.Edge.A">A</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">Represents an edge between two vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Represents an edge between two vertices.</p><p>The edges in a graph tend to be either all directed or all undirected.
-i.e. A property that holds across the graph. Rather than a property
-of the edge.
-</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type of the vertex.</p></dd><dt class="param">from</dt><dd class="cmt"><p>one vertex in an edge.</p></dd><dt class="param">to</dt><dd class="cmt"><p>the 'other' vertex in the edge.</p></dd></dl></div>
+      <p class="shortcomment cmt">Labelled and Weighted edges.</p>
     </li><li name="tiki.EdgeLike" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="EdgeLike[T]extendsAnyRef"></a><a id="EdgeLike[T]:EdgeLike[T]"></a>
       <span class="permalink">
@@ -468,7 +465,7 @@ of the edge.
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">sealed </span>
+        <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
@@ -521,23 +518,23 @@ even if the edge is undirected.
       <p class="shortcomment cmt">Base representation for a graph.</p><div class="fullcomment"><div class="comment cmt"><p>Base representation for a graph.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.LabelledEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LabelledEdge[A,B]extendsEdgeLike[A]withProductwithSerializable"></a><a id="LabelledEdge[A,B]:LabelledEdge[A,B]"></a>
+      <a id="LabelledEdge[A,B]extendsProductwithSerializable"></a><a id="LabelledEdge[A,B]:LabelledEdge[A,B]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#LabelledEdge[A,B]extendsEdgeLike[A]withProductwithSerializable" title="Permalink">
+      <a href="../tiki/index.html#LabelledEdge[A,B]extendsProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A labelled edge between two vertices." href="LabelledEdge.html">
+        <a title="" href="LabelledEdge.html">
               <span class="name">LabelledEdge</span>
-            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+            </a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">A labelled edge between two vertices.</p>
+      
     </li><li name="tiki.Tex" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="Tex[A]extendsAnyRef"></a><a id="Tex[A]:Tex[A]"></a>
       <span class="permalink">
@@ -613,23 +610,23 @@ even if the edge is undirected.
       <p class="shortcomment cmt">Weighted digraph, a digraph that returns weighted edges.</p><div class="fullcomment"><div class="comment cmt"><p>Weighted digraph, a digraph that returns weighted edges.
 </p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the vertex type.</p></dd></dl></div>
     </li><li name="tiki.WeightedEdge" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WeightedEdge[A]extendsEdgeLike[A]withProductwithSerializable"></a><a id="WeightedEdge[A]:WeightedEdge[A]"></a>
+      <a id="WeightedEdge[A]extendsProductwithSerializable"></a><a id="WeightedEdge[A]:WeightedEdge[A]"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#WeightedEdge[A]extendsEdgeLike[A]withProductwithSerializable" title="Permalink">
+      <a href="../tiki/index.html#WeightedEdge[A]extendsProductwithSerializable" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a title="A weighted edge between two vertices." href="WeightedEdge.html">
+        <a title="" href="WeightedEdge.html">
               <span class="name">WeightedEdge</span>
-            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WeightedEdge.A">A</span>]</span>, <span name="weight">weight: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span><span class="result"> extends <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.WeightedEdge.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+            </a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.WeightedEdge.A">A</span>]</span>, <span name="weight">weight: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       
-      <p class="shortcomment cmt">A weighted edge between two vertices.</p>
+      
     </li><li name="tiki.WeightedGraph" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="WeightedGraph[A]extendsGraph[A]withWeighted[A]"></a><a id="WeightedGraph[A]:WeightedGraph[A]"></a>
       <span class="permalink">
@@ -774,6 +771,24 @@ even if the edge is undirected.
       <span class="symbol">
         <a title="" href="DisjointSet$.html">
               <span class="name">DisjointSet</span>
+            </a>
+      </span>
+      
+      
+    </li><li name="tiki.EdgeLike" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EdgeLike"></a><a id="EdgeLike:EdgeLike"></a>
+      <span class="permalink">
+      <a href="../tiki/index.html#EdgeLike" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="EdgeLike$.html">
+              <span class="name">EdgeLike</span>
             </a>
       </span>
       

@@ -89,10 +89,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
-    </li><li name="tiki.cluster" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="cluster"></a><a id="cluster:cluster"></a>
+    </li><li name="tiki.geometry" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="geometry"></a><a id="geometry:geometry"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#cluster" title="Permalink">
+      <a href="../tiki/index.html#geometry" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -102,34 +102,40 @@
       </span>
       <span class="symbol">
         <a title="" href="index.html">
-              <span class="name">cluster</span>
+              <span class="name">geometry</span>
             </a>
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="tiki">tiki</a></dd></dl></div>
-    </li><li name="tiki.cluster.Triangulation" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Triangulation"></a><a id="Triangulation:Triangulation"></a>
-      <span class="permalink">
-      <a href="../../tiki/cluster/index.html#Triangulation" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a title="" href="Triangulation$.html">
-              <span class="name">Triangulation</span>
-            </a>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="tiki.cluster">cluster</a></dd></dl></div>
-    </li><li class="current-entities indented3">
+    </li><li class="current-entities indented2">
                         <span class="separator"></span>
-                        <a class="class" href="" title="possible use composable fold if available in cats?"></a>
-                        <a href="" title="possible use composable fold if available in cats?">
-                          MinMax
+                        <a class="object" href="Cluster$.html" title=""></a>
+                        <a href="Cluster$.html" title="">
+                          Cluster
+                        </a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Distance$.html" title=""></a>
+                        <a href="Distance$.html" title="">
+                          Distance
+                        </a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Point$.html" title=""></a>
+                        <a class="class" href="" title="Point represents 2D Cartesian coordinates."></a>
+                        <a href="" title="Point represents 2D Cartesian coordinates.">
+                          Point
+                        </a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Triangle$.html" title=""></a>
+                        <a class="class" href="Triangle.html" title="Triangle represented by three vertices."></a>
+                        <a href="Triangle.html" title="Triangle represented by three vertices.">
+                          Triangle
+                        </a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Triangulation$.html" title=""></a>
+                        <a href="Triangulation$.html" title="">
+                          Triangulation
                         </a>
                       </li>
               </ul>
@@ -138,14 +144,16 @@
           <div id="content">
             <body class="class type">
       <div id="definition">
-        <div class="big-circle class">c</div>
-        <p id="owner"><a href="../index.html" class="extype" name="tiki">tiki</a>.<a href="index.html" class="extype" name="tiki.cluster">cluster</a>.<a href="Triangulation$.html" class="extype" name="tiki.cluster.Triangulation">Triangulation</a></p>
-        <h1>MinMax<span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html" title="Permalink">
+        <a href="Point$.html" title="See companion object"><div class="big-circle class-companion-object">c</div></a>
+        <p id="owner"><a href="../index.html" class="extype" name="tiki">tiki</a>.<a href="index.html" class="extype" name="tiki.geometry">geometry</a></p>
+        <h1><a href="Point$.html" title="See companion object">Point</a><span class="permalink">
+      <a href="../../tiki/geometry/Point.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
-        <h3><span class="morelinks"></span></h3>
+        <h3><span class="morelinks"><div>
+            Companion <a href="Point$.html" title="See companion object">object Point</a>
+          </div></span></h3>
       </div>
 
       <h4 id="signature" class="signature">
@@ -154,12 +162,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">MinMax</span><span class="params">(<span name="xMin">xMin: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="xMax">xMax: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="yMin">yMin: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="yMax">yMax: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">Point</span><span class="params">(<span name="x0">x0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="y0">y0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>possible use composable fold if available in cats?</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Point represents 2D Cartesian coordinates.
+No need to make generic, double makes sense for clustering etc.
+</p></div><dl class="paramcmts block"><dt class="param">x0</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y0</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -189,7 +199,7 @@
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.cluster.Triangulation.MinMax"><span>MinMax</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.geometry.Point"><span>Point</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -209,10 +219,10 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="tiki.cluster.Triangulation.MinMax#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(xMin:Double,xMax:Double,yMin:Double,yMax:Double):tiki.cluster.Triangulation.MinMax"></a><a id="&lt;init&gt;:MinMax"></a>
+              <ol><li name="tiki.geometry.Point#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(x0:Double,y0:Double):tiki.geometry.Point"></a><a id="&lt;init&gt;:Point"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#&lt;init&gt;(xMin:Double,xMax:Double,yMin:Double,yMax:Double):tiki.cluster.Triangulation.MinMax" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#&lt;init&gt;(x0:Double,y0:Double):tiki.geometry.Point" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -221,10 +231,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MinMax</span><span class="params">(<span name="xMin">xMin: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="xMax">xMax: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="yMin">yMin: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="yMax">yMax: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span>
+        <span class="name">Point</span><span class="params">(<span name="x0">x0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="y0">y0: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span>
       </span>
       
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">x0</dt><dd class="cmt"><p>the x coordinate.</p></dd><dt class="param">y0</dt><dd class="cmt"><p>the y coordinate.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -238,7 +248,7 @@
                 <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#!=(x$1:Any):Boolean" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#!=(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -254,7 +264,7 @@
     </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html###():Int" title="Permalink">
+      <a href="../../tiki/geometry/Point.html###():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -267,10 +277,42 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="tiki.geometry.Point#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="+(that:tiki.geometry.Point):tiki.geometry.Point"></a><a id="+(Point):Point"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#+(that:tiki.geometry.Point):tiki.geometry.Point" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="name">+</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.geometry.Point">Point</a></span>)</span><span class="result">: <a href="" class="extype" name="tiki.geometry.Point">Point</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.geometry.Point#-" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="-(that:tiki.geometry.Point):tiki.geometry.Point"></a><a id="-(Point):Point"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#-(that:tiki.geometry.Point):tiki.geometry.Point" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus" class="name">-</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.geometry.Point">Point</a></span>)</span><span class="result">: <a href="" class="extype" name="tiki.geometry.Point">Point</a></span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#==(x$1:Any):Boolean" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#==(x$1:Any):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -286,7 +328,7 @@
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#asInstanceOf[T0]:T0" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#asInstanceOf[T0]:T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -302,7 +344,7 @@
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#clone():Object" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#clone():Object" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -324,7 +366,7 @@
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#eq(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -340,7 +382,7 @@
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#finalize():Unit" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#finalize():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -362,7 +404,7 @@
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#getClass():Class[_]" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#getClass():Class[_]" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -378,7 +420,7 @@
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#isInstanceOf[T0]:Boolean" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#isInstanceOf[T0]:Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -394,7 +436,7 @@
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#ne(x$1:AnyRef):Boolean" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -410,7 +452,7 @@
     </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#notify():Unit" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#notify():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -426,7 +468,7 @@
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#notifyAll():Unit" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#notifyAll():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -439,10 +481,42 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="tiki.geometry.Point#r" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="r:Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#r:Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">r</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Polar coordinates.</p>
+    </li><li name="tiki.geometry.Point#r2" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="r2:Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#r2:Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">r2</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+      </span>
+      
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -458,7 +532,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#wait():Unit" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#wait():Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -480,7 +554,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -502,7 +576,7 @@
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#wait(x$1:Long):Unit" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#wait(x$1:Long):Unit" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -521,10 +595,10 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.cluster.Triangulation.MinMax#xMax" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="xMax:Double"></a>
+    </li><li name="tiki.geometry.Point#x" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="x:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#xMax:Double" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#x:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -533,14 +607,14 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">xMax</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+        <span class="name">x</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
-    </li><li name="tiki.cluster.Triangulation.MinMax#xMin" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="xMin:Double"></a>
+    </li><li name="tiki.geometry.Point#x0" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="x0:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#xMin:Double" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#x0:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -549,14 +623,14 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">xMin</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+        <span class="name">x0</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
-    </li><li name="tiki.cluster.Triangulation.MinMax#yMax" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="yMax:Double"></a>
+    </li><li name="tiki.geometry.Point#y" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="y:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#yMax:Double" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#y:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -565,14 +639,14 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">yMax</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+        <span class="name">y</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
-    </li><li name="tiki.cluster.Triangulation.MinMax#yMin" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="yMin:Double"></a>
+    </li><li name="tiki.geometry.Point#y0" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="y0:Double"></a>
       <span class="permalink">
-      <a href="../../tiki/cluster/Triangulation$$MinMax.html#yMin:Double" title="Permalink">
+      <a href="../../tiki/geometry/Point.html#y0:Double" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -581,10 +655,74 @@
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">yMin</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+        <span class="name">y0</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
       </span>
       
       
+    </li><li name="tiki.geometry.Point#φ" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="φ:Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#φ:Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">φ</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.geometry.Point#≅" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="≅(that:tiki.geometry.Point):Boolean"></a><a id="≅(Point):Boolean"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#≅(that:tiki.geometry.Point):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2245" class="name">≅</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.geometry.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">+,- Point operators.</p>
+    </li><li name="tiki.geometry.Point#⋅" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="⋅(that:tiki.geometry.Point):Double"></a><a id="⋅(Point):Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#⋅(that:tiki.geometry.Point):Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u22C5" class="name">⋅</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.geometry.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+      </span>
+      
+      
+    </li><li name="tiki.geometry.Point#⨯" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="⨯(that:tiki.geometry.Point):Double"></a><a id="⨯(Point):Double"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Point.html#⨯(that:tiki.geometry.Point):Double" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2A2F" class="name">⨯</span><span class="params">(<span name="that">that: <a href="" class="extype" name="tiki.geometry.Point">Point</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Cross and Dot Product.</p>
     </li>
               </ol>
             </div>

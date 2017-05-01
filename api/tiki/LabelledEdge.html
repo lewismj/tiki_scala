@@ -89,10 +89,10 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="_root_">root</a></dd></dl></div>
-    </li><li name="tiki.cluster" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="cluster"></a><a id="cluster:cluster"></a>
+    </li><li name="tiki.geometry" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="geometry"></a><a id="geometry:geometry"></a>
       <span class="permalink">
-      <a href="../tiki/index.html#cluster" title="Permalink">
+      <a href="../tiki/index.html#geometry" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -101,8 +101,8 @@
         <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a title="" href="cluster/index.html">
-              <span class="name">cluster</span>
+        <a title="" href="geometry/index.html">
+              <span class="name">geometry</span>
             </a>
       </span>
       
@@ -179,12 +179,12 @@ elements that are partitioned into a number of disjoint subsets.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="Edge.html" title="Represents an edge between two vertices."></a>
-                        <a href="Edge.html" title="Represents an edge between two vertices.">
+                        <a class="class" href="Edge.html" title="Labelled and Weighted edges."></a>
+                        <a href="Edge.html" title="Labelled and Weighted edges.">
                           Edge
                         </a>
                       </li><li class="current-entities indented1">
-                        <span class="separator"></span>
+                        <a class="object" href="EdgeLike$.html" title=""></a>
                         <a class="trait" href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
 two vertices."></a>
                         <a href="EdgeLike.html" title="Define the common 'edge' behaviour, an edge has
@@ -205,8 +205,8 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="" title="A labelled edge between two vertices."></a>
-                        <a href="" title="A labelled edge between two vertices.">
+                        <a class="class" href="" title=""></a>
+                        <a href="" title="">
                           LabelledEdge
                         </a>
                       </li><li class="current-entities indented1">
@@ -259,8 +259,8 @@ two vertices.">
                         </a>
                       </li><li class="current-entities indented1">
                         <span class="separator"></span>
-                        <a class="class" href="WeightedEdge.html" title="A weighted edge between two vertices."></a>
-                        <a href="WeightedEdge.html" title="A weighted edge between two vertices.">
+                        <a class="class" href="WeightedEdge.html" title=""></a>
+                        <a href="WeightedEdge.html" title="">
                           WeightedEdge
                         </a>
                       </li><li class="current-entities indented1">
@@ -300,21 +300,20 @@ two vertices.">
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier">final </span>
+        <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">LabelledEdge</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>] with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">LabelledEdge</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="edge">edge: <a href="Edge.html" class="extype" name="tiki.Edge">Edge</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</span>, <span name="label">label: <span class="extype" name="tiki.LabelledEdge.B">B</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A labelled edge between two vertices.
-</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>], <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div></div>
         
 
@@ -340,7 +339,7 @@ two vertices.">
                   <span class="filtertype">Inherited<br />
                   </span>
                   <ol id="linearization">
-                    <li class="in" name="tiki.LabelledEdge"><span>LabelledEdge</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="tiki.EdgeLike"><span>EdgeLike</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                    <li class="in" name="tiki.LabelledEdge"><span>LabelledEdge</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                   </ol>
                 </div><div class="ancestors">
               <span class="filtertype"></span>
@@ -526,22 +525,6 @@ two vertices.">
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="tiki.LabelledEdge#from" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="from:A"></a>
-      <span class="permalink">
-      <a href="../tiki/LabelledEdge.html#from:A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">from</span><span class="result">: <span class="extype" name="tiki.LabelledEdge.A">A</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.LabelledEdge">LabelledEdge</a> → <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
@@ -654,22 +637,6 @@ two vertices.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="tiki.LabelledEdge#to" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="to:A"></a>
-      <span class="permalink">
-      <a href="../tiki/LabelledEdge.html#to:A" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">to</span><span class="result">: <span class="extype" name="tiki.LabelledEdge.A">A</span></span>
-      </span>
-      
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="tiki.LabelledEdge">LabelledEdge</a> → <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">
@@ -754,8 +721,6 @@ two vertices.">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
-            </div><div class="parent" name="tiki.EdgeLike">
-              <h3>Inherited from <a href="EdgeLike.html" class="extype" name="tiki.EdgeLike">EdgeLike</a>[<span class="extype" name="tiki.LabelledEdge.A">A</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
