@@ -35,6 +35,9 @@ trait TexInstances  {
   implicit def texForListOfA[A](implicit ev: Tex[A]): Tex[List[A]]
     = (a: List[A]) => a.iterator.map(ev.tex).mkString
 
+  implicit def texForVectorOfA[A](implicit ev: Tex[A]): Tex[Vector[A]]
+  = (a: Vector[A]) => a.iterator.map(ev.tex).mkString
+
   implicit def texForStreamOfA[A](implicit ev: Tex[A]): Tex[Stream[A]]
   = (a: Stream[A]) => a.iterator.map(ev.tex).mkString
 

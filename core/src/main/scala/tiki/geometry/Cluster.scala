@@ -40,14 +40,9 @@ object Cluster {
     * @param k  the number of clusters.
     * @return a list of lists, each sub-list are the edges between nodes in a cluster.
     */
-
-
-
   /* wip */
-  def kSpaningTree(points: List[Point], k: Int): List[List[Point]] = {
-    require(k > 0, "Number of clusters must be > 0.")
-    val xs = euclideanMST(points.toVector).sortBy(-_.weight).drop(k - 1)
-    List.empty
-  }
+  def kTrees(points: Vector[Point], k: Int): Vector[WeightedEdge[Point]] =
+    euclideanMST(points).sortBy(-_.weight).drop(k - 1).toVector
+
 
 }

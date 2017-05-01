@@ -82,6 +82,13 @@ class ClusterSpec extends TikiSuite with AllArbitrary {
                         Point(0, 5),
                         Point(0, 0),
                         Point(7, 4))
+
+//    val xs = kTrees(points,2)
+//    val graph = new WeightedGraph[Point] {
+//      override def weights: Stream[WeightedEdge[Point]] = xs.toStream
+//      override def vertices: Stream[Point] = points.toStream
+//    }
+//    println(TexWriter.toTikzPicture(graph))
     true
   }
 
