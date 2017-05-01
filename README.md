@@ -23,8 +23,7 @@ Tiki information and documentation is available on the [website](https://lewismj
 
 |  Algorithm | Example  |
 | :------------- | :------------- |
-| depth & bredth first search | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.dfs.png) 
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.bfs.png) |
+| depth & bredth first search | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.search.png)  |
 | Kahn (topological sort) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.topologicalSort.png) |
 | Bellman-Ford (negative cycle detection) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.negativeCycle.png) |
 | Kruskal (minium spanning tree) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.minimumSpanningTree.png) |
