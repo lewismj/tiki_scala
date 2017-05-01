@@ -78,7 +78,7 @@ options:
 
    ### Type Classes ###
 
-  - title: Type Classes / Behaviours
+  - title: Type Classes
     url: typeclasses.html
     menu_type: typeclasses
 

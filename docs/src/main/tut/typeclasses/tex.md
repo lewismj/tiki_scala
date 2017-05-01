@@ -1,9 +1,9 @@
 ---
 layout: docs 
-title:  "Filter"
+title:  "Tex"
 section: "typeclasses"
-source: "core/src/main/scala/tiki/Filter.scala"
-scaladoc: "#tiki.Filter"
+source: "core/src/main/scala/tiki/Tex.scala"
+scaladoc: "#tiki.Tex"
 ---
 # Tex
 
