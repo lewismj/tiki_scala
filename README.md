@@ -26,49 +26,15 @@ Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
 ### Algorithms
 
-### Basic Graph Algorithms
-
-Depth First and Breadth First Search, using `unfold`.
-
-|  Algorithm | Example  |
 | :------------- | :------------- |
 | dfs | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.dfs.png) |
-| bfs | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.bfs.png)  |
-
-
-
-
-
-Topological sort using __Kahn's algorithm__.
-
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.topologicalSort.png)
-
-
-Negative cycle detection using __Bellman-Ford__.
-
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.negativeCycle.png)
-
-
-Minimum spanning tree using __Kruskal's algorithm__.
-
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.minimumSpanningTree.png)
-
-
-Strongly connected components using __Kosaraju's algorithm__.
-
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.scc.png)
-
-
-### Cluster algorithms for graphs
-
-Point space triangulation (__Delaunay triangulation__).
-
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png)
-
-Euclidean distance minimum spanning tree
-
-![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.emst.png)
-
+| bfs | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.bfs.png) |
+| Kahn (topological sort) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.topologicalSort.png) |
+| Bellman-Ford (negative cycle detection) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.negativeCycle.png) |
+| Kruskal (minium spanning tree) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.minimumSpanningTree.png) |
+| Kosaraju (strongly connected components) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.scc.png) |
+| Delaunay (point space) triangulation | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png) |
+| Ecuclidean distance mst | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.emst.png) |
 
 ### Todo
 
