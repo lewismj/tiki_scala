@@ -27,9 +27,9 @@ package tests
 
 import tiki.tests.arbitrary.AllArbitrary
 import tiki.implicits._
-import tiki.cluster._
-import tiki.cluster.Point._
-import tiki.cluster.Triangle._
+import tiki.geometry._
+import tiki.geometry.Point._
+import tiki.geometry.Triangle._
 
 
 class TriangleSpec extends TikiSuite with AllArbitrary {

@@ -26,14 +26,14 @@ package tiki
 package tests
 
 import tiki.tests.arbitrary.AllArbitrary
-import tiki.cluster._
-import tiki.cluster.Point.{collinear,side}
+import tiki.geometry._
+import tiki.geometry.Point.{collinear,side}
 
 
 class PointSpec extends TikiSuite with AllArbitrary {
 
   test("Add points.") { (p1: Point, p2: Point) => {
-    val expected = tiki.cluster.Point(p1.x+p2.x,p2.x+p2.y)
+    val expected = tiki.geometry.Point(p1.x+p2.x,p2.x+p2.y)
     p1 +p2 should be (expected)
   }}
 

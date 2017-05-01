@@ -26,7 +26,7 @@ package tiki
 package tests
 package arbitrary
 
-import tiki.cluster._
+import tiki.geometry._
 import org.scalacheck.{Arbitrary, Gen}
 
 

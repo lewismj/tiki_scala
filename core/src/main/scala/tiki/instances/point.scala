@@ -26,7 +26,7 @@ package tiki
 package instances
 
 import cats.Show
-import tiki.cluster.Point
+import tiki.geometry.Point
 
 
 

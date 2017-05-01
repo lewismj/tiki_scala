@@ -23,38 +23,31 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package cluster
+package geometry
 
-import tiki.implicits._
-import tiki.Path._
-import tiki.cluster.Point._
-import tiki.cluster.Triangulation._
+import geometry.Distance._
+
+object Cluster {
 
 
-object Distance {
 
   /**
-    * Calculates the Euclidean minimum spanning tree from a set of cartesian
-    * input points.
+    * Simplest algorithm for clustering a graph. If the desired number
+    * of clusters is known, we can remove k-1 edges with highest
+    * weight from the Euclidean minimum spanning tree.
     *
-    * @param points the set of points.
-    * @return the set of edges that form the Euclidean minimum spanning tree.
+    * @param points the incoming set of points.
+    * @param k  the number of clusters.
+    * @return a list of lists, each sub-list are the edges between nodes in a cluster.
     */
-  def euclideanMST(points: Vector[Point]): List[WeightedEdge[Point]] = {
-    points match {
-      case xs if xs.length < 2 =>
-        List.empty[WeightedEdge[Point]]
-      case xs if xs.length == 2 =>
-        List(points.head --> points.last :# distance(points.head,points.last))
-      case _ =>
-        val graph = new WeightedUndirectedGraph[Point] {
-          override def edges: Stream[WeightedEdge[Point]]
-          = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
-          override def vertices: Stream[Point] = points.toStream
-        }
-        kruskal(graph)
-    }
-  }
 
+
+
+  /* wip */
+  def kSpaningTree(points: List[Point], k: Int): List[List[Point]] = {
+    require(k > 0, "Number of clusters must be > 0.")
+    val xs = euclideanMST(points.toVector).sortBy(-_.weight).drop(k - 1)
+    List.empty
+  }
 
 }

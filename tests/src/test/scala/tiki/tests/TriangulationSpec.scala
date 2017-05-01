@@ -26,7 +26,7 @@ package tiki
 package tests
 
 import tiki.implicits._
-import tiki.cluster._
+import tiki.geometry._
 
 
 class TriangulationSpec extends TikiSuite {

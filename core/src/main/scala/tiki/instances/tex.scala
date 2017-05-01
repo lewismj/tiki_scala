@@ -25,7 +25,7 @@
 package tiki
 package instances
 
-import tiki.cluster._
+import tiki.geometry._
 
 trait TexInstances {
 

@@ -23,39 +23,37 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package tests
+package geometry
 
-
-import tiki.tests.arbitrary.AllArbitrary
-import tiki.Path._
-import tiki.cluster._
-import tiki.cluster.Point._
-import tiki.cluster.Distance._
 import tiki.implicits._
+import tiki.Path._
+import tiki.geometry.Point._
+import tiki.geometry.Triangulation._
 
 
-class DistanceSpec extends TikiSuite with AllArbitrary {
+object Distance {
 
 
-  test("EMST from Delaunay matches MST from dense graph.") {forAll { (points: Vector[Point]) =>
-
-      val emst = euclideanMST(points).toStream
-
-      val denseGraph = new WeightedUndirectedGraph[Point] {
-        val xs = for {
-          i <- points.indices
-          j <- 0 until i
-          if i != j
-        } yield points(i) --> points(j) :# distance(points(i), points(j))
-
-        override def edges: Stream[WeightedEdge[Point]] = xs.toStream
-        override def vertices: Stream[Point] = points.toStream
-      }
-
-      /* todo: define 'Eq' for graphs undirected & directed. */
-      val s1 = emst.map(e => if (e.from.r2 > e.to.r2) e else e.to --> e.from :# e.weight).toSet
-      val s2 = kruskal(denseGraph).map(e => if (e.from.r2 > e.to.r2) e else e.to --> e.from :# e.weight).toSet
-      s1 should be(s2)
+  /**
+    * Calculates the Euclidean minimum spanning tree from a set of cartesian
+    * input points.
+    *
+    * @param points the set of points.
+    * @return the set of edges that form the Euclidean minimum spanning tree.
+    */
+  def euclideanMST(points: Vector[Point]): List[WeightedEdge[Point]] = {
+    points match {
+      case xs if xs.length < 2 =>
+        List.empty[WeightedEdge[Point]]
+      case xs if xs.length == 2 =>
+        List(points.head --> points.last :# distance(points.head,points.last))
+      case _ =>
+        val graph = new WeightedUndirectedGraph[Point] {
+          override def edges: Stream[WeightedEdge[Point]]
+          = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
+          override def vertices: Stream[Point] = points.toStream
+        }
+        kruskal(graph)
     }
   }
 

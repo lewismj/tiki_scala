@@ -23,7 +23,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package cluster
+package geometry
 
 import tiki.implicits._
 import scala.math._
