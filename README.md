@@ -32,6 +32,7 @@ Tiki information and documentation is available on the [website](https://lewismj
 ### Todo
 
 - The Markov Cluster Algorithm.
+- Distributed minimum spanning tree (using Akka).
 
 ### References
 - _The Under-Appreciated Unfold_ [1](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz).
