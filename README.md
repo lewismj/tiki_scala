@@ -10,8 +10,6 @@
 
 A library for functional graph algorithms.
 
-The goal is to implement standard set of graph algorithms (e.g. Bellman-Ford, Kruskal's etc.) in a clear, concise and simple fashion.
-
 ### Issues
 
 Waffle [board](https://waffle.io/lewismj/tiki).
@@ -19,7 +17,6 @@ Waffle [board](https://waffle.io/lewismj/tiki).
 ### Documentation
 
 Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/). Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
-
 
 |  Algorithm | Example  |
 | :------------- | :------------- |
