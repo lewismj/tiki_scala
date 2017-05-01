@@ -23,15 +23,30 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package instances
 
-import cats._
 
-trait VectorInstances {
+object TexWriter {
 
-  import cats.syntax.show._
-  implicit def showForVector[A:Show]: Show[Vector[A]]
-    = (f: Vector[A]) => f.iterator.map(_.show).mkString(",")
+  /** Write LaTeX output as a tikz picture. */
+  def toTikzPicture[T](t: T)(implicit ev: Tex[T]): String = {
+    val builder = new StringBuilder
+    builder.append("""\documentclass[border=10pt]{standalone}""")
+    builder.append("\n\\usepackage{tikz}")
+    builder.append(
+      """
+        |\begin{document}
+        |\begin{tikzpicture}
+      """.stripMargin)
 
+    builder.append(ev.tex(t))
+
+    builder.append(
+      """
+        |\end{tikzpicture}
+        |\end{document}
+      """.stripMargin)
+
+    builder.toString
+  }
 
 }

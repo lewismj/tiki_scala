@@ -27,18 +27,17 @@ package tests
 
 
 import tiki.tests.arbitrary.AllArbitrary
-
-import tiki.implicits._
 import tiki.Path._
 import tiki.cluster._
 import tiki.cluster.Point._
 import tiki.cluster.Distance._
+import tiki.implicits._
 
 
 class DistanceSpec extends TikiSuite with AllArbitrary {
 
-  test("EMST from Delaunay matches MST from complete graph.") {
-    forAll { (points: Vector[Point]) =>
+
+  test("EMST from Delaunay matches MST from dense graph.") {forAll { (points: Vector[Point]) =>
 
       val emst = euclideanMST(points).toStream
 
@@ -53,11 +52,44 @@ class DistanceSpec extends TikiSuite with AllArbitrary {
         override def vertices: Stream[Point] = points.toStream
       }
 
-      /* todo: define 'Eq' for graphs. */
+      /* todo: define 'Eq' for graphs undirected & directed. */
       val s1 = emst.map(e => if (e.from.r2 > e.to.r2) e else e.to --> e.from :# e.weight).toSet
       val s2 = kruskal(denseGraph).map(e => if (e.from.r2 > e.to.r2) e else e.to --> e.from :# e.weight).toSet
       s1 should be(s2)
     }
+  }
+
+  test("EMST test graph.1") {
+    val points = Vector(
+                      Point(3, 3),
+                      Point(3, 5),
+                      Point(0, 1),
+                      Point(2, 5),
+                      Point(-2, 2),
+                      Point(-3, 2),
+                      Point(6, 5),
+                      Point(-3, 4),
+                      Point(-5, 2),
+                      Point(-5, -1),
+                      Point(1, -2),
+                      Point(-3, -2),
+                      Point(4, 2),
+                      Point(5, 1),
+                      Point(-5, 1),
+                      Point(3, -2),
+                      Point(0, 5),
+                      Point(0, 0),
+                      Point(7, 4))
+
+
+    val emst = euclideanMST(points)
+
+    val graph = new WeightedGraph[Point] {
+      override def edges: Stream[WeightedEdge[Point]] = emst.toStream
+      override def vertices: Stream[Point] = points.toStream
+    }
+    //println(TexWriter.toTikzPicture(graph))
+    true
   }
 
 

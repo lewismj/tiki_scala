@@ -25,15 +25,26 @@
 package tiki
 package instances
 
-trait AllInstances
-  extends EdgeInstances
-  with WeightedEdgeInstances
-  with LabelledEdgeInstances
-  with DigraphInstances
-  with WeightedUndirectedInstances
-  with WeightedDigraphInstances
-  with AdjacencyListInstances
-  with DisjointSetInstances
-  with PointInstances
-  with RealInstances
-  with TexInstances
+import tiki.cluster._
+
+trait TexInstances {
+
+  implicit def texForPoint[A]: Tex[Point]
+    = (p: Point) =>  s"\t\\fill (${p.x},${p.y}) circle[radius=2pt] node [black,above=4] { };\n"
+
+  implicit def texForWeightedEdgePoint: Tex[WeightedEdge[Point]] = (a: WeightedEdge[Point]) => {
+    s"\t\\draw (${a.from.x},${a.from.y}) --(${a.to.x},${a.to.y});\n"
+  }
+
+  implicit def texForListofA[A](implicit ev: Tex[A]): Tex[List[A]]
+    = (a: List[A]) => a.iterator.map(ev.tex).mkString
+
+  implicit def texForStreamOfA[A](implicit ev: Tex[A]): Tex[Stream[A]]
+  = (a: Stream[A]) => a.iterator.map(ev.tex).mkString
+
+  implicit def texForWeightedGraph[A](implicit ev: Tex[Stream[A]],
+                                      ev1: Tex[Stream[WeightedEdge[A]]]): Tex[WeightedGraph[A]]
+    = (g: WeightedGraph[A]) => ev.tex(g.vertices) ++ ev1.tex(g.edges)
+
+
+}

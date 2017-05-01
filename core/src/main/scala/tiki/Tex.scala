@@ -23,17 +23,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tiki
-package instances
 
-trait AllInstances
-  extends EdgeInstances
-  with WeightedEdgeInstances
-  with LabelledEdgeInstances
-  with DigraphInstances
-  with WeightedUndirectedInstances
-  with WeightedDigraphInstances
-  with AdjacencyListInstances
-  with DisjointSetInstances
-  with PointInstances
-  with RealInstances
-  with TexInstances
+/** Simple behaviour/interface for producing LaTeX output. */
+trait Tex[A] {
+  def tex(a: A): String
+}
+
+object Tex {
+  def apply[T: Tex]: Tex[T] = implicitly
+  def tex[T: Tex](t: T):String = Tex[T].tex(t)
+}
