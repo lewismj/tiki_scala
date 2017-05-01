@@ -21,6 +21,14 @@ to generate a set of edges. Form an undirected weighted graph from those edges. 
 weight of each edge is the distance between the points.
 Then run Kruskal's algorithm over the graph to generate the Euclidean minimum spanning tree.
 
+## Example
+
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/emst.png)
+
+## Functions
+
+- _`ecludeanMST(points)`_ returns the list of edges (weighted by distance) that form the Euclidean minimum
+spanning tree.
 
 ```scala
   def euclideanMST(points: Vector[Point]): List[WeightedEdge[Point]] = {
@@ -39,3 +47,4 @@ Then run Kruskal's algorithm over the graph to generate the Euclidean minimum sp
     }
   }
 ```
+

@@ -32,8 +32,12 @@ trait TexInstances {
   implicit def texForPoint[A]: Tex[Point]
     = (p: Point) =>  s"\t\\fill (${p.x},${p.y}) circle[radius=2pt] node [black,above=4] { };\n"
 
+  /*
+    todo - need to look at angle of edges to determine correct placement of labels in tikz diagram.
+   */
   implicit def texForWeightedEdgePoint: Tex[WeightedEdge[Point]] = (a: WeightedEdge[Point]) => {
-    s"\t\\draw (${a.from.x},${a.from.y}) --(${a.to.x},${a.to.y});\n"
+    val edge =  s"\t\\draw (${a.from.x},${a.from.y}) --(${a.to.x},${a.to.y});\n"
+    edge
   }
 
   implicit def texForListofA[A](implicit ev: Tex[A]): Tex[List[A]]

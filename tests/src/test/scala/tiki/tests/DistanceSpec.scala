@@ -59,38 +59,5 @@ class DistanceSpec extends TikiSuite with AllArbitrary {
     }
   }
 
-  test("EMST test graph.1") {
-    val points = Vector(
-                      Point(3, 3),
-                      Point(3, 5),
-                      Point(0, 1),
-                      Point(2, 5),
-                      Point(-2, 2),
-                      Point(-3, 2),
-                      Point(6, 5),
-                      Point(-3, 4),
-                      Point(-5, 2),
-                      Point(-5, -1),
-                      Point(1, -2),
-                      Point(-3, -2),
-                      Point(4, 2),
-                      Point(5, 1),
-                      Point(-5, 1),
-                      Point(3, -2),
-                      Point(0, 5),
-                      Point(0, 0),
-                      Point(7, 4))
-
-
-    val emst = euclideanMST(points)
-
-    val graph = new WeightedGraph[Point] {
-      override def edges: Stream[WeightedEdge[Point]] = emst.toStream
-      override def vertices: Stream[Point] = points.toStream
-    }
-    //println(TexWriter.toTikzPicture(graph))
-    true
-  }
-
-
+  
 }
