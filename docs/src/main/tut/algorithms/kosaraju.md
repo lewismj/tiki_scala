@@ -91,7 +91,7 @@ val g = new Digraph[Int] {
   override def successors(v: Int): Set[Int] = ys.successors(v)
   override def predecessors(v: Int): Set[Int] = ys.predecessors(v)
   override def vertices: Stream[Int] = ys.vertices
-  override def edges: Stream[EdgeLike[Int]] = xs
+  override def edges: Stream[Edge[Int]] = xs
 }
 
 val scc = kosaraju(g).toSet

@@ -51,7 +51,7 @@ class KruskalSpec extends TikiSuite with AllArbitrary {
 
 
     val graph = new WeightedUndirectedGraph[Char] {
-      override def edges: Stream[WeightedEdge[Char]] = xs
+      override def weights: Stream[WeightedEdge[Char]] = xs
       override def vertices: Stream[Char] = Stream('A', 'B', 'C', 'D', 'E', 'F', 'G')
     }
 
@@ -69,7 +69,7 @@ class KruskalSpec extends TikiSuite with AllArbitrary {
 
     val graph0 = new WeightedDigraph[Char] {
       lazy val ys = AdjacencyList(xs)
-      override def edges: Stream[WeightedEdge[Char]] = xs
+      override def weights: Stream[WeightedEdge[Char]] = xs
       override def vertices: Stream[Char] = Stream('A', 'B', 'C', 'D', 'E', 'F', 'G')
       override def contains(v: Char): Boolean = ys.contains(v)
       override def successors(v: Char): Set[Char] = ys.successors(v)

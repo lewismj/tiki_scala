@@ -37,7 +37,7 @@ object Sort {
     */
   def tsort[A](g: Digraph[A]): Option[Stream[A]] = {
     @tailrec
-    def kahn(s0: Stream[A], l: Stream[A], ys: Stream[EdgeLike[A]]): Option[Stream[A]] = s0 match {
+    def kahn(s0: Stream[A], l: Stream[A], ys: Stream[Edge[A]]): Option[Stream[A]] = s0 match {
       case _ if (s0 isEmpty) && (ys isEmpty) => Some(l)
       case _ if s0 isEmpty => None
       case n #:: tail =>

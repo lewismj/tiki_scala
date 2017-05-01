@@ -24,6 +24,7 @@
  */
 package tiki
 
+import tiki.implicits._
 import scala.annotation.tailrec
 import scala.math._
 
@@ -73,7 +74,7 @@ object Path {
       }
 
     Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _)
-     => g.edges.foldLeft(xs)(relaxEdge))
+     => g.weights.foldLeft(xs)(relaxEdge))
   }
 
   /**
@@ -105,7 +106,7 @@ object Path {
     */
   def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[List[A]] = {
     val s = bellmanFord(g, source)
-    g.edges.flatMap {
+    g.weights.flatMap {
       case e if s.distances.getOrElse(e.from,∞) + e.weight <
                 s.distances.getOrElse(e.to,∞) => Some(e.from)
       case _ => None
@@ -139,7 +140,7 @@ object Path {
     * @return     the minimum spanning tree.
     */
   def kruskal[A](g: WeightedGraph[A]): List[WeightedEdge[A]] =
-      g.edges.sortBy(_.weight).foldLeft(SpanState.empty(g))((state,y) => y.edge match {
+      g.weights.sortBy(_.weight).foldLeft(SpanState.empty(g))((state, y) => y.edge match {
         case Edge(u,v) if state.ds.find(u) != state.ds.find(v) =>
           new SpanState(state.ds.union(u,v).getOrElse(state.ds), y :: state.mst)
         case _ => state

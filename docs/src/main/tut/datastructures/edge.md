@@ -10,16 +10,27 @@ scaladoc: "#tiki.Edge"
 The following case classes may used to define edges:
 
 - `Edge` an unweighted edge from one vertex to another.
-- `EdgeLabelled` an unweighted, labelled edge from one vertex to another.
-- `EdgeWeighted` is a weighted edge.
+- `LabelledEdge` an unweighted, labelled edge from one vertex to another.
+- `WeightedEdge` is a weighted edge.
 
-Each edge type extends the `EdgeLike` trait:
+Each `EdgeLike` trait specifies the interface of the edge. Implicit instances implement behaviours.
 
 ```scala
-sealed trait EdgeLike[T] {
+trait EdgeLike[T] {
   def from: T
   def to: T
 }
+
+object EdgeLike {
+  def apply[T: EdgeLike]: EdgeLike[T] = implicitly
+  def from[T: EdgeLike](t: T): T = EdgeLike[T].from
+  def to[T: EdgeLike](t: T): T = EdgeLike[T].to
+}
+
+case class Edge[A](from: A, to: A)
+case class LabelledEdge[A,B](edge: Edge[A], label: B)
+case class WeightedEdge[A](edge: Edge[A], weight: Double)
+
 ```
 
 Undirected edges? _Unless explicitly stated_ most algorithms would assume an undirected

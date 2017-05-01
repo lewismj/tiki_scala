@@ -27,24 +27,26 @@ given a weighted directed graph and source vertex.
 The path state is a case class of the _distances_ and _predecessors_.
 
 ```scala
-  def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
+def bellmanFord[A](g: WeightedDigraph[A], source: A): PathState[A] = {
 
-    def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] =
-      state.distances.getOrElse(e.from, ∞) match {
-        case du if du < ∞ =>
-          val dv = state.distances.getOrElse(e.to, ∞)
-          if (du + e.weight < dv) {
-            val w0 = max(⧞,du + e.weight)
-            val d = state.distances.updated(e.to,w0)
-            val p = state.predecessors.updated(e.to, e.from)
-            PathState(d, p)
-          } else state
-        case _ => state
-      }
+def relaxEdge(state: PathState[A], e: WeightedEdge[A]): PathState[A] =
+  state.distances.getOrElse(e.from, ∞) match {
+    case du if du < ∞ =>
+      val dv = state.distances.getOrElse(e.to, ∞)
+      if (du + e.weight < dv) {
+        val w0 = max(⧞,du + e.weight)
+        val d = state.distances.updated(e.to,w0)
+        val p = state.predecessors.updated(e.to, e.from)
+        PathState(d, p)
+      } else state
 
-    Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _)
-     => g.edges.foldLeft(xs)(relaxEdge))
+    case _ => state
+
   }
+
+Range(1,g.vertices.size).foldLeft(PathState(source))((xs, _)
+ => g.weights.foldLeft(xs)(relaxEdge))
+}
 ```
 
 
@@ -55,7 +57,7 @@ A utility method to search for negative cycles is provided.
 ```scala
   def negativeCycle[A](g: WeightedDigraph[A], source: A): Option[List[A]] = {
     val s = bellmanFord(g, source)
-    g.edges.flatMap {
+    g.weights.flatMap {
       case e if s.distances.getOrElse(e.from,∞) + e.weight <
                 s.distances.getOrElse(e.to,∞) => Some(e.from)
       case _ => None
@@ -63,6 +65,7 @@ A utility method to search for negative cycles is provided.
       case head #:: _ => Some(predecessorList(s,head))
       case _ => None
     }
+  }
 ```
 
 ```tut
@@ -86,7 +89,7 @@ val digraph = new WeightedDigraph[Char] {
   def vertices: Stream[Char] = ys.vertices
   def successors(v: Char) = ys.successors(v)
   def predecessors(v: Char) = ys.predecessors(v)
-  def edges = xs
+  def weights = xs
 }
 
 val cycle = negativeCycle(digraph,'a')

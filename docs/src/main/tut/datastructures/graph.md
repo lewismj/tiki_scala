@@ -55,12 +55,15 @@ trait Digraph[A] extends Graph[A] with Directed[A] {}
 
 ## Weighted 
 
-For convenience (many algorithms just require the set of weighted edges, rather than
-say a function _weight(u,v)_), the weighted interface is defined as follows:
+For convenience the weighted interface is defined as follows.
+It may have been possible to introduce some `Weight` with a _`weight(u,v)`_ method,
+however a lot of the algorithms rely on iterating over the set of weights with edges,
+and invoking a map lookup on each edge should be unnecessary.
 
 ```scala
 trait Weighted[A] {
-  def edges: Stream[WeightedEdge[A]]
+  def weights: Stream[WeightedEdge[A]]
+  def edges: Stream[Edge[A]] = weights.map(_.edge)
 }
 ```
 
@@ -99,8 +102,7 @@ val digraph = new WeightedDigraph[Char] {
   def vertices: Stream[Char] = adjacencyList.vertices
   def successors(v: Char) = adjacencyList.successors(v)
   def predecessors(v: Char) = adjacencyList.predecessors(v)
-
-  def edges: Stream[WeightedEdge[Char]] = xs
+  def weights: Stream[WeightedEdge[Char]] = xs
 }
     
 ```

@@ -55,7 +55,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
       def vertices: Stream[Char] = ys.vertices
       def successors(v: Char) = ys.successors(v)
       def predecessors(v: Char) = ys.predecessors(v)
-      def edges: Stream[WeightedEdge[Char]] = xs
+      def weights: Stream[WeightedEdge[Char]] = xs
     }
 
     val state = bellmanFord(digraph,'A')
@@ -84,7 +84,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
       def vertices: Stream[Int] = ys.vertices
       def successors(v: Int) = ys.successors(v)
       def predecessors(v: Int) = ys.predecessors(v)
-      def edges: Stream[WeightedEdge[Int]] = xs
+      def weights: Stream[WeightedEdge[Int]] = xs
     }
 
     negativeCycle(digraph,0).isDefined should be (true)
@@ -98,7 +98,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
       def vertices: Stream[Char] = ys.vertices
       def successors(v: Char) = ys.successors(v)
       def predecessors(v: Char) = ys.predecessors(v)
-      def edges: Stream[WeightedEdge[Char]] = xs
+      def weights: Stream[WeightedEdge[Char]] = xs
     }
 
     val nCycles = negativeCycle(digraph,'a')
@@ -142,7 +142,7 @@ class BellmanFordSpec extends TikiSuite with AllArbitrary {
       def vertices: Stream[String] = ys.vertices
       def successors(v: String) = ys.successors(v)
       def predecessors(v: String) = ys.predecessors(v)
-      def edges: Stream[WeightedEdge[String]] = xs
+      def weights: Stream[WeightedEdge[String]] = xs
     }
 
     // To test for arbitrage opportunities, you would map

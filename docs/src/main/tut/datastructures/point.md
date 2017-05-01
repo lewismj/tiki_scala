@@ -24,7 +24,7 @@ that a vertex type could support.
 
 ```tut
 import tiki._
-import tiki.cluster._
+import tiki.geometry._
 import tiki.implicits._
 import cats.implicits._
 

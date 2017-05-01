@@ -32,37 +32,20 @@ package tiki
   *
   * @tparam T the type of the edge.
   */
-sealed trait EdgeLike[T] {
+trait EdgeLike[T] {
   def from: T
   def to: T
 }
 
-/**
-  * Represents an edge between two vertices.
-  *
-  * The edges in a graph tend to be either all directed or all undirected.
-  * i.e. A property that holds across the graph. Rather than a property
-  * of the edge.
-  *
-  * @param from   one vertex in an edge.
-  * @param to     the 'other' vertex in the edge.
-  * @tparam A     the type of the vertex.
-  */
-final case class Edge[A](from: A, to: A) extends EdgeLike[A]
-
-/**
-  * A labelled edge between two vertices.
-  */
-final case class LabelledEdge[A,B](edge: Edge[A], label: B)  extends EdgeLike[A] {
-  def from : A = edge.from
-  def to: A = edge.to
+object EdgeLike {
+  def apply[T: EdgeLike]: EdgeLike[T] = implicitly
+  def from[T: EdgeLike](t: T): T = EdgeLike[T].from
+  def to[T: EdgeLike](t: T): T = EdgeLike[T].to
 }
 
-/**
-  * A weighted edge between two vertices.
-  */
-final case class WeightedEdge[A](edge: Edge[A], weight: Double) extends EdgeLike[A] {
-  def from: A = edge.from
-  def to: A = edge.to
-}
+/** Labelled and Weighted edges. */
+case class Edge[A](from: A, to: A)
+case class LabelledEdge[A,B](edge: Edge[A], label: B)
+case class WeightedEdge[A](edge: Edge[A], weight: Double)
+
 

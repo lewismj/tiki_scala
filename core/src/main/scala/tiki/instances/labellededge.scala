@@ -38,6 +38,11 @@ trait LabelledEdgeInstances {
 
   implicit def labelledToEdge[A,B](s: Stream[LabelledEdge[A,B]]): Stream[Edge[A]] = s.map(_.edge)
 
+  implicit class LabelledEL[A,B](e: LabelledEdge[A,B]) extends EdgeLike[A] {
+    override def from: A = e.edge.from
+    override def to: A = e.edge.to
+  }
+
   implicit def showForLEdge[A,B](implicit A: Show[A], B: Show[B]): Show[LabelledEdge[A,B]]
     = (f: LabelledEdge[A,B]) => s"${f.from} --> ${f.to} :+ ${f.label}"
 

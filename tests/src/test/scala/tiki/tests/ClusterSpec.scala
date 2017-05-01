@@ -49,7 +49,7 @@ class ClusterSpec extends TikiSuite with AllArbitrary {
           if i != j
         } yield points(i) --> points(j) :# distance(points(i), points(j))
 
-        override def edges: Stream[WeightedEdge[Point]] = xs.toStream
+        override def weights: Stream[WeightedEdge[Point]] = xs.toStream
         override def vertices: Stream[Point] = points.toStream
       }
 

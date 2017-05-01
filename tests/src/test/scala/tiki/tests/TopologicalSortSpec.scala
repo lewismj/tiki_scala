@@ -46,7 +46,7 @@ class TopologicalSortSpec extends TikiSuite with AllArbitrary {
       def vertices: Stream[Char] = ys.vertices
       def successors(v: Char) = ys.successors(v)
       def predecessors(v: Char) = ys.predecessors(v)
-      def edges: Stream[WeightedEdge[Char]] = xs
+      def weights: Stream[WeightedEdge[Char]] = xs
     }
 
     hasCycle(digraph) should be (true)

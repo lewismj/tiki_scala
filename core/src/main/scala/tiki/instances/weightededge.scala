@@ -26,7 +26,7 @@ package tiki
 package instances
 
 import cats.Show
-import cats.Eq
+import tiki.geometry.Point
 
 
 trait WeightedEdgeInstances {
@@ -39,9 +39,22 @@ trait WeightedEdgeInstances {
 
   implicit def weightedToEdge[A](s: Stream[WeightedEdge[A]]): Stream[Edge[A]] = s.map(_.edge)
 
+
   implicit def showForWEdge[A]: Show[WeightedEdge[A]]
     = (f: WeightedEdge[A]) => s"${f.from} --> ${f.to} :# ${f.weight}"
 
+  implicit class WeightedEL[T](e: WeightedEdge[T]) extends EdgeLike[T] {
+    override def from: T = e.edge.from
+    override def to: T = e.edge.to
+  }
+
+  /*
+   todo - need to look at angle of edges to determine correct placement of labels in tikz diagram.
+  */
+  implicit def texForWeightedEdgePoint: Tex[WeightedEdge[Point]] = (a: WeightedEdge[Point]) => {
+    val edge =  s"\t\\draw (${a.from.x},${a.from.y}) --(${a.to.x},${a.to.y});\n"
+    edge
+  }
 }
 
 

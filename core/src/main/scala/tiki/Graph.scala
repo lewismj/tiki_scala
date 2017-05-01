@@ -24,6 +24,7 @@
  */
 package tiki
 
+
 /**
   * Base representation for a graph.
   *
@@ -42,7 +43,7 @@ trait Graph[A] {
     *
     * @return the stream of edges.
     */
-  def edges: Stream[EdgeLike[A]]
+  def edges: Stream[Edge[A]]
 }
 
 /**
@@ -81,7 +82,8 @@ trait Directed[A] {
   * @tparam A the vertex type.
   */
 trait Weighted[A] {
-  def edges: Stream[WeightedEdge[A]]
+  def weights: Stream[WeightedEdge[A]]
+  def edges: Stream[Edge[A]] = weights.map(_.edge)
 }
 
 /**

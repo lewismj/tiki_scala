@@ -41,7 +41,7 @@ trait DigraphInstances {
   implicit class DigraphF[T](g: Digraph[T]) extends Filter[T,Digraph[T]] {
     override def filterNot(l: List[T]): Digraph[T] = new Digraph[T] {
       override def vertices: Stream[T] = g.vertices.filterNot(l.contains)
-      override def edges: Stream[EdgeLike[T]] = g.edges.filterNot(e=> l.contains(e.from) || l.contains(e.to))
+      override def edges: Stream[Edge[T]] = g.edges.filterNot(e=> l.contains(e.from) || l.contains(e.to))
       override def predecessors(v: T): Set[T] = g.predecessors(v).filterNot(l.contains)
       override def successors(v: T): Set[T] = g.successors(v).filterNot(l.contains)
       override def contains(v: T): Boolean = !l.contains(v) && g.contains(v)

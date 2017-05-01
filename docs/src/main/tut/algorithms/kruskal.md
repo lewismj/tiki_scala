@@ -41,11 +41,11 @@ def empty[A](g: WeightedGraph[A]): SpanState[A]
 }
   
 def kruskal[A](g: WeightedGraph[A]): List[WeightedEdge[A]] =
-  g.edges.sortBy(_.weight).foldLeft(SpanState.empty(g))((state,y) => y.edge match {
+  g.weights.sortBy(_.weight).foldLeft(SpanState.empty(g))((state, y) => y.edge match {
     case Edge(u,v) if state.ds.find(u) != state.ds.find(v) =>
-      new SpanState(state.ds.union(u,v).getOrElse(state.ds),y :: state.mst)
+      new SpanState(state.ds.union(u,v).getOrElse(state.ds), y :: state.mst)
     case _ => state
-  }).mst  
+  }).mst
 ```
 
 
@@ -71,7 +71,7 @@ val xs = Stream(
 
 
 val graph = new WeightedUndirectedGraph[Char] {
-  override def edges: Stream[WeightedEdge[Char]] = xs
+  override def weights: Stream[WeightedEdge[Char]] = xs
   override def vertices: Stream[Char] = Stream('a', 'b', 'c', 'd', 'e', 'f', 'g')
 }
 

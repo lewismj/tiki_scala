@@ -39,9 +39,9 @@ spanning tree.
         List(points.head --> points.last :# distance(points.head,points.last))
       case _ =>
         val graph = new WeightedUndirectedGraph[Point] {
-          override def edges: Stream[WeightedEdge[Point]]
-          = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
           override def vertices: Stream[Point] = points.toStream
+          override def weights: Stream[WeightedEdge[Point]]
+            = bowyerWatson(points).map(e=> e.from --> e.to :# distance(e.from,e.to)).toStream
         }
         kruskal(graph)
     }

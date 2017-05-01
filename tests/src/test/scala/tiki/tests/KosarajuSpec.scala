@@ -48,7 +48,7 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
       override def successors(v: Int): Set[Int] = ys.successors(v)
       override def predecessors(v: Int): Set[Int] = ys.predecessors(v)
       override def vertices: Stream[Int] = ys.vertices
-      override def edges: Stream[EdgeLike[Int]] = xs
+      override def edges: Stream[Edge[Int]] = xs
     }
     val expected = Set(Set(4), Set(3), Set(0, 1, 2))
     val scc = kosaraju(g).toSet
@@ -85,7 +85,7 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
       override def successors(v: Int): Set[Int] = ys.successors(v)
       override def predecessors(v: Int): Set[Int] = ys.predecessors(v)
       override def vertices: Stream[Int] = ys.vertices
-      override def edges: Stream[EdgeLike[Int]] = xs
+      override def edges: Stream[Edge[Int]] = xs
     }
 
     val expected = Set(Set(8, 7, 9, 10, 12, 11), Set(3, 6), Set(5, 2, 4), Set(1))

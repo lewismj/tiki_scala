@@ -27,20 +27,12 @@ package instances
 
 import tiki.geometry._
 
-trait TexInstances {
+trait TexInstances  {
 
   implicit def texForPoint[A]: Tex[Point]
     = (p: Point) =>  s"\t\\fill (${p.x},${p.y}) circle[radius=2pt] node [black,above=4] { };\n"
 
-  /*
-    todo - need to look at angle of edges to determine correct placement of labels in tikz diagram.
-   */
-  implicit def texForWeightedEdgePoint: Tex[WeightedEdge[Point]] = (a: WeightedEdge[Point]) => {
-    val edge =  s"\t\\draw (${a.from.x},${a.from.y}) --(${a.to.x},${a.to.y});\n"
-    edge
-  }
-
-  implicit def texForListofA[A](implicit ev: Tex[A]): Tex[List[A]]
+  implicit def texForListOfA[A](implicit ev: Tex[A]): Tex[List[A]]
     = (a: List[A]) => a.iterator.map(ev.tex).mkString
 
   implicit def texForStreamOfA[A](implicit ev: Tex[A]): Tex[Stream[A]]
@@ -48,7 +40,7 @@ trait TexInstances {
 
   implicit def texForWeightedGraph[A](implicit ev: Tex[Stream[A]],
                                       ev1: Tex[Stream[WeightedEdge[A]]]): Tex[WeightedGraph[A]]
-    = (g: WeightedGraph[A]) => ev.tex(g.vertices) ++ ev1.tex(g.edges)
+    = (g: WeightedGraph[A]) => ev.tex(g.vertices) ++ ev1.tex(g.weights)
 
 
 }
