@@ -44,13 +44,6 @@ object Cluster {
   def kTrees(points: Vector[Point], k: Int): Vector[WeightedEdge[Point]] =
     euclideanMST(points).sortBy(-_.weight).drop(k - 1).toVector
 
-
-
-
-
-
-
-
-  }
+  
 
 }
