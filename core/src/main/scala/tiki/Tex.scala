@@ -32,4 +32,24 @@ trait Tex[A] {
 object Tex {
   def apply[T: Tex]: Tex[T] = implicitly
   def tex[T: Tex](t: T):String = Tex[T].tex(t)
+  def toTikz[T: Tex](t: T): String = {
+    val builder = new StringBuilder
+    builder.append("""\documentclass[border=10pt]{standalone}""")
+    builder.append("\n\\usepackage{tikz}")
+    builder.append(
+      """
+        |\begin{document}
+        |\begin{tikzpicture}
+      """.stripMargin)
+
+    builder.append(tex(t))
+
+    builder.append(
+      """
+        |\end{tikzpicture}
+        |\end{document}
+      """.stripMargin)
+
+    builder.toString
+  }
 }
