@@ -32,7 +32,7 @@ Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 | Kruskal (minium spanning tree) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.minimumSpanningTree.png) |
 | Kosaraju (strongly connected components) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.scc.png) |
 | Delaunay (point space) triangulation | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png) |
-| Ecuclidean distance mst | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.emst.png) |
+| Euclidean distance mst | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.emst.png) |
 
 ### Todo
 
