@@ -25,10 +25,10 @@
 package tiki
 package geometry
 
+import tiki.implicits._
 import geometry.Distance._
 
 object Cluster {
-
 
 
   /**
@@ -44,5 +44,13 @@ object Cluster {
   def kTrees(points: Vector[Point], k: Int): Vector[WeightedEdge[Point]] =
     euclideanMST(points).sortBy(-_.weight).drop(k - 1).toVector
 
+
+
+
+
+
+
+
+  }
 
 }

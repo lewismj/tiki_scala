@@ -28,7 +28,7 @@ Tiki information and documentation is available on the [website](https://lewismj
 | Bellman-Ford (negative cycle detection) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.negativeCycle.png) |
 | Kruskal (minium spanning tree) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.minimumSpanningTree.png) |
 | Kosaraju (strongly connected components) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.scc.png) |
-| Bowywer-Watson (Delaunauy triangulation) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png) |
+| Bowyer-Watson (Delaunauy triangulation) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png) |
 | Euclidean distance mst | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.emst.png) |
 | K-Spanning (clustering) trees | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.kspanning.png) |
 
