@@ -18,9 +18,7 @@ Waffle [board](https://waffle.io/lewismj/tiki).
 
 ### Documentation
 
-Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/).
-
-Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
+Tiki information and documentation is available on the [website](https://lewismj.github.io/tiki/). Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
 
 |  Algorithm | Example  |
