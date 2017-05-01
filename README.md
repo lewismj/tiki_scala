@@ -23,10 +23,6 @@ Tiki information and documentation is available on the [website](https://lewismj
 Scaladoc [index](https://lewismj.github.io/tiki/api/tiki/index.html).
 
 
-
-### Algorithms
-
-
 |  Algorithm | Example  |
 | :------------- | :------------- |
 | dfs | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.dfs.png) |
