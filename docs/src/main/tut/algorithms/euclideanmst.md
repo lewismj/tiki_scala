@@ -48,3 +48,14 @@ spanning tree.
   }
 ```
 
+## K-Spanning trees
+
+It is possible to trivially cluster points into _k_ clusters by removing the _k-1_ edges that have the heighest
+weight.
+
+```scala
+  def kTrees(points: Vector[Point], k: Int): Vector[WeightedEdge[Point]] =
+    euclideanMST(points).sortBy(-_.weight).drop(k - 1).toVector
+```
+
+![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/kspanning.png)
