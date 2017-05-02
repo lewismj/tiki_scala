@@ -55,7 +55,7 @@ object Markov {
     require(k>=1,"Max. number of iterations must be >= 1.")
     val m = DenseMatrix.zeros[Double](g.vertices.length,g.vertices.length)
 
-    /** todo: use AdjacencyMatrix representation to avoid building inside algorithm. */
+    /* todo: use AdjacencyMatrix representation to avoid building inside algorithm. */
     val points = g.vertices.zip(Stream.from(0)).toMap
     val indices = Stream.from(0).zip(g.vertices).toMap
     g.edges.foreach(e=> {
