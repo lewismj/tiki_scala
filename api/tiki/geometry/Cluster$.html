@@ -429,6 +429,26 @@
 of clusters is known, we can remove k-1 edges with highest
 weight from the Euclidean minimum spanning tree.
 </p></div><dl class="paramcmts block"><dt class="param">points</dt><dd class="cmt"><p>the incoming set of points.</p></dd><dt class="param">k</dt><dd class="cmt"><p>the number of clusters.</p></dd><dt>returns</dt><dd class="cmt"><p>a list of lists, each sub-list are the edges between nodes in a cluster.</p></dd></dl></div>
+    </li><li name="tiki.geometry.Cluster#markov" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="markov(points:Vector[tiki.geometry.Point],inflation:Double,expansion:Int,k:Int):List[List[tiki.geometry.Point]]"></a><a id="markov(Vector[Point],Double,Int,Int):List[List[Point]]"></a>
+      <span class="permalink">
+      <a href="../../tiki/geometry/Cluster$.html#markov(points:Vector[tiki.geometry.Point],inflation:Double,expansion:Int,k:Int):List[List[tiki.geometry.Point]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">markov</span><span class="params">(<span name="points">points: <span class="extype" name="scala.Vector">Vector</span>[<a href="Point.html" class="extype" name="tiki.geometry.Point">Point</a>]</span>, <span name="inflation">inflation: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="expansion">expansion: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="k">k: <a href="http://www.scala-lang.org/api/2.12.1/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.List">List</span>[<a href="Point.html" class="extype" name="tiki.geometry.Point">Point</a>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Specialization of the Markov chain algorithm for points in 2D-space.</p><div class="fullcomment"><div class="comment cmt"><p>Specialization of the Markov chain algorithm for points in 2D-space.</p><p>Note, for points we form a matrix where all distances are calculated
+(some distances will exist and be non zero, so don't use EMST).
+For generic graphs, we just record 0 distance if there is no edge.</p><p>Markov chain algorithm (without optimizations), given a set of points,
+returns a list of clusters (each cluster is a list of points in the cluster).
+</p></div><dl class="paramcmts block"><dt class="param">points</dt><dd class="cmt"><p>the incoming points.</p></dd><dt class="param">inflation</dt><dd class="cmt"><p>the inflation factor.</p></dd><dt class="param">expansion</dt><dd class="cmt"><p>the expansion factor.</p></dd><dt class="param">k</dt><dd class="cmt"><p>the maximum number of iterations.</p></dd><dt>returns</dt><dd class="cmt"><p>list of list of points, sub list represents a cluster.</p></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
