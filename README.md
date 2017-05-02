@@ -28,11 +28,7 @@ Tiki information and documentation is available on the [website](https://lewismj
 | Bowyer-Watson (Delaunay triangulation) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.triangulation.png) |
 | Euclidean distance mst | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.emst.png) |
 | K-Spanning (clustering) trees | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.kspanning.png) |
-
-### Todo
-
-- The Markov Cluster Algorithm.
-- Distributed minimum spanning tree (using Akka).
+| Markov Cluster Algorithm (MCL) | ![graph](https://raw.github.com/lewismj/tiki/master/docs/src/main/resources/microsite/img/thumb.markov.png) |
 
 ### References
 - _The Under-Appreciated Unfold_ [1](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/unfold.ps.gz).

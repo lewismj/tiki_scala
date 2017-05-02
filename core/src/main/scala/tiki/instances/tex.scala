@@ -29,14 +29,23 @@ import tiki.geometry._
 
 trait TexInstances  {
 
+  /** todo: need to specialise the stream writing to properly place nodes in tikz picture. */
+  implicit def texForInt: Tex[Int] = (i: Int) => s"%%$i;\n"
+  implicit def texForChar: Tex[Char] = (ch: Char) => s"%%$ch;\n"
+  implicit def texForStr: Tex[String] = (str: String) => s"%%$str;\n"
+  implicit def texForDouble: Tex[Double] = (d: Double) => s"%%$d;\n"
+
   implicit def texForPoint[A]: Tex[Point]
     = (p: Point) =>  s"\t\\fill (${p.x},${p.y}) circle[radius=.5pt];\n"
+
+  implicit def texForEdge[A]: Tex[Edge[A]] = (a: Edge[A]) => s"\t\\draw (${a.from})--(${a.to});\n"
 
   implicit def texForListOfA[A](implicit ev: Tex[A]): Tex[List[A]]
     = (a: List[A]) => a.iterator.map(ev.tex).mkString
 
   implicit def texForVectorOfA[A](implicit ev: Tex[A]): Tex[Vector[A]]
   = (a: Vector[A]) => a.iterator.map(ev.tex).mkString
+
 
   implicit def texForStreamOfA[A](implicit ev: Tex[A]): Tex[Stream[A]]
   = (a: Stream[A]) => a.iterator.map(ev.tex).mkString
@@ -45,5 +54,8 @@ trait TexInstances  {
                                       ev1: Tex[Stream[WeightedEdge[A]]]): Tex[WeightedGraph[A]]
     = (g: WeightedGraph[A]) => ev.tex(g.vertices) ++ ev1.tex(g.weights)
 
+  implicit def texForGraph[A](implicit ev: Tex[Stream[A]],
+                                       ev1: Tex[Stream[Edge[A]]]): Tex[Graph[A]]
+  = (g: Graph[A]) => ev.tex(g.vertices) ++ ev1.tex(g.edges)
 
 }

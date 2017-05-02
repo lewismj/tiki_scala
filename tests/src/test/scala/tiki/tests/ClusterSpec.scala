@@ -32,39 +32,41 @@ import tiki.Path._
 import geometry._
 import geometry.Point._
 import geometry.Distance._
-import geometry.Cluster._
-
 
 
 class ClusterSpec extends TikiSuite with AllArbitrary {
 
-  test("Markov should return two clusters.") {
-    val points = Vector(Point(0.0,0.0),
-                        Point(1.0,0.0),
-                        Point(0.5,0.5),
-                        Point(10.0,10.0),
-                        Point(11.0,10.0),
-                        Point(10.5,10.5))
+  test("Markov clustering algorithm should return two clusters") {
+    val graph = new Graph[Int] {
+      override def vertices: Stream[Int] = Stream(0, 1, 2, 3, 4, 5)
 
-    val expected = Set(
-      Set(Point(0.0,0.0), Point(1.0,0.0), Point(0.5,0.5)),
-      Set(Point(10.5,10.5), Point(11.0,10.0), Point(10.0,10.0)))
-
-    markov(points,2,2,20).map(_.toSet).toSet should be (expected)
+      override def edges: Stream[Edge[Int]] =
+        Stream(
+          0 --> 1,
+          1 --> 2,
+          0 --> 2,
+          2 --> 3,
+          3 --> 4,
+          3 --> 5,
+          4 --> 5
+        )
+    }
+    val clusters = Markov.clustersOf(graph, 2, 2, 10)
+    val expected = Set(Set(5, 4, 3), Set(2, 1, 0))
+    clusters.toSet should be (expected)
   }
 
-
-  test("EMST from Delaunay matches MST from dense graph.") {forAll { (points: Vector[Point]) =>
+  test("EMST from Delaunay matches MST from dense graph.") {
+    forAll { (points: Vector[Point]) =>
 
       val emst = euclideanMST(points).toStream
 
-      val denseGraph = new WeightedUndirectedGraph[Point] {
+      val denseGraph = new WeightedGraph[Point] {
         val xs = for {
           i <- points.indices
           j <- 0 until i
           if i != j
         } yield points(i) --> points(j) :# distance(points(i), points(j))
-
         override def weights: Stream[WeightedEdge[Point]] = xs.toStream
         override def vertices: Stream[Point] = points.toStream
       }
@@ -75,6 +77,5 @@ class ClusterSpec extends TikiSuite with AllArbitrary {
       s1 should be(s2)
     }
   }
-
 
 }

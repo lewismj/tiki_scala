@@ -75,7 +75,8 @@ lazy val commonSettings = Seq(
   scalacOptions ++= commonScalacOptions,
   libraryDependencies ++= Seq(
     "org.typelevel" %% "cats" % "0.9.0",
-    "org.scalanlp" %% "breeze" % "0.13.1"
+    "org.scalanlp" %% "breeze" % "0.13.1",
+    "org.scalanlp" %% "breeze-natives" % "0.13.1"
   ),
   fork in test := true
 )

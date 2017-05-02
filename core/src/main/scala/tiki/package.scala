@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright (c) 2017
  * All rights reserved.
@@ -24,6 +26,8 @@
  */
 package object tiki {
 
+  import breeze.linalg.DenseMatrix
+
   /** Positive infinity. */
   val ∞ = Double.PositiveInfinity
 
@@ -32,6 +36,12 @@ package object tiki {
 
   /** Epsilon used for default double comparison. */
   val ε = 1.0e-10
+
+  /** Constant used for convergence testing of clustering. */
+  val μ = 1.0e-6
+
+  /** Raise matrix to the power of n, for small n. */
+  def mpow(m: DenseMatrix[Double],n: Int): DenseMatrix[Double] = (1 to n).foldLeft(m)((a,_)=> a*m)
 
 }
 
