@@ -77,7 +77,9 @@ object Point {
     * @param p2 the second point.
     * @return the distance between the points.
     */
-  def distance(p1: Point, p2: Point): Double = (p1 - p2).r
+  def distance(p1: Point, p2: Point): Double =
+    (p2 - p1).r
+  //sqrt( (p2.x-p1.x)*(p2.x-p1.x) + (p2.y-p1.y)*(p2.y-p1.y))
 
   /**
     * Returns true if the points p1, p2 and p3 are collinear

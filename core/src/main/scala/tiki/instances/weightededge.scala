@@ -52,7 +52,8 @@ trait WeightedEdgeInstances {
    todo - need to look at angle of edges to determine correct placement of labels in tikz diagram.
   */
   implicit def texForWeightedEdgePoint: Tex[WeightedEdge[Point]] = (a: WeightedEdge[Point]) => {
-    val edge =  s"\t\\draw (${a.from.x},${a.from.y}) --(${a.to.x},${a.to.y});\n"
+    val w  = "%.2f".format(a.weight)
+    val edge =  s"\t\\draw (${a.from.x},${a.from.y}) --(${a.to.x},${a.to.y}) node[above,midway] {$w};\n"
     edge
   }
 }

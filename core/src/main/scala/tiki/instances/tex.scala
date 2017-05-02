@@ -30,7 +30,7 @@ import tiki.geometry._
 trait TexInstances  {
 
   implicit def texForPoint[A]: Tex[Point]
-    = (p: Point) =>  s"\t\\fill (${p.x},${p.y}) circle[radius=2pt] node [black,above=4] { };\n"
+    = (p: Point) =>  s"\t\\fill (${p.x},${p.y}) circle[radius=.5pt];\n"
 
   implicit def texForListOfA[A](implicit ev: Tex[A]): Tex[List[A]]
     = (a: List[A]) => a.iterator.map(ev.tex).mkString

@@ -25,11 +25,14 @@
 package tiki
 package geometry
 
-import tiki.implicits._
+import breeze.linalg.{Axis, DenseMatrix, normalize}
+import breeze.numerics.pow
 import geometry.Distance._
+import geometry.Point._
+
+import scala.annotation.tailrec
 
 object Cluster {
-
 
   /**
     * Simplest algorithm for clustering a graph. If the desired number
@@ -40,10 +43,54 @@ object Cluster {
     * @param k  the number of clusters.
     * @return a list of lists, each sub-list are the edges between nodes in a cluster.
     */
-  /* wip */
   def kTrees(points: Vector[Point], k: Int): Vector[WeightedEdge[Point]] =
     euclideanMST(points).sortBy(-_.weight).drop(k - 1).toVector
 
 
+  /**
+    * Specialization of the Markov chain algorithm for points in 2D-space.
+    *
+    * Note, for points we form a matrix where all distances are calculated
+    * (some distances will exist and be non zero, so don't use EMST).
+    * For generic graphs, we just record 0 distance if there is no edge.
+    *
+    * Markov chain algorithm (without optimizations), given a set of points,
+    * returns a list of clusters (each cluster is a list of points in the cluster).
+    *
+    * @param points     the incoming points.
+    * @param inflation  the inflation factor.
+    * @param expansion  the expansion factor.
+    * @param k          the maximum number of iterations.
+    * @return list of list of points, sub list represents a cluster.
+    */
+  def markov(points: Vector[Point], inflation: Double, expansion: Int, k: Int): List[List[Point]] = {
+    /* for small n. */
+    def mpow(m: DenseMatrix[Double],n: Int): DenseMatrix[Double] = (1 to n).foldLeft(m)((a,_)=> a*m)
+
+    @tailrec
+    def mcl(m: DenseMatrix[Double], i: Int): DenseMatrix[Double] = {
+      if (i == k) m
+      else {
+        val m0 = mpow(normalize(pow(m,inflation), Axis._0, 1.0), expansion)
+        if (m == m0) m0 /* requires better test. */
+        else mcl(m0,i+1)
+      }
+    }
+
+    /* could add self-loops etc. */
+    val m = DenseMatrix.zeros[Double](points.length,points.length)
+    m.foreachKey {case (i,j) => if (i != j) m(i,j) = distance(points(i),points(j))}
+    val c = mcl(normalize(m, Axis._0, 1.0), 0)
+
+    /* group into clusters and return. */
+    val clusters = points.indices.foldLeft(List.empty[List[Point]])((xs,x)=> {
+      val cluster = points.indices.foldLeft(List.empty[Point])((ys,y)=> {
+        if (c(x,y) > ε) points(y) :: ys else ys
+      })
+      if (cluster.nonEmpty) cluster :: xs else xs
+    })
+
+    clusters
+  }
 
 }
