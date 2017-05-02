@@ -76,6 +76,11 @@ options:
        url: algorithms/euclideanmst.html
        menu_section: clustering
 
+    nested_options:
+     - title: Markov clustering algorithm
+       url: algorithms/markov.html
+       menu_section: clustering
+
    ### Type Classes ###
 
   - title: Type Classes
