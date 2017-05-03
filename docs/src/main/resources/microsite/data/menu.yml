@@ -70,13 +70,9 @@ options:
      - title: Triangulation
        url: algorithms/triangulation.html
        menu_section: clustering
-
-    nested_options:
      - title: Euclidean minimum spanning tree
        url: algorithms/euclideanmst.html
        menu_section: clustering
-
-    nested_options:
      - title: Markov clustering algorithm
        url: algorithms/markov.html
        menu_section: clustering
