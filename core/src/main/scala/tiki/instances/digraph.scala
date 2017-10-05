@@ -28,22 +28,22 @@ package instances
 
 trait DigraphInstances {
 
-  implicit class DigraphT[T](g: Digraph[T]) extends Transpose[Digraph[T]] {
+  implicit class DigraphTranspose[T](g: Digraph[T]) extends Transpose[Digraph[T]] {
     override def transpose: Digraph[T] = new Digraph[T] {
       override def edges: Stream[Edge[T]] = g.edges.map(edge => Edge(edge.to,edge.from))
-      override def predecessors(v: T): Set[T] = g.successors(v)
-      override def successors(v: T): Set[T] = g.predecessors(v)
+      override def predecessors(v: T): Stream[T] = g.successors(v)
+      override def successors(v: T): Stream[T] = g.predecessors(v)
       override def contains(v: T): Boolean = g.contains(v)
       override def vertices: Stream[T] = g.vertices
     }
   }
 
-  implicit class DigraphF[T](g: Digraph[T]) extends Filter[T,Digraph[T]] {
+  implicit class DigraphFilter[T](g: Digraph[T]) extends Filter[T,Digraph[T]] {
     override def filterNot(l: List[T]): Digraph[T] = new Digraph[T] {
       override def vertices: Stream[T] = g.vertices.filterNot(l.contains)
       override def edges: Stream[Edge[T]] = g.edges.filterNot(e=> l.contains(e.from) || l.contains(e.to))
-      override def predecessors(v: T): Set[T] = g.predecessors(v).filterNot(l.contains)
-      override def successors(v: T): Set[T] = g.successors(v).filterNot(l.contains)
+      override def predecessors(v: T): Stream[T] = g.predecessors(v).filterNot(l.contains)
+      override def successors(v: T): Stream[T] = g.successors(v).filterNot(l.contains)
       override def contains(v: T): Boolean = !l.contains(v) && g.contains(v)
     }
   }

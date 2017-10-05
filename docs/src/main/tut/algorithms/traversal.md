@@ -21,7 +21,13 @@ A vertex may be visited more than once in a traversal, most of the time we want 
 
 Currently, cycles are ignored (i.e. the stream _won't_ loop infinitely.)
 ```scala
-def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
+  private def traverse[A](g: Directed[A], l: Stream[A])(implicit ev: Semigroup[Stream[A]]): Stream[A]
+  = unfold( (l,Stream.empty[A]) ) {
+    case (current,visited) => current match {
+      case w #:: vs => Some((w, (ev.combine(g.successors(w),vs).diff(visited), visited #::: Stream(w))))
+      case _ => None
+    }
+  }.run
 = unfold( (l,Set.empty[A]) ) {
       case (current,visited) => current match {
         case w :: Nil =>
@@ -43,14 +49,10 @@ def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
  Both are implemented in terms of the `visitOrder` function.
  
  ```scala
-private def visitOrder[A](g: Digraph[A], start: A, dfs: Boolean): Stream[A]
-  = if (g.contains(start)) traverse(g, List(start), dfs).distinct else Stream.empty
-
-def dfs[A](g: Digraph[A], start: A): Stream[A]
-  = visitOrder(g,start,dfs=true)
-
-def bfs[A](g: Digraph[A], start: A): Stream[A]
-  = visitOrder(g,start,dfs=false)
+  private def visit[A](g: Directed[A], start: A)(implicit ev: Semigroup[Stream[A]]): Stream[A]
+    = if (g.contains(start)) traverse(g,Stream(start))(ev).distinct else Stream.empty[A]
+  def dfs[A](g: Directed[A], start: A): Stream[A] = visit(g,start)((x: Stream[A], y: Stream[A]) => x #::: y)
+  def bfs[A](g: Directed[A], start: A): Stream[A] = visit(g,start)((x: Stream[A], y: Stream[A]) => y #::: x)
 ```
 
 ### Depth first search

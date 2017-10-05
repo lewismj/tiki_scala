@@ -45,8 +45,8 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
     val g = new Digraph[Int] {
       lazy val ys = AdjacencyList(xs)
       override def contains(v: Int): Boolean = ys.contains(v)
-      override def successors(v: Int): Set[Int] = ys.successors(v)
-      override def predecessors(v: Int): Set[Int] = ys.predecessors(v)
+      override def successors(v: Int): Stream[Int] = ys.successors(v)
+      override def predecessors(v: Int): Stream[Int] = ys.predecessors(v)
       override def vertices: Stream[Int] = ys.vertices
       override def edges: Stream[Edge[Int]] = xs
     }
@@ -82,8 +82,8 @@ class KosarajuSpec extends TikiSuite with AllArbitrary {
     val g = new Digraph[Int] {
       lazy val ys = AdjacencyList(xs)
       override def contains(v: Int): Boolean = ys.contains(v)
-      override def successors(v: Int): Set[Int] = ys.successors(v)
-      override def predecessors(v: Int): Set[Int] = ys.predecessors(v)
+      override def successors(v: Int): Stream[Int] = ys.successors(v)
+      override def predecessors(v: Int): Stream[Int] = ys.predecessors(v)
       override def vertices: Stream[Int] = ys.vertices
       override def edges: Stream[Edge[Int]] = xs
     }

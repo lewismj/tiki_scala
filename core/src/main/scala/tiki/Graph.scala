@@ -65,7 +65,7 @@ trait Directed[A] {
     * @param v  the vertex.
     * @return the set of vertices that the given vertex has an out-edge to.
     */
-  def successors(v: A): Set[A]
+  def successors(v: A): Stream[A]
 
   /**
     * Returns all vertices that have an out-edge to the given vertex.
@@ -73,7 +73,7 @@ trait Directed[A] {
     * @param v the vertex.
     * @return the set of vertices that have an out-edge to the given vertex.
     */
-  def predecessors(v: A): Set[A]
+  def predecessors(v: A): Stream[A]
 }
 
 /**

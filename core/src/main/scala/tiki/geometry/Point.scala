@@ -28,6 +28,12 @@ package geometry
 import tiki.implicits._
 import scala.math._
 
+
+/*
+ * TODO: This should really use the Field, Ring, etc.
+ * TODO: Requires refactor.
+ */
+
 /**
   * Point represents 2D Cartesian coordinates.
   * No need to make generic, double makes sense for clustering etc.

@@ -72,8 +72,8 @@ class KruskalSpec extends TikiSuite with AllArbitrary {
       override def weights: Stream[WeightedEdge[Char]] = xs
       override def vertices: Stream[Char] = Stream('A', 'B', 'C', 'D', 'E', 'F', 'G')
       override def contains(v: Char): Boolean = ys.contains(v)
-      override def successors(v: Char): Set[Char] = ys.successors(v)
-      override def predecessors(v: Char): Set[Char] = ys.predecessors(v)
+      override def successors(v: Char): Stream[Char] = ys.successors(v)
+      override def predecessors(v: Char): Stream[Char] = ys.predecessors(v)
     }
 
     kruskal(graph0).toSet should be (expected)

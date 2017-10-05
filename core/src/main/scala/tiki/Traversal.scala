@@ -24,7 +24,8 @@
  */
 package tiki
 
-import cats.free._
+import cats.free.Trampoline
+import cats.Semigroup
 import cats.implicits._
 
 /**
@@ -51,36 +52,28 @@ object Traversal {
    *
    * @param g    underlying data structure that supports `Directed`.
    * @param l    the starting list.
-   * @param dfs  flag to indicate if depth first search (true) or
-   *             breadth first search (false).
    * @tparam A   the type of the vertex.
    * @return     the traversal stream.
    */
-  def traverse[A](g: Directed[A], l: List[A], dfs: Boolean): Stream[A]
-    = unfold( (l,Set.empty[A]) ) {
-          case (current,visited) => current match {
-            case w :: Nil =>
-              Some((w, (g.successors(w).toList.filterNot(visited.contains), visited + w)))
-            case w :: vs =>
-              val next = if (dfs) g.successors(w).toList ::: vs
-              else vs ::: g.successors(w).toList
-              Some((w, (next.filterNot(visited.contains), visited + w)))
-            case _ =>
-              None
-          }
-        }.run
+  private def traverse[A](g: Directed[A], l: Stream[A])(implicit ev: Semigroup[Stream[A]]): Stream[A]
+  = unfold( (l,Stream.empty[A]) ) {
+    case (current,visited) => current match {
+      case w #:: vs => Some((w, (ev.combine(g.successors(w),vs).diff(visited), visited #::: Stream(w))))
+      case _ => None
+    }
+  }.run
+
 
   /**
     * Generates a visit order as a stream of vertices.
     *
     * @param g        underlying data structure that supports `Directed`.
     * @param start    the start vertex.
-    * @param dfs      true if depth-first search, false for breadth-first search.
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  private def visitOrder[A](g: Directed[A], start: A, dfs: Boolean): Stream[A]
-    = if (g.contains(start)) traverse(g, List(start), dfs).distinct else Stream.empty
+  private def visit[A](g: Directed[A], start: A)(implicit ev: Semigroup[Stream[A]]): Stream[A]
+    = if (g.contains(start)) traverse(g,Stream(start))(ev).distinct else Stream.empty[A]
 
   /**
     * Perform a depth first search on a directed graph.
@@ -90,7 +83,7 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def dfs[A](g: Directed[A], start: A): Stream[A] = visitOrder(g,start,dfs=true)
+  def dfs[A](g: Directed[A], start: A): Stream[A] = visit(g,start)((x: Stream[A], y: Stream[A]) => x #::: y)
 
   /**
     * Perform a breadth first search on a directed graph.
@@ -100,6 +93,6 @@ object Traversal {
     * @tparam A       the vertex type.
     * @return         visit order stream.
     */
-  def bfs[A](g: Directed[A], start: A): Stream[A] = visitOrder(g,start,dfs=false)
+  def bfs[A](g: Directed[A], start: A): Stream[A] = visit(g,start)((x: Stream[A], y: Stream[A]) => y #::: x)
 
 }

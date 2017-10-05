@@ -31,7 +31,6 @@ import geometry.Point._
 import scala.math._
 
 
-/** |-- Delaunay Triangulation. */
 
 /**
   * Triangle represented by three vertices. Used in the Delaunay Triangulation.

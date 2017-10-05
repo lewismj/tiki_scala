@@ -25,14 +25,12 @@
 package tiki
 
 
-/**
-  * Class represents a set of edges as an adjacency list.
-  */
+/** Very simple implementation of adjacency list. */
 final class AdjacencyList[A](val g: Map[A,Set[A]], val gr: Map[A,Set[A]]) extends Directed[A] {
   lazy val vertices: Stream[A] = g.keys.toSet.union(gr.keys.toSet).toStream
   def contains(v: A): Boolean = vertices.contains(v)
-  def successors(v: A): Set[A] = g.getOrElse(v,Set.empty[A])
-  def predecessors(v: A): Set[A] = gr.getOrElse(v,Set.empty[A])
+  def successors(v: A): Stream[A] = g.getOrElse(v,Set.empty[A]).toStream
+  def predecessors(v: A): Stream[A] = gr.getOrElse(v,Set.empty[A]).toStream
 }
 
 object AdjacencyList {

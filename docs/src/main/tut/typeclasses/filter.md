@@ -7,7 +7,8 @@ scaladoc: "#tiki.Filter"
 ---
 # Filter
 
-Defines the behaviour for pruning graph vertices.
+Utility rather than type class, defines the behaviour for pruning 
+graph vertices.
 
 ## Functions
 

@@ -31,7 +31,7 @@ import scala.math._
 
 object Triangulation {
 
-  /* constant used to create boundary triangle. */
+  /** constant used to create boundary triangle. */
   val k = 2
 
   /** possible use composable fold if available in cats? */
@@ -65,8 +65,6 @@ object Triangulation {
         Point(xMid + k * dMax, yMid - dMax))
   }
 
-
-
   /**
     * Implementation of Bowyer-Watson algorithm for Delaunay triangulation.
     *
@@ -78,7 +76,7 @@ object Triangulation {
     case class BadTriangles(triangles: Vector[Triangle], edges: Vector[Edge[Point]])
     val boundary = superTriangle(minMax(points))
 
-    val triangles = points.foldLeft(List(boundary))((ts, pt)=> {
+    val triangles = points.foldLeft(List(boundary))((ts, pt) => {
 
       val init = BadTriangles(Vector.empty[Triangle],Vector.empty[Edge[Point]])
 

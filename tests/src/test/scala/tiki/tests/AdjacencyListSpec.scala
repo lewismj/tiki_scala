@@ -35,7 +35,7 @@ class AdjacencyListSpec extends TikiSuite with AllArbitrary {
     /* doesn't test leaf vertices. */
     val adjacency = AdjacencyList(xs)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
-      adjacency.successors(vertex) == children.toSet
+      adjacency.successors(vertex).toSet == children.toSet
     } should be (true)
   })
 
@@ -43,7 +43,7 @@ class AdjacencyListSpec extends TikiSuite with AllArbitrary {
     /* doesn't test leaf vertices. */
     val adjacency = AdjacencyList(xs)
     xs.groupBy(_.edge.from).map { case (k,v) => (k, v.map(_.edge.to))}.forall { case (vertex, children) =>
-      adjacency.successors(vertex) == children.toSet
+      adjacency.successors(vertex).toSet == children.toSet
     } should be (true)
   })
 
@@ -52,34 +52,34 @@ class AdjacencyListSpec extends TikiSuite with AllArbitrary {
     val ys = xs.map(LabelledEdge(_,"label"))
     val adjacency = AdjacencyList(ys)
     xs.groupBy(_.from).map { case (k,v) => (k, v.map(_.to))}.forall { case (vertex, children) =>
-      adjacency.successors(vertex) == children.toSet
+      adjacency.successors(vertex).toSet == children.toSet
     } should be (true)
   })
 
   test("Successors of leaf vertices should be the empty set.") { (xs: Stream[Edge[Int]]) =>
     val adjacency = AdjacencyList(xs)
-    xs.filter(x => ! xs.exists(_.from == x.to )).forall(e=>adjacency.successors(e.to) == Set.empty[Int])
+    xs.filter(x => ! xs.exists(_.from == x.to )).forall(e=>adjacency.successors(e.to) == Stream.empty[Int])
   }
 
   test("Successors of vertex not in graph should return empty set") {
-    AdjacencyList.empty[Int].successors(1) should be (Set.empty)
+    AdjacencyList.empty[Int].successors(1) should be (Stream.empty)
   }
 
   test("Predecessors of vertex not in graph should return empty set") {
-    AdjacencyList.empty[Int].predecessors(1) should be (Set.empty)
+    AdjacencyList.empty[Int].predecessors(1) should be (Stream.empty)
   }
 
   test("Predecessors of adjacency list should return correct vertices")(forAll { (xs: Stream[Edge[Int]]) =>
     /* doesn't test leaf vertices. */
     val adjacency = AdjacencyList(xs)
     xs.groupBy(_.to).map { case (k,v) => (k, v.map(_.from))}.forall { case (vertex, parents) =>
-      adjacency.predecessors(vertex) == parents.toSet
+      adjacency.predecessors(vertex).toSet == parents.toSet
     } should be (true)
   })
 
   test("Predecessors of root vertices should be the empty set.") { (xs: Stream[Edge[Int]]) =>
     val adjacency = AdjacencyList(xs)
-    xs.filter(x => ! xs.exists(_.to == x.from )).forall(e=>adjacency.successors(e.to) == Set.empty[Int])
+    xs.filter(x => ! xs.exists(_.to == x.from )).forall(e=>adjacency.successors(e.to) == Stream.empty[Int])
   }
 
 }
