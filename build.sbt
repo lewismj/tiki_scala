@@ -23,7 +23,7 @@ lazy val commonScalacOptions = Seq(
 lazy val buildSettings = Seq(
   name := "tiki",
   organization in Global := "com.waioeka",
-  scalaVersion in Global := "2.12.1"
+  scalaVersion in Global := "2.12.8"
 )
 
 lazy val noPublishSettings = Seq(
@@ -74,9 +74,10 @@ lazy val scoverageSettings = Seq(
 lazy val commonSettings = Seq(
   scalacOptions ++= commonScalacOptions,
   libraryDependencies ++= Seq(
-    "org.typelevel" %% "cats" % "0.9.0",
-    "org.scalanlp" %% "breeze" % "0.13.1",
-    "org.scalanlp" %% "breeze-natives" % "0.13.1"
+    "org.typelevel" %% "cats-core" % "1.6.0",
+    "org.typelevel" %% "cats-free" % "1.6.0",
+    "org.scalanlp" %% "breeze" % "0.13.2",
+    "org.scalanlp" %% "breeze-natives" % "0.13.2"
   ),
   fork in test := true
 )

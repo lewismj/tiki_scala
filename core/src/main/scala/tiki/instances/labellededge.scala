@@ -43,7 +43,7 @@ trait LabelledEdgeInstances {
     override def to: A = e.edge.to
   }
 
-  implicit def showForLEdge[A,B](implicit A: Show[A], B: Show[B]): Show[LabelledEdge[A,B]]
+  implicit def showForLEdge[A,B]: Show[LabelledEdge[A,B]]
     = (f: LabelledEdge[A,B]) => s"${f.from} --> ${f.to} :+ ${f.label}"
 
 }
