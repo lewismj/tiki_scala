@@ -10,7 +10,7 @@ install:
   - gem install jekyll -v 3.2.1
 
 scala:
-  - 2.13.0-M5
+  - 2.12.8
 
 script:
   - ./.travis.sh 

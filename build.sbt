@@ -23,7 +23,7 @@ lazy val commonScalacOptions = Seq(
 lazy val buildSettings = Seq(
   name := "tiki",
   organization in Global := "com.waioeka",
-  scalaVersion in Global := "2.13.0-M5"
+  scalaVersion in Global := "2.12.8"
 )
 
 lazy val noPublishSettings = Seq(
